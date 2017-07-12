@@ -28,9 +28,6 @@ exports.checkPermission = function checkPermission(permissions, rationaleDisplay
         if (Application.android.checkPermission(p)) {
             permissions.splice(i, 1);
         }
-        if (Application.android.shouldShowRequestPermissionRationale(p)) {
-            rationalsToShow.push(p);
-        }
     }
     if (permissions.length === 0) {
         callback && callback(null); //all granted
