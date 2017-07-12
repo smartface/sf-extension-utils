@@ -10,11 +10,10 @@ const app = {
 };
 
 function checkUpdate(options) {
+    console.log("inside check update");
     options = options || {};
 
     if (Network.connectionType === Network.ConnectionType.None) {
-        if (!options.silent)
-        showAlertDialog("No Internet Connection")
         return;
     }
 
@@ -29,8 +28,6 @@ function checkUpdate(options) {
 
                 }
             }
-            //if (skipErrList.indexOf(err) === -1)
-            //showAlertDialog("Update failed" + ": " + err)
         }
         else {
             console.log("update check successfull");
@@ -54,7 +51,7 @@ function checkUpdate(options) {
                             {
                                 text: lang.updateNow || "Update now",
                                 onClick: startUpdate,
-                                index: AlertView.Android.ButtonType.POSITIVE
+                                type: AlertView.Android.ButtonType.POSITIVE
                             }
                         ]);
                 }
@@ -92,10 +89,11 @@ function checkUpdate(options) {
         }
 
         function performUpdate() {
-            var updateProgressAlert = alert({
-                message: lang.updateIsInProgress || "Update is in progress",
-                buttons: []
+            var updateProgressAlert = new AlertView({
+                title: "Warning",
+                message: lang.updateIsInProgress || "Update is in progress"
             });
+            updateProgressAlert.show();
             if (result.meta.redirectURL && result.meta.redirectURL.length != 0) {
                 //RAU wants us to open a URL, most probably core/player updated and binary changed.
                 Application.call(result.meta.redirectURL);
@@ -133,7 +131,6 @@ function checkUpdate(options) {
                     }
                 }
                 updateProgressAlert.dismiss();
-                alert((lang.updateFail || "Update failed") + ": " + err);
             }
         }
 
@@ -147,33 +144,33 @@ function checkUpdate(options) {
     });
     
     function showAlertDialog(message)
-        {
-            var myAlertView = new AlertView({
-                title: "Warning",
-                message: message
-            });
-            myAlertView.addButton({
-                index: AlertView.ButtonType.NEGATIVE,
-                text: "OK"
-            });
+    {
+        var myAlertView = new AlertView({
+            title: "Warning",
+            message: message
+        });
+        myAlertView.addButton({
+            index: AlertView.ButtonType.NEGATIVE,
+            text: "OK"
+        });
 
-            myAlertView.show();
-        }
-        
-        function showConfirmationDialog(title,message,buttons)
-        {
-            var myAlertView = new AlertView({
-                title: "Alert Title",
-                message: "Alert Message"
-            });
-            
-            for (var i=0;i<buttons.length;i++)
-            {
-                 myAlertView.addButton(buttons[i])
-            }
+        myAlertView.show();
+    }
     
-            myAlertView.show();
+    function showConfirmationDialog(title,message,buttons)
+    {
+        var myAlertView = new AlertView({
+            title: title,
+            message: message
+        });
+        
+        for (var i=0;i<buttons.length;i++)
+        {
+             myAlertView.addButton(buttons[i])
         }
+
+        myAlertView.show();
+    }
         
 }
 
