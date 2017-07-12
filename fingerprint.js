@@ -1,10 +1,8 @@
 const System = require('sf-core/device/system');
 const Data = require('sf-core/data');
-const TypeUtil = require('sf-core/util/type');
 const AlertView = require('sf-core/ui/alertview');
 
 const FingerPrintUtil = {};
-
 
 Object.defineProperties(FingerPrintUtil, {
     'isUserAuthenticated': {
@@ -86,7 +84,7 @@ Object.defineProperties(FingerPrintUtil, {
                         FingerPrintUtil.isUserAllowedFingerprint = true;
                         System.validateFingerPrint({
                             android: {
-                                title: "Your Title"
+                                title: "Validate"
                             },
                             message: "Validate your fingerprint",
                             onSuccess: function() {
@@ -104,6 +102,7 @@ Object.defineProperties(FingerPrintUtil, {
                     }
                 });
                 myAlertView.show();
+                return;
             }
             onFailure && onFailure();
         },
@@ -151,7 +150,6 @@ Object.defineProperties(FingerPrintUtil, {
         },
         enumarable: true
     }
-
 });
 
 module.exports = FingerPrintUtil;
