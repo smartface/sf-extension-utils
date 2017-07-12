@@ -1,0 +1,28 @@
+{
+  "name": "sf-extension-utils",
+  "version": "1.0.0",
+  "description": "Utils Extension for Smartface Native Framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "smartface",
+    "extension",
+    "utils",
+    "javascript"
+  ],
+  "author": {
+    "name": "Smartface",
+    "email": "info@smartface.io",
+    "url": "http://smartface.io"
+  },
+  "license": "ISC",
+  "homepage": "https://github.com/smartface/sf-extension-utils#readme",
+  "maintainers": [
+    {
+      "name": "deployer",
+      "email": "info@smartface.io"
+    }
+  ]
+}
