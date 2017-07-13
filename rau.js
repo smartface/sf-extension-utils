@@ -57,7 +57,7 @@ function checkUpdate(options) {
             result.meta = result.meta || {};
             var isMandatory = (result.meta.isMandatory && result.meta.isMandatory === true) ? true : false;
             var updateTitle = (result.meta.title) ? result.meta.title : (lang.newVersionAvailable || 'A new update is ready!');
-            var updateMessage = (lang.version || "Version") + " " + result.newVersion + " " + (lang.isReadyToInstall || "isReadyToInstall") + ".\n\n";
+            var updateMessage = (lang.version || "Version") + " " + result.newVersion + " " + (lang.isReadyToInstall || "is ready to install") + ".\n\n";
             updateMessage += (isMandatory) ? (lang.updateMandatory || "This update is mandatory!") :
                 (lang.updateOptional || "Do you want to update?");
 
