@@ -23,7 +23,8 @@ function checkUpdate(options) {
         updateProgressAlert = new AlertView({
             message: lang.checkingUpdate || "Checking for updates"
         });
-        updateProgressAlert.android.cancellable = false;
+        // Wait until IOS-2302
+        (System.OS === "Android") && (updateProgressAlert.android.cancellable = false);
         updateProgressAlert.show();
     }
     app.checkUpdate(function(err, result) {
@@ -133,7 +134,7 @@ function checkUpdate(options) {
                 title: "Warning",
                 message: lang.updateIsInProgress || "Update is in progress"
             });
-            updateProgressAlert.android.cancellable = false;
+            (System.OS === "Android") && (updateProgressAlert.android.cancellable = false);
             updateProgressAlert.show();
             if (result.meta.redirectURL && result.meta.redirectURL.length != 0) {
                 //RAU wants us to open a URL, most probably core/player updated and binary changed.
@@ -190,7 +191,7 @@ function checkUpdate(options) {
             title: "Warning",
             message: message
         });
-        myAlertView.android.cancellable = false;
+        (System.OS === "Android") && (myAlertView.android.cancellable = false);
         myAlertView.addButton({
             index: AlertView.ButtonType.NEGATIVE,
             text: "OK"
@@ -205,7 +206,7 @@ function checkUpdate(options) {
             title: title,
             message: message
         });
-        myAlertView.android.cancellable = false;
+        (System.OS === "Android") && (myAlertView.android.cancellable = false);
         
         for (var i=0;i<buttons.length;i++)
         {
