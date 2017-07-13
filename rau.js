@@ -103,8 +103,8 @@ function checkUpdate(options) {
                 performUpdate();
             }
             else {
-                permission.checkPermission(Application.android.Permissions.WRITE_EXTERNAL_STORAGE, function(isGranted) {
-                    if(isGranted){
+                permission.checkPermission(Application.android.Permissions.WRITE_EXTERNAL_STORAGE, function(e) {
+                    if(e.result){
                         performUpdate();
                     }
                     else{
