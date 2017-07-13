@@ -17,8 +17,19 @@ function checkUpdate(options) {
         return;
     }
 
-    //Checks if there is a valid update. If yes returns result object.    
+    //Checks if there is a valid update. If yes returns result object.
+    var updateProgressAlert;
+    if(options.showProgressCheck){
+        updateProgressAlert = new AlertView({
+            message: lang.checkingUpdate || "Checking for updates"
+        });
+        updateProgressAlert.android.cancellable = false;
+        updateProgressAlert.show();
+    }
     app.checkUpdate(function(err, result) {
+        if(options.showProgressCheck && updateProgressAlert){
+            updateProgressAlert.dismiss();
+        }
         if (err) {
             if (typeof err === "object") {
                 try {
@@ -28,6 +39,16 @@ function checkUpdate(options) {
 
                 }
             }
+            if(options.showProgressErrorAlert){
+                var informationAlert = new AlertView({
+    				message: lang.noupdate || "No new updates were found"
+    			});
+    			informationAlert.addButton({
+    				text: lang.ok || "OK",
+    				type: AlertView.Android.ButtonType.POSITIVE,
+    			});
+    			informationAlert.show();
+            }
         }
         else {
             console.log("update check successfull");
@@ -35,7 +56,7 @@ function checkUpdate(options) {
             result.meta = result.meta || {};
             var isMandatory = (result.meta.isMandatory && result.meta.isMandatory === true) ? true : false;
             var updateTitle = (result.meta.title) ? result.meta.title : (lang.newVersionAvailable || 'A new update is ready!');
-            var updateMessage = (lang.version + "Version") + " " + result.newVersion + " " + (lang.isReadyToInstall || "isReadyToInstall") + ".\n\n";
+            var updateMessage = (lang.version || "Version") + " " + result.newVersion + " " + (lang.isReadyToInstall || "isReadyToInstall") + ".\n\n";
             updateMessage += (isMandatory) ? (lang.updateMandatory || "This update is mandatory!") :
                 (lang.updateOptional || "Do you want to update?");
 
@@ -81,8 +102,27 @@ function checkUpdate(options) {
                 performUpdate();
             }
             else {
-                permission.checkPermission(Application.android.Permissions.WRITE_EXTERNAL_STORAGE, function() {
-                    performUpdate();
+                permission.checkPermission(Application.android.Permissions.WRITE_EXTERNAL_STORAGE, function(isGranted) {
+                    if(isGranted){
+                        performUpdate();
+                    }
+                    else{
+                        showConfirmationDialog(
+                        lang.permissionRequiredTitle || "Permission Required",
+                        lang.permissionRequiredMessage || "You should grand permission for update. Would you want to try again?",
+                        [
+                            {
+                                text: lang.tryAgain || "Try Again",
+                                onClick: startUpdate,
+                                index: AlertView.Android.ButtonType.POSITIVE
+                            },
+                            {
+                                text: lang.cancel || "Cancel",
+                                onClick: doNothing,
+                                index: AlertView.Android.ButtonType.NEUTRAL
+                            }
+                        ]);
+                    }
                 });
             }
 
@@ -93,6 +133,7 @@ function checkUpdate(options) {
                 title: "Warning",
                 message: lang.updateIsInProgress || "Update is in progress"
             });
+            updateProgressAlert.android.cancellable = false;
             updateProgressAlert.show();
             if (result.meta.redirectURL && result.meta.redirectURL.length != 0) {
                 //RAU wants us to open a URL, most probably core/player updated and binary changed.
@@ -149,6 +190,7 @@ function checkUpdate(options) {
             title: "Warning",
             message: message
         });
+        myAlertView.android.cancellable = false;
         myAlertView.addButton({
             index: AlertView.ButtonType.NEGATIVE,
             text: "OK"
@@ -163,6 +205,7 @@ function checkUpdate(options) {
             title: title,
             message: message
         });
+        myAlertView.android.cancellable = false;
         
         for (var i=0;i<buttons.length;i++)
         {
