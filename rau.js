@@ -103,26 +103,43 @@ function checkUpdate(options) {
                 performUpdate();
             }
             else {
+                if (Application.android.checkPermission(Application.android.Permissions.WRITE_EXTERNAL_STORAGE)){
+                    performUpdate();
+                }
+                else{
+                    Application.android.requestPermissions(1002, Application.android.Permissions.WRITE_EXTERNAL_STORAGE);
+                    Application.android.onRequestPermissionsResult = function(e){
+                        if(e.requestCode === 1002){
+                            if(e.result){
+                                performUpdate();
+                            }
+                            else{
+                                showConfirmationDialog(
+                                    lang.permissionRequiredTitle || "Permission Required",
+                                    lang.permissionRequiredMessage || "You should grand permission for update. Would you want to try again?",
+                                    [
+                                        {
+                                            text: lang.tryAgain || "Try Again",
+                                            onClick: startUpdate,
+                                            index: AlertView.Android.ButtonType.POSITIVE
+                                        },
+                                        {
+                                            text: lang.cancel || "Cancel",
+                                            onClick: doNothing,
+                                            index: AlertView.Android.ButtonType.NEUTRAL
+                                        }
+                                    ]);
+                            }
+                        }
+                    }
+                    
+                }
                 permission.checkPermission(Application.android.Permissions.WRITE_EXTERNAL_STORAGE, function(e) {
                     if(!e || e.result !== false){
                         performUpdate();
                     }
                     else{
-                        showConfirmationDialog(
-                        lang.permissionRequiredTitle || "Permission Required",
-                        lang.permissionRequiredMessage || "You should grand permission for update. Would you want to try again?",
-                        [
-                            {
-                                text: lang.tryAgain || "Try Again",
-                                onClick: startUpdate,
-                                index: AlertView.Android.ButtonType.POSITIVE
-                            },
-                            {
-                                text: lang.cancel || "Cancel",
-                                onClick: doNothing,
-                                index: AlertView.Android.ButtonType.NEUTRAL
-                            }
-                        ]);
+                        
                     }
                 });
             }
