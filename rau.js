@@ -2,7 +2,6 @@
 const Application = require("sf-core/application");
 const AlertView = require('sf-core/ui/alertview');
 const Network = require('sf-core/device/network');
-const permission = require("./permissions");
 const skipErrList = ["channel not found", "No update"];
 const System = require('sf-core/device/system');
 const app = {
@@ -132,16 +131,7 @@ function checkUpdate(options) {
                             }
                         }
                     }
-                    
                 }
-                permission.checkPermission(Application.android.Permissions.WRITE_EXTERNAL_STORAGE, function(e) {
-                    if(!e || e.result !== false){
-                        performUpdate();
-                    }
-                    else{
-                        
-                    }
-                });
             }
 
         }
