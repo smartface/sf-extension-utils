@@ -104,7 +104,7 @@ function checkUpdate(options) {
             }
             else {
                 permission.checkPermission(Application.android.Permissions.WRITE_EXTERNAL_STORAGE, function(e) {
-                    if(e.result){
+                    if(e.result !== false){
                         performUpdate();
                     }
                     else{
