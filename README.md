@@ -2,7 +2,9 @@
 [![Twitter: @Smartface_io](https://img.shields.io/badge/contact-@Smartface_io-blue.svg?style=flat)](https://twitter.com/smartface_io)
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/smartface/sf-extension-utils/master/LICENSE)
 
-An extension that has useful utility classes for Smartface Native Framework.
+An extension that has following utility classes for Smartface Native Framework.
+- RAU (Remote App Update)
+- Fingerprint & Touch ID
 
 ## Installation
 Utility extension can be installed via npm easily from our public npm repository. The installation is pretty easy via Smartface Cloud IDE.
