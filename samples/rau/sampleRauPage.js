@@ -34,8 +34,7 @@ var pageRAU = extend(Page)(
 			}
 		});
 		
-		this.layout.flexWrap = FlexLayout.FlexWrap.WRAP;
-		this.layout.flexDirection = FlexLayout.FlexDirection.ROW;
+		this.layout.flexDirection = FlexLayout.FlexDirection.COLUMN;
 		this.layout.justifyContent = FlexLayout.JustifyContent.CENTER;
 
 		this.layout.addChild(btnRau);
