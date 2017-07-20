@@ -1,19 +1,28 @@
-const System = require('sf-core/device/system');
-const Data = require('sf-core/data');
+const System    = require('sf-core/device/system');
+const Data      = require('sf-core/data');
 const AlertView = require('sf-core/ui/alertview');
 
+/**
+ * @class FingerPrintUtil
+ * @since 1.1.3
+ * 
+ * An util class for Fingerprint operations.
+ */
 const FingerPrintUtil = {};
 
 Object.defineProperties(FingerPrintUtil, {
-    'isUserAuthenticated': {
-        get: function() {
-            return Data.getBooleanVariable('isAuthenticated') === true;
-        },
-        set: function(isAuthenticated) {
-            Data.setBooleanVariable('isAuthenticated', isAuthenticated);
-        },
-        enumarable: true
-    },
+    /**
+     * Check user rejected fingerprint. When you call {@link FingerPrintUtil#registerFingerPrint} 
+     * it shows confirmation dialog to user for usage about fingerprint. When user rejected it
+     * by clicking "Cancel" on that dialog this variable becomes true.
+     * 
+     * @property {Boolean} [isUserRejectedFingerprint = false]
+     * @readonly
+     * @android
+     * @ios
+     * @static
+     * @since 1.0.0
+     */
     'isUserRejectedFingerprint': {
         get: function() {
             return Data.getBooleanVariable('isRejectedFingerprint') === true;
@@ -23,6 +32,19 @@ Object.defineProperties(FingerPrintUtil, {
         },
         enumarable: true
     },
+    
+    /**
+     * Check user could verified fingerprint. When you call {@link FingerPrintUtil#registerFingerPrint} 
+     * it shows fingerprint dialog after confirmation dialog. When user's fingerprint verified by system,
+     * this variable becomes true.
+     * 
+     * @property {Boolean} [isUserVerifiedFingerprint = false]
+     * @readonly
+     * @android
+     * @ios
+     * @static
+     * @since 1.0.0
+     */
     'isUserVerifiedFingerprint': {
         get: function() {
             return Data.getBooleanVariable('isVerifiedFingerprint') === true;
@@ -32,6 +54,19 @@ Object.defineProperties(FingerPrintUtil, {
         },
         enumarable: true
     },
+    
+    /**
+     * Check user allowed fingerprint. When you call {@link FingerPrintUtil#registerFingerPrint} 
+     * it shows confirmation dialog to user for usage about fingerprint. When user allowed it
+     * by clicking "Okay" on that dialog this variable becomes true.
+     * 
+     * @property {Boolean} [isUserAllowedFingerprint = false]
+     * @readonly
+     * @android
+     * @ios
+     * @static
+     * @since 1.0.0
+     */
     'isUserAllowedFingerprint': {
         get: function() {
             return Data.getBooleanVariable('isAllowedFingerprint') === true;
@@ -41,13 +76,40 @@ Object.defineProperties(FingerPrintUtil, {
         },
         enumarable: true
     },
+    
+    /**
+     * Check device supports fingerprint (Android) or TouchID for iOS. This variables reflects {@link Device.System#fingerPrintAvailable}
+     * 
+     * @property {Boolean} isFingerprintAvailable
+     * @readonly
+     * @android
+     * @ios
+     * @static
+     * @since 1.0.0
+     */
     'isFingerprintAvailable': {
         get: function() {
             return System.fingerPrintAvailable;
         },
         enumarable: true
     },
-
+    
+    /**
+     * Registers user to the fingerprint authentication. This function asks user that user want to use fingerprint for 
+     * next login and if user wants by clicking "Okay" on "Finger Print Access" dialog, this method calls {@link Device.System#validateFingerPrint}.
+     * If fingerprint is not available, user rejected fingerprint, user rejected fingerprint by clicking "cancel" on 
+     * "Finger Print Access" dialog or user cannot validate fingerprint with fingerprint dialog onFailure callback 
+     * will be tiggered.
+     * 
+     * @param {Function} onSuccess
+     * @param {Function} onFailure
+     * @method registerFingerPrint
+     * @readonly
+     * @android
+     * @ios
+     * @static
+     * @since 1.0.0
+     */ 
     'registerFingerPrint': {
         value: function(onSuccess, onFailure) {
             if (!FingerPrintUtil.isFingerprintAvailable) {
@@ -89,7 +151,6 @@ Object.defineProperties(FingerPrintUtil, {
                             message: "Validate your fingerprint",
                             onSuccess: function() {
                                 FingerPrintUtil.isUserVerifiedFingerprint = true;
-                                FingerPrintUtil.isUserAuthenticated = true;
                                 onSuccess && onSuccess();
                                 return;
                             },
@@ -108,6 +169,21 @@ Object.defineProperties(FingerPrintUtil, {
         },
         enumarable: true
     },
+    
+    /**
+     * Validates user to the fingerprint authentication. This method calls {@link Device.System#validateFingerPrint}.
+     * If fingerprint is not available, user rejected fingerprint or user cannot validate fingerprint with fingerprint dialog onFailure callback 
+     * will be tiggered.
+     * 
+     * @param {Function} onSuccess
+     * @param {Function} onFailure
+     * @method validateFingerPrint
+     * @readonly
+     * @android
+     * @ios
+     * @static
+     * @since 1.0.0
+     */ 
     'validateFingerPrint': {
         value: function(onSuccess, onFailure) {
             if (!FingerPrintUtil.isFingerprintAvailable) {
@@ -141,9 +217,19 @@ Object.defineProperties(FingerPrintUtil, {
         },
         enumarable: true
     },
+    
+    /**
+     * Reset saved state about fingerprint. 
+     * 
+     * @method reset
+     * @readonly
+     * @android
+     * @ios
+     * @static
+     * @since 1.0.1
+     */ 
     'reset': {
         value: function(){
-            Data.removeVariable('isAuthenticated');
             Data.removeVariable('isRejectedFingerprint');
             Data.removeVariable('isVerifiedFingerprint');
             Data.removeVariable('isAllowedFingerprint');
