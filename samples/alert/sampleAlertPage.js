@@ -11,7 +11,7 @@ var pageAlert = extend(Page)(
         var myButtonAlertMessage = new Button({
             text: 'Alert Message',
             height: 75,
-            width: 200,
+            width: 250,
             margin: 15,
             alignSelf: FlexLayout.AlignSelf.CENTER,
             onPress: function() {
@@ -20,9 +20,9 @@ var pageAlert = extend(Page)(
         });
         
         var myButtonAlertTitleMessage = new Button({
-            text: 'Alert Message with Title',
+            text: 'Alert with Message Title',
             height: 75,
-            width: 200,
+            width: 250,
             margin: 15,
             alignSelf: FlexLayout.AlignSelf.CENTER,
             onPress: function() {
@@ -31,9 +31,9 @@ var pageAlert = extend(Page)(
         });
         
         var myButtonAlertTitleMessageCallback = new Button({
-            text: 'Alert Message and Title with Callbacks',
+            text: 'Alert with Callbacks',
             height: 75,
-            width: 200,
+            width: 250,
             margin: 15,
             alignSelf: FlexLayout.AlignSelf.CENTER,
             onPress: function() {
