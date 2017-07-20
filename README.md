@@ -5,6 +5,8 @@
 An extension that has following utility classes for Smartface Native Framework.
 - RAU (Remote App Update)
 - Fingerprint & Touch ID
+- AlertView
+- Speech2Text
 
 ## Installation
 Utility extension can be installed via npm easily from our public npm repository. The installation is pretty easy via Smartface Cloud IDE.
