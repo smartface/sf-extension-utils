@@ -65,10 +65,9 @@ function run(textBox, delay, onStop) {
         task: function() {
             if (Date.now() - lastTick > tickDelay) {
                 Timer.clearTimer(t);
-                
+                onStop && onStop();
                 if (SpeechRecognizer.isRunning()) {
                     SpeechRecognizer.stop();
-                    onStop && onStop();
                 }
             }
         }
