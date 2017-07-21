@@ -154,9 +154,9 @@ function performUpdate(result) {
             else {
                 //All files are received, we'll trigger an update.
                 result.updateAll(function(err) {
+                    updateProgressAlert.dismiss();
                     if (err) {
                         //Updating the app with downloaded files failed
-                        updateProgressAlert.dismiss();
                         handleError(err);
                     }
                     else {
