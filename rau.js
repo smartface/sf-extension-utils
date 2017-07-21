@@ -1,9 +1,10 @@
 /*global lang */
-const Application = require("sf-core/application");
-const AlertView = require('sf-core/ui/alertview');
-const Network = require('sf-core/device/network');
-const System = require('sf-core/device/system');
-
+const Application       = require("sf-core/application");
+const AlertView         = require('sf-core/ui/alertview');
+const Network           = require('sf-core/device/network');
+const System            = require('sf-core/device/system');
+const AlertUtil         = require('sf-extension-utils/alert');
+const PermissionUtil    = require('sf-extension-utils/permission');
 /**
  * @class RauUtil
  * @since 1.0.0
@@ -85,35 +86,23 @@ Object.defineProperty(RauUtil, "checkUpdate", {
                 }
                 else {
                     if (isMandatory) {
-                        showConfirmationDialog(
-                            updateTitle,
-                            updateMessage, [
-                                {
-                                    text: lang.updateNow || "Update now",
-                                    onClick: function() {
-                                        startUpdate(result);
-                                    },
-                                    type: AlertView.Android.ButtonType.POSITIVE
-                                }
-                            ]);
+                        AlertUtil.showAlert(updateTitle, updateMessage,null, {
+                            text: lang.updateNow || "Update now",
+                            callback: function() {
+                                startUpdate(result);
+                            },
+                        });
                     }
                     else {
-                        showConfirmationDialog(
-                            updateTitle,
-                            updateMessage, [
-                                {
-                                    text: lang.updateNow || "Update now",
-                                    onClick: function() {
-                                        startUpdate(result);
-                                    },
-                                    index: AlertView.Android.ButtonType.POSITIVE
-                                },
-                                {
-                                    text: lang.later || "Later",
-                                    onClick: doNothing,
-                                    index: AlertView.Android.ButtonType.NEUTRAL
-                                }
-                            ]);
+                        AlertUtil.showAlert(updateTitle, updateMessage, {
+                            text: lang.later || "Later",
+                            callback: doNothing,
+                        }, {
+                            text: lang.updateNow || "Update now",
+                            callback: function() {
+                                startUpdate(result);
+                            },
+                        });
                     }
                 }
             }
@@ -123,43 +112,23 @@ Object.defineProperty(RauUtil, "checkUpdate", {
 });
 
 function startUpdate(result) {
-    if (System.OS === "iOS") {
-        performUpdate(result);
-    }
-    else {
-        if (Application.android.checkPermission(Application.android.Permissions.WRITE_EXTERNAL_STORAGE)) {
+    PermissionUtil.applyPermission(Application.android.Permissions.WRITE_EXTERNAL_STORAGE, function(isGranted){
+        if(isGranted){
             performUpdate(result);
         }
-        else {
-            Application.android.requestPermissions(1002, Application.android.Permissions.WRITE_EXTERNAL_STORAGE);
-            Application.android.onRequestPermissionsResult = function(e) {
-                if (e.requestCode === 1002) {
-                    if (e.result) {
-                        performUpdate(result);
-                    }
-                    else {
-                        showConfirmationDialog(
-                            lang.permissionRequiredTitle || "Permission Required",
-                            lang.permissionRequiredMessage || "You should grand permission for update. Would you want to try again?", [
-                                {
-                                    text: lang.tryAgain || "Try Again",
-                                    onClick: function() {
-                                        startUpdate(result);
-                                    },
-                                    index: AlertView.Android.ButtonType.POSITIVE
-                                },
-                                {
-                                    text: lang.cancel || "Cancel",
-                                    onClick: doNothing,
-                                    index: AlertView.Android.ButtonType.NEUTRAL
-                                }
-                            ]);
-                    }
-                }
-            };
+        else{
+            AlertUtil.showAlert(lang.permissionRequiredTitle || "Permission Required",
+                lang.permissionRequiredMessage || "You should grand permission for update. Would you want to try again?",{
+                    text: lang.cancel || "Cancel",
+                    callback: doNothing,
+                },{
+                    text: lang.tryAgain || "Try Again",
+                    callback: function() {
+                        startUpdate(result);
+                    },
+                });
         }
-    }
-
+    });
 }
 
 function performUpdate(result) {
@@ -214,20 +183,6 @@ function handleError(err) {
 //We will do nothing on cancel for the timebeing.
 function doNothing() {
     //do nothing
-}
-
-function showConfirmationDialog(title, message, buttons) {
-    var myAlertView = new AlertView({
-        title: title,
-        message: message
-    });
-    (System.OS === "Android") && (myAlertView.android.cancellable = false);
-
-    for (var i = 0; i < buttons.length; i++) {
-        myAlertView.addButton(buttons[i]);
-    }
-
-    myAlertView.show();
 }
 
 module.exports = RauUtil;

@@ -2,12 +2,12 @@ const AlertView = require('sf-core/ui/alertview');
 const System = require('sf-core/device/system');
 
 /**
- * @class AlertViewUtil
+ * @class AlertUtil
  * @since 1.1.3
  * 
  * An util class for AlertView.
  */
-const AlertViewUtil = {};
+const AlertUtil = {};
 
 /**
  * Creates and shows alerts based on parameters.
@@ -31,7 +31,7 @@ const AlertViewUtil = {};
  * @static
  * @since 1.1.3
  */ 
-Object.defineProperty(AlertViewUtil, "showAlert", {
+Object.defineProperty(AlertUtil, "showAlert", {
     value: function(title, message, negativeButton, positiveButton){
         var myAlertView;
         if (arguments.length === 1) {
@@ -85,4 +85,4 @@ Object.defineProperty(AlertViewUtil, "showAlert", {
     enumarable: true
 });
 
-module.exports = AlertViewUtil;
+module.exports = AlertUtil;
