@@ -20,6 +20,8 @@ Utility extension can be installed via npm easily from our public npm repository
 ## How to use
 The folder `sample` holds example codes for each utility class. You can put them into your workspace and start using it.
 
+For more details checkout the [api.md](./api.md) file.
+
 ## Need Help?
 
 Please [submit an issue](https://github.com/smartface/sf-extension-utils/issues) on GitHub and provide information about your problem.
