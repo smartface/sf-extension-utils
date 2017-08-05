@@ -1,11 +1,9 @@
 {
   "name": "sf-extension-utils",
-  "version": "1.1.9",
+  "version": "2.0.0",
   "description": "Utils Extension for Smartface Native Framework",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "main": "lib/index.js",
+  "scripts": {},
   "keywords": [
     "smartface",
     "extension",

@@ -4,3 +4,5 @@ README.md
 .npmrc
 .npmignore
 npm-debug.log
+samples
+doc/createdoc.sh
