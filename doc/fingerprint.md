@@ -8,16 +8,16 @@ Smartface Fingerprint for login module
 
 * [fingerprint](#module_fingerprint) : <code>object</code>
     * _static_
-        * [.usefingerprintlogin](#module_fingerprint.usefingerprintlogin)
+        * [.useFingerprintLogin](#module_fingerprint.useFingerprintLogin)
         * [.fingerprint:init(options)](#module_fingerprint.fingerprint_init)
         * [.fingerprint:loginWithFingerprint(callback)](#module_fingerprint.fingerprint_loginWithFingerprint)
     * _inner_
         * [~fingerprint:CryptopgyFunction](#module_fingerprint..fingerprint_CryptopgyFunction) ⇒ <code>string</code>
         * [~fingerprint:loginWithFingerprintCallback](#module_fingerprint..fingerprint_loginWithFingerprintCallback) : <code>function</code>
 
-<a name="module_fingerprint.usefingerprintlogin"></a>
+<a name="module_fingerprint.useFingerprintLogin"></a>
 
-### fingerprint.usefingerprintlogin
+### fingerprint.useFingerprintLogin
 Gets or sets the login with fingerprint preference
 
 **Kind**: static property of [<code>fingerprint</code>](#module_fingerprint)  
@@ -26,18 +26,18 @@ Gets or sets the login with fingerprint preference
 
 | Name | Type |
 | --- | --- |
-| fingerprint:usefingerprintlogin | <code>boolean</code> | 
+| fingerprint:useFingerprintLogin | <code>boolean</code> | 
 
 **Example**  
 ```js
 const Switch = require('sf-core/ui/switch');
 const fingerprint = require("sf-extension-utils").fingerprint;
 var swLoginWithFingerprint = new Switch({ //switch in app settings
- toggle: fingerprint.usefingerprintlogin //set the initial value
+ toggle: fingerprint.useFingerprintLogin //set the initial value
 });
 swLoginWithFingerprint.onToggleChanged = function() {
  //set the updated value
- fingerprint.usefingerprintlogin = swLoginWithFingerprint.toggle;
+ fingerprint.useFingerprintLogin = swLoginWithFingerprint.toggle;
 };
 ```
 <a name="module_fingerprint.fingerprint_init"></a>
@@ -56,7 +56,7 @@ Configures fingerprint login. Call this during page load
 | [options.encryptionFunction] | <code>fingerprint:CryptopgyFunction</code> |  | stored values are encrypted with the given function |
 | [options.decryptionFunction] | <code>fingerprint:CryptopgyFunction</code> |  | stored values are decrypted with the given function |
 | [options.dataKeys] | <code>object</code> |  | sets the data key values to store persistent login information |
-| [options.dataKeys.usefingerprintlogin] | <code>string</code> | <code>&quot;usefingerprintlogin&quot;</code> | key to store fingerprint login preference |
+| [options.dataKeys.useFingerprintLogin] | <code>string</code> | <code>&quot;useFingerprintLogin&quot;</code> | key to store fingerprint login preference |
 | [options.dataKeys.username] | <code>string</code> | <code>&quot;username&quot;</code> | key to store username |
 | [options.dataKeys.password] | <code>string</code> | <code>&quot;password&quot;</code> | key to store password |
 | [options.dataKeys.firstLogin] | <code>string</code> | <code>&quot;firstLogin&quot;</code> | key to store firstLogin |
