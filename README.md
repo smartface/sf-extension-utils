@@ -31,7 +31,7 @@ For each module api documentation is in separate file
 - [alert](./doc/alert.md)
 - [timers](./doc/timers.md)
 - [permission](./doc/permission.md)
-- [speachToText](./doc/speech_to_text.md)
+- [speechToText](./doc/speech_to_text.md)
 - [rau](./doc/rau.md)
 - [location](./doc/location.md)
 - [fingerprint](./doc/fingerprint.md)
