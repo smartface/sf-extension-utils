@@ -11,6 +11,7 @@ Smartface Speech to Text util module
         * [.isRunning](#module_speechToText.isRunning)
         * [.speechToText:startType(textBox, [timeout], onStop)](#module_speechToText.speechToText_startType)
     * _inner_
+        * [~stop()](#module_speechToText..stop)
         * [~speechToText:startTypeCallback](#module_speechToText..speechToText_startTypeCallback) : <code>function</code>
 
 <a name="module_speechToText.isRunning"></a>
@@ -50,6 +51,12 @@ For android, methods checks permissions automatically.
 const speechToText = require("sf-extension-utils").speechToText;
 speechToText.startType(myTextBoxInput,4000);
 ```
+<a name="module_speechToText..stop"></a>
+
+### speechToText~stop()
+Stops a running Speech Recognizer
+
+**Kind**: inner method of [<code>speechToText</code>](#module_speechToText)  
 <a name="module_speechToText..speechToText_startTypeCallback"></a>
 
 ### speechToText~speechToText:startTypeCallback : <code>function</code>
