@@ -22,5 +22,8 @@
       "name": "deployer",
       "email": "info@smartface.io"
     }
-  ]
+  ],
+  "dependencies": {
+    "chai": "^4.1.1"
+  }
 }
