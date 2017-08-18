@@ -10,7 +10,7 @@ Smartface Fingerprint for login module
     * _static_
         * [.useFingerprintLogin](#module_fingerprint.useFingerprintLogin)
         * [.fingerprint:init(options)](#module_fingerprint.fingerprint_init)
-        * [.fingerprint:loginWithFingerprint(callback)](#module_fingerprint.fingerprint_loginWithFingerprint)
+        * [.fingerprint:loginWithFingerprint()](#module_fingerprint.fingerprint_loginWithFingerprint)
     * _inner_
         * [~fingerprint:CryptopgyFunction](#module_fingerprint..fingerprint_CryptopgyFunction) ⇒ <code>string</code>
         * [~fingerprint:loginWithFingerprintCallback](#module_fingerprint..fingerprint_loginWithFingerprintCallback) : <code>function</code>
@@ -43,7 +43,7 @@ swLoginWithFingerprint.onToggleChanged = function() {
 <a name="module_fingerprint.fingerprint_init"></a>
 
 ### fingerprint.fingerprint:init(options)
-Configures fingerprint login. Call this during page load
+Configures fingerprint login. Call this during page show. It is recommended to call it onShow event of the page
 
 **Kind**: static method of [<code>fingerprint</code>](#module_fingerprint)  
 **Access**: public  
@@ -51,8 +51,10 @@ Configures fingerprint login. Call this during page load
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | options | <code>object</code> |  | configuration options |
-| options.userNameTextBox | <code>UI.TextBox</code> |  | to use textbox as username or email field. If fingerprint is being used, username is automaticaly set |
-| options.passwordTextBox | <code>UI.TextBox</code> |  | to use textbox as password field |
+| options.userNameTextBox | <code>UI.TextBox</code> |  | to use textbox as username or email field. If fingerprint is being used, username is automaticaly set (Required) |
+| options.passwordTextBox | <code>UI.TextBox</code> |  | to use textbox as password field (Required) |
+| options.callback | <code>fingerprint:loginWithFingerprintCallback</code> |  | is called when fingerprint login is called (Required) This callback is used to obtain password. When the login challege is successful it is important to call the success method of the fingerprintResult argument for the callback |
+| [options.autoLogin] | <code>boolean</code> | <code>false</code> | to attempt fingerprint login after init. Takes effect after user gives permission and enables the setting |
 | [options.encryptionFunction] | <code>fingerprint:CryptopgyFunction</code> |  | stored values are encrypted with the given function |
 | [options.decryptionFunction] | <code>fingerprint:CryptopgyFunction</code> |  | stored values are decrypted with the given function |
 | [options.dataKeys] | <code>object</code> |  | sets the data key values to store persistent login information |
@@ -66,60 +68,29 @@ Configures fingerprint login. Call this during page load
 const TextBox = require('sf-core/ui/textbox');
 const fingerprint = require("sf-extension-utils").fingerprint;
 const tbUsername = new TextBox();
-const tbPassword = new TextBox({isPassword: true});
-fingerprint.init({
- userNameTextBox: tbUsername,
- passwordTextBox: tbPassword
-});
-```
-<a name="module_fingerprint.fingerprint_loginWithFingerprint"></a>
-
-### fingerprint.fingerprint:loginWithFingerprint(callback)
-Retrieves password to login based on the rules.
-Perform validation of password by the retrieved value.
-After retriving password and performing a successful login, it is important to call .success() method of the callback argument. Otherwise data will not be stored!
-
-**Kind**: static method of [<code>fingerprint</code>](#module_fingerprint)  
-**Access**: public  
-
-| Param | Type |
-| --- | --- |
-| callback | <code>fingerprint:loginWithFingerprintCallback</code> | 
-
-**Example**  
-```js
-const Button = require('sf-core/ui/button');
-const Router = require('sf-core/router');
+const tbPassword = new TextBox({ isPassword: true });
 const Http = require("sf-core/net/http");
-const fingerprint = require("sf-extension-utils").fingerprint;
-const btnLogin = new Button({
-    onPress: function() {
-        var isValid = true;
+const Router = require('sf-core/router');
 
-        if (!tbUsername.text) {
-            isValid = false
-        }
+fingerprint.init({
+    userNameTextBox: tbUsername,
+    passwordTextBox: tbPassword,
+    callback: function(err, fingerprintResult) {
         var password;
-        isValid && fingerprint.loginWithFingerprint(function(err, fingerprintResult) {
+        if (err)
+            password = tbPassword.text;
+        else
+            password = fingerprintResult.password;
+        if (!password)
+            return alert("password is required");
+        loginWithUserNameAndPassword(tbUsername.text, password, function(err) {
             if (err)
-                password = tbPassword.text;
-            else
-                password = fingerprintResult.password;
-            if (!password)
-                isValid = false;
-            !isValid && alert("password is required");
-            loginWithUserNameAndPassword(tbUsername.text, password, function(err) {
-                if (err)
-                    return alert("Cannot login");
-                fingerprintResult && fingerprintResult.success(); //Important!
-                Router.go('dashboard', {
-                    //some data
-                });
-
+                return alert("Cannot login. Check user name and password. Or system is down");
+            fingerprintResult && fingerprintResult.success(); //Important!
+            Router.go('dashboard', {
+                //some data
             });
-
         });
-        !isValid && alert("username is required");
     }
 });
 
@@ -137,8 +108,30 @@ function loginWithUserNameAndPassword(username, password, callback) {
     }, function(e) {
         //invalid credentials?
         callback(e);
-    })
+    });
 }
+```
+<a name="module_fingerprint.fingerprint_loginWithFingerprint"></a>
+
+### fingerprint.fingerprint:loginWithFingerprint()
+Triggers fingerprint logon
+
+**Kind**: static method of [<code>fingerprint</code>](#module_fingerprint)  
+**Access**: public  
+**Example**  
+```js
+const Button = require('sf-core/ui/button');
+const Router = require('sf-core/router');
+const Http = require("sf-core/net/http");
+const fingerprint = require("sf-extension-utils").fingerprint;
+const btnLogin = new Button({
+    onPress: function() {
+        if (!tbUsername.text) {
+            return alert("Username should not be empty");
+        }
+        fingerprint.loginWithFingerprint();
+    }
+});
 ```
 <a name="module_fingerprint..fingerprint_CryptopgyFunction"></a>
 
@@ -163,6 +156,6 @@ Callback for loginWithFingerprint in error first pattern.
 | --- | --- | --- |
 | err | <code>object</code> \| <code>string</code> | is set when password cannot be retrieved. In that case continue with regular login. |
 | fingerprintResult | <code>object</code> |  |
-| password | <code>string</code> | read the password value from here |
-| success | <code>function</code> | it is important to call after a successful login |
+| fingerprintResult.password | <code>string</code> | read the password value from here |
+| fingerprintResult.success | <code>function</code> | it is important to call after a successful login |
 
