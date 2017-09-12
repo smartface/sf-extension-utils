@@ -29,7 +29,7 @@ gets current orientation of the device. Better to be called when the page is sho
 **Access**: public  
 **Example**  
 ```js
-const orientationLib = require(""sf-extension-utils").orientation;
+const orientationLib = require("sf-extension-utils").orientation;
 page.onShow = function() {
     var orientation = orientationLib.getOrientation();
     console.log(orientation); // portrait
@@ -51,7 +51,7 @@ gives rotated value for the given orientation. Does not roates the screen!
 
 **Example**  
 ```js
-const orientationLib = require(""sf-extension-utils").orientation;
+const orientationLib = require("sf-extension-utils").orientation;
 var orientation = orientationLib.rotate(orientationLib.PORTRAIT);
 console.log(String(orientation === orientationLib.LANDSCAPE); //true
 ```
@@ -66,7 +66,7 @@ Should be called only within that event. Handles iOS & Android differnces.
 **Access**: public  
 **Example**  
 ```js
-const orientationLib = require(""sf-extension-utils").orientation;
+const orientationLib = require("sf-extension-utils").orientation;
 page.onOrientationChange = function() {
     var orientation = orientationLib.getOrientationOnchage();
     console.log(orientation); // landscape
