@@ -35,6 +35,7 @@ For each module api documentation is in separate file
 - [rau](./doc/rau.md)
 - [location](./doc/location.md)
 - [fingerprint](./doc/fingerprint.md)
+- [orientation](./doc/orientation.md)
 
 ## Need Help?
 
