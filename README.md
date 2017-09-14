@@ -10,6 +10,7 @@ An extension that has following utility classes for Smartface Native Framework.
 - Permission
 - Location
 - Timers
+- Orientation
 
 ## Installation
 Utility extension can be installed via npm easily from our public npm repository. The installation is pretty easy via Smartface Cloud IDE.
