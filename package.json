@@ -1,6 +1,6 @@
 {
   "name": "sf-extension-utils",
-  "version": "3.1.1",
+  "version": "3.2.0",
   "description": "Utils Extension for Smartface Native Framework",
   "main": "lib/index.js",
   "scripts": {},
@@ -23,7 +23,7 @@
       "email": "info@smartface.io"
     }
   ],
-  "dependencies": {
-    "chai": "^4.1.1"
+  "peerDependencies": {
+    "chai": "^4.1.2"
   }
 }
