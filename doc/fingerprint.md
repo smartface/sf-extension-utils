@@ -55,6 +55,7 @@ Configures fingerprint login. Call this during page show. It is recommended to c
 | options.passwordTextBox | <code>UI.TextBox</code> |  | to use textbox as password field (Required) |
 | options.callback | <code>fingerprint:loginWithFingerprintCallback</code> |  | is called when fingerprint login is called (Required) This callback is used to obtain password. When the login challege is successful it is important to call the success method of the fingerprintResult argument for the callback |
 | [options.autoLogin] | <code>boolean</code> | <code>false</code> | to attempt fingerprint login after init. Takes effect after user gives permission and enables the setting |
+| [options.autoEvents] | <code>boolean</code> | <code>false</code> | sets events to textboxes and button, sets keyboard types |
 | [options.encryptionFunction] | <code>fingerprint:CryptopgyFunction</code> |  | stored values are encrypted with the given function |
 | [options.decryptionFunction] | <code>fingerprint:CryptopgyFunction</code> |  | stored values are decrypted with the given function |
 | [options.dataKeys] | <code>object</code> |  | sets the data key values to store persistent login information |
@@ -75,6 +76,8 @@ const Router = require('sf-core/router');
 fingerprint.init({
     userNameTextBox: tbUsername,
     passwordTextBox: tbPassword,
+    button: btnLogin,
+    autoEvents: true,
     callback: function(err, fingerprintResult) {
         var password;
         if (err)
