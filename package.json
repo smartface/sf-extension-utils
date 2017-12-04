@@ -1,6 +1,6 @@
 {
   "name": "sf-extension-utils",
-  "version": "3.2.2",
+  "version": "3.3.0-beta.1",
   "description": "Utils Extension for Smartface Native Framework",
   "main": "lib/index.js",
   "scripts": {},
@@ -25,5 +25,8 @@
   ],
   "peerDependencies": {
     "chai": "^4.1.2"
+  },
+  "dependencies": {
+    "wolfy87-eventemitter": "^5.2.4"
   }
 }
