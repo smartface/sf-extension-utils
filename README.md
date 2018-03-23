@@ -11,6 +11,7 @@ An extension that has following utility classes for Smartface Native Framework.
 - Location
 - Timers
 - Orientation
+- ServiceCall
 
 ## Installation
 Utility extension can be installed via npm easily from our public npm repository. The installation is pretty easy via Smartface Cloud IDE.
@@ -37,6 +38,7 @@ For each module api documentation is in separate file
 - [location](./doc/location.md)
 - [fingerprint](./doc/fingerprint.md)
 - [orientation](./doc/orientation.md)
+- [ServiceCall](./doc/service-call.md)
 
 ## Need Help?
 
