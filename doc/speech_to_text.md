@@ -4,7 +4,7 @@
 Smartface Speech to Text util module
 
 **Author**: Alper Ozisik <alper.ozisik@smartface.io>  
-**Copyright**: Smartface 2017  
+**Copyright**: Smartface 2018  
 
 * [speechToText](#module_speechToText) : <code>object</code>
     * _static_

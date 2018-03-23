@@ -4,7 +4,7 @@
 Smartface Android Permission module
 
 **Author**: Alper Ozisik <alper.ozisik@smartface.io>  
-**Copyright**: Smartface 2017  
+**Copyright**: Smartface 2018  
 <a name="module_permission.permission_getPermission"></a>
 
 ### permission.permission:getPermission(permissions, [rationaleDisplay], callback)

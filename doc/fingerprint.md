@@ -4,7 +4,7 @@
 Smartface Fingerprint for login module
 
 **Author**: Alper Ozisik <alper.ozisik@smartface.io>  
-**Copyright**: Smartface 2017  
+**Copyright**: Smartface 2018  
 
 * [fingerprint](#module_fingerprint) : <code>object</code>
     * _static_
