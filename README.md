@@ -39,6 +39,7 @@ For each module api documentation is in separate file
 - [fingerprint](./doc/fingerprint.md)
 - [orientation](./doc/orientation.md)
 - [ServiceCall](./doc/service-call.md)
+- [ButtonActivity](./doc/button-activity.md)
 
 ## Need Help?
 
