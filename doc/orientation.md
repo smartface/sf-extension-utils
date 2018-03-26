@@ -4,13 +4,13 @@
 Smartface Location module
 
 **Author**: Alper Ozisik <alper.ozisik@smartface.io>  
-**Copyright**: Smartface 2017  
+**Copyright**: Smartface 2018  
 **Properties**
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| PORTRAIT | <code>string</code> | <code>&quot;portrait&quot;</code> | enum value |
-| LANDSCAPE | <code>string</code> | <code>&quot;landspace&quot;</code> | enum value |
+| [PORTRAIT] | <code>string</code> | <code>&quot;portrait&quot;</code> | enum value |
+| [LANDSCAPE] | <code>string</code> | <code>&quot;landspace&quot;</code> | enum value |
 | shortEdge | <code>number</code> |  | gives short edge of the screen |
 | longEdge | <code>number</code> |  | gives long edge of the screen |
 

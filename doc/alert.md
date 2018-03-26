@@ -4,7 +4,7 @@
 Smartface global alert replacer
 
 **Author**: Alper Ozisik <alper.ozisik@smartface.io>  
-**Copyright**: Smartface 2017  
+**Copyright**: Smartface 2018  
 
 * [alert](#module_alert) : <code>object</code>
     * [~alert(options, title)](#module_alert..alert) ⇒ <code>UI.AlertView</code>

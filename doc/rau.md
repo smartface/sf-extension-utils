@@ -4,7 +4,7 @@
 Smartface Remote App Update module
 
 **Author**: Alper Ozisik <alper.ozisik@smartface.io>  
-**Copyright**: Smartface 2017  
+**Copyright**: Smartface 2018  
 <a name="module_rau.rau_checkUpdate"></a>
 
 ### rau.rau:checkUpdate([options])

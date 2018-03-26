@@ -4,7 +4,7 @@
 Smartface Location module
 
 **Author**: Alper Ozisik <alper.ozisik@smartface.io>  
-**Copyright**: Smartface 2017  
+**Copyright**: Smartface 2018  
 
 * [location](#module_location) : <code>object</code>
     * _static_
