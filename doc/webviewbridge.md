@@ -31,7 +31,14 @@ Smartface WevView Bridge for bidirectional communication
 <a name="new_module_WevViewBridge..WebViewBridge_new"></a>
 
 #### new WebViewBridge(options)
-WebViewBridge is used for bi-directional communication with WebView. Events from WebView are captured with EventEmiter
+WebViewBridge is used for bi-directional communication with WebView. Events from WebView are captured with [EventEmiter](https://www.npmjs.com/package/wolfy87-eventemitter)<br />
+This bridge creates window.**boubleEvent** function inside WebPage of the WebView<br />
+boubleEvent - Has two arguments: **eventName** (required), **data** (optional)<br />
+Data is JSON.stringify'ied transfered to Smartface over URI with the designated URI scheme (msg is default)<br />
+It is possible to load additional scripts with **loadScripts** method of the WebViewBridge<br />
+Use WebViewBridge.**on** or WebViewBridge.**once** methods to capture the calls of window.boubleEvent calls from WebPage with given eventName<br />
+Following eventNames are reserved for WebViewBridge internal usage: "addScript", "scriptLoaded", "window.onload"
+The inserted code is also setting the window.onload event of the WebPage
 
 
 | Param | Type | Default | Description |
@@ -42,6 +49,10 @@ WebViewBridge is used for bi-directional communication with WebView. Events from
 **Example**  
 ```js
 //Bridge Creation with AM-Charts
+const WebViewBridge = require("sf-extension-utils").WebViewBridge;
+
+page.webView.visible = false;
+page.aiWait.visible = true;
 const wvb = page.wvb = new WebViewBridge({
     webView: page.webView,
     source: "assets://amcharts_index.html"
@@ -133,6 +144,52 @@ AmCharts.makeChart("chartdiv", {
      ]
  });
 `
+```
+**Example**  
+```js
+//bi-directional communication
+const WebViewBridge = require("sf-extension-utils").WebViewBridge;
+
+const wvb = page.wvb = new WebViewBridge({
+    webView: page.webView,
+    source: "assets://index.html"
+});
+
+wvb.once("myEventName", function() { console.log("myEventName fired from WebView"); });
+
+wvb.evaluateJS(`setTimeout(function() { window.boubleEvent("myEventName");})');
+
+wvb.on("messageRecieved", (function(data) {
+     console.log(`
+        Message on webview is from: $ { data.from } and saying: $ { data.value }
+        `);
+ };
+ 
+ wvb.evaluateJS(`
+        // Create WebSocket connection.
+        const socket = new WebSocket('ws://example.com:8080');
+
+        // Connection opened
+        socket.addEventListener('open', function(event) {
+            var message = 'Hello Server!';
+            socket.send(message);
+            window.boubleEvent("messageRecieved", {
+                from: "client",
+                value: message
+            });
+        });
+
+        // Listen for messages
+        socket.addEventListener('message', function(event) {
+            console.log('Message from server ', event.data);
+            window.boubleEvent("messageRecieved", {
+                from: "server",
+                value: event.data
+            });
+        });
+
+        `);
+ 
 ```
 <a name="module_WevViewBridge..webView"></a>
 

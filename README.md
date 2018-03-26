@@ -12,6 +12,8 @@ An extension that has following utility classes for Smartface Native Framework.
 - Timers
 - Orientation
 - ServiceCall
+- ButtonActivity
+- WebViewBridge
 
 ## Installation
 Utility extension can be installed via npm easily from our public npm repository. The installation is pretty easy via Smartface Cloud IDE.
@@ -40,6 +42,7 @@ For each module api documentation is in separate file
 - [orientation](./doc/orientation.md)
 - [ServiceCall](./doc/service-call.md)
 - [ButtonActivity](./doc/button-activity.md)
+- [WebViewBridge](./doc/webviewbridge.md)
 
 ## Need Help?
 
