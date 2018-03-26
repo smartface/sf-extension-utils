@@ -11,10 +11,10 @@ Smartface WevView Bridge for bidirectional communication
         * [new WebViewBridge(options, source, [parseResponses], [bounceEnabled])](#new_module_WevViewBridge..WebViewBridge_new)
     * [~webView](#module_WevViewBridge..webView)
     * [~loadedScriptNames](#module_WevViewBridge..loadedScriptNames)
-    * [~ready](#module_WevViewBridge..ready)
     * [~source](#module_WevViewBridge..source)
     * [~parseResponses](#module_WevViewBridge..parseResponses)
-    * [~loadScripts()](#module_WevViewBridge..loadScripts)
+    * [~ready()](#module_WevViewBridge..ready) ⇒ <code>Promise</code>
+    * [~loadScripts()](#module_WevViewBridge..loadScripts) ⇒ <code>Promise</code>
     * [~refresh()](#module_WevViewBridge..refresh)
     * [~evaluateJS()](#module_WevViewBridge..evaluateJS)
 
@@ -41,7 +41,7 @@ The inserted code is also setting the window.onload event of the WebPage
 | --- | --- | --- | --- |
 | options | <code>object</code> |  | base options object |
 | [options.webView] | <code>UI.WebView</code> | <code>new WebView()</code> | If not provided, it creates a new empty WebView instance. onChangedURL and onShow events of the WebView are set |
-| [options.scheme] | <code>string</code> | <code>&quot;&#x27;msg&#x27;&quot;</code> | URI scheme in wevView to communicate with webview |
+| [options.scheme] | <code>string</code> | <code>&quot;msg&quot;</code> | URI scheme in wevView to communicate with webview |
 | source | <code>string</code> \| <code>IO.File</code> |  | source to inject bridge code |
 | [parseResponses] | <code>boolean</code> | <code>false</code> | when false, the WebView.evaluateJS runs faster without parsing the executed JS code response |
 | [bounceEnabled] | <code>boolean</code> | <code>false</code> | when false bounce effect of the WebView is disabled |
@@ -219,20 +219,6 @@ list of loaded script names
 | --- |
 | <code>Array.&lt;string&gt;</code> | 
 
-<a name="module_WevViewBridge..ready"></a>
-
-### WevViewBridge~ready
-Promise for WebView is ready for execution
-
-**Kind**: inner property of [<code>WevViewBridge</code>](#module_WevViewBridge)  
-**Access**: public  
-**Read only**: true  
-**Properties**
-
-| Type |
-| --- |
-| <code>Promise</code> | 
-
 <a name="module_WevViewBridge..source"></a>
 
 ### WevViewBridge~source
@@ -261,12 +247,22 @@ Gets or Sets WebView.evalueJS to parse the responses. False value makes the exec
 | --- |
 | <code>boolean</code> | 
 
-<a name="module_WevViewBridge..loadScripts"></a>
+<a name="module_WevViewBridge..ready"></a>
 
-### WevViewBridge~loadScripts()
-Loads script files into WebView. Files loaded relative to the source.
+### WevViewBridge~ready() ⇒ <code>Promise</code>
+Promise for WebView is ready for execution
 
 **Kind**: inner method of [<code>WevViewBridge</code>](#module_WevViewBridge)  
+**Returns**: <code>Promise</code> - - for checking readyness of the web page  
+**Access**: public  
+**Read only**: true  
+<a name="module_WevViewBridge..loadScripts"></a>
+
+### WevViewBridge~loadScripts() ⇒ <code>Promise</code>
+Loads script files into WebView. Files loaded relative to the source. This call waits the ready call and executed after.
+
+**Kind**: inner method of [<code>WevViewBridge</code>](#module_WevViewBridge)  
+**Returns**: <code>Promise</code> - - Execution status of the Scripts can be checked by the first argument of the promise  
 **Access**: public  
 **Read only**: true  
 
@@ -274,6 +270,14 @@ Loads script files into WebView. Files loaded relative to the source.
 | --- | --- |
 | <code>string</code> \| <code>Array.&lt;string&gt;</code> | List of script names. |
 
+**Example**  
+```js
+//Assume script1.js is to be failed, script2.js to be succeed
+wvb.loadScripts("script1.js", "script2.js").then((loadedScripts) => {
+    console.log("is script1 loaded? " + loadedScripts["script1.js"]); //false
+    console.log("is script2 loaded? " + loadedScripts["script2.js"]); //true
+});
+```
 <a name="module_WevViewBridge..refresh"></a>
 
 ### WevViewBridge~refresh()
