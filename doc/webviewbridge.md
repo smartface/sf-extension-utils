@@ -34,7 +34,7 @@ Smartface WevView Bridge for bidirectional communication
 WebViewBridge is used for bi-directional communication with WebView. Events from WebView are captured with [EventEmiter](https://www.npmjs.com/package/wolfy87-eventemitter)<br />
 This bridge creates window.**boubleEvent** function inside WebPage of the WebView<br />
 boubleEvent - Has two arguments: **eventName** (required), **data** (optional)<br />
-Data is JSON.stringify'ied transfered to Smartface over URI with the designated URI scheme (msg is default)<br />
+Data is JSON.stringify'ied transfered to Smartface over URI with the designated URI scheme (msg is default). data of the event is object parsed form of the stringified data from WebView<br />
 It is possible to load additional scripts with **loadScripts** method of the WebViewBridge<br />
 Use WebViewBridge.**on** or WebViewBridge.**once** methods to capture the calls of window.boubleEvent calls from WebPage with given eventName<br />
 Following eventNames are reserved for WebViewBridge internal usage: "addScript", "scriptLoaded", "window.onload"
