@@ -41,7 +41,7 @@ The inserted code is also setting the window.onload event of the WebPage
 | --- | --- | --- | --- |
 | options | <code>object</code> |  | base options object |
 | [options.webView] | <code>UI.WebView</code> | <code>new WebView()</code> | If not provided, it creates a new empty WebView instance. onChangedURL and onShow events of the WebView are set |
-| [options.scheme] | <code>string</code> | <code>&quot;\&quot;msg\&quot;&quot;</code> | URI scheme in wevView to communicate with webview |
+| [options.scheme] | <code>string</code> | <code>&quot;&#x27;msg&#x27;&quot;</code> | URI scheme in wevView to communicate with webview |
 | source | <code>string</code> \| <code>IO.File</code> |  | source to inject bridge code |
 | [parseResponses] | <code>boolean</code> | <code>false</code> | when false, the WebView.evaluateJS runs faster without parsing the executed JS code response |
 | [bounceEnabled] | <code>boolean</code> | <code>false</code> | when false bounce effect of the WebView is disabled |
