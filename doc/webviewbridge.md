@@ -13,6 +13,8 @@ Smartface WevView Bridge for bidirectional communication
     * [~loadedScriptNames](#module_WevViewBridge..loadedScriptNames)
     * [~source](#module_WevViewBridge..source)
     * [~parseResponses](#module_WevViewBridge..parseResponses)
+    * [~delay](#module_WevViewBridge..delay)
+    * [~lastURL](#module_WevViewBridge..lastURL)
     * [~ready()](#module_WevViewBridge..ready) ⇒ <code>Promise</code>
     * [~loadScripts()](#module_WevViewBridge..loadScripts) ⇒ <code>Promise</code>
     * [~refresh()](#module_WevViewBridge..refresh)
@@ -246,6 +248,35 @@ Gets or Sets WebView.evalueJS to parse the responses. False value makes the exec
 | Type |
 | --- |
 | <code>boolean</code> | 
+
+<a name="module_WevViewBridge..delay"></a>
+
+### WevViewBridge~delay
+Gets or sets the delay (ms) between page being ready and code injection
+
+**Kind**: inner property of [<code>WevViewBridge</code>](#module_WevViewBridge)  
+**Default**: <code>0</code>  
+**Access**: public  
+**Properties**
+
+| Type |
+| --- |
+| <code>number</code> | 
+
+<a name="module_WevViewBridge..lastURL"></a>
+
+### WevViewBridge~lastURL
+Gets the last url shown in WebView
+
+**Kind**: inner property of [<code>WevViewBridge</code>](#module_WevViewBridge)  
+**Default**: <code>&quot;&quot;</code>  
+**Access**: public  
+**Read only**: true  
+**Properties**
+
+| Type |
+| --- |
+| <code>string</code> | 
 
 <a name="module_WevViewBridge..ready"></a>
 
