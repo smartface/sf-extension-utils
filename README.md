@@ -14,6 +14,8 @@ An extension that has following utility classes for Smartface Native Framework.
 - ServiceCall
 - ButtonActivity
 - WebViewBridge
+- Touch
+- Color
 
 ## Installation
 Utility extension can be installed via npm easily from our public npm repository. The installation is pretty easy via Smartface Cloud IDE.
@@ -43,6 +45,8 @@ For each module api documentation is in separate file
 - [ServiceCall](./doc/service-call.md)
 - [ButtonActivity](./doc/button-activity.md)
 - [WebViewBridge](./doc/webviewbridge.md)
+- [Touch](./doc/touch.md)
+- [Color](./doc/color.md)
 
 ## Need Help?
 
