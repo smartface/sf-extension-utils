@@ -18,7 +18,7 @@ Smartface Color Util module
 Returns 6 digit hexadecimal string from Color object. Does not start with # character
 
 **Kind**: static method of [<code>color</code>](#module_color)  
-**Returns**: <code>string</code> - - Hexadecimal RGB representation of the color  
+**Returns**: <code>string</code> - Hexadecimal RGB representation of the color  
 **Access**: public  
 **Params**: <code>UI.Color</code> color - Smartface Color Object, without gradient  
 <a name="module_color.rgba"></a>
@@ -27,7 +27,7 @@ Returns 6 digit hexadecimal string from Color object. Does not start with # char
 Returns 8 digit hexadecimal string from Color object. Does not start with # character
 
 **Kind**: static method of [<code>color</code>](#module_color)  
-**Returns**: <code>string</code> - - Hexadecimal RGBA representation of the color  
+**Returns**: <code>string</code> - Hexadecimal RGBA representation of the color  
 **Access**: public  
 **Params**: <code>UI.Color</code> color - Smartface Color Object, without gradient  
 <a name="module_color.argb"></a>
@@ -36,7 +36,7 @@ Returns 8 digit hexadecimal string from Color object. Does not start with # char
 Returns 8 digit hexadecimal string from Color object. Does not start with # character
 
 **Kind**: static method of [<code>color</code>](#module_color)  
-**Returns**: <code>string</code> - - Hexadecimal ARGB representation of the color  
+**Returns**: <code>string</code> - Hexadecimal ARGB representation of the color  
 **Access**: public  
 **Params**: <code>UI.Color</code> color - Smartface Color Object, without gradient  
 <a name="module_color.tinycolor"></a>
