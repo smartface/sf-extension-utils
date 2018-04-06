@@ -10,7 +10,7 @@ Smartface Color Util module
     * [.rgb()](#module_color.rgb) ⇒ <code>string</code>
     * [.rgba()](#module_color.rgba) ⇒ <code>string</code>
     * [.argb()](#module_color.argb) ⇒ <code>string</code>
-    * [.tinycolor()](#module_color.tinycolor)
+    * [.tinycolor()](#module_color.tinycolor) ⇒ <code>tinycolor</code>
 
 <a name="module_color.rgb"></a>
 
@@ -41,11 +41,10 @@ Returns 8 digit hexadecimal string from Color object. Does not start with # char
 **Params**: <code>UI.Color</code> color - Smartface Color Object, without gradient  
 <a name="module_color.tinycolor"></a>
 
-### color.tinycolor()
+### color.tinycolor() ⇒ <code>tinycolor</code>
 Creates a tinycolor object from UI.Color
 
 **Kind**: static method of [<code>color</code>](#module_color)  
 **Access**: public  
 **Params**: <code>UI.Color</code> color - Smartface Color Object, without gradient  
-**Params**: <code>tinycolor</code>  
 **See**: [TinyColor](https://github.com/bgrins/TinyColor)  
