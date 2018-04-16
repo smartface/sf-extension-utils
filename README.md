@@ -3,19 +3,20 @@
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/smartface/sf-extension-utils/master/LICENSE)
 
 An extension that has following utility classes for Smartface Native Framework.
-- RAU (Remote App Update)
-- Fingerprint & Touch ID
-- Alert
-- SpeechToText
-- Permission
-- Location
-- Timers
-- Orientation
-- ServiceCall
-- ButtonActivity
-- WebViewBridge
-- Touch
-- Color
+- RAU (easy use for Remote App Update)
+- Fingerprint & Touch ID (easy & best practice use for Fingerprint)
+- Alert (fixes global alert)
+- SpeechToText (setups timers for speech recognition)
+- Permission (gets permissions with ease using a simple callback)
+- Location (gets location with callback, no need to worry for the permission code)
+- Timers (fixes thread issue of setTimeout & setInterval)
+- Orientation (solves problems of managing different behaviour of Oritentation of iOS & Android)
+- ServiceCall (service call library for common JSON requests)
+- ButtonActivity (setting an activity indicator with correct elevation on top of a button)
+- WebViewBridge (bi directional communication)
+- Touch (addPress event to any target object)
+- Color (converts Smartface color to TinyColor for color manipulations)
+- TextBox (max text length)
 
 ## Installation
 Utility extension can be installed via npm easily from our public npm repository. The installation is pretty easy via Smartface Cloud IDE.
@@ -47,6 +48,7 @@ For each module api documentation is in separate file
 - [WebViewBridge](./doc/webviewbridge.md)
 - [Touch](./doc/touch.md)
 - [Color](./doc/color.md)
+- [TextBox](./doc/textbox.md)
 
 ## Need Help?
 
