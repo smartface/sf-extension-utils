@@ -16,4 +16,5 @@ parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
     jsdoc2md -f ../lib//webviewbridge.js > webviewbridge.md
     jsdoc2md -f ../lib//touch.js > touch.md
     jsdoc2md -f ../lib//color.js > color.md
+    jsdoc2md -f ../lib//textbox.js > textbox.md
 )
