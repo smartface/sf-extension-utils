@@ -15,7 +15,7 @@
     "email": "info@smartface.io",
     "url": "http://smartface.io"
   },
-  "license": "ISC",
+  "license": "MIT",
   "homepage": "https://github.com/smartface/sf-extension-utils#readme",
   "maintainers": [
     {
