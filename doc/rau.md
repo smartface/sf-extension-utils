@@ -13,6 +13,7 @@ if silent parameter not given. This function will handle permission operations i
 
 **Kind**: static method of [<code>rau</code>](#module_rau)  
 **Access**: public  
+**Params**: <code>string</code> [options.user] information to be logged in RAU server for analytics  
 **See**: [Remote App Update Guide](https://developer.smartface.io/docs/remote-app-update)  
 
 | Param | Type | Default | Description |
