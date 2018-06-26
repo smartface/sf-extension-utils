@@ -13,8 +13,6 @@ if silent parameter not given. This function will handle permission operations i
 
 **Kind**: static method of [<code>rau</code>](#module_rau)  
 **Access**: public  
-**Params**: <code>string</code> [options.user] information to be logged in RAU server for analytics  
-**Params**: <code>function</code> [options.onBeforeRestart] callback event to fire just before restarting. After the syncrous call, app automatically restarts.  
 **See**: [Remote App Update Guide](https://developer.smartface.io/docs/remote-app-update)  
 
 | Param | Type | Default | Description |
@@ -24,6 +22,8 @@ if silent parameter not given. This function will handle permission operations i
 | [options.showProgressErrorAlert] | <code>boolean</code> | <code>false</code> | Show error dialog when error accurs. |
 | [options.silent] | <code>boolean</code> | <code>false</code> | Update and restart without interacting with user. |
 | [options.url] | <code>string</code> |  | to open for incompatible updates (optional) |
+| [options.user] | <code>string</code> |  | information to be logged in RAU server for analytics |
+| [options.onBeforeRestart] | <code>function</code> |  | callback event to fire just before restarting. After the syncrous call, app automatically restarts. |
 
 **Example**  
 ```js
