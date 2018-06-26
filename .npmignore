@@ -5,5 +5,5 @@ README.md
 .npmignore
 npm-debug.log
 samples
-doc/createdoc.sh
+createdoc.sh
 .c9

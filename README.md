@@ -34,21 +34,7 @@ For timers and alert there is no accessor, there making global modifications.
 - ```require("sf-extension-utils").location```
 
 ### API
-For each module api documentation is in separate file
-- [alert](./doc/alert.md)
-- [timers](./doc/timers.md)
-- [permission](./doc/permission.md)
-- [speechToText](./doc/speech_to_text.md)
-- [rau](./doc/rau.md)
-- [location](./doc/location.md)
-- [fingerprint](./doc/fingerprint.md)
-- [orientation](./doc/orientation.md)
-- [ServiceCall](./doc/service-call.md)
-- [ButtonActivity](./doc/button-activity.md)
-- [WebViewBridge](./doc/webviewbridge.md)
-- [Touch](./doc/touch.md)
-- [Color](./doc/color.md)
-- [TextBox](./doc/textbox.md)
+For each module api documentation is in separate file. Please visit [doc](./doc) folder
 
 ## Need Help?
 
