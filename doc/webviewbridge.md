@@ -19,6 +19,7 @@ Smartface WevView Bridge for bidirectional communication
     * [~loadScripts()](#module_WevViewBridge..loadScripts) ⇒ <code>Promise</code>
     * [~refresh()](#module_WevViewBridge..refresh)
     * [~evaluateJS()](#module_WevViewBridge..evaluateJS)
+    * [~customNavigate(options)](#module_WevViewBridge..customNavigate)
 
 <a name="module_WevViewBridge..WebViewBridge"></a>
 
@@ -325,3 +326,19 @@ Calls a specific version of evaluateJS for faster execution if parseResponses is
 **Kind**: inner method of [<code>WevViewBridge</code>](#module_WevViewBridge)  
 **Access**: public  
 **Read only**: true  
+<a name="module_WevViewBridge..customNavigate"></a>
+
+### WevViewBridge~customNavigate(options)
+customNavigate is similar to webview.loadURL, with the options of setting cookie and custom user agent
+
+**Kind**: inner method of [<code>WevViewBridge</code>](#module_WevViewBridge)  
+**Access**: public  
+**Read only**: true  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| options | <code>object</code> | is used to pass all options in single parameter |
+| options.url | <code>string</code> | Remote url to open |
+| [options.cookie] | <code>string</code> | Full browser cookie to set |
+| [options.userAgent] | <code>string</code> | Custom user agent to set |
+
