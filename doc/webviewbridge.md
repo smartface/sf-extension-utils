@@ -8,7 +8,7 @@ Smartface WevView Bridge for bidirectional communication
 
 * [WevViewBridge](#module_WevViewBridge) : <code>function</code>
     * [~WebViewBridge](#module_WevViewBridge..WebViewBridge) ⇐ <code>EventEmitter</code>
-        * [new WebViewBridge(options, source, [parseResponses], [bounceEnabled])](#new_module_WevViewBridge..WebViewBridge_new)
+        * [new WebViewBridge(options, [parseResponses], [bounceEnabled])](#new_module_WevViewBridge..WebViewBridge_new)
     * [~webView](#module_WevViewBridge..webView)
     * [~loadedScriptNames](#module_WevViewBridge..loadedScriptNames)
     * [~source](#module_WevViewBridge..source)
@@ -29,7 +29,7 @@ Smartface WevView Bridge for bidirectional communication
 **Access**: public  
 <a name="new_module_WevViewBridge..WebViewBridge_new"></a>
 
-#### new WebViewBridge(options, source, [parseResponses], [bounceEnabled])
+#### new WebViewBridge(options, [parseResponses], [bounceEnabled])
 WebViewBridge is used for bi-directional communication with WebView. Events from WebView are captured with [EventEmiter](https://www.npmjs.com/package/wolfy87-eventemitter)<br />
 This bridge creates window.**boubleEvent** function inside WebPage of the WebView<br />
 boubleEvent - Has two arguments: **eventName** (required), **data** (optional)<br />
@@ -45,7 +45,7 @@ The inserted code is also setting the window.onload event of the WebPage
 | options | <code>object</code> |  | base options object |
 | [options.webView] | <code>UI.WebView</code> | <code>new WebView()</code> | If not provided, it creates a new empty WebView instance. onChangedURL and onShow events of the WebView are set. Those event can be captured via .on("show", fn...) .on("changedURL", fn...) |
 | [options.scheme] | <code>string</code> | <code>&quot;msg&quot;</code> | URI scheme in wevView to communicate with webview |
-| source | <code>string</code> \| <code>IO.File</code> |  | source to inject bridge code |
+| [options.source] | <code>string</code> \| <code>IO.File</code> |  | source to inject bridge code |
 | [parseResponses] | <code>boolean</code> | <code>false</code> | when false, the WebView.evaluateJS runs faster without parsing the executed JS code response |
 | [bounceEnabled] | <code>boolean</code> | <code>false</code> | when false bounce effect of the WebView is disabled |
 
@@ -342,3 +342,11 @@ customNavigate is similar to webview.loadURL, with the options of setting cookie
 | [options.cookie] | <code>string</code> | Full browser cookie to set |
 | [options.userAgent] | <code>string</code> | Custom user agent to set |
 
+**Example**  
+```js
+wvb.customNavigate({
+  url: "http://example.com",
+  userAgent: "smartface",
+  cookie: "yummy_cookie=choco; tasty_cookie=strawberry;"
+});
+```
