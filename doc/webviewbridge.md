@@ -39,6 +39,9 @@ Use WebViewBridge.**on** or WebViewBridge.**once** methods to capture the calls 
 Following eventNames are reserved for WebViewBridge internal usage: "addScript", "scriptLoaded", "window.onload"
 The inserted code is also setting the window.onload event of the WebPage
 
+For using the EventEmitter pattern, the default events of the WebView are given without the "on" prefix, starting with lowercase. Such as onChangedURL becomes "changedURL".
+For the onChangedURL event on Smartface can have a return value that specifies to continue with navigation or not. This is achieved with setting the "continue" property of the eventArgument.
+
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |

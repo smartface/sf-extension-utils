@@ -1,10 +1,10 @@
 {
   "name": "sf-extension-utils",
-  "version": "3.12.1",
+  "version": "3.12.2",
   "description": "Utils Extension for Smartface Native Framework",
   "main": "lib/index.js",
   "scripts": {
-    "docs": ". ./createdoc.sh"
+    "docs": "bash ./createdoc.sh"
   },
   "keywords": [
     "smartface",
