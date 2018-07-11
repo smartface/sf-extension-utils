@@ -11,6 +11,7 @@ Smartface Fingerprint for login module
         * [.useFingerprintLogin](#module_fingerprint.useFingerprintLogin)
         * [.fingerprint:init(options)](#module_fingerprint.fingerprint_init)
         * [.fingerprint:loginWithFingerprint()](#module_fingerprint.fingerprint_loginWithFingerprint)
+        * [.fingerprint:updateCredentials([username], [password])](#module_fingerprint.fingerprint_updateCredentials)
     * _inner_
         * [~fingerprint:CryptopgyFunction](#module_fingerprint..fingerprint_CryptopgyFunction) ⇒ <code>string</code>
         * [~fingerprint:loginWithFingerprintCallback](#module_fingerprint..fingerprint_loginWithFingerprintCallback) : <code>function</code>
@@ -117,7 +118,7 @@ function loginWithUserNameAndPassword(username, password, callback) {
 <a name="module_fingerprint.fingerprint_loginWithFingerprint"></a>
 
 ### fingerprint.fingerprint:loginWithFingerprint()
-Triggers fingerprint logon
+Triggers fingerprint logon, causes calling of the callback in the init method
 
 **Kind**: static method of [<code>fingerprint</code>](#module_fingerprint)  
 **Access**: public  
@@ -135,6 +136,33 @@ const btnLogin = new Button({
         fingerprint.loginWithFingerprint();
     }
 });
+```
+<a name="module_fingerprint.fingerprint_updateCredentials"></a>
+
+### fingerprint.fingerprint:updateCredentials([username], [password])
+Updates stored credentials for fingerprint database
+
+**Kind**: static method of [<code>fingerprint</code>](#module_fingerprint)  
+**Access**: public  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| [username] | <code>string</code> | User name to store |
+| [password] | <code>string</code> | Password to store |
+
+**Example**  
+```js
+const fingerprint = require("sf-extension-utils").fingerprint;
+
+//updates both username and password
+fingerprint.updateCredentials("newUsername", "newPassword");
+
+//updates password only
+fingerprint.updateCredentials(null, "newPassword");
+
+//updates username only
+fingerprint.updateCredentials("newUsername");
+fingerprint.updateCredentials("newUsername", null);
 ```
 <a name="module_fingerprint..fingerprint_CryptopgyFunction"></a>
 
