@@ -15,7 +15,7 @@ Smartface Location module
 <a name="module_location.location_getLocation"></a>
 
 ### location.location:getLocation(callback)
-Gets location latitude and logitude. For android it handles permissions by its self
+Gets location latitude and logitude. For android it handles permissions by itself
 
 **Kind**: static method of [<code>location</code>](#module_location)  
 **Access**: public  
