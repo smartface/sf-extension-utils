@@ -27,7 +27,7 @@ Gets location latitude and logitude. For android it handles permissions by its s
 
 **Example**  
 ```js
-const location = require("sf-extension-utils").location;
+const location = require("sf-extension-utils/location");
 location.getLocation(function(err, location) {
    if (err) return;
    requestOptions = {

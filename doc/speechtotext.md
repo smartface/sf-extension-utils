@@ -48,7 +48,7 @@ For android, methods checks permissions automatically.
 
 **Example**  
 ```js
-const speechToText = require("sf-extension-utils").speechToText;
+const speechToText = require("sf-extension-utils/speechtotext");
 speechToText.startType(myTextBoxInput,4000);
 ```
 <a name="module_speechToText.stop"></a>

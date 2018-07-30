@@ -27,7 +27,7 @@ Permission request numbers starts from 2000 and incremented on each requestPermi
 
 **Example**  
 ```js
-const permission = require("sf-extension-utils").permission
+const permission = require("sf-extension-utils/permission")
 const Application = require("sf-core/application");
 permission.getPermission(Application.android.Permissions.ACCESS_FINE_LOCATION,
  function(err) {

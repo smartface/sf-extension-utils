@@ -3,8 +3,16 @@
 ## color : <code>object</code>
 Smartface Color Util module
 
+**See**: [tinycolor2](https://www.npmjs.com/package/tinycolor2)  
 **Author**: Alper Ozisik <alper.ozisik@smartface.io>  
 **Copyright**: Smartface 2018  
+**Example**  
+```js
+const Color = require('sf-core/ui/color');
+const colorUtil = require('sf-core/ui/color');
+colorUtil.rgb(Color.RED); //#ff0000
+colorUtil.rgb(Color.BLUE).tinycolor.darken().toHexString(); //'#0000cc'
+```
 
 * [color](#module_color) : <code>object</code>
     * [.rgb()](#module_color.rgb) ⇒ <code>string</code>

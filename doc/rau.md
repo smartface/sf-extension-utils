@@ -28,7 +28,7 @@ if silent parameter not given. This function will handle permission operations i
 **Example**  
 ```js
 const System = require("sf-core/device/system");
-const rau = require("sf-extension-utils").rau;
+const rau = require("sf-extension-utils/rau");
 rau.checkUpdate({
  showProgressCheck: true,
  showProgressErrorAlert: true,
