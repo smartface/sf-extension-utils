@@ -19,7 +19,7 @@ option to set the onTextChanged event. It is possible to target TextArea too.
 **Params**: <code>function</code> [onTextChange] - User defined onTextChanged event for the TextBox  
 **Example**  
 ```js
-const textBoxUtil = require("sf-extension-utils/textbox");
+const textBoxUtil = require("sf-extension-utils/lib/textbox");
 //inside page.onLoad
 const page = this;
 const tb = page.textBox1;

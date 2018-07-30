@@ -21,7 +21,7 @@ This replaces existing touch events
 **Params**: <code>function</code> [options.endTouchEffect] - Function called when press effect ends; it is used to revert the effects in startTouchEffect. It should be used together with startTouchEffect. If not provided default effect reversing will be applied  
 **Example**  
 ```js
-const touch = require("sf-extension-utils/touch");
+const touch = require("sf-extension-utils/lib/touch");
 //inside page.onLoad
 const page = this;
 touch.addPressEvent(page.flBtn, () => {

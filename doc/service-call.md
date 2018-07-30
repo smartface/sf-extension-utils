@@ -54,7 +54,7 @@ Creates a ServiceCall helper class with common configuration to be used across m
 **Example**  
 ```js
 //shared service-call.js file
-const ServiceCall = require("sf-extension-utils/service-call");
+const ServiceCall = require("sf-extension-utils/lib/service-call");
 const sc = new ServiceCall({
     baseUrl: "http://api.myBaseUrl.com",
     logEnabled: true,

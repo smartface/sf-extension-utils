@@ -32,7 +32,7 @@ Gets or sets the login with fingerprint preference
 **Example**  
 ```js
 const Switch = require('sf-core/ui/switch');
-const fingerprint = require("sf-extension-utils/fingerprint");
+const fingerprint = require("sf-extension-utils/lib/fingerprint");
 var swLoginWithFingerprint = new Switch({ //switch in app settings
  toggle: fingerprint.useFingerprintLogin //set the initial value
 });
@@ -68,7 +68,7 @@ Configures fingerprint login. Call this during page show. It is recommended to c
 **Example**  
 ```js
 const TextBox = require('sf-core/ui/textbox');
-const fingerprint = require("sf-extension-utils/fingerprint");
+const fingerprint = require("sf-extension-utils/lib/fingerprint");
 const tbUsername = new TextBox();
 const tbPassword = new TextBox({ isPassword: true });
 const Http = require("sf-core/net/http");
@@ -127,7 +127,7 @@ Triggers fingerprint logon, causes calling of the callback in the init method
 const Button = require('sf-core/ui/button');
 const Router = require('sf-core/router');
 const Http = require("sf-core/net/http");
-const fingerprint = require("sf-extension-utils/fingerprint");
+const fingerprint = require("sf-extension-utils/lib/fingerprint");
 const btnLogin = new Button({
     onPress: function() {
         if (!tbUsername.text) {
@@ -152,7 +152,7 @@ Updates stored credentials for fingerprint database
 
 **Example**  
 ```js
-const fingerprint = require("sf-extension-utils/fingerprint");
+const fingerprint = require("sf-extension-utils/lib/fingerprint");
 
 //updates both username and password
 fingerprint.updateCredentials("newUsername", "newPassword");

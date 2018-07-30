@@ -17,7 +17,7 @@ Creates a deep high-performing copy of a variable
 **Params**: <code>\*</code> [destination]  
 **Example**  
 ```js
-const copy = require("sf-extension-utils/copy");
+const copy = require("sf-extension-utils/lib/copy");
 var src = {nested: {x: 4}}; //deep nested object
 var cpy = copy(src);
 
@@ -26,7 +26,7 @@ console.log(src.nested === cpy.nested); //false
 ```
 **Example**  
 ```js
-const copy = require("sf-extension-utils/copy");
+const copy = require("sf-extension-utils/lib/copy");
 var src = {nested: {x: 4}}; //deep nested object
 var cpy;
 //targeting

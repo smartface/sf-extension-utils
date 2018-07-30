@@ -55,7 +55,7 @@ For the onChangedURL event on Smartface can have a return value that specifies t
 **Example**  
 ```js
 //Bridge Creation with AM-Charts
-const WebViewBridge = require("sf-extension-utils/webviewbridge");
+const WebViewBridge = require("sf-extension-utils/lib/webviewbridge");
 
 page.webView.visible = false;
 page.aiWait.visible = true;
@@ -154,7 +154,7 @@ AmCharts.makeChart("chartdiv", {
 **Example**  
 ```js
 //bi-directional communication
-const WebViewBridge = require("sf-extension-utils/webviewbridge");
+const WebViewBridge = require("sf-extension-utils/lib/webviewbridge");
 
 const wvb = page.wvb = new WebViewBridge({
     webView: page.webView,
