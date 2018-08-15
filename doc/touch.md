@@ -5,6 +5,12 @@ Smartface touch effects module
 
 **Author**: Alper Ozisik <alper.ozisik@smartface.io>  
 **Copyright**: Smartface 2018  
+
+* [touch](#module_touch) : <code>object</code>
+    * [.addPressEvent()](#module_touch.addPressEvent)
+    * [.defaultAddPressEffect()](#module_touch.defaultAddPressEffect)
+    * [.defaultClearPressEffect()](#module_touch.defaultClearPressEffect)
+
 <a name="module_touch.addPressEvent"></a>
 
 ### touch.addPressEvent()
@@ -27,4 +33,44 @@ const page = this;
 touch.addPressEvent(page.flBtn, () => {
     alert("Pressed");
 });
+```
+<a name="module_touch.defaultAddPressEffect"></a>
+
+### touch.defaultAddPressEffect()
+Default press effect function. Takes `this` as target. Darkens color for iOS, adds elevation for Android
+
+**Kind**: static method of [<code>touch</code>](#module_touch)  
+**Access**: public  
+**Example**  
+```js
+const touch = require("sf-extension-utils/lib/touch");
+const System = require('sf-core/device/system');
+//inside page.onLoad
+const page = this;
+touch.addPressEvent(page.flBtn, () => {
+    alert("Pressed");
+}, {
+     startTouchEffect: System.OS === "iOS"? function addCustomIOSEffect(){ }: touch.defaultAddPressEffect,
+     endTouchEffect: System.OS === "iOS"? function removeCustomIOSEffect(){ }: touch.defaultClearPressEffect,
+ });
+```
+<a name="module_touch.defaultClearPressEffect"></a>
+
+### touch.defaultClearPressEffect()
+Default remove press effect function. Takes `this` as target. Restores the color for iOS, resets elevation for Android
+
+**Kind**: static method of [<code>touch</code>](#module_touch)  
+**Access**: public  
+**Example**  
+```js
+const touch = require("sf-extension-utils/lib/touch");
+const System = require('sf-core/device/system');
+//inside page.onLoad
+const page = this;
+touch.addPressEvent(page.flBtn, () => {
+    alert("Pressed");
+}, {
+     startTouchEffect: System.OS === "iOS"? function addCustomIOSEffect(){ }: touch.defaultAddPressEffect,
+     endTouchEffect: System.OS === "iOS"? function removeCustomIOSEffect(){ }: touch.defaultClearPressEffect,
+ });
 ```
