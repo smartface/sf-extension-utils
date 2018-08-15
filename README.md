@@ -29,7 +29,7 @@ Run the following code in terminal
 In `app.js` make sure that `require("sf-extension-utils")` is set. This is fixing `alert`, `setTimeout`, `setInterval`, `clearTimeout` and `clearInterval` methods. Some of the other util modules might depend on it!
 ### 2. Require util modules
 Later in any file, require it with the path: `require("sf-extension-utils/lib/<moduleName>")` Such as:
-- `require("sf-extension-utils/lib/rau").rau`
+- `require("sf-extension-utils/lib/rau")`
 - `require("sf-extension-utils/lib/permission")`
 - `require("sf-extension-utils/lib/fingerprint")`
 - `require("sf-extension-utils/lib/speechtotext")`
