@@ -30,8 +30,8 @@ In `app.js` make sure that `require("sf-extension-utils")` is set. This is fixin
 ### 2. Require util modules
 Later in any file, require it with the path: `require("sf-extension-utils/lib/<moduleName>")` Such as:
 - `require("sf-extension-utils/lib/rau").rau`
-- `require("sf-extension-utils/lib/permission").permission`
-- `require("sf-extension-utils/lib/fingerprint").fingerprint`
+- `require("sf-extension-utils/lib/permission")`
+- `require("sf-extension-utils/lib/fingerprint")`
 - `require("sf-extension-utils/lib/speechtotext")`
 - `require("sf-extension-utils/lib/location")`
 
