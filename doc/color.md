@@ -9,7 +9,7 @@ Smartface Color Util module
 **Example**  
 ```js
 const Color = require('sf-core/ui/color');
-const colorUtil = require('sf-core/ui/color');
+const colorUtil = require("sf-extension-utils/lib/color");
 colorUtil.rgb(Color.RED); //#ff0000
 colorUtil.rgb(Color.BLUE).tinycolor.darken().toHexString(); //'#0000cc'
 ```
