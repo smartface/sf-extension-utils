@@ -13,7 +13,7 @@ Button & ActivityIndicator helper module
 
 <a name="module_async..createAsyncGetter"></a>
 
-### async~createAsyncGetter(task, [options]) ⇒ <code>async~getter</code>
+### async~createAsyncGetter(task, [options]) ⇒ <code>[async~getter](#asyncgetter--promise)</code>
 Returns a getter function, which returns the promise of the asyc task.
 
 **Kind**: inner method of [<code>async</code>](#module_async)  
