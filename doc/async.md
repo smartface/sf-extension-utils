@@ -1,23 +1,23 @@
 <a name="module_async"></a>
 
-## async : <code>function</code>
+## async : <code>object</code>
 Button & ActivityIndicator helper module
 
 **Author**: Alper Ozisik <alper.ozisik@smartface.io>  
 **Copyright**: Smartface 2018  
 
-* [async](#module_async) : <code>function</code>
-    * [~createAsyncGetter(task, [options])](#module_async..createAsyncGetter) ⇒ <code>getter</code>
+* [async](#module_async) : <code>object</code>
+    * [~createAsyncGetter(task, [options])](#module_async..createAsyncGetter) ⇒ <code>async~getter</code>
     * [~getter()](#module_async..getter) ⇒ <code>Promise</code>
     * [~createAsyncTask(task, [options])](#module_async..createAsyncTask) ⇒ <code>Promise</code>
 
 <a name="module_async..createAsyncGetter"></a>
 
-### async~createAsyncGetter(task, [options]) ⇒ <code>getter</code>
+### async~createAsyncGetter(task, [options]) ⇒ <code>async~getter</code>
 Returns a getter function, which returns the promise of the asyc task.
 
 **Kind**: inner method of [<code>async</code>](#module_async)  
-**Returns**: <code>getter</code> - - a function which returns promise  
+**Returns**: <code>async~getter</code> - a function which returns promise  
 **Access**: public  
 
 | Param | Type | Default | Description |
@@ -61,7 +61,7 @@ tbPhone.onTextChanged = function(e) {
 Getter function for createAsyncGetter. Calling the getter will not trigger the async task to run. Puts the requests in que and responds when the task is done. If the task is already resolved, automatically resolves the promise. Any exceptions for the task causes rejection.
 
 **Kind**: inner method of [<code>async</code>](#module_async)  
-**Returns**: <code>Promise</code> - - Promise is resolved when the task is finished  
+**Returns**: <code>Promise</code> - Promise is resolved when the task is finished  
 **Internal**:   
 <a name="module_async..createAsyncTask"></a>
 
@@ -69,7 +69,7 @@ Getter function for createAsyncGetter. Calling the getter will not trigger the a
 Runs the async task and responds a promise
 
 **Kind**: inner method of [<code>async</code>](#module_async)  
-**Returns**: <code>Promise</code> - - when resolved return value of the task is provided  
+**Returns**: <code>Promise</code> - when resolved return value of the task is provided  
 **Access**: public  
 
 | Param | Type | Default | Description |
