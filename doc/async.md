@@ -13,7 +13,7 @@ Button & ActivityIndicator helper module
 
 <a name="module_async..createAsyncGetter"></a>
 
-### async~createAsyncGetter(task, [options]) ⇒ <code>[async~getter](#asyncgetter--promise)</code>
+### async~createAsyncGetter(task, [options]) ⇒ <code>async~getter</code>
 Returns a getter function, which returns the promise of the asyc task.
 
 **Kind**: inner method of [<code>async</code>](#module_async)  
@@ -29,7 +29,7 @@ Returns a getter function, which returns the promise of the asyc task.
 
 **Example**  
 ```js
-const { createAsyncGetter } = require("./async");
+const { createAsyncGetter } = require("sf-extension-utils/lib/async");
 const { OS } = require('sf-core/device/system');
 
 
@@ -81,6 +81,7 @@ Runs the async task and responds a promise
 
 **Example**  
 ```js
+const { createAsyncTask } = require("sf-extension-utils/lib/async");
 const Http = require("sf-core/net/http");
 createAsyncTask(()=> new Http()).then(http => http.request(requestOptions));
 ```
