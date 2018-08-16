@@ -7,17 +7,17 @@ Button & ActivityIndicator helper module
 **Copyright**: Smartface 2018  
 
 * [async](#module_async) : <code>object</code>
-    * [~createAsyncGetter(task, [options])](#module_async..createAsyncGetter) ⇒ <code>async~getter</code>
+    * [~createAsyncGetter(task, [options])](#module_async..createAsyncGetter) ⇒ <code>getter</code>
     * [~getter()](#module_async..getter) ⇒ <code>Promise</code>
     * [~createAsyncTask(task, [options])](#module_async..createAsyncTask) ⇒ <code>Promise</code>
 
 <a name="module_async..createAsyncGetter"></a>
 
-### async~createAsyncGetter(task, [options]) ⇒ <code>async~getter</code>
+### async~createAsyncGetter(task, [options]) ⇒ <code>getter</code>
 Returns a getter function, which returns the promise of the asyc task.
 
 **Kind**: inner method of [<code>async</code>](#module_async)  
-**Returns**: <code>async~getter</code> - a function which returns promise  
+**Returns**: <code>getter</code> - a function which returns promise  
 **Access**: public  
 
 | Param | Type | Default | Description |
