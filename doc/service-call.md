@@ -16,7 +16,7 @@ Smartface Service-Call helper module
             * [.request(endpointPath, options, method)](#module_service-call..ServiceCall+request) ⇒ <code>Promise</code>
         * _static_
             * [.BASE_HEADERS](#module_service-call..ServiceCall.BASE_HEADERS)
-            * [.request(options, method, url)](#module_service-call..ServiceCall.request) ⇒ <code>Promise</code>
+            * [.request(options)](#module_service-call..ServiceCall.request) ⇒ <code>Promise</code>
 
 <a name="module_service-call..ServiceCall"></a>
 
@@ -35,7 +35,7 @@ Helper class for calling JSON based restful services.
         * [.request(endpointPath, options, method)](#module_service-call..ServiceCall+request) ⇒ <code>Promise</code>
     * _static_
         * [.BASE_HEADERS](#module_service-call..ServiceCall.BASE_HEADERS)
-        * [.request(options, method, url)](#module_service-call..ServiceCall.request) ⇒ <code>Promise</code>
+        * [.request(options)](#module_service-call..ServiceCall.request) ⇒ <code>Promise</code>
 
 <a name="new_module_service-call..ServiceCall_new"></a>
 
@@ -230,7 +230,7 @@ Default values of headers
 
 <a name="module_service-call..ServiceCall.request"></a>
 
-#### ServiceCall.request(options, method, url) ⇒ <code>Promise</code>
+#### ServiceCall.request(options) ⇒ <code>Promise</code>
 Performs a service call and returns a promise to handle
 
 **Kind**: static method of [<code>ServiceCall</code>](#module_service-call..ServiceCall)  
@@ -238,8 +238,8 @@ Performs a service call and returns a promise to handle
 | Param | Type | Description |
 | --- | --- | --- |
 | options | <code>object</code> | Request specific options |
-| method | <code>string</code> | HTTP method of this request |
-| url | <code>string</code> | Full Http url |
+| options.method | <code>string</code> | HTTP method of this request |
+| options.url | <code>string</code> | Full Http url |
 | [options.body] | <code>object</code> | Request payload body. This object will be automatically stringified |
 | [options.headers] | <code>object</code> | Full request headers |
 | [options.logEnabled] | <code>boolean</code> | Request specific log option |
