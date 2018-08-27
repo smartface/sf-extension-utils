@@ -1,33 +1,33 @@
-<a name="module_WebViewBridge"></a>
+<a name="module_WevViewBridge"></a>
 
-## WebViewBridge : <code>function</code>
-Smartface WebView Bridge for bidirectional communication
+## WevViewBridge : <code>function</code>
+Smartface WevView Bridge for bidirectional communication
 
 **Author**: Alper Ozisik <alper.ozisik@smartface.io>  
 **Copyright**: Smartface 2018  
 
-* [WebViewBridge](#module_WebViewBridge) : <code>function</code>
-    * [~WebViewBridge](#module_WebViewBridge..WebViewBridge) ⇐ <code>EventEmitter</code>
-        * [new WebViewBridge(options, [parseResponses], [bounceEnabled])](#new_module_WebViewBridge..WebViewBridge_new)
-    * [~webView](#module_WebViewBridge..webView)
-    * [~loadedScriptNames](#module_WebViewBridge..loadedScriptNames)
-    * [~source](#module_WebViewBridge..source)
-    * [~parseResponses](#module_WebViewBridge..parseResponses)
-    * [~delay](#module_WebViewBridge..delay)
-    * [~lastURL](#module_WebViewBridge..lastURL)
-    * [~ready()](#module_WebViewBridge..ready) ⇒ <code>Promise</code>
-    * [~loadScripts()](#module_WebViewBridge..loadScripts) ⇒ <code>Promise</code>
-    * [~refresh()](#module_WebViewBridge..refresh)
-    * [~evaluateJS()](#module_WebViewBridge..evaluateJS)
-    * [~customNavigate(options)](#module_WebViewBridge..customNavigate)
+* [WevViewBridge](#module_WevViewBridge) : <code>function</code>
+    * [~WebViewBridge](#module_WevViewBridge..WebViewBridge) ⇐ <code>EventEmitter</code>
+        * [new WebViewBridge(options, [parseResponses], [bounceEnabled])](#new_module_WevViewBridge..WebViewBridge_new)
+    * [~webView](#module_WevViewBridge..webView)
+    * [~loadedScriptNames](#module_WevViewBridge..loadedScriptNames)
+    * [~source](#module_WevViewBridge..source)
+    * [~parseResponses](#module_WevViewBridge..parseResponses)
+    * [~delay](#module_WevViewBridge..delay)
+    * [~lastURL](#module_WevViewBridge..lastURL)
+    * [~ready()](#module_WevViewBridge..ready) ⇒ <code>Promise</code>
+    * [~loadScripts()](#module_WevViewBridge..loadScripts) ⇒ <code>Promise</code>
+    * [~refresh()](#module_WevViewBridge..refresh)
+    * [~evaluateJS()](#module_WevViewBridge..evaluateJS)
+    * [~customNavigate(options)](#module_WevViewBridge..customNavigate)
 
-<a name="module_WebViewBridge..WebViewBridge"></a>
+<a name="module_WevViewBridge..WebViewBridge"></a>
 
-### WebViewBridge~WebViewBridge ⇐ <code>EventEmitter</code>
-**Kind**: inner class of [<code>WebViewBridge</code>](#module_WebViewBridge)  
+### WevViewBridge~WebViewBridge ⇐ <code>EventEmitter</code>
+**Kind**: inner class of [<code>WevViewBridge</code>](#module_WevViewBridge)  
 **Extends**: <code>EventEmitter</code>  
 **Access**: public  
-<a name="new_module_WebViewBridge..WebViewBridge_new"></a>
+<a name="new_module_WevViewBridge..WebViewBridge_new"></a>
 
 #### new WebViewBridge(options, [parseResponses], [bounceEnabled])
 WebViewBridge is used for bi-directional communication with WebView. Events from WebView are captured with [EventEmiter](https://www.npmjs.com/package/wolfy87-eventemitter)<br />
@@ -47,7 +47,7 @@ For the onChangedURL event on Smartface can have a return value that specifies t
 | --- | --- | --- | --- |
 | options | <code>object</code> |  | base options object |
 | [options.webView] | <code>UI.WebView</code> | <code>new WebView()</code> | If not provided, it creates a new empty WebView instance. onChangedURL and onShow events of the WebView are set. Those event can be captured via .on("show", fn...) .on("changedURL", fn...) |
-| [options.scheme] | <code>string</code> | <code>&quot;msg&quot;</code> | URI scheme in webView to communicate with webview |
+| [options.scheme] | <code>string</code> | <code>&quot;msg&quot;</code> | URI scheme in wevView to communicate with webview |
 | [options.source] | <code>string</code> \| <code>IO.File</code> |  | source to inject bridge code |
 | [parseResponses] | <code>boolean</code> | <code>false</code> | when false, the WebView.evaluateJS runs faster without parsing the executed JS code response |
 | [bounceEnabled] | <code>boolean</code> | <code>false</code> | when false bounce effect of the WebView is disabled |
@@ -197,12 +197,12 @@ wvb.on("messageRecieved", (function(data) {
         `);
  
 ```
-<a name="module_WebViewBridge..webView"></a>
+<a name="module_WevViewBridge..webView"></a>
 
-### WebViewBridge~webView
+### WevViewBridge~webView
 WebView Instace which has been bridged
 
-**Kind**: inner property of [<code>WebViewBridge</code>](#module_WebViewBridge)  
+**Kind**: inner property of [<code>WevViewBridge</code>](#module_WevViewBridge)  
 **Access**: public  
 **Read only**: true  
 **Properties**
@@ -211,12 +211,12 @@ WebView Instace which has been bridged
 | --- |
 | <code>UI.WebView</code> | 
 
-<a name="module_WebViewBridge..loadedScriptNames"></a>
+<a name="module_WevViewBridge..loadedScriptNames"></a>
 
-### WebViewBridge~loadedScriptNames
+### WevViewBridge~loadedScriptNames
 list of loaded script names
 
-**Kind**: inner property of [<code>WebViewBridge</code>](#module_WebViewBridge)  
+**Kind**: inner property of [<code>WevViewBridge</code>](#module_WevViewBridge)  
 **Access**: public  
 **Read only**: true  
 **Properties**
@@ -225,12 +225,12 @@ list of loaded script names
 | --- |
 | <code>Array.&lt;string&gt;</code> | 
 
-<a name="module_WebViewBridge..source"></a>
+<a name="module_WevViewBridge..source"></a>
 
-### WebViewBridge~source
+### WevViewBridge~source
 The source value which has been set
 
-**Kind**: inner property of [<code>WebViewBridge</code>](#module_WebViewBridge)  
+**Kind**: inner property of [<code>WevViewBridge</code>](#module_WevViewBridge)  
 **Access**: public  
 **Read only**: true  
 **Properties**
@@ -239,12 +239,12 @@ The source value which has been set
 | --- |
 | <code>string</code> \| <code>IO.File</code> | 
 
-<a name="module_WebViewBridge..parseResponses"></a>
+<a name="module_WevViewBridge..parseResponses"></a>
 
-### WebViewBridge~parseResponses
+### WevViewBridge~parseResponses
 Gets or Sets WebView.evalueJS to parse the responses. False value makes the execution faster, but the responses will not parsed, instead constant null value will be response of the execution. When true, executed code will be wrapped inside an immediate function
 
-**Kind**: inner property of [<code>WebViewBridge</code>](#module_WebViewBridge)  
+**Kind**: inner property of [<code>WevViewBridge</code>](#module_WevViewBridge)  
 **Default**: <code>false</code>  
 **Access**: public  
 **Properties**
@@ -253,12 +253,12 @@ Gets or Sets WebView.evalueJS to parse the responses. False value makes the exec
 | --- |
 | <code>boolean</code> | 
 
-<a name="module_WebViewBridge..delay"></a>
+<a name="module_WevViewBridge..delay"></a>
 
-### WebViewBridge~delay
+### WevViewBridge~delay
 Gets or sets the delay (ms) between page being ready and code injection
 
-**Kind**: inner property of [<code>WebViewBridge</code>](#module_WebViewBridge)  
+**Kind**: inner property of [<code>WevViewBridge</code>](#module_WevViewBridge)  
 **Default**: <code>0</code>  
 **Access**: public  
 **Properties**
@@ -267,12 +267,12 @@ Gets or sets the delay (ms) between page being ready and code injection
 | --- |
 | <code>number</code> | 
 
-<a name="module_WebViewBridge..lastURL"></a>
+<a name="module_WevViewBridge..lastURL"></a>
 
-### WebViewBridge~lastURL
+### WevViewBridge~lastURL
 Gets the last url shown in WebView
 
-**Kind**: inner property of [<code>WebViewBridge</code>](#module_WebViewBridge)  
+**Kind**: inner property of [<code>WevViewBridge</code>](#module_WevViewBridge)  
 **Default**: <code>&quot;&quot;</code>  
 **Access**: public  
 **Read only**: true  
@@ -282,21 +282,21 @@ Gets the last url shown in WebView
 | --- |
 | <code>string</code> | 
 
-<a name="module_WebViewBridge..ready"></a>
+<a name="module_WevViewBridge..ready"></a>
 
-### WebViewBridge~ready() ⇒ <code>Promise</code>
+### WevViewBridge~ready() ⇒ <code>Promise</code>
 Promise for WebView is ready for execution
 
-**Kind**: inner method of [<code>WebViewBridge</code>](#module_WebViewBridge)  
+**Kind**: inner method of [<code>WevViewBridge</code>](#module_WevViewBridge)  
 **Returns**: <code>Promise</code> - - for checking readyness of the web page  
 **Access**: public  
 **Read only**: true  
-<a name="module_WebViewBridge..loadScripts"></a>
+<a name="module_WevViewBridge..loadScripts"></a>
 
-### WebViewBridge~loadScripts() ⇒ <code>Promise</code>
+### WevViewBridge~loadScripts() ⇒ <code>Promise</code>
 Loads script files into WebView. Files loaded relative to the source. This call waits the ready call and executed after.
 
-**Kind**: inner method of [<code>WebViewBridge</code>](#module_WebViewBridge)  
+**Kind**: inner method of [<code>WevViewBridge</code>](#module_WevViewBridge)  
 **Returns**: <code>Promise</code> - - Execution status of the Scripts can be checked by the first argument of the promise  
 **Access**: public  
 **Read only**: true  
@@ -313,28 +313,28 @@ wvb.loadScripts("script1.js", "script2.js").then((loadedScripts) => {
     console.log("is script2 loaded? " + loadedScripts["script2.js"]); //true
 });
 ```
-<a name="module_WebViewBridge..refresh"></a>
+<a name="module_WevViewBridge..refresh"></a>
 
-### WebViewBridge~refresh()
+### WevViewBridge~refresh()
 Inserts WebViewBridge code inside WebPage
 
-**Kind**: inner method of [<code>WebViewBridge</code>](#module_WebViewBridge)  
+**Kind**: inner method of [<code>WevViewBridge</code>](#module_WevViewBridge)  
 **Access**: public  
 **Read only**: true  
-<a name="module_WebViewBridge..evaluateJS"></a>
+<a name="module_WevViewBridge..evaluateJS"></a>
 
-### WebViewBridge~evaluateJS()
+### WevViewBridge~evaluateJS()
 Calls a specific version of evaluateJS for faster execution if parseResponses is false
 
-**Kind**: inner method of [<code>WebViewBridge</code>](#module_WebViewBridge)  
+**Kind**: inner method of [<code>WevViewBridge</code>](#module_WevViewBridge)  
 **Access**: public  
 **Read only**: true  
-<a name="module_WebViewBridge..customNavigate"></a>
+<a name="module_WevViewBridge..customNavigate"></a>
 
-### WebViewBridge~customNavigate(options)
+### WevViewBridge~customNavigate(options)
 customNavigate is similar to webview.loadURL, with the options of setting cookie and custom user agent
 
-**Kind**: inner method of [<code>WebViewBridge</code>](#module_WebViewBridge)  
+**Kind**: inner method of [<code>WevViewBridge</code>](#module_WevViewBridge)  
 **Access**: public  
 **Read only**: true  
 
