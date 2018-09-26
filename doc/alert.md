@@ -49,7 +49,7 @@ alert({
 **Example**  
 ```js
 alert({
- message: "Would you like to answer?"
+ message: "Would you like to answer?",
  title: "Question", //optional
  buttons: [
      {
