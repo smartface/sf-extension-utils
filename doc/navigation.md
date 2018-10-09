@@ -1,9 +1,9 @@
 <a name="module_navigation"></a>
 
 ## navigation : <code>function</code>
-Navigation utility to cover the most popular applications on iOS
+Navigation utility to cover the most popular navigating applications on iOS
 
-**Author**: Ozcan Ovunc <furkan.arabaci@smartface.io>  
+**Author**: Ozcan Ovunc <ozcan.ovunc@smartface.io>  
 **Copyright**: Smartface 2018  
 <a name="module_navigation.showNavigationMenu"></a>
 
