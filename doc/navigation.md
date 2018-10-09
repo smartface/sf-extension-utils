@@ -16,7 +16,7 @@ It sets the starting point to your current location, if the permission is grante
 | Param | Type | Description |
 | --- | --- | --- |
 | page | <code>Object</code> | The main object of current page. |
-| transportType | <code>string</code> | your way of travel, driving or walking. Accepted paramters = "d", "w" |
+| transportType | <code>string</code> | Your way of travel, driving or walking. Accepted paramters = "d", "w" |
 | location | <code>Object</code> | Location data which contains lat and lng |
 
 **Example**  
