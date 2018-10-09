@@ -1,6 +1,6 @@
 <a name="module_navigation"></a>
 
-## navigation : <code>function</code>
+## navigation : <code>Object</code>
 Navigation utility to cover the most popular navigating applications on iOS
 For this utility to work correctly, you need to publish the application. 
 You also need to add this key to your info.plist file, for the app to be able to decect them.
