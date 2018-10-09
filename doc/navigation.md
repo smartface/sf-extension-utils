@@ -2,6 +2,18 @@
 
 ## navigation : <code>function</code>
 Navigation utility to cover the most popular navigating applications on iOS
+For this utility to work correctly, you need to publish the application. 
+You also need to add this key to your info.plist file, for the app to be able to decect them.
+```
+<dict>
+...
+	<key>LSApplicationQueriesSchemes</key>
+	    <array>
+		    <string>comgooglemaps</string>
+		    <string>yandexnavi</string>
+	    </array>
+</dict>
+```
 
 **Author**: Ozcan Ovunc <ozcan.ovunc@smartface.io>  
 **Copyright**: Smartface 2018  
