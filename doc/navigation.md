@@ -20,11 +20,12 @@ You also need to add this key to your info.plist file, for the app to be able to
 ```  
 <a name="module_navigation.showNavigationMenu"></a>
 
-### navigation.showNavigationMenu(page, transportType, location)
+### navigation.showNavigationMenu(page, transportType, location) ⇒ <code>Promise.&lt;string&gt;</code>
 Prompts a menu to choose which navigation app to handle the location.
 It sets the starting point to your current location, if the permission is granted.
 
 **Kind**: static method of [<code>navigation</code>](#module_navigation)  
+**Returns**: <code>Promise.&lt;string&gt;</code> - - returns the message of state  
 
 | Param | Type | Description |
 | --- | --- | --- |
