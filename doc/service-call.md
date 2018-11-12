@@ -10,6 +10,7 @@ Smartface Service-Call helper module
     * [~ServiceCall](#module_service-call..ServiceCall)
         * [new ServiceCall(options)](#new_module_service-call..ServiceCall_new)
         * _instance_
+            * [.baseUrl](#module_service-call..ServiceCall+baseUrl)
             * [.setHeader(key, value, headers)](#module_service-call..ServiceCall+setHeader)
             * [.getHeaders()](#module_service-call..ServiceCall+getHeaders) ⇒ <code>object</code>
             * [.createRequestOptions(endpointPath, options, method)](#module_service-call..ServiceCall+createRequestOptions) ⇒ <code>object</code>
@@ -29,6 +30,7 @@ Helper class for calling JSON based restful services.
 * [~ServiceCall](#module_service-call..ServiceCall)
     * [new ServiceCall(options)](#new_module_service-call..ServiceCall_new)
     * _instance_
+        * [.baseUrl](#module_service-call..ServiceCall+baseUrl)
         * [.setHeader(key, value, headers)](#module_service-call..ServiceCall+setHeader)
         * [.getHeaders()](#module_service-call..ServiceCall+getHeaders) ⇒ <code>object</code>
         * [.createRequestOptions(endpointPath, options, method)](#module_service-call..ServiceCall+createRequestOptions) ⇒ <code>object</code>
@@ -101,6 +103,18 @@ page.btnLogin.onPress = () => {
      });
 };
 ```
+<a name="module_service-call..ServiceCall+baseUrl"></a>
+
+#### serviceCall.baseUrl
+Base URL for this service-call library uses. This can be get and set
+
+**Kind**: instance property of [<code>ServiceCall</code>](#module_service-call..ServiceCall)  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| baseUrl | <code>string</code> | 
+
 <a name="module_service-call..ServiceCall+setHeader"></a>
 
 #### serviceCall.setHeader(key, value, headers)
