@@ -32,7 +32,7 @@ This replaces existing touch events
 **Params**: <code>UI.Color</code> [options.rippleColor] - Sets the color to ripple effect. This option specfic to Android.  
 **Params**: <code>UI.Color</code> [options.fadeColor] - Sets the color to fade effect. This option specfic to iOS.  
 **Params**: <code>number</code> [options.fadeDuration] - Sets duration to fade effect. This option specfic to iOS. Default 0.2.  
-**Params**: <code>number</code> [options.fadeMaxOpacity] - Sets maximum opacity to fade effect. This option specfic to iOS. Default 0.4.  
+**Params**: <code>number</code> [options.fadeMaxOpacity] - Sets maximum opacity to fade effect. This option specfic to iOS. Default 0.3.  
 **Example**  
 ```js
 const touch = require("sf-extension-utils/lib/touch");
