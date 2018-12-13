@@ -30,6 +30,9 @@ This replaces existing touch events
 **Params**: <code>number</code> [options.rippleDuration] - Ripple effect requires duration before performing given event. This option specfic to Android.  
 **Params**: <code>boolean</code> [options.rippleUseForeground] - iff this options is set to true, ripple effect added on top of the given target. No matter what given target contains, draw ripple effect over them. This option specfic to Android. By default, ripple effect is given.  
 **Params**: <code>UI.Color</code> [options.rippleColor] - Sets the color to ripple effect. This option specfic to Android.  
+**Params**: <code>UI.Color</code> [options.fadeColor] - Sets the color to fade effect. This option specfic to iOS.  
+**Params**: <code>number</code> [options.fadeDuration] - Sets duration to fade effect. This option specfic to iOS. Default 0.2.  
+**Params**: <code>number</code> [options.fadeMaxOpacity] - Sets maximum opacity to fade effect. This option specfic to iOS. Default 0.4.  
 **Example**  
 ```js
 const touch = require("sf-extension-utils/lib/touch");
