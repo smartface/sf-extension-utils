@@ -25,12 +25,7 @@ This replaces existing touch events
 **Params**: <code>object</code> [options] - Styling options  
 **Params**: <code>function</code> [options.startTouchEffect] - Function called when touch starts, to add UI effect to give pressed effects. If not provided, default effect will be used. It should be used with endTouchEffect  
 **Params**: <code>function</code> [options.endTouchEffect] - Function called when press effect ends; it is used to revert the effects in startTouchEffect. It should be used together with startTouchEffect. If not provided default effect reversing will be applied  
-**Params**: <code>boolean</code> [options.consumeTouch] - If this option is set to true, touch events won't be passed through views. If not provided, default value is undefined.   
-**Params**: <code>boolean</code> [options.enableRippleEffect] - Enables the ripple effect on given target. 
-**Params**: <code>boolean</code> [options.useForeground] - If this options is set to true, ripple effect added on top of the given target. No matter what given target contains, draw ripple effect over them.
-**Params**: <code>UI.Color</code> [options.rippleColor] - Sets color to ripple effect.
-**Params**: <code>number</code> [options.duration] - Ripple effect requires duration before performing given event.
-
+**Params**: <code>boolean</code> [options.consumeTouch] - If this option is set to true, touch events won't be passed through views. If not provided, default value is undefined.  
 **Example**  
 ```js
 const touch = require("sf-extension-utils/lib/touch");
