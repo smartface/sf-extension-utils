@@ -27,7 +27,7 @@ This replaces existing touch events
 **Params**: <code>function</code> [options.endTouchEffect=defaultClearPressEffect] - Function called when press effect ends; it is used to revert the effects in startTouchEffect. It should be used together with startTouchEffect. If not provided default effect reversing will be applied  
 **Params**: <code>boolean</code> [options.consumeTouch=false] - If this option is set to true, touch events won't be passed through views. If not provided, default value is undefined  
 **Params**: <code>boolean</code> [options.disableRippleEffect=false] - Enables the ripple effect on given target. This option specfic to Android  
-**Params**: <code>number</code> [options.rippleDuration=0] - Ripple effect requires duration before performing given event. This option specfic to Android  
+**Params**: <code>number</code> [options.rippleDuration=100] - Ripple effect requires duration before performing given event. This option specfic to Android  
 **Params**: <code>boolean</code> [options.rippleUseBackground=false] - if this options is set to true, ripple effect added on background of the given target. If target contains child components, draw ripple effect below them. This option specfic to Android.  
 **Params**: <code>UI.Color</code> [options.rippleColor=Color.create("#d8d8d8")] - Sets the color to ripple effect. This option specfic to Android  
 **Params**: <code>UI.Color</code> [options.fadeColor=Color.create("#d8d8d8")] - Sets the color to fade effect. This option specfic to iOS  
