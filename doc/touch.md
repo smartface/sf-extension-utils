@@ -8,7 +8,7 @@ Smartface touch effects module
 
 * [touch](#module_touch) : <code>object</code>
     * [.setDefaults()](#module_touch.setDefaults)
-    * [.getDefaults()](#module_touch.getDefaults) ⇒ [<code>Defaults</code>](#touch..Defaults)
+    * [.getDefaults()](#module_touch.getDefaults) ⇒ <code>touch~Defaults</code>
     * [.addPressEvent()](#module_touch.addPressEvent)
     * [.defaultAddPressEffect()](#module_touch.defaultAddPressEffect)
     * [.defaultClearPressEffect()](#module_touch.defaultClearPressEffect)
@@ -20,14 +20,14 @@ Sets the default values for touch effects. This may not affect after press event
 
 **Kind**: static method of [<code>touch</code>](#module_touch)  
 **Access**: public  
-**Params**: [<code>Defaults</code>](#touch..Defaults) options - Changes the default values for the given key  
+**Params**: <code>touch~Defaults</code> options - Changes the default values for the given key  
 <a name="module_touch.getDefaults"></a>
 
-### touch.getDefaults() ⇒ [<code>Defaults</code>](#touch..Defaults)
+### touch.getDefaults() ⇒ <code>touch~Defaults</code>
 Gets the default values for touch effects
 
 **Kind**: static method of [<code>touch</code>](#module_touch)  
-**Returns**: [<code>Defaults</code>](#touch..Defaults) - default values for touch effects  
+**Returns**: <code>touch~Defaults</code> - default values for touch effects  
 **Access**: public  
 **Example**  
 ```js

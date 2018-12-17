@@ -231,7 +231,7 @@ function login(userName, password) {
 ```
 <a name="module_service-call..ServiceCall.BASE_HEADERS"></a>
 
-#### ServiceCall.BASE_HEADERS
+#### ServiceCall.BASE\_HEADERS
 Default values of headers
 
 **Kind**: static property of [<code>ServiceCall</code>](#module_service-call..ServiceCall)  
