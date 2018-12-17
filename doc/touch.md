@@ -7,14 +7,11 @@ Smartface touch effects module
 **Copyright**: Smartface 2018  
 
 * [touch](#module_touch) : <code>object</code>
-    * _static_
-        * [.setDefaults()](#module_touch.setDefaults)
-        * [.getDefaults()](#module_touch.getDefaults) ⇒ <code>Defaults</code>
-        * [.addPressEvent()](#module_touch.addPressEvent)
-        * [.defaultAddPressEffect()](#module_touch.defaultAddPressEffect)
-        * [.defaultClearPressEffect()](#module_touch.defaultClearPressEffect)
-    * _inner_
-        * [~Defaults](#module_touch..Defaults) : <code>Object</code>
+    * [.setDefaults()](#module_touch.setDefaults)
+    * [.getDefaults()](#module_touch.getDefaults) ⇒ [<code>Defaults</code>](#touch..Defaults)
+    * [.addPressEvent()](#module_touch.addPressEvent)
+    * [.defaultAddPressEffect()](#module_touch.defaultAddPressEffect)
+    * [.defaultClearPressEffect()](#module_touch.defaultClearPressEffect)
 
 <a name="module_touch.setDefaults"></a>
 
@@ -23,14 +20,14 @@ Sets the default values for touch effects. This may not affect after press event
 
 **Kind**: static method of [<code>touch</code>](#module_touch)  
 **Access**: public  
-**Params**: <code>Defaults</code> options - Changes the default values for the given key  
+**Params**: [<code>Defaults</code>](#touch..Defaults) options - Changes the default values for the given key  
 <a name="module_touch.getDefaults"></a>
 
-### touch.getDefaults() ⇒ <code>Defaults</code>
+### touch.getDefaults() ⇒ [<code>Defaults</code>](#touch..Defaults)
 Gets the default values for touch effects
 
 **Kind**: static method of [<code>touch</code>](#module_touch)  
-**Returns**: <code>Defaults</code> - default values for touch effects  
+**Returns**: [<code>Defaults</code>](#touch..Defaults) - default values for touch effects  
 **Access**: public  
 **Example**  
 ```js
@@ -108,23 +105,3 @@ touch.addPressEvent(page.flBtn, () => {
      endTouchEffect: System.OS === "iOS"? function removeCustomIOSEffect(){ }: touch.defaultClearPressEffect,
  });
 ```
-<a name="module_touch..Defaults"></a>
-
-### touch~Defaults : <code>Object</code>
-Defaults for touch effect animations
-
-**Kind**: inner typedef of [<code>touch</code>](#module_touch)  
-**Properties**
-
-| Name | Type | Default | Description |
-| --- | --- | --- | --- |
-| darkenAmount | <code>number</code> | <code>22.74</code> | On iOS, if fade is not being used, target is darkened. By default |
-| androidAnimationDuration | <code>number</code> | <code>100</code> | On android, elevation change animation duration in ms. |
-| fps | <code>number</code> | <code>60</code> | Android animation change effect rendering FPS |
-| elevationChange | <code>number</code> | <code>14</code> | Android increases the elevation of the target by the value set, after touch is cancelled, it is restored |
-| androidTouchDelay | <code>number</code> | <code>0</code> | Android adds delay to trigger the touch. It is useful while viewing the ripple effect take place |
-| fadeDuration | <code>number</code> | <code>200</code> | iOS fade effect duration in miliseconds |
-| fadeMaxOpacity | <code>number</code> | <code>0.3-</code> | iOS fade effect max opacity. Value between 0 and 1 |
-| rippleColor | <code>UI.Color</code> | <code>Color.create(&quot;#d8d8d8&quot;)</code> | Android ripple effect color |
-| fadeColor | <code>UI.Color</code> | <code>Color.create(&quot;#d8d8d8&quot;)</code> | iOS fade effect color |
-
