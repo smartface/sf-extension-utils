@@ -8,7 +8,7 @@ Smartface WebView Bridge for bidirectional communication
 
 * [WebViewBridge](#module_WebViewBridge) : <code>function</code>
     * [~WebViewBridge](#module_WebViewBridge..WebViewBridge) ⇐ <code>EventEmitter</code>
-        * [new WebViewBridge(options, [parseResponses], [bounceEnabled])](#new_module_WebViewBridge..WebViewBridge_new)
+        * [new WebViewBridge(options)](#new_module_WebViewBridge..WebViewBridge_new)
     * [~webView](#module_WebViewBridge..webView)
     * [~loadedScriptNames](#module_WebViewBridge..loadedScriptNames)
     * [~source](#module_WebViewBridge..source)
@@ -29,7 +29,7 @@ Smartface WebView Bridge for bidirectional communication
 **Access**: public  
 <a name="new_module_WebViewBridge..WebViewBridge_new"></a>
 
-#### new WebViewBridge(options, [parseResponses], [bounceEnabled])
+#### new WebViewBridge(options)
 WebViewBridge is used for bi-directional communication with WebView. Events from WebView are captured with [EventEmiter](https://www.npmjs.com/package/wolfy87-eventemitter)<br />
 This bridge creates window.**boubleEvent** function inside WebPage of the WebView<br />
 boubleEvent - Has two arguments: **eventName** (required), **data** (optional)<br />
@@ -49,8 +49,11 @@ For the onChangedURL event on Smartface can have a return value that specifies t
 | [options.webView] | <code>UI.WebView</code> | <code>new WebView()</code> | If not provided, it creates a new empty WebView instance. onChangedURL and onShow events of the WebView are set. Those event can be captured via .on("show", fn...) .on("changedURL", fn...) |
 | [options.scheme] | <code>string</code> | <code>&quot;msg&quot;</code> | URI scheme in webView to communicate with webview |
 | [options.source] | <code>string</code> \| <code>IO.File</code> |  | source to inject bridge code |
-| [parseResponses] | <code>boolean</code> | <code>false</code> | when false, the WebView.evaluateJS runs faster without parsing the executed JS code response |
-| [bounceEnabled] | <code>boolean</code> | <code>false</code> | when false bounce effect of the WebView is disabled |
+| [options.parseResponses] | <code>boolean</code> | <code>false</code> | when false, the WebView.evaluateJS runs faster without parsing the executed JS code response |
+| [options.bounceEnabled] | <code>boolean</code> | <code>false</code> | when false bounce effect of the WebView is disabled |
+| [options.skipLoadEvents] | <code>boolean</code> | <code>false</code> | skips onLoad auto-bouble events. Might be useful to set true when there are redirections on page |
+| [options.skipBoubleEvent] | <code>boolean</code> | <code>false</code> | skips injection of boubleEvent on each page. Might be useful when there are redirections on page |
+| [options.delay] | <code>number</code> | <code>0</code> | sets delay between injection of boubleEvent and page show |
 
 **Example**  
 ```js
