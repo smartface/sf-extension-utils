@@ -54,6 +54,7 @@ Configures fingerprint login. Call this during page show. It is recommended to c
 | options | <code>object</code> |  | configuration options |
 | options.userNameTextBox | <code>UI.TextBox</code> |  | to use textbox as username or email field. If fingerprint is being used, username is automaticaly set (Required) |
 | options.passwordTextBox | <code>UI.TextBox</code> |  | to use textbox as password field (Required) |
+| [options.force] | <code>boolean</code> | <code>false</code> | to force the fingerprint utility to be recreated. Recommended to use when textboxes are created from the code. |
 | options.callback | <code>fingerprint:loginWithFingerprintCallback</code> |  | is called when fingerprint login is called (Required) This callback is used to obtain password. When the login challege is successful it is important to call the success method of the fingerprintResult argument for the callback |
 | [options.autoLogin] | <code>boolean</code> | <code>false</code> | to attempt fingerprint login after init. Takes effect after user gives permission and enables the setting |
 | [options.autoEvents] | <code>boolean</code> | <code>false</code> | sets events to textboxes and button, sets keyboard types |
