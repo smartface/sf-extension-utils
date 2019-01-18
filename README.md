@@ -17,6 +17,10 @@ An extension that has following utility classes for Smartface Native Framework.
 - Touch (addPress event to any target object)
 - Color (converts Smartface color to TinyColor for color manipulations)
 - TextBox (max text length)
+- Copy (creates a shallow copy of an object)
+- Router (with buildExtender, page management made easy)
+- Guid (creates uuid-v4 text)
+- getCombinedStyle (gets style object from theme class)
 
 ## Installation
 Utility extension can be installed via npm easily from our public npm repository. The installation is pretty easy via Smartface Cloud IDE.
