@@ -161,18 +161,19 @@ creates a request options object for http request
 **Kind**: instance method of [<code>ServiceCall</code>](#module_service-call..ServiceCall)  
 **Returns**: <code>object</code> - http request object  
 
-| Param | Type | Description |
-| --- | --- | --- |
-| endpointPath | <code>string</code> | Added to the end of the base url to form the url |
-| options | <code>object</code> | Request specific options |
-| method | <code>string</code> | HTTP method of this request |
-| [options.body] | <code>object</code> | Request payload body. This object will be automatically stringified |
-| [options.q] | <code>object</code> | Query string string object. Combines with the url |
-| [options.query] | <code>object</code> | Alias for options.q |
-| [options.headers] | <code>object</code> | Request specific headers. In conflict with configuration, those values are used |
-| [options.logEnabled] | <code>boolean</code> | Request specific log option |
-| [options.user] | <code>string</code> | Basic authentication user. Must be used with options.password |
-| [options.password] | <code>string</code> | Basic authentication password. Must be used with options.user |
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| endpointPath | <code>string</code> |  | Added to the end of the base url to form the url |
+| options | <code>object</code> |  | Request specific options |
+| method | <code>string</code> |  | HTTP method of this request |
+| [options.body] | <code>object</code> |  | Request payload body. This object will be automatically stringified |
+| [options.q] | <code>object</code> |  | Query string string object. Combines with the url |
+| [options.query] | <code>object</code> |  | Alias for options.q |
+| [options.headers] | <code>object</code> |  | Request specific headers. In conflict with configuration, those values are used |
+| [options.logEnabled] | <code>boolean</code> |  | Request specific log option |
+| [options.user] | <code>string</code> |  | Basic authentication user. Must be used with options.password |
+| [options.password] | <code>string</code> |  | Basic authentication password. Must be used with options.user |
+| [options.fullResponse] | <code>boolean</code> | <code>false</code> | Resolved promise contains full response including `headers`, `body` and `status` |
 
 **Example**  
 ```js
@@ -249,16 +250,17 @@ Performs a service call and returns a promise to handle
 
 **Kind**: static method of [<code>ServiceCall</code>](#module_service-call..ServiceCall)  
 
-| Param | Type | Description |
-| --- | --- | --- |
-| options | <code>object</code> | Request specific options |
-| options.method | <code>string</code> | HTTP method of this request |
-| options.url | <code>string</code> | Full Http url |
-| [options.body] | <code>object</code> | Request payload body. This object will be automatically stringified |
-| [options.headers] | <code>object</code> | Full request headers |
-| [options.logEnabled] | <code>boolean</code> | Request specific log option |
-| [options.user] | <code>string</code> | Basic authentication user. Must be used with options.password |
-| [options.password] | <code>string</code> | Basic authentication password. Must be used with options.user |
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| options | <code>object</code> |  | Request specific options |
+| options.method | <code>string</code> |  | HTTP method of this request |
+| options.url | <code>string</code> |  | Full Http url |
+| [options.body] | <code>object</code> |  | Request payload body. This object will be automatically stringified |
+| [options.headers] | <code>object</code> |  | Full request headers |
+| [options.logEnabled] | <code>boolean</code> |  | Request specific log option |
+| [options.user] | <code>string</code> |  | Basic authentication user. Must be used with options.password |
+| [options.password] | <code>string</code> |  | Basic authentication password. Must be used with options.user |
+| [options.fullResponse] | <code>boolean</code> | <code>false</code> | Resolved promise contains full response including `headers`, `body` and `status` |
 
 **Example**  
 ```js
