@@ -9,22 +9,24 @@ Smartface Location module
 
 * [location](#module_location) : <code>object</code>
     * _static_
-        * [.location:getLocation()](#module_location.location_getLocation) ⇒ <code>Promise.&lt;Location&gt;</code>
+        * [.location:getLocation()](#module_location.location_getLocation) ⇒ <code>Promise.&lt;Location&gt;</code> \| <code>undefined</code>
     * _inner_
         * [~Location](#module_location..Location) : <code>Object</code>
 
 <a name="module_location.location_getLocation"></a>
 
-### location.location:getLocation() ⇒ <code>Promise.&lt;Location&gt;</code>
+### location.location:getLocation() ⇒ <code>Promise.&lt;Location&gt;</code> \| <code>undefined</code>
 Gets location latitude and longitude. Handles permissions by itself.
 
 **Kind**: static method of [<code>location</code>](#module_location)  
-**Returns**: <code>Promise.&lt;Location&gt;</code> - - returns the location  
+**Returns**: <code>Promise.&lt;Location&gt;</code> \| <code>undefined</code> - - returns the location  
 **Access**: public  
 **See**: [Location Guide](https://developer.smartface.io/docs/location)  
 **Example**  
 ```js
 const location = require("sf-extension-utils/lib/location");
+
+// First usage - Promise
 location.getLocation()
     .then(location => {
         let requestOptions = {
@@ -35,6 +37,16 @@ location.getLocation()
     .catch(() => {
         console.log("Location cannot be retrieved");
     });
+
+// Second usage - Error first pattern (for backward compatibility)
+location.getLocation(function(err, location) {
+   if (err)
+       return;
+   let requestOptions = {
+       'url': 'http://maps.googleapis.com/maps/api/geocode/json?latlng=' + location.latitude + ',' + location.longitude + '&sensor=true',
+       'method': 'GET'
+   };
+ });
 ```
 <a name="module_location..Location"></a>
 
