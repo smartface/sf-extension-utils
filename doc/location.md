@@ -5,7 +5,7 @@ Smartface Location module
 
 **Author**: Alper Ozisik <alper.ozisik@smartface.io>  
 **Author**: Ozcan Ovunc <ozcan.ovunc@smartface.io>  
-**Copyright**: Smartface 2018  
+**Copyright**: Smartface 2019  
 
 * [location](#module_location) : <code>object</code>
     * _static_
