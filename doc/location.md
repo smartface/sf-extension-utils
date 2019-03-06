@@ -34,7 +34,11 @@ location.getLocation()
             'method': 'GET'
         };
     })
-    .catch(() => {
+    .catch(e => {
+        // e parameter can be one of these values:
+        // "RESTRICTED" / iOS specific, this is returned if authorization status is Location.iOS.AuthorizationStatus.RESTRICTED
+        // "OTHER" / Android specific, this is returned if the operation failed with no more detailed information
+        // "DENIED" / Returned for all other cases
         console.log("Location cannot be retrieved");
     });
 
