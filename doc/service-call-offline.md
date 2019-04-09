@@ -11,14 +11,54 @@ Requiring this module creates a database file under DataDirectory named as servi
 **Copyright**: Smartface 2019  
 
 * [service-call-offline](#module_service-call-offline) : <code>object</code>
-    * [~OfflineRequestServiceCall](#module_service-call-offline..OfflineRequestServiceCall) ⇐ <code>ServiceCall</code>
-        * [new OfflineRequestServiceCall(offlineRequestHandler)](#new_module_service-call-offline..OfflineRequestServiceCall_new)
-        * [.sendAll()](#module_service-call-offline..OfflineRequestServiceCall.sendAll) ⇒ <code>Promise</code>
-    * [~OfflineResponseServiceCall](#module_service-call-offline..OfflineResponseServiceCall) ⇐ <code>ServiceCall</code>
-        * [new OfflineResponseServiceCall(requestCleaner, serveFrom)](#new_module_service-call-offline..OfflineResponseServiceCall_new)
-    * [~clearOfflineDatabase()](#module_service-call-offline..clearOfflineDatabase)
-    * [~closeOfflineDatabase()](#module_service-call-offline..closeOfflineDatabase)
+    * _static_
+        * [.service-call-offline:init(options)](#module_service-call-offline.service-call-offline_init)
+    * _inner_
+        * [~OfflineRequestServiceCall](#module_service-call-offline..OfflineRequestServiceCall) ⇐ <code>ServiceCall</code>
+            * [new OfflineRequestServiceCall(offlineRequestHandler)](#new_module_service-call-offline..OfflineRequestServiceCall_new)
+            * [.sendAll()](#module_service-call-offline..OfflineRequestServiceCall.sendAll) ⇒ <code>Promise</code>
+        * [~OfflineResponseServiceCall](#module_service-call-offline..OfflineResponseServiceCall) ⇐ <code>ServiceCall</code>
+            * [new OfflineResponseServiceCall(requestCleaner, serveFrom)](#new_module_service-call-offline..OfflineResponseServiceCall_new)
+        * [~clearOfflineDatabase()](#module_service-call-offline..clearOfflineDatabase)
+        * [~closeOfflineDatabase()](#module_service-call-offline..closeOfflineDatabase)
 
+<a name="module_service-call-offline.service-call-offline_init"></a>
+
+### service-call-offline.service-call-offline:init(options)
+Configures service-call-offline. Call this in your app once before using any functionality.
+
+**Kind**: static method of [<code>service-call-offline</code>](#module_service-call-offline)  
+**Access**: public  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| options | <code>object</code> | configuration options |
+| [options.encryptionFunction] | <code>fingerprint:CryptopgyFunction</code> | stored data is encrypted with the given function |
+| [options.decryptionFunction] | <code>fingerprint:CryptopgyFunction</code> | stored data is decrypted with the given function |
+
+**Example**  
+```js
+const { init } = require("sf-extension-utils/lib/service-call-offline");
+const Blob = require('sf-core/blob');
+
+const basicEncrypt = plainData => {
+    let b = Blob.createFromUTF8String(plainData);
+    let encryptedData = b.toBase64();
+    return encryptedData;
+};
+
+const basicDecrypt = encryptedData => {
+    let b = Blob.createFromBase64(encryptedData);
+    let decryptedData = b.toString();
+    return decryptedData;
+};
+
+// It is recommended this to be called in app.js:
+init({
+    encryptionFunction: basicEncrypt,
+    decryptionFunction: basicDecrypt
+});
+```
 <a name="module_service-call-offline..OfflineRequestServiceCall"></a>
 
 ### service-call-offline~OfflineRequestServiceCall ⇐ <code>ServiceCall</code>
