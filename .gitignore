@@ -2,3 +2,5 @@
 .npmrc
 npm-debug.log
 .c9
+node_modules/
+yarn.*
