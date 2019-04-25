@@ -20,10 +20,7 @@
   "license": "MIT",
   "homepage": "https://github.com/smartface/sf-extension-utils#readme",
   "maintainers": [
-    {
-      "name": "Alper Ozisik",
-      "email": "alper.ozisik@smartface.io"
-    }
+    "Ozcan Ovunc <ozcan.ovunc@smartface.io>"
   ],
   "dependencies": {
     "async-lock": "^1.2.0",
@@ -35,6 +32,12 @@
     "wolfy87-eventemitter": "^5.2.4"
   },
   "devDependencies": {
+    "cz-conventional-changelog": "^2.1.0",
     "jsdoc-to-markdown": "^4.0.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
