@@ -1,18 +1,23 @@
 <a name="module_network"></a>
 
-## network
-Returns true if network connectivity is available
+## network : <code>Object</code>
+**Author**: Yunus Atmaca <yunus.atmaca@smartface.io>  
+**Author**: Ozcan Ovunc <ozcan.ovunc@smartface.io>  
+**Copyright**: Smartface 2019  
+<a name="module_network..isConnected"></a>
 
-**Access**: public  
-**Author**: Yunus ATMACA <yunus.atmaca@smartface.io>  
+### network~isConnected() ⇒ <code>Promise.&lt;Object&gt;</code>
+**Kind**: inner method of [<code>network</code>](#module_network)  
+**Returns**: <code>Promise.&lt;Object&gt;</code> - - Resolves if the internet connectivity is available,
+rejects o/w  
 **Example**  
 ```js
 const network = require("sf-extension-utils/lib/network");
-net.isConnectivityAvailable()
-     .then(available =>{
-         console.log(available);
-     })
-     .catch(e =>{
-         console.log(e);
-     })
+network.isConnected()
+    .then(() => {
+        console.info("Connected to internet");
+    })
+    .catch(() => {
+        console.error("Not connected to internet");
+    });
 ```
