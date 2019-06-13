@@ -4,6 +4,7 @@
 Smartface Android Permission module
 
 **Author**: Alper Ozisik <alper.ozisik@smartface.io>  
+**Author**: Yunus ATMACA <yunus.atmaca@smartface.io>  
 **Copyright**: Smartface 2018  
 <a name="module_permission.permission_getPermission"></a>
 
@@ -30,8 +31,13 @@ Permission request numbers starts from 2000 and incremented on each requestPermi
 const permission = require("sf-extension-utils/lib/permission")
 const Application = require("sf-core/application");
 permission.getPermission(Application.android.Permissions.ACCESS_FINE_LOCATION,
- function(err) {
-     if (err) return callback(err);
-         getLocationAction();
+ function(callback) {
+     if(callback === permission.permissionStatus.GRANTED){
+         console.log("Permission GRANTED");
+     }else if(callback === permission.permissionStatus.DENIED){
+         console.log("Permission DENIED");
+     }else{
+         console.log("Permission NEVER ASK AGAIN");
+     }
  });
 ```
