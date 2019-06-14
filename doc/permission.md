@@ -24,17 +24,17 @@ Permission request numbers starts from 2000 and incremented on each requestPermi
 | --- | --- | --- |
 | permissions | <code>Application.android.Permissions</code> \| <code>Array.&lt;Application.android.Permissions&gt;</code> | permission(s) to get |
 | [rationaleDisplay] | <code>string</code> | optional parameter for rationale text |
-| callback | <code>function</code> | error first pattern fired when permissions are requested if needed |
+| callback | <code>function</code> | status to get permission status. |
 
 **Example**  
 ```js
 const permission = require("sf-extension-utils/lib/permission")
 const Application = require("sf-core/application");
 permission.getPermission(Application.android.Permissions.ACCESS_FINE_LOCATION,
- function(callback) {
-     if(callback === permission.permissionStatus.GRANTED){
+ function(status) {
+     if(status === permission.permissionStatus.GRANTED){
          console.log("Permission GRANTED");
-     }else if(callback === permission.permissionStatus.DENIED){
+     }else if(status === permission.permissionStatus.DENIED){
          console.log("Permission DENIED");
      }else{
          console.log("Permission NEVER ASK AGAIN");
