@@ -32,11 +32,11 @@ const permission = require("sf-extension-utils/lib/permission")
 const Application = require("sf-core/application");
 permission.getPermission(Application.android.Permissions.ACCESS_FINE_LOCATION,
  function(status) {
-     if(status === permission.permissionStatus.GRANTED){
+     if (status === permission.PERMISSION_STATUS.GRANTED) {
          console.log("Permission GRANTED");
-     }else if(status === permission.permissionStatus.DENIED){
+     } else if (status === permission.PERMISSION_STATUS.DENIED) {
          console.log("Permission DENIED");
-     }else{
+     } else {
          console.log("Permission NEVER ASK AGAIN");
      }
  });
