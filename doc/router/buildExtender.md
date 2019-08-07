@@ -4,6 +4,8 @@
 Build extender for Router
 
 **Author**: Alper Ozisik <alper.ozisik@smartface.io>  
+**Author**: Ozcan Ovunc <ozcan.ovunc@smartface.io>  
+**Author**: Furkan Arabaci <furkan.arabaci@smartface.io>  
 **Copyright**: Smartface 2019  
 
 * [router](#module_router) : <code>object</code>
@@ -25,7 +27,7 @@ Page(s) created with this function will have additional several properties: matc
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | options | <code>object</code> |  | buildExtender configurator |
-| options.pageName | <code>string</code> |  | name of the js file within the `pages` folder. This parameter is both page name as well as file name |
+| options.getPageClass | <code>string</code> |  | Returns the class of the page. This used for lazy loading of a page file and helps the performance. |
 | [options.singleton] | <code>boolean</code> | <code>false</code> | Same instance of the page will be used again and again for the same route. It is advised to use a singleton page for each first Route of a StackRouter |
 | [options.onHide] | <code>function</code> |  | Extends an onHide event for the page |
 | [options.onShow] | <code>function</code> |  | Extends an onShow event for the page |
@@ -54,7 +56,7 @@ var btb = BottomTabBarRouter.of({
                 Route.of({
                     path: "/nav/tabs/discover/landing",
                     build: buildExtender({
-                        pageName: "pgLandingMain",
+                        getPageClass: () => require("pages/pgLandingMain"),
                         singleton: true,
                         headerBarStyle: { visible: false },
                         onLoad: setBackBarButtonItem
@@ -63,14 +65,14 @@ var btb = BottomTabBarRouter.of({
                 Route.of({
                     path: "/nav/tabs/discover/l2",
                     build: buildExtender({
-                        pageName: "pgLandingL2",
+                        getPageClass: () => require("pages/pgLandingL2"),
                         headerBarStyle: { visible: true },
                     })
                 }),
                 Route.of({
                     path: "/nav/tabs/discover/products/:categoryId",
                     build: buildExtender({
-                        pageName: "pgProductListing",
+                        getPageClass: () => require("pages/pgProductListing"),
                         headerBarStyle: { visible: true },
                     })
                 })

@@ -4,7 +4,8 @@
 Smartface Service-Call helper module
 
 **Author**: Alper Ozisik <alper.ozisik@smartface.io>  
-**Copyright**: Smartface 2018  
+**Author**: Ozcan Ovunc <ozcan.ovunc@smartface.io>  
+**Copyright**: Smartface 2019  
 
 * [service-call](#module_service-call) : <code>object</code>
     * [~ServiceCall](#module_service-call..ServiceCall)
