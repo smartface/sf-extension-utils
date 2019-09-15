@@ -12,6 +12,7 @@ An extension that has following utility classes for Smartface Native Framework.
 - Timers (fixes thread issue of setTimeout & setInterval)
 - Orientation (solves problems of managing different behaviour of Oritentation of iOS & Android)
 - ServiceCall (service call library for common JSON requests)
+- ServiceCallOffline (service call library with offline capability)
 - ButtonActivity (setting an activity indicator with correct elevation on top of a button)
 - WebViewBridge (bi directional communication)
 - Touch (addPress event to any target object)
@@ -21,6 +22,8 @@ An extension that has following utility classes for Smartface Native Framework.
 - Router (with buildExtender, page management made easy)
 - Guid (creates uuid-v4 text)
 - getCombinedStyle (gets style object from theme class)
+- PDF (renders base64 string as pdf file in a WebView)
+- RootDetection (detects if the device is rooted or not)
 
 ## Installation
 Utility extension can be installed via npm easily from our public npm repository. The installation is pretty easy via Smartface Cloud IDE.
