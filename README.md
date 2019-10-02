@@ -21,6 +21,8 @@ An extension that has following utility classes for Smartface Native Framework.
 - Router (with buildExtender, page management made easy)
 - Guid (creates uuid-v4 text)
 - getCombinedStyle (gets style object from theme class)
+- RTL-TabBarController (supports Right-To-Left direction and vice versa)
+- RTL-SwipeView (supports Right-To-Left direction and vice versa)
 
 ## Installation
 Utility extension can be installed via npm easily from our public npm repository. The installation is pretty easy via Smartface Cloud IDE.
