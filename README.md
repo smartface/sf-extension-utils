@@ -22,8 +22,8 @@ An extension that has following utility classes for Smartface Native Framework.
 - Router (with buildExtender, page management made easy)
 - Guid (creates uuid-v4 text)
 - getCombinedStyle (gets style object from theme class)
-- RTL-TabBarController (supports Right-To-Left direction and vice versa)
-- RTL-SwipeView (supports Right-To-Left direction and vice versa)
+- RTLTabBarController (supports Right-To-Left direction and vice versa)
+- RTLSwipeView (supports Right-To-Left direction and vice versa)
 - PDF (renders base64 string as pdf file in a WebView)
 - RootDetection (detects if the device is rooted or not)
 
