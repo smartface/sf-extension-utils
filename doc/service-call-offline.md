@@ -4,8 +4,6 @@
 Smartface Service-Call-Offline module.
 This module provides classes to be instead of ServiceCall class for some offline capability.
 
-Requiring this module creates a database file under DataDirectory named as service-call.sqlite
-
 **Author**: Alper Ozisik <alper.ozisik@smartface.io>  
 **Author**: Ozcan Ovunc <ozcan.ovunc@smartface.io>  
 **Copyright**: Smartface 2019  
@@ -18,9 +16,7 @@ Requiring this module creates a database file under DataDirectory named as servi
             * [new OfflineRequestServiceCall(offlineRequestHandler)](#new_module_service-call-offline..OfflineRequestServiceCall_new)
             * [.sendAll()](#module_service-call-offline..OfflineRequestServiceCall.sendAll) ⇒ <code>Promise</code>
         * [~OfflineResponseServiceCall](#module_service-call-offline..OfflineResponseServiceCall) ⇐ <code>ServiceCall</code>
-            * [new OfflineResponseServiceCall(requestCleaner, serveFrom)](#new_module_service-call-offline..OfflineResponseServiceCall_new)
-        * [~clearOfflineDatabase()](#module_service-call-offline..clearOfflineDatabase)
-        * [~closeOfflineDatabase()](#module_service-call-offline..closeOfflineDatabase)
+            * [new OfflineResponseServiceCall(requestCleaner)](#new_module_service-call-offline..OfflineResponseServiceCall_new)
 
 <a name="module_service-call-offline.service-call-offline_init"></a>
 
@@ -110,14 +106,14 @@ Perform all pending requests in DB
 **Extends**: <code>ServiceCall</code>  
 <a name="new_module_service-call-offline..OfflineResponseServiceCall_new"></a>
 
-#### new OfflineResponseServiceCall(requestCleaner, serveFrom)
+#### new OfflineResponseServiceCall(requestCleaner)
 Creates an OfflineResponseServiceCall helper class
+Response is served from DB then request is made to update the DB
 
 
 | Param | Type | Description |
 | --- | --- | --- |
 | requestCleaner | <code>function</code> | Returns modified request options |
-| serveFrom | <code>string</code> | - If "DB" is given, response is served from DB  then request is made to update the DB. - If "API" is given, request is made,  DB is updated with the response then the response is served. - If no network  connection is avaliable, response is served from DB either way. |
 
 **Example**  
 ```js
@@ -125,22 +121,9 @@ const { OfflineResponseServiceCall } = require("sf-extension-utils/lib/service-c
 sc = sc || new OfflineResponseServiceCall({
     baseUrl: "http://smartface.io",
     logEnabled: true,
-    serveFrom: "DB", // "API"
     requestCleaner: requestOptions => {
         delete requestOptions.headers;
         return requestOptions;
     }
 });     
 ```
-<a name="module_service-call-offline..clearOfflineDatabase"></a>
-
-### service-call-offline~clearOfflineDatabase()
-Drops all tables from offline database
-
-**Kind**: inner method of [<code>service-call-offline</code>](#module_service-call-offline)  
-<a name="module_service-call-offline..closeOfflineDatabase"></a>
-
-### service-call-offline~closeOfflineDatabase()
-Closes offline database, must be called right before application exits
-
-**Kind**: inner method of [<code>service-call-offline</code>](#module_service-call-offline)  
