@@ -33,7 +33,7 @@ backClose.dissmissBuilder = (match, routeData, router, pageInstance, pageProps, 
   else
      return {image: closeImage, position: "left"};
  }
- else return {image: closeImage, position: "left"};
+ else return {image: closeImage, position: "left", color: Color.WHITE};
 };
 ```
 <a name="module_router..setDefaultBackStyle"></a>
