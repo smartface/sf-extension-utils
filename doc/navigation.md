@@ -2,6 +2,7 @@
 
 ## navigation : <code>Object</code>
 **Author**: Ozcan Ovunc <ozcan.ovunc@smartface.io>  
+**Author**: Furkan Arabacı <furkan.arabaci@smartface.io>  
 **Copyright**: Smartface 2018
 
 GPS navigation utility to cover the most popular navigating applications on both platforms.
