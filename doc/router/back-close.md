@@ -4,6 +4,7 @@
 Back & close headerbar handling for router
 
 **Author**: Alper Ozisik <alper.ozisik@smartface.io>  
+**Author**: Ozcan Ovunc <ozcan.ovunc@smartface.io>  
 **Copyright**: Smartface 2019  
 
 * [router](#module_router) : <code>object</code>

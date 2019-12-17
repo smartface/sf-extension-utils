@@ -11,7 +11,7 @@ The account username-password will be encrypted on the device storage.
 
 * [BiometricLogin](#module_BiometricLogin) : <code>Class</code>
     * _static_
-        * [.validateFingerPrint()](#module_BiometricLogin.validateFingerPrint) ⇒ <code>Promise</code>
+        * [.validateBiometric()](#module_BiometricLogin.validateBiometric) ⇒ <code>Promise</code>
         * [.FIELDS](#module_BiometricLogin.FIELDS) : <code>Object</code>
     * _inner_
         * [~BiometricLogin](#module_BiometricLogin..BiometricLogin)
@@ -19,15 +19,15 @@ The account username-password will be encrypted on the device storage.
         * [~getBooleanData(field)](#module_BiometricLogin..getBooleanData) ⇒ <code>boolean</code>
         * [~setBooleanData(field, value)](#module_BiometricLogin..setBooleanData)
         * [~getSecureData(field)](#module_BiometricLogin..getSecureData) ⇒ <code>SecureData</code>
-        * [~getSecureData(loadParams)](#module_BiometricLogin..getSecureData)
-        * [~loginWithFingerprint()](#module_BiometricLogin..loginWithFingerprint) ⇒ <code>Promise</code>
+        * [~load(loadParams)](#module_BiometricLogin..load) ⇒ <code>Promise</code>
+        * [~loginWithBiometric()](#module_BiometricLogin..loginWithBiometric) ⇒ <code>Promise</code>
         * [~retrieveField(fieldName)](#module_BiometricLogin..retrieveField) ⇒ <code>string</code>
         * [~updateField(fieldName, value)](#module_BiometricLogin..updateField)
         * [~isFirstTime()](#module_BiometricLogin..isFirstTime) ⇒ <code>boolean</code>
 
-<a name="module_BiometricLogin.validateFingerPrint"></a>
+<a name="module_BiometricLogin.validateBiometric"></a>
 
-### BiometricLogin.validateFingerPrint() ⇒ <code>Promise</code>
+### BiometricLogin.validateBiometric() ⇒ <code>Promise</code>
 Will prompt user to input their biometric information. Advanced use only.
 This function is used internally, you do not need to call this on common cases.
 
@@ -36,6 +36,7 @@ This function is used internally, you do not need to call this on common cases.
 
 ### BiometricLogin.FIELDS : <code>Object</code>
 Fields that use Data variables to store contents, consider those as reserved keys.
+The module uses Data on smartface, so calling [removeAllVariables](http://ref.smartface.io/#!/api/Data-method-removeAllVariables) will break the save functionalities.
 Data will be written encrypted.
 
 **Kind**: static typedef of [<code>BiometricLogin</code>](#module_BiometricLogin)  
@@ -59,14 +60,14 @@ Data will be written encrypted.
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| options | <code>object</code> |  | Parameters to construct Fingerprint from |
+| options | <code>object</code> |  | Parameters to construct biometrics from |
 | options.doNotAskOnFirstTime | <code>boolean</code> | <code>false</code> | Toggles the first time prompt |
 | options.getField | <code>function</code> |  | Gets the stored field ( required ) |
 | options.setField | <code>function</code> |  | Sets the stored field ( required ) |
 | options.loginService | <code>function</code> |  | Service call to request on login ( required ) |
 | options.dataPrefix | <code>string</code> | <code>&quot;fp&quot;</code> | Prefix to use on data store. E.g default on data will be fp-userName |
 | options.serviceName | <code>string</code> | <code>&quot;Application.iOS.bundleIdentifier&quot;</code> | iOS only, defaults to bundleIdentifier. |
-| options.confirmUseFingerprintOnFirstLogin | <code>boolean</code> | <code>true</code> | Specifies if biometric data is going to be prompted on first login |
+| options.confirmUseBiometricOnFirstLogin | <code>boolean</code> | <code>true</code> | Specifies if biometric data is going to be prompted on first login |
 | options.loginHandler | <code>function</code> |  | Post login actions, should return promise |
 
 **Example**  
@@ -75,19 +76,25 @@ const BiometricLogin = require("sf-extension-utils/lib/biometricLogin");
 function onLoad(superOnLoad) {
     superOnLoad();
     const page = this;
-    const { mtbEmail, mtbPassword } = page;
+    const { mtbEmail, mtbPassword, btnLogin } = page;
     const biometricLogin = new BiometricLogin({
         loginService: () => login(mtbEmail.materialTextBox.text, mtbPassword.materialTextBox.text),
         getField: getField.bind(page),
         setField: setField.bind(page)
     });
     page.biometricLogin = biometricLogin;
+    btnLogin.onPress = btnLogin_onPress.bind(page);
 }
 function onShow(superOnShow) {
     const page = this;
     page.biometricLogin && page.biometricLogin.load({
         doNotAutoAskLogin: false
     });
+}
+
+function btnLogin_onPress() {
+    const page = this;
+    page.biometricLogin.loginWithBiometric();
 }
 
 function setField(fieldName, value) {
@@ -166,12 +173,15 @@ Returns relevant SecureData value. Advanced use only.
 | --- | --- |
 | field | <code>string</code> | 
 
-<a name="module_BiometricLogin..getSecureData"></a>
+<a name="module_BiometricLogin..load"></a>
 
-### BiometricLogin~getSecureData(loadParams)
-Main functionality of the module. Call this function at onShow method of the page for auto login handling.
+### BiometricLogin~load(loadParams) ⇒ <code>Promise</code>
+Main functionality of the module. Call this function at onShow method of the page for auto login handling. 
+Note that your page will be prompted to validate biometric information when it is loaded.
+To overcome it, use doNotAutoAskLogin property
 
 **Kind**: inner method of [<code>BiometricLogin</code>](#module_BiometricLogin)  
+**Returns**: <code>Promise</code> - - Always resolves the promise, so don't bother chaining it.  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -180,13 +190,34 @@ Main functionality of the module. Call this function at onShow method of the pag
 | loadParams.rememberMeDisabledForTheFirstTime | <code>boolean</code> | <code>false</code> | Toggles disabling remember me functionality on first time |
 | loadParams.useFingerprintDisabledForTheFirstTime | <code>boolean</code> | <code>false</code> | Will be logged in normally if set to false |
 
-<a name="module_BiometricLogin..loginWithFingerprint"></a>
+**Example**  
+```js
+function onShow(superOnShow) {
+    const page = this;
+    page.biometricLogin && page.biometricLogin.load({
+        doNotAutoAskLogin: false
+    });
+ }
+```
+<a name="module_BiometricLogin..loginWithBiometric"></a>
 
-### BiometricLogin~loginWithFingerprint() ⇒ <code>Promise</code>
-Tries to call 'loginService' Promise given on the constructor. Advanced use only.
-This function is used internally, you do not need to call this on common cases.
+### BiometricLogin~loginWithBiometric() ⇒ <code>Promise</code>
+Tries to call 'loginService' Promise given on the constructor.
+Use this function on your login button press
 
 **Kind**: inner method of [<code>BiometricLogin</code>](#module_BiometricLogin)  
+**Example**  
+```js
+function onLoad() {
+    const page = this;
+    const { btnLogin } = page;
+    btnLogin.onPress = btnLogin_onPress.bind(page);
+}
+function btnLogin_onPress() {
+    const page = this;
+    page.biometricLogin.loginWithBiometric();
+}
+```
 <a name="module_BiometricLogin..retrieveField"></a>
 
 ### BiometricLogin~retrieveField(fieldName) ⇒ <code>string</code>
@@ -213,6 +244,6 @@ Updates given field value. Advanced use only.
 <a name="module_BiometricLogin..isFirstTime"></a>
 
 ### BiometricLogin~isFirstTime() ⇒ <code>boolean</code>
-Returns true if the device is not logged in fingerprint before.
+Returns true if the device is not logged in with biometrics before.
 
 **Kind**: inner method of [<code>BiometricLogin</code>](#module_BiometricLogin)  
