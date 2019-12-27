@@ -1,6 +1,6 @@
 {
   "name": "sf-extension-utils",
-  "version": "10.0.2",
+  "version": "10.0.3",
   "description": "Utils Extension for Smartface Native Framework",
   "main": "lib/index.js",
   "scripts": {

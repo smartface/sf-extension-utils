@@ -1,5 +1,15 @@
 # Changelog
 
+<a name="10.0.3"></a>
+## 10.0.3 (2019-12-27)
+
+### Miscellaneous
+
+-  Merge pull request [#55](https://github.com/smartface/sf-extension-utils/issues/55) from smartface/fix/GridView [[ef8aba2](https://github.com/smartface/sf-extension-utils/commit/ef8aba2d329568f652d9941ef844dc3025b12e97)]
+-  fix(layoutManager): Fix crash on GridView when using getCombinedStyle [[cab4d3c](https://github.com/smartface/sf-extension-utils/commit/cab4d3c5cb7cdd2f51beb634c955a20fbe78d7e2)]
+-  docs: Add CHANGELOG.md [[57ae563](https://github.com/smartface/sf-extension-utils/commit/57ae563a1a9c5f6f0056d0aec4cc31892c243869)]
+
+
 <a name="10.0.2"></a>
 ## 10.0.2 (2019-12-20)
 
