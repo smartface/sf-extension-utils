@@ -26,12 +26,12 @@ Permission request numbers starts from 2000 and incremented on each requestPermi
 
 **Example**  
 ```js
-const permissionUtil = require("sf-extension-utils/lib/permission");
-permissionUtil.getPermission(Application.Android.Permissions.READ_CONTACTS, "Permission is required")
+const permissionUtil = require('sf-extension-utils/lib/permission');
+permissionUtil.getPermission(Application.Android.Permissions.READ_CONTACTS, 'Please go to the settings and grant permission')
     .then(() => {
-        console.info("Permission granted");
+        console.info('Permission granted');
     })
     .then((reason) => {
-        console.info("Permission rejected");
+        console.info('Permission rejected');
     });
 ```
