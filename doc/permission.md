@@ -3,12 +3,11 @@
 ## permission : <code>object</code>
 Smartface Android Permission module
 
-**Author**: Alper Ozisik <alper.ozisik@smartface.io>  
-**Author**: Yunus ATMACA <yunus.atmaca@smartface.io>  
-**Copyright**: Smartface 2018  
+**Author**: Ozcan Ovunc <ozcan.ovunc@smartface.io>  
+**Copyright**: Smartface 2020  
 <a name="module_permission.permission_getPermission"></a>
 
-### permission.permission:getPermission(permissions, [rationaleDisplay], callback)
+### permission.permission:getPermission(permission, permissionText)
 Run-time permission requests for Android if needed. iOS automatically succeeds.
 Permission request numbers starts from 2000 and incremented on each requestPermission
 
@@ -22,22 +21,17 @@ Permission request numbers starts from 2000 and incremented on each requestPermi
 
 | Param | Type | Description |
 | --- | --- | --- |
-| permissions | <code>Application.android.Permissions</code> \| <code>Array.&lt;Application.android.Permissions&gt;</code> | permission(s) to get |
-| [rationaleDisplay] | <code>string</code> | optional parameter for rationale text |
-| callback | <code>function</code> | status to get permission status. |
+| permission | <code>Application.android.Permissions</code> | permission to get |
+| permissionText | <code>string</code> | text to show when permission cannot be granted |
 
 **Example**  
 ```js
-const permission = require("sf-extension-utils/lib/permission")
-const Application = require("sf-core/application");
-permission.getPermission(Application.android.Permissions.ACCESS_FINE_LOCATION,
- function(status) {
-     if (status === permission.PERMISSION_STATUS.GRANTED) {
-         console.log("Permission GRANTED");
-     } else if (status === permission.PERMISSION_STATUS.DENIED) {
-         console.log("Permission DENIED");
-     } else {
-         console.log("Permission NEVER ASK AGAIN");
-     }
- });
+const permissionUtil = require('sf-extension-utils/lib/permission');
+permissionUtil.getPermission(Application.Android.Permissions.READ_CONTACTS, 'Please go to the settings and grant permission')
+    .then(() => {
+        console.info('Permission granted');
+    })
+    .then((reason) => {
+        console.info('Permission rejected');
+    });
 ```

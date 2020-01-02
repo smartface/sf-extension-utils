@@ -1,5 +1,16 @@
 # Changelog
 
+<a name="11.0.0"></a>
+## 11.0.0 (2020-01-02)
+
+### Miscellaneous
+
+-  v11.0.0 [[6afa066](https://github.com/smartface/sf-extension-utils/commit/6afa06675cefff2c45bd5710eb106e2bf2951941)]
+-  Revert [[afe9aa8](https://github.com/smartface/sf-extension-utils/commit/afe9aa87cad26435e1b2a34bedd679f1c2e09454)]
+-  fix: Permission management on location util [[9bddf26](https://github.com/smartface/sf-extension-utils/commit/9bddf266d9160dbee57b9d4b7c05b3e40413c3df)]
+-  fix: Make permission util work again [[372e7f9](https://github.com/smartface/sf-extension-utils/commit/372e7f93f4afabb1758060d0c827443738e51457)]
+
+
 <a name="10.0.3"></a>
 ## 10.0.3 (2019-12-27)
 
