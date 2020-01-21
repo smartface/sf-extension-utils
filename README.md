@@ -26,6 +26,7 @@ An extension that has following utility classes for Smartface Native Framework.
 - RTLSwipeView (supports Right-To-Left direction and vice versa)
 - PDF (renders base64 string as pdf file in a WebView)
 - RootDetection (detects if the device is rooted or not)
+- Art (Smartface module that allows you to draw vector graphics)
 
 ## Installation
 Utility extension can be installed via npm easily from our public npm repository. The installation is pretty easy via Smartface Cloud IDE.
@@ -63,13 +64,3 @@ Please read and follow our [Code of Conduct](./CODE_OF_CONDUCT.md).
 ## License
 
 This project is licensed under the terms of the MIT license. See the [LICENSE](./LICENSE) file. Within the scope of this license, all modifications to the source code, regardless of the fact that it is used commercially or not, shall be committed as a contribution back to this repository.
-
-
-# Update sf-extension-utils
-## Update to 4.0.0
-If you are updating from earlier versions than 4.0.0, you need to change your code:
-1. Make sure that the code in `app.js` is like `require("sf-extension-utils")` before calling any other util modules
-2. Change your codes based on the new access format
-    - Old: `const <moduleName> = require("sf-extension-utils")`.<moduleName>
-    - New: `const <moduleName> = require("sf-extension-utils/lib/<moduleName>")`
-    - Some modules have renamed, based on the file name. They have the same names as in documentation. Please check [doc](./doc) folder for new module names.
