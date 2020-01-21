@@ -56,7 +56,7 @@ Creates a ServiceCall helper class with common configuration to be used across m
 
 **Example**  
 ```js
-//shared service-call.js file
+// Shared service-call.js file
 const ServiceCall = require("sf-extension-utils/lib/service-call");
 const sc = new ServiceCall({
     baseUrl: "http://api.myBaseUrl.com",
@@ -66,7 +66,6 @@ const sc = new ServiceCall({
     }
 });
 module.exports = exports = sc;
-
 
 // services/user.js
 const sc = require("./serviceConfig");
