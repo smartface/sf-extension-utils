@@ -1,5 +1,19 @@
 # Changelog
 
+<a name="11.1.0"></a>
+## 11.1.0 (2020-01-21)
+
+### Miscellaneous
+
+-  Merge pull request [#57](https://github.com/smartface/sf-extension-utils/issues/57) from smartface/art [[474d8a7](https://github.com/smartface/sf-extension-utils/commit/474d8a70b3b877cdd3e35c6ff8a2937ba76120b0)]
+-  Merge branch &#x27;master&#x27; into art [[fa2e53a](https://github.com/smartface/sf-extension-utils/commit/fa2e53aff2ae0a86708fda49c2e0acb5731e2329)]
+-  docs: Add documentation for CircularProgressBar [[c133b75](https://github.com/smartface/sf-extension-utils/commit/c133b75a09ae58f8c73726ee23f3ff187ecc7309)]
+-  docs: Upgrade jsdoc module [[25df7b8](https://github.com/smartface/sf-extension-utils/commit/25df7b81aa0edea5eaec50a337c1f9a71d2b49f3)]
+-  Update package.json [[68c7e2b](https://github.com/smartface/sf-extension-utils/commit/68c7e2bafb625f862aa09857e223ff1fd1a07102)]
+-  fix: Require of CircularProgressBar [[0bd779b](https://github.com/smartface/sf-extension-utils/commit/0bd779baa0188609338aead232f02dfc80e89a08)]
+-  feat: Add art util [[ed69f48](https://github.com/smartface/sf-extension-utils/commit/ed69f48008ff179d2db2164e6f9cd7f1b0114e04)]
+
+
 <a name="11.0.0"></a>
 ## 11.0.0 (2020-01-02)
 
