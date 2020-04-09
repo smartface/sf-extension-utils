@@ -1,5 +1,23 @@
 # Changelog
 
+<a name="11.2.1"></a>
+## 11.2.1 (2020-04-09)
+
+### Miscellaneous
+
+-  Merge pull request [#64](https://github.com/smartface/sf-extension-utils/issues/64) from smartface/bugfifx/getcombinedstyle-guid [[f556d39](https://github.com/smartface/sf-extension-utils/commit/f556d39012e1e0eed10e302d191b1e98960190fe)]
+-  fix(getCombinedStyle): remove guid and add proper name for dummy component [[3946144](https://github.com/smartface/sf-extension-utils/commit/394614414cbef066cebd59343e1f069d55e40245)]
+-  bump: 11.2.0 [[9750ea6](https://github.com/smartface/sf-extension-utils/commit/9750ea6341231e80dd7d6eb8b31f5da22634d675)]
+-  Merge pull request [#63](https://github.com/smartface/sf-extension-utils/issues/63) from smartface/bugfix/AND-3841 [[141d5f2](https://github.com/smartface/sf-extension-utils/commit/141d5f23721e54b934e70d844999983a442ce3a1)]
+-  [AND-3841] Add GooglePlayServices class [[e7374d6](https://github.com/smartface/sf-extension-utils/commit/e7374d698b8d246a6062c97f01a4b2e8f5b10521)]
+-  Merge pull request [#60](https://github.com/smartface/sf-extension-utils/issues/60) from smartface/fix/workaround-renault [[80db903](https://github.com/smartface/sf-extension-utils/commit/80db903d789b5c90dedca2f109402b72564bbd4a)]
+-  fix: Support callback for location util [[eeae740](https://github.com/smartface/sf-extension-utils/commit/eeae740bda033e5f56ef877b0d605f22b7c1528f)]
+-  Merge pull request [#59](https://github.com/smartface/sf-extension-utils/issues/59) from smartface/fix/workaround-renault [[39e6bb4](https://github.com/smartface/sf-extension-utils/commit/39e6bb4f625773b6cb6f0c4a590818a22ea46f04)]
+-  fix: Fix for renault [[b5a8b5a](https://github.com/smartface/sf-extension-utils/commit/b5a8b5aabaead9c28469b561e41a54773d8c6b92)]
+-  Merge pull request [#58](https://github.com/smartface/sf-extension-utils/issues/58) from smartface/feature/array-move-polyfill [[04117a7](https://github.com/smartface/sf-extension-utils/commit/04117a750c8703d9715c0b0361e0a559b1fbaac5)]
+-  feature(base/polyfill): Add Array.move as property [[b04dbe1](https://github.com/smartface/sf-extension-utils/commit/b04dbe1913f3311f9eb04441d6624bb8916a7cac)]
+
+
 <a name="11.1.0"></a>
 ## 11.1.0 (2020-01-21)
 
