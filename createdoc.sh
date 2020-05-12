@@ -11,7 +11,10 @@ parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
     
     echo "generating ./doc/rootdetection.md"
     npx jsdoc2md -f ./security/rootdetection.js > ../doc/security/rootdetection.md
-   
+
+    echo "generating ./doc/googleplayservices.md"
+    npx jsdoc2md -f ./security/googleplayservices.js > ../doc/security/googleplayservices.md
+ 
     for filename in *.js; do
         if [[ "$filename" == "index.js" ]]; then
             continue
