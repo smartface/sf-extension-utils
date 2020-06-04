@@ -1,3 +1,4 @@
+import Page = require('sf-core/ui/page');
 /**
  * Active page reference for router
  * @module router
@@ -8,11 +9,10 @@
 
 /**
  * Gets or sets the current page instance for the router util. This is managed by the router util. Setting this will not activly change the current page, it is just a reference
- * @prop {UI.Page} page
+
  * @example
- * const active = require("sf-extension-utils/lib/router/active");
- * function getActivePage() {
- *  return active.page;
- * }
+ * import active from 'sf-extension-utils/lib/router/active';
+ * const currentPage = active.page;
+ * currentPage.layout.applyLayout(); 
  */
-exports.page = null;
+export const page:Page = null;
