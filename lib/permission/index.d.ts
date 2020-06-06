@@ -6,7 +6,7 @@
  * @copyright Smartface 2020
  */
 
-const Application = require('sf-core/application');
+import Application = require('sf-core/application');
 /**
  * Run-time permission requests for Android if needed. iOS automatically succeeds.
  * Permission request numbers starts from 2000 and incremented on each requestPermission
@@ -33,8 +33,4 @@ export const PERMISSION_STATUS: {
     GRANTED: string,
     DENIED: string,
     NEVER_ASK_AGAIN: string
-} = {
-    GRANTED: 'GRANTED',
-    DENIED: 'DENIED',
-    NEVER_ASK_AGAIN: 'NEVER_ASK_AGAIN'
 };
