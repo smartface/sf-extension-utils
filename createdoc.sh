@@ -16,7 +16,6 @@ parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
     npx jsdoc2md -f ./security/googleplayservices/index.js > ../doc/security/googleplayservices.md
  
     for filename in *; do
-        barename="${filename/".js"/}"
         if [[ "$filename" == "index.js" ]]; then
             continue
         fi

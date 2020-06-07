@@ -1,11 +1,11 @@
-import Webview = require("sf-core/ui/webview");
+import WebView = require("sf-core/ui/webview");
 
 declare class CircularProgressBarOptions { 
     /**
      * Should be an instance of sf-core/ui/webview
      * @see https://developer.smartface.io/docs/webview
      */
-    webView: Webview;
+    webView: WebView;
     /**
      * @default 4
      * Width of the stroke
