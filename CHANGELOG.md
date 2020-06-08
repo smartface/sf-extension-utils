@@ -1,5 +1,21 @@
 # Changelog
 
+<a name="11.3.0"></a>
+## 11.3.0 (2020-06-08)
+
+### Miscellaneous
+
+-  feat: Implement network.getIpAddress util [[c545e7a](https://github.com/smartface/sf-extension-utils/commit/c545e7a7ec76be6f1c5c16a564a0438abfce2671)]
+-  Merge pull request [#65](https://github.com/smartface/sf-extension-utils/issues/65) from smartface/feature/polyfill-promise-series [[542d632](https://github.com/smartface/sf-extension-utils/commit/542d632c48cb7d98b002e682505d18dde3d0d46b)]
+-  feature(polyfill): Add promise.series [[06dcc1b](https://github.com/smartface/sf-extension-utils/commit/06dcc1b4b96c6e72225b1e4571a3b7d631becb74)]
+-  v11.2.3 [[41a804c](https://github.com/smartface/sf-extension-utils/commit/41a804c98e8e5d652067eea2c8df85110064daca)]
+-  v11.2.2 [[cec6b81](https://github.com/smartface/sf-extension-utils/commit/cec6b8183ec022c72504cbd25fa9e8e162427f6f)]
+-  docs: Add googleplayservices documentation [[1faf081](https://github.com/smartface/sf-extension-utils/commit/1faf0819a4cf8137119c6e388ac037acb834bb79)]
+-  fix: Fix for iOS11 [[240f579](https://github.com/smartface/sf-extension-utils/commit/240f5796fdae97045751efdd95e5955d48475f39)]
+-  Merge pull request [#61](https://github.com/smartface/sf-extension-utils/issues/61) from smartface/dependabot/npm_and_yarn/acorn-7.1.1 [[e7c7ca5](https://github.com/smartface/sf-extension-utils/commit/e7c7ca568d527360e393504e9e6612fd7c48a74d)]
+-  build(deps): bump acorn from 7.1.0 to 7.1.1 [[2b9e740](https://github.com/smartface/sf-extension-utils/commit/2b9e74087fce11c42903d337ee254302c9a76b83)]
+
+
 <a name="11.2.1"></a>
 ## 11.2.1 (2020-04-09)
 
