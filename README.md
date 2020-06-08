@@ -48,6 +48,9 @@ Later in any file, require it with the path: `require("sf-extension-utils/lib/<m
 ### API
 For each module api documentation is in separate file. Please visit [doc](./doc) folder
 
+## Development
+
+
 ## Need Help?
 
 Please [submit an issue](https://github.com/smartface/sf-extension-utils/issues) on GitHub and provide information about your problem.
