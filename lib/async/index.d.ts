@@ -42,7 +42,7 @@
  *     });
  * };
  */
-export function createAsyncGetter(task: () => {}, options: { forceSync?: boolean, thisObject?: object} = { forceSync: false, thisObject: global }): () => Promise<any>;
+export function createAsyncGetter(task: () => {}, options: { forceSync?: boolean, thisObject?: { [key: string]: any } | string } ): () => Promise<any>;
 
 /**
  * Runs the async task and responds a promise
@@ -58,4 +58,4 @@ export function createAsyncGetter(task: () => {}, options: { forceSync?: boolean
  * import Http = require("sf-core/net/http");
  * createAsyncTask(()=> new Http()).then(http => http.request(requestOptions));
  */
-export function createAsyncTask(task: () => {}, options: { forceSync?: boolean, thisObject?: object} = { forceSync: false, thisObject: global }): Promise<any>
+export function createAsyncTask(task: () => {}, options: { forceSync?: boolean, thisObject?: { [key: string]: any } | string } ): Promise<any>
