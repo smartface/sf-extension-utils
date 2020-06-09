@@ -40,7 +40,7 @@ export class OfflineRequestServiceCall extends ServiceCall {
         offlineRequestHandler: () => Promise<any>;
     });
 
-    request(endpointPath: string, options?: object): Promise<any>;
+    request(endpointPath: string, options?: { [key: string]: any }): Promise<any>;
 
     /**
      * Perform all pending requests in DB
@@ -74,10 +74,10 @@ export class OfflineResponseServiceCall extends ServiceCall {
     constructor(options: {
         baseUrl: string;
         logEnabled?: boolean;
-        requestCleaner: (requestOptions:object) => object;
+        requestCleaner: (requestOptions:{ [key: string]: any }) => { [key: string]: any };
     });
 
-    request(endpointPath: string, options?: object): Promise<any>;
+    request(endpointPath: string, options?: { [key: string]: any }): Promise<any>;
 }
 
 /**

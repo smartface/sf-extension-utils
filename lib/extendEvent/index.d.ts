@@ -20,5 +20,5 @@
  *  //same as previous example
  * });
  */
-export default function(target: object, eventName: string, newEvent: () => {}): void;
+export default function(target: { [key: string]: any }, eventName: string, newEvent: () => {}): void;
 

@@ -115,7 +115,7 @@ export default class {
      * @name BiometricLogin.FIELDS
      * 
      */
-    static get FIELDS(): object;
+    static get FIELDS(): { [key: string]: any };
 
     /**
      * Fetchs given encrypted boolean field name. Advanced use only.
@@ -163,10 +163,6 @@ export default class {
         doNotAutoAskLogin: boolean;
         rememberMeDisabledForTheFirstTime: boolean;
         useFingerprintDisabledForTheFirstTime: boolean;
-    } = {
-        doNotAutoAskLogin = false,
-        rememberMeDisabledForTheFirstTime = false,
-        useFingerprintDisabledForTheFirstTime = false
     }) : Promise<any>;
 
     /**

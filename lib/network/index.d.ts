@@ -20,4 +20,4 @@
  *         console.error("Not connected to internet");
  *     });
  */
-export function isConnected(): Promise<object>;
+export function isConnected(): Promise<{ [key: string]: any }>;

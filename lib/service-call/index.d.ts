@@ -27,7 +27,7 @@ declare interface IRequestOptions {
     /**
      * Request specific headers. In conflict with configuration, those values are used
      */
-    headers?: string;
+    headers?: { [key: string]: any } | string;
     /**
      * Request specific log option
      */
@@ -111,7 +111,7 @@ export default class {
         baseUrl: string;
         timeout?: number;
         logEnabled?: boolean;
-        headers?: object;
+        headers?: { [key: string]: any } | string;
     });
 
     /**
@@ -146,7 +146,7 @@ export default class {
      * @method
      * @returns {object} headers
      */
-    getHeaders(): object;
+    getHeaders(): { [key: string]: any };
 
     /**
      * creates a request options object for http request

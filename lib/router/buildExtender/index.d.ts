@@ -35,7 +35,7 @@ declare interface IBuildExtenderOptions {
      * Properties to be assigned to the page instance
      * When property shouldExit is used with goBack, on that page Application.exit is called instead of goBack or dismiss
      */
-    pageProps?: object;
+    pageProps?: { [key: string]: any };
 }
 
 
