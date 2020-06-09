@@ -2,7 +2,7 @@ declare interface IBuildExtenderOptions {
     /**
      * Returns the class of the page. This used for lazy loading of a page file and helps the performance.
      */
-    getPageClass: string;
+    getPageClass: () => any;
     /**
      * Same instance of the page will be used again and again for the same route. It is advised to use a singleton page for each first Route of a StackRouter
      */
@@ -33,13 +33,9 @@ declare interface IBuildExtenderOptions {
     postProcessor?: () => {};
     /**
      * Properties to be assigned to the page instance
+     * When property shouldExit is used with goBack, on that page Application.exit is called instead of goBack or dismiss
      */
-    pageProps?: {
-        /**
-         * When used with goBack, on that page Application.exit is called instead of goBack or dismiss
-         */
-        shouldExit?: boolean;
-    };
+    pageProps?: object;
 }
 
 

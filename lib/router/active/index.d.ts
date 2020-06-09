@@ -15,4 +15,8 @@ import Page = require('sf-core/ui/page');
  * const currentPage = active.page;
  * currentPage.layout.applyLayout(); 
  */
-export const page:Page = null;
+declare namespace active {
+    export const page: Page
+}
+
+export default active;
