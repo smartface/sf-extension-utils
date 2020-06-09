@@ -18,7 +18,7 @@
  * const buttonStyle = getCombinedStyle(".button");
  * Object.assign(btn, buttonStyle);
  */
-export function getCombinedStyle(className: string): void;
+export function getCombinedStyle(className: string): object;
 
 /**
  * Removes all items from cache
