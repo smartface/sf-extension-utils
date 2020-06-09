@@ -10,27 +10,27 @@ declare interface IBuildExtenderOptions {
     /**
      * Extends an onHide event for the page
      */
-    onHide?: () => {};
+    onHide?: () => any;
     /**
      * Extends an onShow event for the page
      */
-    onShow?: () => {};
+    onShow?: () => any;
     /**
      * Extends an onLoad event for the page
      */
-    onLoad?: () => {};
+    onLoad?: () => any;
     /**
      * iOS only feature. Assigns several properties to the headerBar; some of them the the controller of the StackRouter:Controller  (visible), some of them to the page.headerBar:NavigationItem (leftItemEnabled, largeTitleDisplayMode) at the onShow event of the page
      */
-    headerBarStyle?: Object;
+    headerBarStyle?: { [key: string]: any};
     /**
      * Event before the page instance is created. Useful when modifying route params before the instance is created. Callback function is called with the following arguments: match, routeData, router, view, pageProps, route
      */
-    preProcessor?: () => {};
+    preProcessor?: () => any;
     /**
      * Event after the page instance is created. Useful when modifying page. Callback function is called with the following arguments: match, routeData, router, pageInstance, pageProps, route
      */
-    postProcessor?: () => {};
+    postProcessor?: () => any;
     /**
      * Properties to be assigned to the page instance
      * When property shouldExit is used with goBack, on that page Application.exit is called instead of goBack or dismiss
@@ -85,9 +85,8 @@ declare interface IBuildExtenderOptions {
 *     ]
 * });
 */
-declare function buildExtender(options: IBuildExtenderOptions): () => {};
 
-declare namespace buildExtender{
+declare namespace buildExtender {
     /**
      * Gets or sets the list of preProcessors running for each page. Callback(s) are called with the following arguments: match, routeData, router, view, pageProps, route
      * @property {function[]} buildExtender.preProcessors
@@ -97,7 +96,7 @@ declare namespace buildExtender{
      *  //
      * });
      */
-    export const preProcessors: () => {}[];
+    export const preProcessors: () => any[];
 
     /**
      * Gets or sets the list of postProcessors running for each page. Callback(s) are called with the following arguments: match, routeData, router, pageInstance, pageProps, route
@@ -108,7 +107,9 @@ declare namespace buildExtender{
      *  //
      * });
      */
-    export const postProcessors: () => {}[];
+    export const postProcessors: () => any[];
 }
+
+declare function buildExtender(options: IBuildExtenderOptions): () => any;
 
 export default buildExtender;
