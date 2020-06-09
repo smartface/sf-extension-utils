@@ -8,7 +8,7 @@ import Color = require('sf-core/ui/color');
  * @author Ozcan Ovunc <ozcan.ovunc@smartface.io>
  * @copyright Smartface 2019
  */
-declare namespace back_close {
+declare namespace BackClose {
     /**
      * Changes the defult back icon of the StackRouter. This is replacing the constructor of the StackRouter. It should be called before creating any Router to be effective. Calling it after creation of the router has no effect.
      * @public
@@ -38,7 +38,7 @@ declare namespace back_close {
      *  else return {image: closeImage, position: "left", color: Color.WHITE};
      * };
      */
-    export const dismissBuilder:(match, routeData, router, pageInstance, pageProps, route) => { image: Image, position: string, color: Color };
+    export let dissmissBuilder: (match?: any, routeData?: any, router?: any, pageInstance?: any, pageProps?: any, route?: any) => { image: Image, position: string, color?: Color };
 }
 
-export default back_close;
+export default BackClose;
