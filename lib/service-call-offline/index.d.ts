@@ -1,3 +1,4 @@
+import ServiceCall from "../service-call";
 /**
  * Smartface Service-Call-Offline module.
  * This module provides classes to be instead of ServiceCall class for some offline capability.

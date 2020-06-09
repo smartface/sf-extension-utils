@@ -15,7 +15,7 @@ declare interface IRequestOptions {
     /**
      * Request payload body. This object will be automatically stringified
      */
-    body?: object;
+    body?: { [key: string]: any } | string;
     /**
      * Query string string object. Combines with the url
      */
