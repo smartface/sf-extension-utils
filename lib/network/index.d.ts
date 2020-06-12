@@ -21,3 +21,18 @@
  *     });
  */
 export function isConnected(): Promise<{ [key: string]: any }>;
+
+/**
+ * @function
+ * @return {Promise<string>} - Resolves current IP address of the device
+ * @example
+ * import network from "sf-extension-utils/lib/network";
+ * network.getIpAddress()
+ *     .then((ip) => {
+ *         console.info(`Retrieved device IP ${ip}`);
+ *     })
+ *     .catch(() => {
+ *         console.error("Cannot retrieve device IP");
+ *     });
+ */
+export function getIpAddress(): Promise<string>;
