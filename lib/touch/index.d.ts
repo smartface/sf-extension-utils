@@ -159,7 +159,7 @@ export function getDefaults(): IDefaults;
  *     alert("Pressed");
  * });
  */
-export function addPressEvent(target: View, event: () => any, options: IPressEventOptions): void;
+export function addPressEvent(target: View, event: () => any, options?: IPressEventOptions): void;
 
 /**
  * Default press effect function. Takes `this` as target. Darkens color for iOS, adds elevation for Android
