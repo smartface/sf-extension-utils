@@ -7,7 +7,7 @@ Smartface Android Permission module
 **Copyright**: Smartface 2020  
 <a name="module_permission.permission_getPermission"></a>
 
-### permission.permission:getPermission(permission, permissionText)
+### permission.permission:getPermission(permission, permissionText) ⇒ <code>Promise</code>
 Run-time permission requests for Android if needed. iOS automatically succeeds.
 Permission request numbers starts from 2000 and incremented on each requestPermission
 
@@ -31,7 +31,7 @@ permissionUtil.getPermission(Application.Android.Permissions.READ_CONTACTS, 'Ple
     .then(() => {
         console.info('Permission granted');
     })
-    .then((reason) => {
+    .catch((reason) => {
         console.info('Permission rejected');
     });
 ```

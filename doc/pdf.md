@@ -2,7 +2,8 @@
 
 ## pdf : <code>Object</code>
 **Author**: Ozcan Ovunc <ozcan.ovunc@smartface.io>  
-**Copyright**: Smartface 2019  
+**Author**: Alim Öncül <alim.oncul@smartface.io>  
+**Copyright**: Smartface 2020  
 <a name="module_pdf..Renders base64 string as pdf file in a WebView"></a>
 
 ### pdf~Renders base64 string as pdf file in a WebView()
@@ -24,6 +25,7 @@ pdf.render({
         'ZG9iagoKeHJlZgowIDYKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDEwIDAwMDAwIG4g' +
         'CjAwMDAwMDAwNzkgMDAwMDAgbiAKMDAwMDAwMDE3MyAwMDAwMCBuIAowMDAwMDAwMzAxIDAw' +
         'MDAwIG4gCjAwMDAwMDAzODAgMDAwMDAgbiAKdHJhaWxlcgo8PAogIC9TaXplIDYKICAvUm9v' +
-        'dCAxIDAgUgo+PgpzdGFydHhyZWYKNDkyCiUlRU9G'
+        'dCAxIDAgUgo+PgpzdGFydHhyZWYKNDkyCiUlRU9G',
+    zoomEnabled: true
 });
 ```

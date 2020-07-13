@@ -14,8 +14,8 @@ Smartface Service-Call helper module
             * [.baseUrl](#module_service-call..ServiceCall+baseUrl)
             * [.setHeader(key, value, headers)](#module_service-call..ServiceCall+setHeader)
             * [.getHeaders()](#module_service-call..ServiceCall+getHeaders) ⇒ <code>object</code>
-            * [.createRequestOptions(endpointPath, options, method)](#module_service-call..ServiceCall+createRequestOptions) ⇒ <code>object</code>
-            * [.request(endpointPath, options, method)](#module_service-call..ServiceCall+request) ⇒ <code>Promise</code>
+            * [.createRequestOptions(endpointPath, options)](#module_service-call..ServiceCall+createRequestOptions) ⇒ <code>object</code>
+            * [.request(endpointPath, options)](#module_service-call..ServiceCall+request) ⇒ <code>Promise</code>
         * _static_
             * [.BASE_HEADERS](#module_service-call..ServiceCall.BASE_HEADERS)
             * [.request(options)](#module_service-call..ServiceCall.request) ⇒ <code>Promise</code>
@@ -34,8 +34,8 @@ Helper class for calling JSON based restful services.
         * [.baseUrl](#module_service-call..ServiceCall+baseUrl)
         * [.setHeader(key, value, headers)](#module_service-call..ServiceCall+setHeader)
         * [.getHeaders()](#module_service-call..ServiceCall+getHeaders) ⇒ <code>object</code>
-        * [.createRequestOptions(endpointPath, options, method)](#module_service-call..ServiceCall+createRequestOptions) ⇒ <code>object</code>
-        * [.request(endpointPath, options, method)](#module_service-call..ServiceCall+request) ⇒ <code>Promise</code>
+        * [.createRequestOptions(endpointPath, options)](#module_service-call..ServiceCall+createRequestOptions) ⇒ <code>object</code>
+        * [.request(endpointPath, options)](#module_service-call..ServiceCall+request) ⇒ <code>Promise</code>
     * _static_
         * [.BASE_HEADERS](#module_service-call..ServiceCall.BASE_HEADERS)
         * [.request(options)](#module_service-call..ServiceCall.request) ⇒ <code>Promise</code>
@@ -155,7 +155,7 @@ Gets a copy of headers used
 **Returns**: <code>object</code> - headers  
 <a name="module_service-call..ServiceCall+createRequestOptions"></a>
 
-#### serviceCall.createRequestOptions(endpointPath, options, method) ⇒ <code>object</code>
+#### serviceCall.createRequestOptions(endpointPath, options) ⇒ <code>object</code>
 creates a request options object for http request
 
 **Kind**: instance method of [<code>ServiceCall</code>](#module_service-call..ServiceCall)  
@@ -165,7 +165,7 @@ creates a request options object for http request
 | --- | --- | --- | --- |
 | endpointPath | <code>string</code> |  | Added to the end of the base url to form the url |
 | options | <code>object</code> |  | Request specific options |
-| method | <code>string</code> |  | HTTP method of this request |
+| [options.method] | <code>string</code> |  | HTTP method of this request |
 | [options.body] | <code>object</code> |  | Request payload body. This object will be automatically stringified |
 | [options.q] | <code>object</code> |  | Query string string object. Combines with the url |
 | [options.query] | <code>object</code> |  | Alias for options.q |
@@ -195,7 +195,7 @@ var reqOps = sc.createRequestOptions(`/auth/login`, {
 ```
 <a name="module_service-call..ServiceCall+request"></a>
 
-#### serviceCall.request(endpointPath, options, method) ⇒ <code>Promise</code>
+#### serviceCall.request(endpointPath, options) ⇒ <code>Promise</code>
 Combines serviceCall.createRequestOptions and ServiceCall.request (static)
 
 **Kind**: instance method of [<code>ServiceCall</code>](#module_service-call..ServiceCall)  
@@ -209,7 +209,7 @@ Combines serviceCall.createRequestOptions and ServiceCall.request (static)
 | --- | --- | --- |
 | endpointPath | <code>string</code> | Added to the end of the base url to form the url |
 | options | <code>object</code> | Request specific options |
-| method | <code>string</code> | HTTP method of this request |
+| [options.method] | <code>string</code> | HTTP method of this request |
 | [options.body] | <code>object</code> | Request payload body. This object will be automatically stringified |
 | [options.q] | <code>object</code> | Query string string object. Combines with the url |
 | [options.query] | <code>object</code> | Alias for options.q |

@@ -21,7 +21,7 @@ You also need to add this key to your info.plist file, for the app to be able to
 ```  
 <a name="module_navigation.showNavigationMenu"></a>
 
-### navigation.showNavigationMenu(page, transportType, location) ⇒ <code>Promise.&lt;string&gt;</code>
+### navigation.showNavigationMenu(options) ⇒ <code>Promise.&lt;string&gt;</code>
 Prompts a menu to choose which navigation app to handle the location.
 It sets the starting point to your current location, if the permission is granted.
 
@@ -30,9 +30,10 @@ It sets the starting point to your current location, if the permission is grante
 
 | Param | Type | Description |
 | --- | --- | --- |
-| page | <code>Object</code> | The main object of current page. |
-| transportType | <code>string</code> | Your way of travel, driving, walking or bicycling. Accepted parameters = "d", "w", "b" |
-| location | <code>Object</code> | Destination location which contains latitude and longitude |
+| options |  |  |
+| options.page | <code>Object</code> | The main object of current page. |
+| options.transportType | <code>string</code> | Your way of travel, driving, walking or bicycling. Accepted parameters = "d", "w", "b" |
+| options.location | <code>Object</code> | Destination location which contains latitude and longitude |
 
 **Example**  
 ```js
