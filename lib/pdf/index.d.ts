@@ -26,7 +26,8 @@ import WebView = require('sf-core/ui/webview');
  *         'ZG9iagoKeHJlZgowIDYKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDEwIDAwMDAwIG4g' +
  *         'CjAwMDAwMDAwNzkgMDAwMDAgbiAKMDAwMDAwMDE3MyAwMDAwMCBuIAowMDAwMDAwMzAxIDAw' +
  *         'MDAwIG4gCjAwMDAwMDAzODAgMDAwMDAgbiAKdHJhaWxlcgo8PAogIC9TaXplIDYKICAvUm9v' +
- *         'dCAxIDAgUgo+PgpzdGFydHhyZWYKNDkyCiUlRU9G'
+ *         'dCAxIDAgUgo+PgpzdGFydHhyZWYKNDkyCiUlRU9G',
+ *     zoomEnabled: true
  * });
  */
-export function render(options: { webView: WebView, base64pdf: string }): void;
+export function render(options: { webView: WebView, base64pdf: string, zoomEnabled?: boolean }): void;
