@@ -1,6 +1,6 @@
 {
   "name": "sf-extension-utils",
-  "version": "12.1.0",
+  "version": "13.0.0",
   "description": "Utils Extension for Smartface Native Framework",
   "main": "lib/index.js",
   "scripts": {
@@ -29,7 +29,8 @@
     "semver": "^5.7.1",
     "squel": "^5.13.0",
     "tinycolor2": "^1.4.1",
-    "wolfy87-eventemitter": "^5.2.9"
+    "wolfy87-eventemitter": "^5.2.9",
+    "@smartface/contx": "^3.0.1"
   },
   "devDependencies": {
     "cz-conventional-changelog": "^2.1.0",
