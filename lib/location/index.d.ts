@@ -40,4 +40,4 @@
  *         console.log("Location cannot be retrieved");
  *     });
  */
-export function getLocation(callback: () => {}): Promise<any>;
+export function getLocation(callback?: () => {}): Promise<any>;
