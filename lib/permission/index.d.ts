@@ -12,7 +12,10 @@ import Application = require('sf-core/application');
  * Run-time permission requests for Android if needed. iOS only supports camera, others automatically succeeds.
  * Permission request numbers starts from 2000 and incremented on each requestPermission
  * @function permission:getPermission
- * @param {Application.android.Permissions} permission permission to get
+ * @param {Object} opts - Options for the module
+ * @param {Application.android.Permissions} opts.androidPermission - Android permission to get
+ * @param {string} opts.iosPermission [opts.iosPermission] - iOS permission to get
+ * @param {string} opts.permissionText - Text to show when permission cannot be granted
  * @param {string} permissionText text to show when permission cannot be granted
  * @static
  * @public
@@ -20,7 +23,11 @@ import Application = require('sf-core/application');
  * @see {@link https://developer.smartface.io/docs/application-permission-management|Application Permission Management}
  * @example
  * import permissionUtil from 'sf-extension-utils/lib/permission';
- * permissionUtil.getPermission(Application.Android.Permissions.READ_CONTACTS, 'Please go to the settings and grant permission')
+ * permissionUtil.getPermission({
+ *         androidPermission: Application.Android.Permissions.READ_CONTACTS,
+ *         iosPermission: IOS_PERMISSIONS.CAMERA,
+ *         permissionText: 'Please go to the settings and grant permission'
+ *     })
  *     .then(() => {
  *         console.info('Permission granted');
  *     })
@@ -29,12 +36,16 @@ import Application = require('sf-core/application');
  *     });
  */
 
-export function getPermission(androidPermission: Application.android.Permissions, permissionText: string, iosPermission?: string): Promise<any>;
+export function getPermission({androidPermission, permissionText, iosPermission}: {
+    androidPermission: Application.android.Permissions, 
+    permissionText: string, 
+    iosPermission?: typeof IOS_PERMISSIONS
+}): Promise<any>;
 export const PERMISSION_STATUS: {
     GRANTED: string,
     DENIED: string,
     NEVER_ASK_AGAIN: string
 };
 export const IOS_PERMISSIONS: {
-    CAMERA: string
+    CAMERA: "CAMERA"
 }
