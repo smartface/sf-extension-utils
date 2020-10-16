@@ -16,7 +16,6 @@ import Application = require('sf-core/application');
  * @param {Application.android.Permissions} opts.androidPermission - Android permission to get
  * @param {string} opts.iosPermission [opts.iosPermission] - iOS permission to get
  * @param {string} opts.permissionText - Text to show when permission cannot be granted
- * @param {string} permissionText text to show when permission cannot be granted
  * @static
  * @public
  * @see {@link http://ref.smartface.io/#!/api/Application.android.Permissions|Permission Types}
