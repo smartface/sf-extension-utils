@@ -38,7 +38,7 @@ import Application = require('sf-core/application');
 export function getPermission({androidPermission, permissionText, iosPermission}: {
     androidPermission: Application.android.Permissions, 
     permissionText: string, 
-    iosPermission?: typeof IOS_PERMISSIONS
+    iosPermission?: string
 }): Promise<any>;
 export const PERMISSION_STATUS: {
     GRANTED: string,
