@@ -1,14 +1,15 @@
 /**
- * Smartface Android Permission module
+ * Smartface Android & Partly iOS Permission module
  * @module permission
  * @type {object}
  * @author Ozcan Ovunc <ozcan.ovunc@smartface.io>
+ * @author Alim Öncül <alim.oncul@smartface.io>
  * @copyright Smartface 2020
  */
 
 import Application = require('sf-core/application');
 /**
- * Run-time permission requests for Android if needed. iOS automatically succeeds.
+ * Run-time permission requests for Android if needed. iOS only supports camera, others automatically succeeds.
  * Permission request numbers starts from 2000 and incremented on each requestPermission
  * @function permission:getPermission
  * @param {Application.android.Permissions} permission permission to get
@@ -28,9 +29,12 @@ import Application = require('sf-core/application');
  *     });
  */
 
-export function getPermission(permission: Application.android.Permissions, permissionText: string): Promise<any>;
+export function getPermission(androidPermission: Application.android.Permissions, permissionText: string, iosPermission?: string): Promise<any>;
 export const PERMISSION_STATUS: {
     GRANTED: string,
     DENIED: string,
     NEVER_ASK_AGAIN: string
 };
+export const IOS_PERMISSIONS: {
+    CAMERA: string
+}
