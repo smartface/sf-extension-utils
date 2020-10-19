@@ -23,7 +23,7 @@ import Application = require('sf-core/application');
  * @example
  * import permissionUtil from 'sf-extension-utils/lib/permission';
  * permissionUtil.getPermission({
- *         androidPermission: Application.Android.Permissions.READ_CONTACTS,
+ *         androidPermission: Application.Android.Permissions.CAMERA,
  *         iosPermission: IOS_PERMISSIONS.CAMERA,
  *         permissionText: 'Please go to the settings and grant permission'
  *     })
