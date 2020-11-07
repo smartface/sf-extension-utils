@@ -1,3 +1,11 @@
+/**
+ * Apple Device utility
+ * @module appleDevices
+ * @type {object}
+ * @author Furkan Arabacı <furkan.arabaci@smartface.io>
+ * @copyright Smartface 2020
+ */
+
 const Hardware = require('sf-core/device/hardware');
 const System = require('sf-core/device/system');
 const deviceMapping = require("./deviceMapping.json");
