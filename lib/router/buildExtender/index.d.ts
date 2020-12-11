@@ -36,6 +36,11 @@ declare interface IBuildExtenderOptions {
      * When property shouldExit is used with goBack, on that page Application.exit is called instead of goBack or dismiss
      */
     pageProps?: { [key: string]: any };
+    /**
+     * Pagename to be passed on the components and the page on constructor.
+     * Should be defined while building test automation process
+     */
+    pageName?: string;
 }
 
 
