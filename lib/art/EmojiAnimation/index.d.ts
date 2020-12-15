@@ -1,27 +1,22 @@
-import WebView = require("sf-core/ui/webview");
+import WebView = require('sf-core/ui/webview');
+
+declare type Emoji = {
+	base64: string;
+	width: number;
+	height: number;
+};
 
 declare class EmojiAnimationOptions {
-    /**
-     * Should be an instance of sf-core/ui/webview
-     * @see https://developer.smartface.io/docs/webview
-     */
-    webView: WebView;
-    /**
-     * @default []
-     * Array of emojis will be played
-     */
-    emojis?: string[];
-    /**
-     * @default 100
-     * Width of emoji box(px)
-     */
-    emojiBoxWidth?: number;
-    /**
-     * @default 80
-     * Width of emoji(px)
-     */
-    emojiWidth?: number;
-
+	/**
+	 * Should be an instance of sf-core/ui/webview
+	 * @see https://developer.smartface.io/docs/webview
+	 */
+	webView: WebView;
+	/**
+	 * @default []
+	 * Array of emojis will be played
+	 */
+	emojis?: Emoji[];
 }
 
 /**
@@ -32,17 +27,21 @@ declare class EmojiAnimationOptions {
  * import EmojiAnimation from 'sf-extension-utils/lib/art/EmojiAnimation';
  *
  * const emojiAnimation = new EmojiAnimation({
- *     emojis: ['data:image/base64:eymBASDASd']
- *     webView: this.wvCircularAnimation 
+ *     emojis: [{
+ *          base64: 'data:image/base64:eymBASDASd',
+ *          width: 40,
+ *          height: 40
+ *      }],
+ *     webView: this.wvCircularAnimation
  * });
- * 
+ *
  * // Play first emoji on WebView
  * emojiAnimation.play(0);
  */
 export default class EmojiAnimation extends EmojiAnimationOptions {
-    constructor(options: EmojiAnimationOptions);
-    /**
-     * Play given index that emoji on WebView
-     */
-    public playEmoji(emojiIndex: number);
+	constructor(options: EmojiAnimationOptions);
+	/**
+	 * Play given index that emoji on WebView
+	 */
+	public playEmoji(emojiIndex: number);
 }
