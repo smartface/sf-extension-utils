@@ -1,11 +1,5 @@
 import WebView = require('sf-core/ui/webview');
 
-declare type Emoji = {
-	base64: string;
-	width: number;
-	height: number;
-};
-
 declare class EmojiAnimationOptions {
 	/**
 	 * Should be an instance of sf-core/ui/webview
@@ -16,7 +10,17 @@ declare class EmojiAnimationOptions {
 	 * @default []
 	 * Array of emojis will be played
 	 */
-	emojis?: Emoji[];
+	emojis?: string[];
+	/**
+	 * @default 100
+	 * Width of emoji box(px)
+	 */
+	emojiBoxWidth?: number;
+	/**
+	 * @default 80
+	 * Width of emoji(px)
+	 */
+	emojiWidth?: number;
 }
 
 /**
@@ -27,11 +31,7 @@ declare class EmojiAnimationOptions {
  * import EmojiAnimation from 'sf-extension-utils/lib/art/EmojiAnimation';
  *
  * const emojiAnimation = new EmojiAnimation({
- *     emojis: [{
- *          base64: 'data:image/base64:eymBASDASd',
- *          width: 40,
- *          height: 40
- *      }],
+ *     emojis: ['data:image/base64:eymBASDASd']
  *     webView: this.wvCircularAnimation
  * });
  *
