@@ -6,7 +6,7 @@ Provides an extendible class to handle most common biometric login quirks.
 The account username-password will be encrypted on the device storage.
 
 **Author**: Alper Ozışık <alper.ozisik@smartface.io>  
-**Author**: Furkan Arabacı <furkan.arabaci@smartface.io>  
+**Author**: Furkan Arabacı <furkan.arabaci@smartface.io>
 **Copyright**: Smartface 2019  
 
 * [BiometricLogin](#module_BiometricLogin) : <code>Class</code>
@@ -71,35 +71,30 @@ Data will be written encrypted.
 | options.loginHandler | <code>function</code> |  | Post login actions, should return promise |
 
 **Example**  
-```js
-const BiometricLogin = require("sf-extension-utils/lib/biometricLogin");
-function onLoad(superOnLoad) {
+```ts
+import BiometricLogin from 'sf-extension-utils/lib/biometricLogin';
+onLoad(superOnLoad) {
     superOnLoad();
-    const page = this;
-    const { mtbEmail, mtbPassword, btnLogin } = page;
-    const biometricLogin = new BiometricLogin({
+    const { mtbEmail, mtbPassword, btnLogin } = this;
+    this.biometricLogin = new BiometricLogin({
         loginService: () => login(mtbEmail.materialTextBox.text, mtbPassword.materialTextBox.text),
-        getField: getField.bind(page),
-        setField: setField.bind(page)
+        getField: getField.bind(this),
+        setField: setField.bind(this)
     });
-    page.biometricLogin = biometricLogin;
-    btnLogin.onPress = btnLogin_onPress.bind(page);
+    btnLogin.onPress = btnLogin_onPress.bind(this);
 }
-function onShow(superOnShow) {
-    const page = this;
-    page.biometricLogin && page.biometricLogin.load({
+onShow(superOnShow) {
+    this.biometricLogin.load({
         doNotAutoAskLogin: false
     });
 }
 
-function btnLogin_onPress() {
-    const page = this;
-    page.biometricLogin.loginWithBiometric();
+btnLogin_onPress() {
+    this.biometricLogin.loginWithBiometric();
 }
 
-function setField(fieldName, value) {
-    const page = this;
-    const { mtbEmail, mtbPassword, switchRememberMe, switchFingerPrint } = page;
+setField(fieldName, value) {
+    const { mtbEmail, mtbPassword, switchRememberMe, switchFingerPrint } = this;
     switch (fieldName) {
         case BiometricLogin.FIELDS.USERNAME:
             return mtbEmail.materialTextBox.text = value;
@@ -115,9 +110,8 @@ function setField(fieldName, value) {
     }
 }
 
-function getField(fieldName) {
-    const page = this;
-    const { mtbEmail, mtbPassword, switchRememberMe, switchFingerPrint } = page;
+getField(fieldName) {
+    const { mtbEmail, mtbPassword, switchRememberMe, switchFingerPrint } = this;
     switch (fieldName) {
         case BiometricLogin.FIELDS.USERNAME:
             return mtbEmail.materialTextBox.text;
@@ -133,10 +127,8 @@ function getField(fieldName) {
     }
 }
 
-function login(username, password) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => resolve({ token: "exampleToken" }), 1000);
-    })
+function login(username, password): Promise<any> {
+       return setTimeout(() => Promise.resolve({ token: "exampleToken" }), 1000);
 }
 ```
 <a name="module_BiometricLogin..getBooleanData"></a>
@@ -191,10 +183,9 @@ To overcome it, use doNotAutoAskLogin property
 | loadParams.useFingerprintDisabledForTheFirstTime | <code>boolean</code> | <code>false</code> | Will be logged in normally if set to false |
 
 **Example**  
-```js
-function onShow(superOnShow) {
-    const page = this;
-    page.biometricLogin && page.biometricLogin.load({
+```ts
+onShow(superOnShow) {
+    this.biometricLogin.load({
         doNotAutoAskLogin: false
     });
  }
@@ -207,15 +198,13 @@ Use this function on your login button press
 
 **Kind**: inner method of [<code>BiometricLogin</code>](#module_BiometricLogin)  
 **Example**  
-```js
-function onLoad() {
-    const page = this;
-    const { btnLogin } = page;
-    btnLogin.onPress = btnLogin_onPress.bind(page);
+```ts
+onLoad() {
+    const { btnLogin } = this;
+    btnLogin.onPress = btnLogin_onPress.bind(this);
 }
-function btnLogin_onPress() {
-    const page = this;
-    page.biometricLogin.loginWithBiometric();
+btnLogin_onPress() {
+    this.biometricLogin.loginWithBiometric();
 }
 ```
 <a name="module_BiometricLogin..retrieveField"></a>
