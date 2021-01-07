@@ -30,7 +30,7 @@ gets current orientation of the device. Better to be called when the page is sho
 **Example**  
 ```js
 const orientationLib = require("sf-extension-utils/lib/orientation");
-page.onShow = function() {
+this.onShow = () =>{
     var orientation = orientationLib.getOrientation();
     console.log(orientation); // portrait
     arrangeLayout(this, orientation);

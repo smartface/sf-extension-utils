@@ -26,34 +26,28 @@ declare interface IBiometricLoginParams {
  * @class 
  * @example
  * import BiometricLogin from 'sf-extension-utils/lib/biometricLogin';
- * function onLoad(superOnLoad) {
+ * onLoad(superOnLoad) {
  *     superOnLoad();
- *     const mtbEmail = this.mtbEmail;
- *     const mtbPassword = this.mtbPassword;
- *     const btnLogin = this.btnLogin;
- *     const biometricLogin = new BiometricLogin({
+ *     const {mtbEmail, mtbPassword, btnLogin} = this;
+ *     this.biometricLogin = new BiometricLogin({
  *         loginService: () => login(mtbEmail.materialTextBox.text, mtbPassword.materialTextBox.text),
- *         getField: () => getField(),
- *         setField: () => setField()
+ *         getField: getField(this),
+ *         setField: setField(this)
  *     });
- *     this.biometricLogin = biometricLogin;
  *     btnLogin.onPress = () => btnLogin_onPress();
  * }
- * function onShow(superOnShow) {
- *     this.biometricLogin && this.biometricLogin.load({
+ * onShow(superOnShow) {
+ *     this.biometricLogin.load({
  *         doNotAutoAskLogin: false
  *     });
  * }
  *
- * function btnLogin_onPress() {
+ * btnLogin_onPress() {
  *     this.biometricLogin.loginWithBiometric();
  * }
  * 
- * function setField(fieldName, value) {
- *     const mtbEmail = this.mtbEmail;
- *     const mtbPassword = this.mtbPassword;
- *     const switchRememberMe = this.switchRememberMe;
- *     const switchFingerPrint = this.switchFingerPrint;
+ * setField(fieldName, value) {
+ *     const {mtbEmail, mtbPassword, switchRememberMe, switchFingerPrint} = this;
  *     switch (fieldName) {
  *         case BiometricLogin.FIELDS.USERNAME:
  *             return mtbEmail.materialTextBox.text = value;
@@ -69,11 +63,8 @@ declare interface IBiometricLoginParams {
  *     }
  * }
  * 
- * function getField(fieldName) {
- *     const mtbEmail = this.mtbEmail;
- *     const mtbPassword = this.mtbPassword;
- *     const switchRememberMe = this.switchRememberMe;
- *     const switchFingerPrint = this.switchFingerPrint;
+ * getField(fieldName) {
+ *     const {mtbEmail, mtbPassword, switchRememberMe, switchFingerPrint} = this;
  *     switch (fieldName) {
  *         case BiometricLogin.FIELDS.USERNAME:
  *             return mtbEmail.materialTextBox.text;
@@ -89,10 +80,8 @@ declare interface IBiometricLoginParams {
  *     }
  * }
  * 
- * function login(username, password) {
- *     return new Promise((resolve, reject) => {
- *         setTimeout(() => resolve({ token: "exampleToken" }), 1000);
- *     })
+ * function login(username, password): Promise<any> {
+ *     return setTimeout(() => Promise.resolve({ token: "exampleToken" }), 1000);
  * }
 */
 export default class {
@@ -152,9 +141,8 @@ export default class {
      * @param {boolean} loadParams.useFingerprintDisabledForTheFirstTime=false - Will be logged in normally if set to false
      * @returns {Promise} - Always resolves the promise, so don't bother chaining it.
      * @example
-     *  function onShow(superOnShow) {
-     *     const page = this;
-     *     page.biometricLogin && page.biometricLogin.load({
+     *  onShow(superOnShow) {
+     *     this.biometricLogin.load({
      *         doNotAutoAskLogin: false
      *     });
      *  }
@@ -180,10 +168,10 @@ export default class {
      * @function loginWithBiometric
      * @returns {Promise}
      * @example
-     * function onLoad() {
+     * onLoad() {
      *     this.btnLogin.onPress = btnLogin_onPress.bind(page);
      * }
-     * function btnLogin_onPress() {
+     * btnLogin_onPress() {
      *     this.biometricLogin.loginWithBiometric();
      * }
      */

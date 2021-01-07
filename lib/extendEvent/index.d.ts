@@ -10,13 +10,13 @@
  * @param {function} newEvent - event callback function
  * @example
  * import extendEvent from 'sf-extension-utils/lib/extendEvent';
- * extendEvent(page, "onShow", function(data) {
+ * extendEvent(this, "onShow", (data) => {
  *  //no need to call the superOnShow, it is automatically handlled     
  * });
  * @example
  * import extendEvent from 'sf-extension-utils/lib/extendEvent';
- * page.extendEvent = extendEvent.bind(null, page);
- * page.extendEvent("onShow", function(data) {
+ * this.extendEvent = extendEvent.bind(null, this);
+ * this.extendEvent("onShow", (data) => {
  *  //same as previous example
  * });
  */

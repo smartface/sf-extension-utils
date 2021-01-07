@@ -78,22 +78,22 @@ export default class {
      * // services/user.ts
      * import { sc } from 'services/serviceConfig"';
      * 
-     * function login(userName, password) {
-     *     return new Promise((resolve, reject) => {
-     *         sc.request(`/auth/login?emine=3`, {
-     *             method: "POST",
-     *             body: {
-     *                 userName,
-     *                 password
-     *             }
-     *         }).then(response => {
-     *             sc.setHeader("Authorization", "Bearer " + response.token);
-     *             resolve(response);
-     *         }).catch(err => {
-     *             reject(err);
-     *         });
-     *     });
-     * }
+     *  async function login(userName, password) {
+     *      try {
+     *          const response = await sc.request(`/auth/login?emine=3`, {
+     *              method: "POST",
+     *              body: {
+     *                  userName,
+     *                  password
+     *              }
+     *          });
+     *          sc.setHeader("Authorization", "Bearer " + response.token);
+     *          return response;
+     *      }
+     *      catch (err) {
+     *          throw err;
+     *      }
+     *  }
      * 
      * 
      * // pages/pgLogin.ts
@@ -107,7 +107,7 @@ export default class {
      *      });
      * };
      */
-    constructor(options: { 
+    constructor(options: {
         baseUrl: string;
         timeout?: number;
         logEnabled?: boolean;

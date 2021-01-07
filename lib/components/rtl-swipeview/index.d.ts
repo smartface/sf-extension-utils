@@ -21,14 +21,14 @@ import SwipeView = require("sf-core/ui/swipeview");
  * @example
  * import RTLSwipeView from 'sf-extension-utils/lib/components/rtl-swipeview';
  * 
- * var swipeView = new RTLSwipeView({
+ * let swipeView = new RTLSwipeView({
  *     page: currentPage,
  *     width: 300,
  *     maxHeight: 300,
  *     pages: [Page1, Page2, Page3, Page4]
  * });
  * 
- * swipeView.onPageSelected = function(index, page) {
+ * swipeView.onPageSelected = (index, page) => {
  *     console.info(`page index ${index}`);
  * };
  */

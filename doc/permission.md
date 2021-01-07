@@ -9,7 +9,8 @@ Smartface Android & Partly iOS Permission module
 <a name="module_permission.permission_getPermission"></a>
 
 ### permission.permission:getPermission(opts)
-Run-time permission requests for Android if needed. iOS only supports camera, others automatically succeeds.Permission request numbers starts from 2000 and incremented on each requestPermission
+Run-time permission requests for Android if needed. iOS only supports camera, others automatically succeeds.
+Permission request numbers starts from 2000 and incremented on each requestPermission
 
 **Kind**: static method of [<code>permission</code>](#module_permission)  
 **Access**: public  
@@ -28,5 +29,16 @@ Run-time permission requests for Android if needed. iOS only supports camera, ot
 
 **Example**  
 ```js
-const permissionUtil = require('sf-extension-utils/lib/permission');permissionUtil.getPermission({        androidPermission: Application.Android.Permissions.CAMERA,        iosPermission: permissionUtil.IOS_PERMISSIONS.CAMERA,        permissionText: 'Please go to the settings and grant permission'    })    .then(() => {        console.info('Permission granted');    })    .catch((reason) => {        console.info('Permission rejected');    });
+const permissionUtil = require('sf-extension-utils/lib/permission');
+permissionUtil.getPermission({
+        androidPermission: Application.Android.Permissions.CAMERA,
+        iosPermission: permissionUtil.IOS_PERMISSIONS.CAMERA,
+        permissionText: 'Please go to the settings and grant permission'
+    })
+    .then(() => {
+        console.info('Permission granted');
+    })
+    .catch((reason) => {
+        console.info('Permission rejected');
+    });
 ```

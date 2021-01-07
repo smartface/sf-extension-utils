@@ -18,7 +18,7 @@
  * @returns {string}
  * @example
  * import orientationLib from 'sf-extension-utils/lib/orientation';
- * this.onShow = function() {
+ * this.onShow = () => {
  *     const orientation = orientationLib.getOrientation();
  *     console.log(orientation); // portrait
  *     arrangeLayout(this, orientation);
