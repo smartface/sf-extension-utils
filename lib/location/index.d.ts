@@ -6,7 +6,8 @@
  * @module location
  * @type {object}
  * @author Ozcan Ovunc <ozcan.ovunc@smartface.io>
- * @copyright Smartface 2020
+ * @author Furkan Arabacı <furkan.arabaci@smartface.io>
+ * @copyright Smartface 2021
  */
 
 /**
@@ -40,4 +41,4 @@
  *         console.log("Location cannot be retrieved");
  *     });
  */
-export function getLocation(callback?: () => {}): Promise<any>;
+export function getLocation(callback?: () => {}): Promise<Location>;

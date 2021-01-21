@@ -4,7 +4,8 @@
  * @type {object}
  * @author Ozcan Ovunc <ozcan.ovunc@smartface.io>
  * @author Alim Öncül <alim.oncul@smartface.io>
- * @copyright Smartface 2020
+ * @author Furkan Arabacı <furkan.arabaci@smartface.io>
+ * @copyright Smartface 2021
  */
 
 import Application = require('sf-core/application');
