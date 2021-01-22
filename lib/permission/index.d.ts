@@ -35,17 +35,20 @@ import Application = require('sf-core/application');
  *         console.info('Permission rejected');
  *     });
  */
-
-export function getPermission({androidPermission, permissionText, iosPermission}: {
-    androidPermission: Application.android.Permissions, 
-    permissionText: string, 
-    iosPermission?: string
+export function getPermission(opts: {
+    androidPermission: Application.android.Permissions,
+    permissionText: string,
+    iosPermission?: keyof typeof IOS_PERMISSIONS,
+    showSettingsAlert?: boolean
 }): Promise<any>;
+
 export const PERMISSION_STATUS: {
     GRANTED: string,
     DENIED: string,
     NEVER_ASK_AGAIN: string
 };
-export const IOS_PERMISSIONS: {
-    CAMERA: "CAMERA"
+
+export enum IOS_PERMISSIONS {
+    CAMERA = 'CAMERA',
+    LOCATION = 'LOCATION'
 }

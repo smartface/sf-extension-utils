@@ -19,6 +19,8 @@
 /**
  * Gets location latitude and longitude. Handles permissions by itself.
  * @function location:getLocation
+ * @param {Function} callback
+ * @param {boolean} showSettingsAlert=true
  * @return {Promise<Location>} - returns the location
  * @static
  * @public
@@ -41,4 +43,4 @@
  *         console.log("Location cannot be retrieved");
  *     });
  */
-export function getLocation(callback?: () => {}): Promise<Location>;
+export function getLocation(callback?: () => {}, showSettingsAlert = true): Promise<{ latitude: number, longitude: number }>;
