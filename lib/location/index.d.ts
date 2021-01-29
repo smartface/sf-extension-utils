@@ -7,6 +7,7 @@
  * @type {object}
  * @author Ozcan Ovunc <ozcan.ovunc@smartface.io>
  * @author Furkan Arabacı <furkan.arabaci@smartface.io>
+ * @author Alim Öncül <alim.oncul@smartface.io>
  * @copyright Smartface 2021
  */
 
@@ -21,6 +22,7 @@
  * @function location:getLocation
  * @param {Function} callback
  * @param {boolean} showSettingsAlert=true
+ * @param {string} permissionText
  * @return {Promise<Location>} - returns the location
  * @static
  * @public
@@ -43,4 +45,4 @@
  *         console.log("Location cannot be retrieved");
  *     });
  */
-export function getLocation(callback?: () => {}, showSettingsAlert = true): Promise<{ latitude: number, longitude: number }>;
+export function getLocation(callback?: () => {}, showSettingsAlert = true, permissionText: string): Promise<{ latitude: number, longitude: number }>;
