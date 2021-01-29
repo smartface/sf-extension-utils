@@ -17,6 +17,7 @@ import Application = require('sf-core/application');
  * @param {Application.android.Permissions} opts.androidPermission - Android permission to get
  * @param {string} opts.iosPermission [opts.iosPermission] - iOS permission to get
  * @param {string} opts.permissionText - Text to show when permission cannot be granted
+ * @param {string} opts.permissionTitle - Title to show when permission cannot be granted
  * @static
  * @public
  * @see {@link http://ref.smartface.io/#!/api/Application.android.Permissions|Permission Types}
@@ -26,7 +27,8 @@ import Application = require('sf-core/application');
  * permissionUtil.getPermission({
  *         androidPermission: Application.Android.Permissions.CAMERA,
  *         iosPermission: permissionUtil.IOS_PERMISSIONS.CAMERA,
- *         permissionText: 'Please go to the settings and grant permission'
+ *         permissionText: 'Please go to the settings and grant permission',
+ *         permissionTitle: 'Info'
  *     })
  *     .then(() => {
  *         console.info('Permission granted');
@@ -36,6 +38,7 @@ import Application = require('sf-core/application');
  *     });
  */
 export function getPermission(opts: {
+    permissionTitle?: string,
     androidPermission: Application.android.Permissions,
     permissionText: string,
     iosPermission?: keyof typeof IOS_PERMISSIONS,
