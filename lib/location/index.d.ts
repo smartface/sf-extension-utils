@@ -23,6 +23,7 @@
  * @param {Function} callback
  * @param {boolean} showSettingsAlert=true
  * @param {string} permissionText
+ * @param {string} permissionTitle
  * @return {Promise<Location>} - returns the location
  * @static
  * @public
@@ -45,4 +46,4 @@
  *         console.log("Location cannot be retrieved");
  *     });
  */
-export function getLocation(callback?: () => {}, showSettingsAlert = true, permissionText: string): Promise<{ latitude: number, longitude: number }>;
+export function getLocation(callback?: () => {}, showSettingsAlert = true, permissionText: string, permissionTitle?: string): Promise<{ latitude: number, longitude: number }>;

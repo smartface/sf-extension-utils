@@ -5,7 +5,8 @@ Smartface Android & Partly iOS Permission module
 
 **Author**: Ozcan Ovunc <ozcan.ovunc@smartface.io>  
 **Author**: Alim Öncül <alim.oncul@smartface.io>  
-**Copyright**: Smartface 2020  
+**Author**: Furkan Arabacı <furkan.arabaci@smartface.io>  
+**Copyright**: Smartface 2021  
 <a name="module_permission.permission_getPermission"></a>
 
 ### permission.permission:getPermission(opts)
@@ -25,6 +26,8 @@ Run-time permission requests for Android if needed. iOS only supports camera, ot
 | opts.androidPermission | <code>Application.android.Permissions</code> | Android permission to get |
 | opts.iosPermission | <code>string</code> | [opts.iosPermission] - iOS permission to get |
 | opts.permissionText | <code>string</code> | Text to show when permission cannot be granted |
+| opts.permissionTitle | <code>string</code> | Title to show when permission cannot be granted |
+| opts.showSettingsAlert | <code>boolean</code> | toggle to show the alert to navigate to settings when permission is denied |
 
 **Example**  
 ```js
