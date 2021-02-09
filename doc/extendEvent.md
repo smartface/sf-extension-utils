@@ -15,14 +15,14 @@ Adds event to a target object. If the event is already there, automatically wrap
 
 **Example**  
 ```js
-const extendEvent = require("sf-extension-utils/lib/extendEvent");
+import extendEvent from "sf-extension-utils/lib/extendEvent";
 extendEvent(page, "onShow", function(data) {
- //no need to call the superOnShow, it is automatically handlled     
+ //no need to call the superOnShow, it is automatically handlled
 });
 ```
 **Example**  
 ```js
-const extendEvent = require("sf-extension-utils/lib/extendEvent");
+import extendEvent from "sf-extension-utils/lib/extendEvent";
 page.extendEvent = extendEvent.bind(null, page);
 page.extendEvent("onShow", function(data) {
  //same as previous example

@@ -15,6 +15,6 @@ Creates a UUID v4 string
 **Access**: public  
 **Example**  
 ```js
-const guid = require("sf-extension-utils/lib/guid");
-var newItem = { id: guid() };
+import guid from "sf-extension-utils/lib/guid";
+const newItem = { id: guid() };
 ```

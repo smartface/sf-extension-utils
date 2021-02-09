@@ -72,34 +72,30 @@ Data will be written encrypted.
 
 **Example**  
 ```js
-const BiometricLogin = require("sf-extension-utils/lib/biometricLogin");
+import BiometricLogin from "sf-extension-utils/lib/biometricLogin";
 function onLoad(superOnLoad) {
     superOnLoad();
-    const page = this;
-    const { mtbEmail, mtbPassword, btnLogin } = page;
+    const { mtbEmail, mtbPassword, btnLogin } = this;
     const biometricLogin = new BiometricLogin({
         loginService: () => login(mtbEmail.materialTextBox.text, mtbPassword.materialTextBox.text),
-        getField: getField.bind(page),
-        setField: setField.bind(page)
+        getField: getField.bind(this),
+        setField: setField.bind(this)
     });
     page.biometricLogin = biometricLogin;
-    btnLogin.onPress = btnLogin_onPress.bind(page);
+    btnLogin.onPress = btnLogin_onPress.bind(this);
 }
 function onShow(superOnShow) {
-    const page = this;
-    page.biometricLogin && page.biometricLogin.load({
+    this.biometricLogin && this.biometricLogin.load({
         doNotAutoAskLogin: false
     });
 }
 
 function btnLogin_onPress() {
-    const page = this;
-    page.biometricLogin.loginWithBiometric();
+    this.biometricLogin.loginWithBiometric();
 }
 
 function setField(fieldName, value) {
-    const page = this;
-    const { mtbEmail, mtbPassword, switchRememberMe, switchFingerPrint } = page;
+    const { mtbEmail, mtbPassword, switchRememberMe, switchFingerPrint } = this;
     switch (fieldName) {
         case BiometricLogin.FIELDS.USERNAME:
             return mtbEmail.materialTextBox.text = value;
@@ -116,8 +112,7 @@ function setField(fieldName, value) {
 }
 
 function getField(fieldName) {
-    const page = this;
-    const { mtbEmail, mtbPassword, switchRememberMe, switchFingerPrint } = page;
+    const { mtbEmail, mtbPassword, switchRememberMe, switchFingerPrint } = this;
     switch (fieldName) {
         case BiometricLogin.FIELDS.USERNAME:
             return mtbEmail.materialTextBox.text;

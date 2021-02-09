@@ -68,7 +68,7 @@ Creates a GoogleSafetyNet class with given configurations.
 
 **Example**  
 ```js
-const GoogleSafetyNet = require("sf-extension-utils/lib/security/googlesafetynet");
+import GoogleSafetyNet from "sf-extension-utils/lib/security/googlesafetynet";
 if (System.OS === "Android") {
     const googleSafetyNet = new GoogleSafetyNet({
         apiKey: "***********"
@@ -92,10 +92,10 @@ if (System.OS === "Android") {
 <a name="module_googlesafetynet..GoogleSafetyNet+sendAttestationRequest"></a>
 
 #### googleSafetyNet.sendAttestationRequest(nonce) ⇒ <code>Promise</code>
-Sends the runtime environment and request a signed attestation of the 
-assessment results from Google's servers and then resolves the returned 
-assessment result as JWS string. In case of Google backend services 
-are not available reject the request. 
+Sends the runtime environment and request a signed attestation of the
+assessment results from Google's servers and then resolves the returned
+assessment result as JWS string. In case of Google backend services
+are not available reject the request.
 
 <pre>
 //JWS example

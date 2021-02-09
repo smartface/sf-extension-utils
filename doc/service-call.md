@@ -57,7 +57,7 @@ Creates a ServiceCall helper class with common configuration to be used across m
 **Example**  
 ```js
 // Shared service-call.js file
-const ServiceCall = require("sf-extension-utils/lib/service-call");
+import ServiceCall from "sf-extension-utils/lib/service-call";
 const sc = new ServiceCall({
     baseUrl: "http://api.myBaseUrl.com",
     logEnabled: true,
@@ -68,7 +68,7 @@ const sc = new ServiceCall({
 module.exports = exports = sc;
 
 // services/user.js
-const sc = require("./serviceConfig");
+import sc from "service/serviceConfig";
 
 Object.assign(exports, {
     login
@@ -93,7 +93,7 @@ function login(userName, password) {
 
 
 // pages/pgLogin.js
-const userService = require("../services/user");
+import userService from "services/user";
 
 page.btnLogin.onPress = () => {
      userService.login(page.tbUserName.text, page.tbPassword.text).then(()=> {
@@ -264,7 +264,7 @@ Performs a service call and returns a promise to handle
 
 **Example**  
 ```js
-var reqOps = sc.createRequestOptions(`/auth/login`, {
+const reqOps = sc.createRequestOptions(`/auth/login`, {
        method: "POST",
        body: {
            userName,

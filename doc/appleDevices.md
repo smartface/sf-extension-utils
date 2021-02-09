@@ -14,3 +14,8 @@ Returns empty string on Android devices.
 **Kind**: inner method of [<code>appleDevices</code>](#module_appleDevices)  
 **Returns**: <code>string</code> - Device model  
 **Ios**:   
+**Example**  
+```js
+import AppleDevices from "sf-extension-utils/lib/appleDevices";
+AppleDevices.getModelName();
+```

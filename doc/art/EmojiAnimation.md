@@ -18,9 +18,9 @@
 
 **Example**  
 ```js
-const EmojiAnimation = require("sf-extension-utils/lib/art/EmojiAnimation");
+import EmojiAnimation from "sf-extension-utils/lib/art/EmojiAnimation";
 
-let emojiAnimation = new EmojiAnimation({
+const emojiAnimation = new EmojiAnimation({
     webView: this.webViewComponent,
     emojis: ["data:image/png;base64,iVBs4c6QAAORw0KGgoAAAANSUh"]
 });

@@ -33,9 +33,9 @@ Note: Returned indexes or arrays won't impact the logic.
 
 **Example**  
 ```js
-const RTLSwipeView = require("sf-extension-utils/lib/components/rtl-swipeview");
+import RTLSwipeView from "sf-extension-utils/lib/components/rtl-swipeview";
 
-var swipeView = new RTLSwipeView({
+const swipeView = new RTLSwipeView({
     page: currentPage,
     width: 300,
     maxHeight: 300,

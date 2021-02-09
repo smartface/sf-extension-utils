@@ -29,14 +29,14 @@ Returns a getter function, which returns the promise of the asyc task.
 
 **Example**  
 ```js
-const { createAsyncGetter } = require("sf-extension-utils/lib/async");
-const { OS } = require('sf-core/device/system');
+import { createAsyncGetter } from "sf-extension-utils/lib/async";
+import { OS } from 'sf-core/device/system';
 
 
 getLibphonenumber = createAsyncGetter(() => {
-    let phoneUtil = require('google-libphonenumber').PhoneNumberUtil.getInstance();
-    let PNT = require('google-libphonenumber').PhoneNumberType;
-    let PNF = require('google-libphonenumber').PhoneNumberFormat;
+    const phoneUtil = require('google-libphonenumber').PhoneNumberUtil.getInstance();
+    const PNT = require('google-libphonenumber').PhoneNumberType;
+    const PNF = require('google-libphonenumber').PhoneNumberFormat;
     return {
         phoneUtil,
         PNT,
@@ -81,7 +81,7 @@ Runs the async task and responds a promise
 
 **Example**  
 ```js
-const { createAsyncTask } = require("sf-extension-utils/lib/async");
-const Http = require("sf-core/net/http");
+import { createAsyncTask } from "sf-extension-utils/lib/async";
+import Http from "sf-core/net/http";
 createAsyncTask(()=> new Http()).then(http => http.request(requestOptions));
 ```

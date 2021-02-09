@@ -13,6 +13,6 @@ Opens application settings menu
 **Kind**: static method of [<code>settings</code>](#module_settings)  
 **Example**  
 ```js
-const { openApplicationSettings } = require("sf-extension-utils/lib/settings");
+import { openApplicationSettings } from "sf-extension-utils/lib/settings";
 openApplicationSettings();
 ```

@@ -8,7 +8,7 @@ Smartface Remote App Update module
 <a name="module_rau.rau_checkUpdate"></a>
 
 ### rau.rau:checkUpdate([options])
-Checks RAU updates. If there is new update available, the update dialog will be shown to the user 
+Checks RAU updates. If there is new update available, the update dialog will be shown to the user
 if silent parameter not given. This function will handle permission operations internally for Android.
 
 **Kind**: static method of [<code>rau</code>](#module_rau)  
@@ -27,8 +27,8 @@ if silent parameter not given. This function will handle permission operations i
 
 **Example**  
 ```js
-const System = require("sf-core/device/system");
-const rau = require("sf-extension-utils/lib/rau");
+import System from "sf-core/device/system";
+import rau from "sf-extension-utils/lib/rau";
 rau.checkUpdate({
  showProgressCheck: true,
  showProgressErrorAlert: true,

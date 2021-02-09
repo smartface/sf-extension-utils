@@ -70,8 +70,8 @@ alert({
 ```
 **Example**  
 ```js
-var alertView = alert({message:"this is an alert", buttons: []}); //alert without buttons
-setTimeout(function(){alertView.dismiss();}, 2000); //closes the alert after 2 seconds
+const alertView = alert({message:"this is an alert", buttons: []}); //alert without buttons
+setTimeout(() => {alertView.dismiss();}, 2000); //closes the alert after 2 seconds
 ```
 <a name="module_alert..AlertButton"></a>
 

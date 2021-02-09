@@ -21,13 +21,13 @@
 
 **Example**  
 ```js
-const CircularProgressBar = require("sf-extension-utils/lib/art/CircularProgressBar");
+import CircularProgressBar from "sf-extension-utils/lib/art/CircularProgressBar";
 
-let circularProgressBar = new CircularProgressBar({
+const circularProgressBar = new CircularProgressBar({
     width: 130,
     trailColor: "rgb(247,201,71)",
     color: "rgb(55,85,147)",
-    webView: this.wvCircularAnimation 
+    webView: this.wvCircularAnimation
 });
 
 // Triggers the render method whenever the value is set
