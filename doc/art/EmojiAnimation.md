@@ -18,13 +18,5 @@
 
 **Example**  
 ```js
-const EmojiAnimation = require("sf-extension-utils/lib/art/EmojiAnimation");
-
-let emojiAnimation = new EmojiAnimation({
-    webView: this.webViewComponent,
-    emojis: ["data:image/png;base64,iVBs4c6QAAORw0KGgoAAAANSUh"]
-});
-
-// Play first emoji on webview
-emojiAnimation.playEmoji(0);
+const EmojiAnimation = require("sf-extension-utils/lib/art/EmojiAnimation");let emojiAnimation = new EmojiAnimation({    webView: this.webViewComponent,    emojis: ["data:image/png;base64,iVBs4c6QAAORw0KGgoAAAANSUh"]});// Play first emoji on webview with 3 second animationemojiAnimation.playEmoji(0, 3);
 ```
