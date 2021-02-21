@@ -35,13 +35,13 @@ declare class EmojiAnimationOptions {
  *     webView: this.wvCircularAnimation
  * });
  *
- * // Play first emoji on WebView
- * emojiAnimation.play(0);
+ * // Play first emoji on WebView with 3 second animation
+ * emojiAnimation.play(0, 3);
  */
 export default class EmojiAnimation extends EmojiAnimationOptions {
 	constructor(options: EmojiAnimationOptions);
 	/**
 	 * Play given index that emoji on WebView
 	 */
-	public playEmoji(emojiIndex: number);
+	public playEmoji(emojiIndex: number, timing: number);
 }
