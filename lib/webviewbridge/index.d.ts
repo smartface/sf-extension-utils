@@ -6,11 +6,8 @@
  * @copyright Smartface 2018
  */
 
-require("./base"); //make sure setTimeout is correct
 import WebView = require('sf-core/ui/webview');
-import EventEmitter = require('wolfy87-eventemitter');
 import File = require('sf-core/io/file');
-const System = require('sf-core/device/system');
 
 interface IBridgeConstructorOptions {
     /**
@@ -291,9 +288,10 @@ export default class WebViewBridge extends EventEmitter {
      * Calls a specific version of evaluateJS for faster execution if parseResponses is false
      * @method
      * @public
+     * @param javascript Your javascript code to execute. Will be wrapped in a function
      * @readonly
      */
-    evaluateJS: () => any;
+    evaluateJS: (javascript: string, onReceive?: (result: any) => any) => any;
     /**
      * customNavigate is similar to webview.loadURL, with the options of setting cookie and custom user agent
      * @method
