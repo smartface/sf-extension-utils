@@ -33,7 +33,7 @@
   * @param {Object} options.location - Destination location which contains latitude and longitude
   * @return {Promise<string>} - returns the message of state
   * @example
-  * import { showMapsMenu } from "sf-extension-utils/lib/map";
+  * import { showMapsMenu } from "sf-extension-utils/lib/maps";
   * showMapsMenu({
   *      page,
   *      location: {
