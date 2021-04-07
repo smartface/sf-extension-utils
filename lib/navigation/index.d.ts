@@ -3,7 +3,7 @@
  * @type {Object}
  * @author Ozcan Ovunc <ozcan.ovunc@smartface.io>
  * @author Furkan Arabacı <furkan.arabaci@smartface.io>
- * @copyright Smartface 2018
+ * @copyright Smartface 2021
  * 
  * GPS navigation utility to cover the most popular navigating applications on both platforms.
  * It will prompt a menu to choose apps from on iOS and works out of the box on Android.
@@ -32,7 +32,7 @@ import Page = require('sf-core/ui/page');
  * @param {Object} location - Destination location which contains latitude and longitude
  * @return {Promise<string>} - returns the message of state
  * @example
- * import navigation from 'sf-extension-utils/lib/navigation';
+ * import { showNavigationMenu } from 'sf-extension-utils/lib/navigation';
  * navigation.showNavigationMenu({
  *      page,
  *      transportType: "d",
