@@ -1,7 +1,6 @@
 <a name="module_permission"></a>
 
 ## permission : <code>object</code>
-
 Smartface Android & Partly iOS Permission module
 
 **Author**: Ozcan Ovunc <ozcan.ovunc@smartface.io>  
@@ -11,7 +10,6 @@ Smartface Android & Partly iOS Permission module
 <a name="module_permission.permission_getPermission"></a>
 
 ### permission.permission:getPermission(opts)
-
 Run-time permission requests for Android if needed. iOS only supports camera, others automatically succeeds.
 Permission request numbers starts from 2000 and incremented on each requestPermission
 
@@ -19,32 +17,31 @@ Permission request numbers starts from 2000 and incremented on each requestPermi
 **Access**: public  
 **See**
 
--   [Permission Types](http://ref.smartface.io/#!/api/Application.android.Permissions)
--   [Application Permission Management](https://developer.smartface.io/docs/application-permission-management)
+- [Permission Types](http://ref.smartface.io/#!/api/Application.android.Permissions)
+- [Application Permission Management](https://developer.smartface.io/docs/application-permission-management)
 
-| Param                  | Type                                         | Description                                                                |
-| ---------------------- | -------------------------------------------- | -------------------------------------------------------------------------- |
-| opts                   | <code>Object</code>                          | Options for the module                                                     |
-| opts.androidPermission | <code>Application.android.Permissions</code> | Android permission to get                                                  |
-| opts.iosPermission     | <code>string</code>                          | [opts.iosPermission] - iOS permission to get                               |
-| opts.permissionText    | <code>string</code>                          | Text to show when permission cannot be granted                             |
-| opts.permissionTitle   | <code>string</code>                          | Title to show when permission cannot be granted                            |
-| opts.showSettingsAlert | <code>boolean</code>                         | toggle to show the alert to navigate to settings when permission is denied |
 
-**Example**
+| Param | Type | Description |
+| --- | --- | --- |
+| opts | <code>Object</code> | Options for the module |
+| opts.androidPermission | <code>Application.android.Permissions</code> | Android permission to get |
+| opts.iosPermission | <code>string</code> | [opts.iosPermission] - iOS permission to get |
+| opts.permissionText | <code>string</code> | Text to show when permission cannot be granted |
+| opts.permissionTitle | <code>string</code> | Title to show when permission cannot be granted |
+| opts.showSettingsAlert | <code>boolean</code> | toggle to show the alert to navigate to settings when permission is denied |
 
+**Example**  
 ```js
 const permissionUtil = require('sf-extension-utils/lib/permission');
-permissionUtil
-	.getPermission({
-		androidPermission: Application.Android.Permissions.CAMERA,
-		iosPermission: permissionUtil.IOS_PERMISSIONS.CAMERA,
-		permissionText: 'Please go to the settings and grant permission',
-	})
-	.then(() => {
-		console.info('Permission granted');
-	})
-	.catch((reason) => {
-		console.info('Permission rejected');
-	});
+permissionUtil.getPermission({
+        androidPermission: Application.Android.Permissions.CAMERA,
+        iosPermission: permissionUtil.IOS_PERMISSIONS.CAMERA,
+        permissionText: 'Please go to the settings and grant permission'
+    })
+    .then(() => {
+        console.info('Permission granted');
+    })
+    .catch((reason) => {
+        console.info('Permission rejected');
+    });
 ```
