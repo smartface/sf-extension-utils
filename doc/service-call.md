@@ -5,13 +5,15 @@ Smartface Service-Call helper module
 
 **Author**: Alper Ozisik <alper.ozisik@smartface.io>  
 **Author**: Ozcan Ovunc <ozcan.ovunc@smartface.io>  
-**Copyright**: Smartface 2019  
+**Author**: Alim Öncül <alim.oncul@smartface.io>  
+**Copyright**: Smartface 2021  
 
 * [service-call](#module_service-call) : <code>object</code>
     * [~ServiceCall](#module_service-call..ServiceCall)
         * [new ServiceCall(options)](#new_module_service-call..ServiceCall_new)
         * _instance_
             * [.baseUrl](#module_service-call..ServiceCall+baseUrl)
+            * [.logEnabled](#module_service-call..ServiceCall+logEnabled)
             * [.setHeader(key, value, headers)](#module_service-call..ServiceCall+setHeader)
             * [.getHeaders()](#module_service-call..ServiceCall+getHeaders) ⇒ <code>object</code>
             * [.createRequestOptions(endpointPath, options)](#module_service-call..ServiceCall+createRequestOptions) ⇒ <code>object</code>
@@ -32,6 +34,7 @@ Helper class for calling JSON based restful services.
     * [new ServiceCall(options)](#new_module_service-call..ServiceCall_new)
     * _instance_
         * [.baseUrl](#module_service-call..ServiceCall+baseUrl)
+        * [.logEnabled](#module_service-call..ServiceCall+logEnabled)
         * [.setHeader(key, value, headers)](#module_service-call..ServiceCall+setHeader)
         * [.getHeaders()](#module_service-call..ServiceCall+getHeaders) ⇒ <code>object</code>
         * [.createRequestOptions(endpointPath, options)](#module_service-call..ServiceCall+createRequestOptions) ⇒ <code>object</code>
@@ -56,52 +59,7 @@ Creates a ServiceCall helper class with common configuration to be used across m
 
 **Example**  
 ```js
-// Shared service-call.js file
-const ServiceCall = require("sf-extension-utils/lib/service-call");
-const sc = new ServiceCall({
-    baseUrl: "http://api.myBaseUrl.com",
-    logEnabled: true,
-    headers: {
-       apiVersion: "1.0"
-    }
-});
-module.exports = exports = sc;
-
-// services/user.js
-const sc = require("./serviceConfig");
-
-Object.assign(exports, {
-    login
-});
-
-function login(userName, password) {
-    return new Promise((resolve, reject) => {
-        sc.request(`/auth/login?emine=3`, {
-            method: "POST",
-            body: {
-                userName,
-                password
-            }
-        }).then(response => {
-            sc.setHeader("Authorization", "Bearer " + response.token);
-            resolve(response);
-        }).catch(err => {
-            reject(err);
-        });
-    });
-}
-
-
-// pages/pgLogin.js
-const userService = require("../services/user");
-
-page.btnLogin.onPress = () => {
-     userService.login(page.tbUserName.text, page.tbPassword.text).then(()=> {
-        Router.go("pgDashboard"); 
-     }).catch(()=> {
-         alert("Cannot login");
-     });
-};
+// Shared service-call.js fileconst ServiceCall = require("sf-extension-utils/lib/service-call");const sc = new ServiceCall({    baseUrl: "http://api.myBaseUrl.com",    logEnabled: true,    headers: {       apiVersion: "1.0"    }});module.exports = exports = sc;// services/user.jsconst sc = require("./serviceConfig");Object.assign(exports, {    login});function login(userName, password) {    return new Promise((resolve, reject) => {        sc.request(`/auth/login?emine=3`, {            method: "POST",            body: {                userName,                password            }        }).then(response => {            sc.setHeader("Authorization", "Bearer " + response.token);            resolve(response);        }).catch(err => {            reject(err);        });    });}// pages/pgLogin.jsconst userService = require("../services/user");page.btnLogin.onPress = () => {     userService.login(page.tbUserName.text, page.tbPassword.text).then(()=> {        Router.go("pgDashboard");      }).catch(()=> {         alert("Cannot login");     });};
 ```
 <a name="module_service-call..ServiceCall+baseUrl"></a>
 
@@ -114,6 +72,18 @@ Base URL for this service-call library uses. This can be get and set
 | Name | Type |
 | --- | --- |
 | baseUrl | <code>string</code> | 
+
+<a name="module_service-call..ServiceCall+logEnabled"></a>
+
+#### serviceCall.logEnabled
+Log enabled for service-call. This can be get and set
+
+**Kind**: instance property of [<code>ServiceCall</code>](#module_service-call..ServiceCall)  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| logEnabled | <code>boolean</code> | 
 
 <a name="module_service-call..ServiceCall+setHeader"></a>
 
@@ -130,21 +100,15 @@ Sets headers for this configuration. Either sets one by each call or sets them i
 
 **Example**  
 ```js
-//After login
-sc.setHeader("Authorization", "Basic 12345");
+//After loginsc.setHeader("Authorization", "Basic 12345");
 ```
 **Example**  
 ```js
-//After logout
-sc.setHeader("Authorization");
+//After logoutsc.setHeader("Authorization");
 ```
 **Example**  
 ```js
-// set multiple headers at once
-sc.setHeader({
- environment: "test",
- apiVersion: "1.2"  //replaces the existing
-});
+// set multiple headers at oncesc.setHeader({ environment: "test", apiVersion: "1.2"  //replaces the existing});
 ```
 <a name="module_service-call..ServiceCall+getHeaders"></a>
 
@@ -177,21 +141,7 @@ creates a request options object for http request
 
 **Example**  
 ```js
-var reqOps = sc.createRequestOptions(`/auth/login`, {
-       method: "POST",
-       body: {
-           userName,
-           password
-       },
-       headers: {
-           "Content-Type": "application/json"
-       }
-   });
-   ServiceCall.request(reqOps).then((result) => {
-       //logic
-   }).catch((err) => {
-       //logic
-   });
+var reqOps = sc.createRequestOptions(`/auth/login`, {       method: "POST",       body: {           userName,           password       },       headers: {           "Content-Type": "application/json"       }   });   ServiceCall.request(reqOps).then((result) => {       //logic   }).catch((err) => {       //logic   });
 ```
 <a name="module_service-call..ServiceCall+request"></a>
 
@@ -220,15 +170,7 @@ Combines serviceCall.createRequestOptions and ServiceCall.request (static)
 
 **Example**  
 ```js
-function login(userName, password) {
-     return sc.request("/auth/login", {
-         method: "POST",
-         body: {
-             userName,
-             password
-         }
-     });
- }
+function login(userName, password) {     return sc.request("/auth/login", {         method: "POST",         body: {             userName,             password         }     }); }
 ```
 <a name="module_service-call..ServiceCall.BASE_HEADERS"></a>
 
@@ -264,19 +206,5 @@ Performs a service call and returns a promise to handle
 
 **Example**  
 ```js
-var reqOps = sc.createRequestOptions(`/auth/login`, {
-       method: "POST",
-       body: {
-           userName,
-           password
-       },
-       headers: {
-           "Content-Type": "application/json"
-       }
-   });
-   ServiceCall.request(reqOps).then((result) => {
-       //logic
-   }).catch((err) => {
-       //logic
-   });
+var reqOps = sc.createRequestOptions(`/auth/login`, {       method: "POST",       body: {           userName,           password       },       headers: {           "Content-Type": "application/json"       }   });   ServiceCall.request(reqOps).then((result) => {       //logic   }).catch((err) => {       //logic   });
 ```
