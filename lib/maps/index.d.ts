@@ -39,15 +39,13 @@ import Page = require("sf-core/ui/page");
  *      location: {
  *          latitude: 37.4488259,
  *          longitude: -122.1600047
- *      }
+ *      },
+ *      name: "Smartface Inc."
  *  });
  *
  */
-function showMapsMenu(options: {
+export function showMapsMenu(options: {
     page: Page;
     location: { latitude: number; longitude: number };
+    name?: string;
 }): Promise<string>;
-
-module.exports = {
-    showMapsMenu
-}
