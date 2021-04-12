@@ -1,11 +1,11 @@
-<a name="module_navigation"></a>
+<a name="module_map"></a>
 
-## navigation : <code>Object</code>
-**Author**: Ozcan Ovunc <ozcan.ovunc@smartface.io>  
+## map : <code>Object</code>
 **Author**: Furkan Arabacı <furkan.arabaci@smartface.io>  
 **Copyright**: Smartface 2021
 
-GPS navigation utility to cover the most popular navigating applications on both platforms.
+Map utility to cover the most popular map applications on both platforms.
+It will zoom in to the given location in the chosen map app
 It will prompt a menu to choose apps from on iOS and works out of the box on Android.
 For this utility to work correctly, you need to publish the application. 
 You also need to add this key to your info.plist file, for the app to be able to decect them.
@@ -15,17 +15,17 @@ You also need to add this key to your info.plist file, for the app to be able to
 	<key>LSApplicationQueriesSchemes</key>
 	    <array>
 		    <string>comgooglemaps</string>
-		    <string>yandexnavi</string>
+		    <string>yandexmaps</string>
 	    </array>
 </dict>
 ```  
-<a name="module_navigation..showNavigationMenu"></a>
+<a name="module_map..showMapsMenu"></a>
 
-### navigation~showNavigationMenu(options) ⇒ <code>Promise.&lt;string&gt;</code>
+### map~showMapsMenu(options) ⇒ <code>Promise.&lt;string&gt;</code>
 Prompts a menu to choose which navigation app to handle the location.
 It sets the starting point to your current location, if the permission is granted.
 
-**Kind**: inner method of [<code>navigation</code>](#module_navigation)  
+**Kind**: inner method of [<code>map</code>](#module_map)  
 **Returns**: <code>Promise.&lt;string&gt;</code> - - returns the message of state  
 
 | Param | Type | Description |
@@ -37,10 +37,9 @@ It sets the starting point to your current location, if the permission is grante
 
 **Example**  
 ```js
-const { showNavigationMenu } = require("sf-extension-utils/lib/navigation");
-showNavigationMenu({
+const { showMapsMenu } = require("sf-extension-utils/lib/maps");
+showMapsMenu({
      page,
-     transportType: "d",
      location: {
          latitude: 37.4488259,
          longitude: -122.1600047
