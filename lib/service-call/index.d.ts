@@ -4,7 +4,8 @@
  * @type {object}
  * @author Alper Ozisik <alper.ozisik@smartface.io>
  * @author Ozcan Ovunc <ozcan.ovunc@smartface.io>
- * @copyright Smartface 2019
+ * @author Alim Öncül <alim.oncul@smartface.io>
+ * @copyright Smartface 2021
  */
 
 declare interface IRequestOptions {
@@ -56,6 +57,11 @@ export default class {
      * @property {string} baseUrl
      */
     baseUrl: string;
+    /**
+     * Log enabled for service-call. This can be get and set
+     * @property {boolean} logEnabled
+     */
+    logEnabled: boolean;
     /**
      * Creates a ServiceCall helper class with common configuration to be used across multiple service calls.
      * @param {object} options - Cofiguration of service call helper object (required)
