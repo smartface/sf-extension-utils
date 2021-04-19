@@ -5,13 +5,15 @@ Smartface Service-Call helper module
 
 **Author**: Alper Ozisik <alper.ozisik@smartface.io>  
 **Author**: Ozcan Ovunc <ozcan.ovunc@smartface.io>  
-**Copyright**: Smartface 2019  
+**Author**: Alim Öncül <alim.oncul@smartface.io>  
+**Copyright**: Smartface 2021  
 
 * [service-call](#module_service-call) : <code>object</code>
     * [~ServiceCall](#module_service-call..ServiceCall)
         * [new ServiceCall(options)](#new_module_service-call..ServiceCall_new)
         * _instance_
             * [.baseUrl](#module_service-call..ServiceCall+baseUrl)
+            * [.logEnabled](#module_service-call..ServiceCall+logEnabled)
             * [.setHeader(key, value, headers)](#module_service-call..ServiceCall+setHeader)
             * [.getHeaders()](#module_service-call..ServiceCall+getHeaders) ⇒ <code>object</code>
             * [.createRequestOptions(endpointPath, options)](#module_service-call..ServiceCall+createRequestOptions) ⇒ <code>object</code>
@@ -32,6 +34,7 @@ Helper class for calling JSON based restful services.
     * [new ServiceCall(options)](#new_module_service-call..ServiceCall_new)
     * _instance_
         * [.baseUrl](#module_service-call..ServiceCall+baseUrl)
+        * [.logEnabled](#module_service-call..ServiceCall+logEnabled)
         * [.setHeader(key, value, headers)](#module_service-call..ServiceCall+setHeader)
         * [.getHeaders()](#module_service-call..ServiceCall+getHeaders) ⇒ <code>object</code>
         * [.createRequestOptions(endpointPath, options)](#module_service-call..ServiceCall+createRequestOptions) ⇒ <code>object</code>
@@ -114,6 +117,18 @@ Base URL for this service-call library uses. This can be get and set
 | Name | Type |
 | --- | --- |
 | baseUrl | <code>string</code> | 
+
+<a name="module_service-call..ServiceCall+logEnabled"></a>
+
+#### serviceCall.logEnabled
+Log enabled for service-call. This can be get and set
+
+**Kind**: instance property of [<code>ServiceCall</code>](#module_service-call..ServiceCall)  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| logEnabled | <code>boolean</code> | 
 
 <a name="module_service-call..ServiceCall+setHeader"></a>
 
