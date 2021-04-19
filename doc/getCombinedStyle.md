@@ -22,8 +22,8 @@ Creates a style object from a context class. Results are cached. If same classNa
 **Params**: <code>string</code> className - One or more class names seperated with space  
 **Example**  
 ```js
-const { getCombinedStyle } = require("sf-extension-utils/lib/getCombinedStyle");
-var buttonStyle = getCombinedStyle(".button");
+import { getCombinedStyle } from "sf-extension-utils/lib/getCombinedStyle";
+const buttonStyle = getCombinedStyle(".button");
 Object.assign(btn, buttonStyle);
 ```
 <a name="module_getCombinedStyle..clearCache"></a>
@@ -35,7 +35,7 @@ Removes all items from cache
 **Access**: public  
 **Example**  
 ```js
-const { clearCache } = require("sf-extension-utils/lib/getCombinedStyle");
+import { clearCache } from "sf-extension-utils/lib/getCombinedStyle";
 function onContextChangeEvent() {
  clearCache();
 }

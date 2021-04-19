@@ -40,7 +40,7 @@ Page(s) created with this function will have additional several properties: matc
 
 **Example**  
 ```js
-const buildExtender = require("sf-extension-utils/lib/router/buildExtender");
+import buildExtender from "sf-extension-utils/lib/router/buildExtender";
 
 const mainRouter = StackRouter.of({
     path: "/pages",
@@ -95,7 +95,7 @@ Gets or sets the list of preProcessors running for each page. Callback(s) are ca
 
 **Example**  
 ```js
-const buildExtender = require("sf-extension-utils/lib/router/buildExtender");
+import buildExtender from "sf-extension-utils/lib/router/buildExtender";
 buildExtender.preProcessors.push((match, routeData, router, view, pageProps, route) => {
  //
 });
@@ -114,7 +114,7 @@ Gets or sets the list of postProcessors running for each page. Callback(s) are c
 
 **Example**  
 ```js
-const buildExtender = require("sf-extension-utils/lib/router/buildExtender");
+import buildExtender from "sf-extension-utils/lib/router/buildExtender";
 buildExtender.postProcessors.push((match, routeData, router, pageInstance, pageProps, route) => {
  //
 });

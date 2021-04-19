@@ -37,8 +37,8 @@ It sets the starting point to your current location, if the permission is grante
 
 **Example**  
 ```js
-const { showNavigationMenu } = require("sf-extension-utils/lib/navigation");
-showNavigationMenu({
+import navigation from "sf-extension-utils/lib/navigation";
+navigation.showNavigationMenu({
      page,
      transportType: "d",
      location: {

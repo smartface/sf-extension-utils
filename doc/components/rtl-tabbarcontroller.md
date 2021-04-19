@@ -30,9 +30,9 @@ Note: Returned indexes or arrays won't impact the logic.
 
 **Example**  
 ```js
-const RTLTabBarController = require("sf-extension-utils/lib/components/rtl-tabbarcontroller");
+import RTLTabBarController from "sf-extension-utils/lib/components/rtl-tabbarcontroller";
 
-var MyTabBarController = extend(RTLTabBarController)(
+const MyTabBarController = extend(RTLTabBarController)(
     function(_super, params) {
         _super(this);
         this.onPageCreate = function(index) {};

@@ -15,9 +15,9 @@ Smartface RootDetection Module
 <a name="module_rootdetection..RootDetection"></a>
 
 ### rootdetection~RootDetection
-Includes a few established methods to capture whether device is 
-rooted or not. To know if device is rooted, looking for potentially dangerous 
-app packages/paths, system folder accessibility, su binaries & schemas. The 
+Includes a few established methods to capture whether device is
+rooted or not. To know if device is rooted, looking for potentially dangerous
+app packages/paths, system folder accessibility, su binaries & schemas. The
 dangerous app packages/paths should be kept upto date by commuity.
 
 **Kind**: inner class of [<code>rootdetection</code>](#module_rootdetection)  
@@ -32,7 +32,7 @@ Checks the device either rooted or not.
 **Access**: public  
 **Example**  
 ```js
-const RootDetection = require("sf-extension-utils/lib/security/rootdetection");
+import RootDetection from "sf-extension-utils/lib/security/rootdetection";
 
 if (RootDetection.isRooted()) {
     console.log("Attention your device is not trusted.");

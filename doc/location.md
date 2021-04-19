@@ -25,7 +25,7 @@ Gets location latitude and longitude. Handles permissions by itself.
 **See**: [Location Guide](https://developer.smartface.io/docs/location)  
 **Example**  
 ```js
-const location = require("sf-extension-utils/lib/location");
+import location from "sf-extension-utils/lib/location";
 
 location.getLocation()
     .then(location => {
