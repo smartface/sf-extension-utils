@@ -25,6 +25,6 @@ const emojiAnimation = new EmojiAnimation({
     emojis: ["data:image/png;base64,iVBs4c6QAAORw0KGgoAAAANSUh"]
 });
 
-// Play first emoji on webview
-emojiAnimation.playEmoji(0);
+// Play first emoji on webview with 3 second animation
+emojiAnimation.playEmoji(0, 3);
 ```
