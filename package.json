@@ -56,7 +56,7 @@
     }
   },
   "peerDependencies": {
-    "sf-core": "^4.3.0",
+    "sf-core": ">=4.0.0",
     "@smartface/contx": "^3.0.1"
   }
 }
