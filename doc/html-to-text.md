@@ -58,7 +58,6 @@ However, converting html to native Smartface component has their own limitations
 
 ### html-to-text~createAttributedTexts(htmlSource) ⇒ <code>Array.&lt;AttributedString&gt;</code>
 This method automatically maps necessary attributedstring variables. Use this if you don't have Dark theme support or you want the attributedstrings as is.
-Consider reading this documentation before passing an html: https://github.com/smartface/sf-extension-utils/blob/master/doc/html-to-text.md
 
 **Kind**: inner method of [<code>html-to-text</code>](#module_html-to-text)  
 
@@ -79,7 +78,6 @@ textView.attributedText = createAttributedTexts(htmlSource);
 
 ### html-to-text~createAttributedStrings(htmlSource) ⇒ <code>Array.&lt;AttributedString&gt;</code>
 This method returns half-baked attributedstring value. Use this method if you support dark theme to change foregroundColor or if you want to tweak other properties.
-Consider reading this documentation before passing an html: https://github.com/smartface/sf-extension-utils/blob/master/doc/html-to-text.md
 
 **Kind**: inner method of [<code>html-to-text</code>](#module_html-to-text)  
 
