@@ -1,14 +1,23 @@
-<a name="module_html-totext"></a>
+<a name="module_html-to-text"></a>
 
-## html-totext : <code>Class</code>
+## html-to-text : <code>Class</code>
 Smartface html-to-text util
 
 **Author**: Furkan Arabacı <furkan.arabaci@smartface.io>  
 **Author**: Ali Tuğrul Pınar <ali.pinar@smartface.io>  
 **Copyright**: Smartface 2021  
-<a name="module_html-totext..createAttributedStrings"></a>
 
-### html-totext~createAttributedStrings(htmlSource) ⇒ <code>Array.&lt;AttributedString&gt;</code>
+* [html-to-text](#module_html-to-text) : <code>Class</code>
+    * [~HTML](#module_html-to-text..HTML)
+    * [~createAttributedTexts(htmlSource)](#module_html-to-text..createAttributedTexts) ⇒ <code>Array.&lt;AttributedString&gt;</code>
+    * [~createAttributedStrings(htmlSource)](#module_html-to-text..createAttributedStrings) ⇒ <code>Array.&lt;AttributedString&gt;</code>
+
+<a name="module_html-to-text..HTML"></a>
+
+### html-to-text~HTML
+When you have a html, but don't want to create a WebView to render the texts, this utility is what you are looking for.
+However, converting html to native Smartface component has their own limitations. If not, the result may not be the desired one.
+
 ## Limitations & Rules
 
   1. If you want to write **newline** character, you can use these tags **\<br\>**, **\<div\>** or use "\n".
@@ -44,7 +53,13 @@ Smartface html-to-text util
   4. ⚠️ If you give **font-family** style, this style can overwrite **font-weight** and **font-style**.
       - font-family: **Nunito-ExtraLightItalic**; → this overwrite **font-weight** as normal.
 
-**Kind**: inner method of [<code>html-totext</code>](#module_html-totext)  
+**Kind**: inner constant of [<code>html-to-text</code>](#module_html-to-text)  
+<a name="module_html-to-text..createAttributedTexts"></a>
+
+### html-to-text~createAttributedTexts(htmlSource) ⇒ <code>Array.&lt;AttributedString&gt;</code>
+Consider reading this documentation before passing an html: https://github.com/smartface/sf-extension-utils/blob/master/doc/html-to-text.md
+
+**Kind**: inner method of [<code>html-to-text</code>](#module_html-to-text)  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -58,4 +73,27 @@ import TextView from 'sf-core/ui/textview';
         const textView = new TextView();
         const htmlSource = "<span style=\"font-size: 24px; color: rgb(0, 0, 0); text-decoration-color: rgb(0, 0, 0);\"><span style=\"font-family: Nunito-LightItalic; font-size: 24px; background-color: transparent; color: rgb(0, 0, 0); text-decoration-color: rgb(0, 0, 0);\">Your </span><font face=\"ios-Default-Bold\" style=\"font-size: 24px; font-family: ios-Default-Regular; background-color: transparent; color: rgb(0, 0, 0); text-decoration-color: rgb(0, 0, 0);\">attributed </font><span style=\"text-decoration-line: underline; color: rgb(139, 87, 42); font-size: 24px; font-family: ios-Default-Regular; background-color: transparent; text-decoration-color: rgb(0, 0, 0);\">Stri<span style=\"color: rgb(139, 87, 42); text-decoration-line: underline ; text-decoration-color: rgb(0, 0, 0); font-size: 24px; font-family: ios-Default-Regular; background-color: transparent;\">ngs</span></span></span><div><span style=\"font-size: 16px; font-family: ios-Default-Regular; text-decoration-color: rgb(0, 0, 0);\"><span style=\"text-decoration-line: underline; font-size: 16px; font-family: ios-Default-Regular; text-decoration-color: rgb(0, 0, 0);\"><span style=\"text-decoration-line: underline; text-decoration-color: rgb(0, 0, 0); font-size: 24px; font-family: ios-Default-Regular; background-color: rgb(189, 16, 224);\">second</span></span></span></div><div><span style=\"font-size: 16px; font-family: ios-Default-Regular; text-decoration-color: rgb(0, 0, 0);\"><span style=\"text-decoration-line: underline; font-size: 16px; font-family: ios-Default-Regular; text-decoration-color: rgb(0, 0, 0);\"><span style=\"text-decoration-line: underline; text-decoration-color: rgb(0, 0, 0); font-size: 16px; font-family: ios-Default-Regular; background-color: rgb(189, 16, 224); color: rgb(248, 231, 28);\">Third</span></span></span></div>";
         textView.attributedText = createAttributedStrings(htmlSource);
+```
+<a name="module_html-to-text..createAttributedStrings"></a>
+
+### html-to-text~createAttributedStrings(htmlSource) ⇒ <code>Array.&lt;AttributedString&gt;</code>
+Consider reading this documentation before passing an html: https://github.com/smartface/sf-extension-utils/blob/master/doc/html-to-text.md
+
+**Kind**: inner method of [<code>html-to-text</code>](#module_html-to-text)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| htmlSource | <code>string</code> | Your html content to work with. The limitations and rules are specified in the document of this module. |
+
+**Example**  
+```js
+import TextView from 'sf-core/ui/textview';
+        import { createAttributedStrings } from "sf-extenstion-utils/lib/html-to-text");
+        import AttributedString from "sf-core/ui/attributedstring";
+        import propFactory from "@smartface/contx/lib/smartface/sfCorePropFactory";
+
+        const textView = new TextView();
+        const htmlSource = "<span style=\"font-size: 24px; color: rgb(0, 0, 0); text-decoration-color: rgb(0, 0, 0);\"><span style=\"font-family: Nunito-LightItalic; font-size: 24px; background-color: transparent; color: rgb(0, 0, 0); text-decoration-color: rgb(0, 0, 0);\">Your </span><font face=\"ios-Default-Bold\" style=\"font-size: 24px; font-family: ios-Default-Regular; background-color: transparent; color: rgb(0, 0, 0); text-decoration-color: rgb(0, 0, 0);\">attributed </font><span style=\"text-decoration-line: underline; color: rgb(139, 87, 42); font-size: 24px; font-family: ios-Default-Regular; background-color: transparent; text-decoration-color: rgb(0, 0, 0);\">Stri<span style=\"color: rgb(139, 87, 42); text-decoration-line: underline ; text-decoration-color: rgb(0, 0, 0); font-size: 24px; font-family: ios-Default-Regular; background-color: transparent;\">ngs</span></span></span><div><span style=\"font-size: 16px; font-family: ios-Default-Regular; text-decoration-color: rgb(0, 0, 0);\"><span style=\"text-decoration-line: underline; font-size: 16px; font-family: ios-Default-Regular; text-decoration-color: rgb(0, 0, 0);\"><span style=\"text-decoration-line: underline; text-decoration-color: rgb(0, 0, 0); font-size: 24px; font-family: ios-Default-Regular; background-color: rgb(189, 16, 224);\">second</span></span></span></div><div><span style=\"font-size: 16px; font-family: ios-Default-Regular; text-decoration-color: rgb(0, 0, 0);\"><span style=\"text-decoration-line: underline; font-size: 16px; font-family: ios-Default-Regular; text-decoration-color: rgb(0, 0, 0);\"><span style=\"text-decoration-line: underline; text-decoration-color: rgb(0, 0, 0); font-size: 16px; font-family: ios-Default-Regular; background-color: rgb(189, 16, 224); color: rgb(248, 231, 28);\">Third</span></span></span></div>";
+        const attributedStrings = createAttributedStrings(htmlSource);
+        textView.attributedText = attributedStrings.map(s => new AttributedString(propFactory(s)));
 ```
