@@ -8,5 +8,6 @@
  * @module router
  * @type {object}
  * @author Alper Ozisik <alper.ozisik@smartface.io>
- * @copyright Smartface 2019
+ * @author Berk Baski <berk.baski@smartface.io>
+ * @copyright Smartface 2021
  */
