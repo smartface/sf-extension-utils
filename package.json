@@ -1,11 +1,10 @@
 {
   "name": "sf-extension-utils",
-  "version": "14.9.5",
+  "version": "14.10.0-rc.0",
   "description": "Utils Extension for Smartface Native Framework",
   "main": "lib/index.js",
   "scripts": {
-    "docs": "bash ./createdoc.sh",
-    "changelog": "./node_modules/.bin/gitmoji-changelog"
+    "docs": "bash ./createdoc.sh"
   },
   "keywords": [
     "smartface",
@@ -21,7 +20,7 @@
   "license": "MIT",
   "homepage": "https://github.com/smartface/sf-extension-utils#readme",
   "maintainers": [
-    "Ozcan Ovunc <ozcan.ovunc@smartface.io>"
+    "Furkan Arabacı <furkan.arabaci@smartface.io>"
   ],
   "dependencies": {
     "html-parse-stringify": "1.0.2",
