@@ -4,13 +4,15 @@
 **Author**: Ozcan Ovunc <ozcan.ovunc@smartface.io>  
 **Author**: Alim Öncül <alim.oncul@smartface.io>  
 **Copyright**: Smartface 2020  
-<a name="module_pdf..Renders base64 string as pdf file in a WebView"></a>
+<a name="module_pdf..Renders base64 string as pdf file in a WebView.
+If you want to catch the completion event, listen to onShow event."></a>
 
-### pdf~Renders base64 string as pdf file in a WebView()
+### pdf~Renders base64 string as pdf file in a WebView.
+If you want to catch the completion event, listen to onShow event.()
 **Kind**: inner method of [<code>pdf</code>](#module_pdf)  
 **Example**  
 ```js
-import pdf from "sf-extension-utils/lib/pdf";
+const pdf = require("sf-extension-utils/lib/pdf");
 pdf.render({
     webView: webView,
     base64pdf: 'JVBERi0xLjcKCjEgMCBvYmogICUgZW50cnkgcG9pbnQKPDwKICAvVHlwZSAvQ2F0YWxvZwog' +
