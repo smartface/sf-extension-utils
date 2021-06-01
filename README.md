@@ -61,11 +61,16 @@ However, some others will have different export types. You can import them like:
 For each module api documentation is in separate file. Please visit [doc](./doc) folder
 
 ## Release
-Before publishing the utils
-- Make sure the docs are up-to-date
+Steps to do before release:
+- Make sure the docs are up-to-date. Run `npm run docs` to update them.
+- Make sure that the version is appropiate to semver guidelines. Use e.g. `npm version minor` to change version. Do not do it manually.
+- Make sure your auth is correct.
+
+To publish a new release, use the command
 ```
-npm run docs
+npm run publish-utl
 ```
+to publish to the right repository. Otherwise, you will get an error.
 
 ## Need Help?
 

@@ -4,7 +4,8 @@
   "description": "Utils Extension for Smartface Native Framework",
   "main": "lib/index.js",
   "scripts": {
-    "docs": "bash ./createdoc.sh"
+    "docs": "bash ./createdoc.sh",
+    "publish-util": "npm publish --registry https://cd.smartface.io/repository/smartfacenpmpublic"
   },
   "keywords": [
     "smartface",
