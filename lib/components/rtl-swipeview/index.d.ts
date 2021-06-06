@@ -6,7 +6,7 @@
  * @author Ozcan Ovunc <ozcan.ovunc@smartface.io>
  * @copyright Smartface 2019
  */
-import SwipeView = require("sf-core/ui/swipeview");
+import SwipeView = require("@smartface/native/ui/swipeview");
 
 /**
  * RTLSwipeView class is inherited from SwipeView. It manipulates the index/array 

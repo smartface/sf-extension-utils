@@ -6,8 +6,8 @@
  * @copyright Smartface 2018
  */
  
-const Button = require('sf-core/ui/button');
-const ActivityIndicator = require('sf-core/ui/activityindicator');
+const Button = require('@smartface/native/ui/button');
+const ActivityIndicator = require('@smartface/native/ui/activityindicator');
 
 /**
  * Setups button and activity indicator for event. <br />

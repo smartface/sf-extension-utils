@@ -5,7 +5,7 @@
  * @copyright Smartface 2019
  */
 
-import WebView = require('sf-core/ui/webview');
+import WebView = require('@smartface/native/ui/webview');
 
 /**
  * @function

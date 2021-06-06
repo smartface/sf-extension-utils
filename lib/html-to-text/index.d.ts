@@ -7,7 +7,7 @@
  * @copyright Smartface 2021
  */
 
-import AttributedString from 'sf-core/ui/attributedstring';
+import AttributedString from '@smartface/native/ui/attributedstring';
 import propFactory from '@smartface/contx/lib/smartface/sfCorePropFactory';
 
 type ArgumentTypes<F extends Function> = F extends (...args: infer A) => any ? A : never;
@@ -17,9 +17,9 @@ type ArgumentTypes<F extends Function> = F extends (...args: infer A) => any ? A
  * This method automatically maps necessary attributedstring variables. Use this if you don't have Dark theme support or you want the attributedstrings as is.
  * Consider reading this documentation before passing an html: https://github.com/smartface/sf-extension-utils/blob/master/doc/html-to-text.md
   *  @example
-        import TextView from 'sf-core/ui/textview';
+        import TextView from '@smartface/native/ui/textview';
         import { createAttributedStrings } from "sf-extenstion-utils/lib/html-to-text");
-        import AttributedString from "sf-core/ui/attributedstring";
+        import AttributedString from "@smartface/native/ui/attributedstring";
         import propFactory from "@smartface/contx/lib/smartface/sfCorePropFactory";
 
         const textView = new TextView();
@@ -35,7 +35,7 @@ export function createAttributedTexts(htmlSource: string): AttributedString[];
  * This method returns half-baked attributedstring value. Use this method if you support dark theme to change foregroundColor or if you want to tweak other properties.
  * Consider reading this documentation before passing an html: https://github.com/smartface/sf-extension-utils/blob/master/doc/html-to-text.md
  *  @example
-        import TextView from 'sf-core/ui/textview';
+        import TextView from '@smartface/native/ui/textview';
         import { createAttributedStrings } from "sf-extenstion-utils/lib/html-to-text");
 
         const textView = new TextView();

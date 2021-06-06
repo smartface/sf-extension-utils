@@ -6,7 +6,7 @@
  * @copyright Smartface 2018
  */
 
-import TextBox = require('sf-core/ui/textbox');
+import TextBox = require('@smartface/native/ui/textbox');
 
 /**
  * Sets the max length for the textbox. This is replacing the onTextChanged

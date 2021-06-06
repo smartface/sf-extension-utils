@@ -21,7 +21,7 @@
  * ```
  */
 
-import Page = require('sf-core/ui/page');
+import Page = require('@smartface/native/ui/page');
 
 /**
  * Prompts a menu to choose which navigation app to handle the location.

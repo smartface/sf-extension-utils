@@ -9,7 +9,7 @@
  * @copyright Smartface 2019
  */
 
-import SecureData = require("sf-core/global/securedata");
+import SecureData = require("@smartface/native/global/securedata");
 
 declare interface IBiometricLoginParams {
     doNotAskOnFirstTime?: boolean;

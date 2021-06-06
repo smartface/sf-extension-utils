@@ -78,7 +78,7 @@ Default press effect function. Takes `this` as target. Darkens color for iOS, ad
 **Example**  
 ```js
 import touch from "sf-extension-utils/lib/touch";
-import System from 'sf-core/device/system';
+import System from '@smartface/native/device/system';
 //inside page.onLoad
 const page = this;
 touch.addPressEvent(page.flBtn, () => {
@@ -98,7 +98,7 @@ Default remove press effect function. Takes `this` as target. Restores the color
 **Example**  
 ```js
 import touch from "sf-extension-utils/lib/touch";
-import System from 'sf-core/device/system';
+import System from '@smartface/native/device/system';
 //inside page.onLoad
 const page = this;
 touch.addPressEvent(page.flBtn, () => {

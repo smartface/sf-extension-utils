@@ -6,8 +6,8 @@
  * @copyright Smartface 2018
  */
 
-import WebView = require('sf-core/ui/webview');
-import File = require('sf-core/io/file');
+import WebView = require('@smartface/native/ui/webview');
+import File = require('@smartface/native/io/file');
 import EventEmitter = require('wolfy87-eventemitter');
 
 interface IBridgeConstructorOptions {

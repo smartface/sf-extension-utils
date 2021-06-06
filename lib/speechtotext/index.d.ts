@@ -6,7 +6,7 @@
  * @copyright Smartface 2018
  */
 
-import TextBox = require('sf-core/ui/textbox');
+import TextBox = require('@smartface/native/ui/textbox');
 
 /**
  * Starts listening user and write it to textBox that given as paramater.

@@ -1,8 +1,8 @@
-import WebView = require('sf-core/ui/webview');
+import WebView = require('@smartface/native/ui/webview');
 
 declare class EmojiAnimationOptions {
 	/**
-	 * Should be an instance of sf-core/ui/webview
+	 * Should be an instance of @smartface/native/ui/webview
 	 * @see https://developer.smartface.io/docs/webview
 	 */
 	webView: WebView;

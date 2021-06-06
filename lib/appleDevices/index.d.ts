@@ -6,8 +6,8 @@
  * @copyright Smartface 2020
  */
 
-const Hardware = require('sf-core/device/hardware');
-const System = require('sf-core/device/system');
+const Hardware = require('@smartface/native/device/hardware');
+const System = require('@smartface/native/device/system');
 const deviceMapping = require("./deviceMapping.json");
 
 /**

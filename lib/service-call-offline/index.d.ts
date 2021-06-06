@@ -90,7 +90,7 @@ export class OfflineResponseServiceCall extends ServiceCall {
  * @static
  * @example
  * import { init } from 'sf-extension-utils/lib/service-call-offline"'
- * import Blob = require('sf-core/blob');
+ * import Blob = require('@smartface/native/blob');
  * 
  * const basicEncrypt = plainData => {
  *     let b = Blob.createFromUTF8String(plainData);

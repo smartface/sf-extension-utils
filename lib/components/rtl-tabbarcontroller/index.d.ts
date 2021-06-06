@@ -7,7 +7,7 @@
  * @copyright Smartface 2019
  */
 
-import TabBarController = require('sf-core/ui/tabbarcontroller');
+import TabBarController = require('@smartface/native/ui/tabbarcontroller');
 import RTLAndroidSwipeView from '../rtl-swipeview';
 
 /** 

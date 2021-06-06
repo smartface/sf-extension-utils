@@ -67,7 +67,7 @@ This method automatically maps necessary attributedstring variables. Use this if
 
 **Example**  
 ```js
-import TextView from 'sf-core/ui/textview';
+import TextView from '@smartface/native/ui/textview';
 import { createAttributedStrings } from "sf-extenstion-utils/lib/html-to-text");
 
 const textView = new TextView();
@@ -87,9 +87,9 @@ This method returns half-baked attributedstring value. Use this method if you su
 
 **Example**  
 ```js
-import TextView from 'sf-core/ui/textview';
+import TextView from '@smartface/native/ui/textview';
 import { createAttributedStrings } from "sf-extenstion-utils/lib/html-to-text");
-import AttributedString from "sf-core/ui/attributedstring";
+import AttributedString from "@smartface/native/ui/attributedstring";
 import propFactory from "@smartface/contx/lib/smartface/sfCorePropFactory";
 
 const textView = new TextView();

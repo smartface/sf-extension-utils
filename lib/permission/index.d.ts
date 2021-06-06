@@ -8,7 +8,7 @@
  * @copyright Smartface 2021
  */
 
-import Application = require('sf-core/application');
+import Application = require('@smartface/native/application');
 /**
  * Run-time permission requests for Android if needed. iOS only supports camera, others automatically succeeds.
  * Permission request numbers starts from 2000 and incremented on each requestPermission

@@ -21,7 +21,7 @@
  * @public
  * @see {@link https://developer.smartface.io/docs/remote-app-update|Remote App Update Guide}
  * @example
- * import System = require("sf-core/device/system");
+ * import System = require("@smartface/native/device/system");
  * import rau from 'sf-extension-utils/lib/rau';
  * rau.checkUpdate({
  *  showProgressCheck: true,

@@ -8,8 +8,8 @@
  * @copyright Smartface 2018
  */
 
-import Color = require('sf-core/ui/color');
-import View = require('sf-core/ui/view');
+import Color = require('@smartface/native/ui/color');
+import View = require('@smartface/native/ui/view');
 
 interface IDefaults {
     /**
@@ -167,7 +167,7 @@ export function addPressEvent(target: View, event: () => any, options?: IPressEv
  * @static
  * @example
  * import touch = require("sf-extension-utils/lib/touch");
- * import System = require('sf-core/device/system');
+ * import System = require('@smartface/native/device/system');
  * //inside page.onLoad
  * touch.addPressEvent(this.flBtn, () => {
  *     alert("Pressed");
@@ -184,7 +184,7 @@ export function defaultAddPressEffect(): void;
  * @static
  * @example
  * import touch from 'sf-extension-utils/lib/touch';
- * import System = require('sf-core/device/system');
+ * import System = require('@smartface/native/device/system');
  * //inside page.onLoad
  * touch.addPressEvent(this.flBtn, () => {
  *     alert("Pressed");

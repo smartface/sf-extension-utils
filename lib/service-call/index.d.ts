@@ -66,7 +66,7 @@ export default class {
      * Creates a ServiceCall helper class with common configuration to be used across multiple service calls.
      * @param {object} options - Cofiguration of service call helper object (required)
      * @param {string} options.baseUrl - Base URL of all future service calls (required)
-     * @param {number} [options.timeout = 60000] - Timeout value for service calls. If not provided it uses the default timeout value from sf-core http
+     * @param {number} [options.timeout = 60000] - Timeout value for service calls. If not provided it uses the default timeout value from @smartface/native http
      * @param {boolean} [options.logEnabled = false] - Logs the service requests & responses to console
      * @param {object} [options.headers] - Sets the default headers for this configuration
      * @example

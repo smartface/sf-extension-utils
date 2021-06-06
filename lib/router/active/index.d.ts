@@ -1,4 +1,4 @@
-import Page = require('sf-core/ui/page');
+import Page = require('@smartface/native/ui/page');
 /**
  * Active page reference for router
  * @module router

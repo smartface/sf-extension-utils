@@ -1,5 +1,5 @@
-import Image = require('sf-core/ui/image');
-import Color = require('sf-core/ui/color');
+import Image = require('@smartface/native/ui/image');
+import Color = require('@smartface/native/ui/color');
 /**
  * Back & close headerbar handling for router
  * @module router

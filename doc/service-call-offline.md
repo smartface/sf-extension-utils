@@ -35,7 +35,7 @@ Configures service-call-offline. Call this in your app once before using any fun
 **Example**  
 ```js
 import { init } from "sf-extension-utils/lib/service-call-offline";
-import Blob from 'sf-core/blob';
+import Blob from '@smartface/native/blob';
 
 const basicEncrypt = plainData => {
     let b = Blob.createFromUTF8String(plainData);

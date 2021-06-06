@@ -17,7 +17,7 @@
  * @returns {getter} a function which returns promise
  * @example
  * import { createAsyncGetter } from 'sf-extension-utils/lib/async';
- * import System = require('sf-core/device/system');
+ * import System = require('@smartface/native/device/system');
  * 
  * 
  * getLibphonenumber = createAsyncGetter(() => {
@@ -55,7 +55,7 @@ export function createAsyncGetter(task: () => {}, options: { forceSync?: boolean
  * @returns {Promise} when resolved return value of the task is provided
  * @example
  * import { createAsyncTask } from 'sf-extension-utils/lib/async';
- * import Http = require("sf-core/net/http");
+ * import Http = require("@smartface/native/net/http");
  * createAsyncTask(()=> new Http()).then(http => http.request(requestOptions));
  */
 export function createAsyncTask(task: () => {}, options: { forceSync?: boolean, thisObject?: { [key: string]: any } | string } ): Promise<any>
