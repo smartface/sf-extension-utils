@@ -57,9 +57,5 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  },
-  "peerDependencies": {
-    "@smartface/contx": "^3.0.1",
-    "@smartface/native": "^4.0.0"
   }
 }
