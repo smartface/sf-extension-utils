@@ -8,12 +8,17 @@
 import WebViewBridge from '../webviewbridge'
 import { ApexOptions } from 'apexcharts';
 
+/** It allows passing custom data into the chart */
+declare type BarOptions = {
+    [key: string]: any
+}
+
 declare class ChartOptions {
     /** Browser to display ApexCharts charts and listen to events */
     webViewBridge?: WebViewBridge;
 
     /** Required options for render to chart. More info {@link https://github.com/apexcharts/apexcharts.js|ApexCharts.js} */
-    apexOptions?: ApexOptions;
+    apexOptions?: ApexOptions & { barOptions: BarOptions };
 }
 
 /**
@@ -35,6 +40,9 @@ declare class ChartOptions {
  * const chart = new Chart({
  *     webViewBridge: wvb,
  *     apexOptions: {
+ *         barOptions: {
+ *             percent: 0.75
+ *         },
  *         series: [{
  *             name: "Desktops",
  *             data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
@@ -53,7 +61,10 @@ declare class ChartOptions {
  *             }
  *         },
  *         dataLabels: {
- *             enabled: false
+ *             enabled: false,
+ *             formatter: function (val, opt) {
+ *                 return val / opt?.w?.config?.percent;
+ *             }
  *         },
  *         stroke: {
  *             curve: 'straight'
