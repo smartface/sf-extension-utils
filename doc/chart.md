@@ -46,6 +46,9 @@ wvb.on('markerClick', function (event) {
 const chart = new Chart({
     webViewBridge: wvb,
     apexOptions: {
+        barOptions: {
+            percent: 0.75
+        },
         series: [{
             name: "Desktops",
             data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
@@ -64,7 +67,10 @@ const chart = new Chart({
             }
         },
         dataLabels: {
-            enabled: false
+            enabled: false,
+            formatter: function (val, opt) {
+                return val / opt?.w?.config?.percent;
+            }
         },
         stroke: {
             curve: 'straight'
