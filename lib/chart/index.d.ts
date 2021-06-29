@@ -18,7 +18,7 @@ declare class ChartOptions {
     webViewBridge?: WebViewBridge;
 
     /** Required options for render to chart. More info {@link https://github.com/apexcharts/apexcharts.js|ApexCharts.js} */
-    apexOptions?: ApexOptions & { barOptions: BarOptions };
+    apexOptions?: ApexOptions & { barOptions?: BarOptions };
 }
 
 /**
