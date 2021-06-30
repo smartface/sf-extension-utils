@@ -1,0 +1,20 @@
+name: Publish to Nexus
+on:
+  push:
+    branches:
+      - master
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+          registry-url: https://registry.npmjs.org/
+      - run: NODE_ENV=production npm i
+      - run: npm config set email info@smartface.io
+      - run: npm config set _auth ${{ secrets.NEXUS_AUTH }}
+      - run: npm config set always-auth true
+      - run: npm run docs
+      - run: npm run publish-util

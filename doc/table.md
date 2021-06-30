@@ -7,7 +7,6 @@
 * [Table](#module_Table) : <code>object</code>
     * [~Table](#module_Table..Table)
         * [new Table(options, webView, tableOptions)](#new_module_Table..Table_new)
-        * [.styleTypes](#module_Table..Table+styleTypes)
         * [.render()](#module_Table..Table+render)
 
 <a name="module_Table..Table"></a>
@@ -20,7 +19,6 @@ It's creating a table in **WebView** or **WebViewBridge** using given values and
 
 * [~Table](#module_Table..Table)
     * [new Table(options, webView, tableOptions)](#new_module_Table..Table_new)
-    * [.styleTypes](#module_Table..Table+styleTypes)
     * [.render()](#module_Table..Table+render)
 
 <a name="new_module_Table..Table_new"></a>
@@ -73,12 +71,6 @@ const table = new Table({
 });
 table.render();
 ```
-<a name="module_Table..Table+styleTypes"></a>
-
-#### table.styleTypes
-Web equivalent of CSS properties
-
-**Kind**: instance property of [<code>Table</code>](#module_Table..Table)  
 <a name="module_Table..Table+render"></a>
 
 #### table.render()
