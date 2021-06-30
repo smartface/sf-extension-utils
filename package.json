@@ -3,6 +3,7 @@
   "version": "14.12.6",
   "description": "Utils Extension for Smartface Native Framework",
   "main": "lib/index.js",
+  "repository": "https://github.com/smartface/sf-extension-utils",
   "scripts": {
     "docs": "bash ./createdoc.sh",
     "publish-util": "npm publish --registry https://cd.smartface.io/repository/smartfacenpmpublic"

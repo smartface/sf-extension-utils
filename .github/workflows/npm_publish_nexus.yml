@@ -1,10 +1,10 @@
-name: Publish to Nexus
+name: Publish
 on:
   push:
     branches:
       - master
 jobs:
-  publish:
+  publish-to-nexus:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
