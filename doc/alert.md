@@ -55,14 +55,14 @@ alert({
      {
          text: "Yes",
          type: AlertView.Android.ButtonType.POSITIVE,
-         onClick: function() { 
+         onClick: function() {
              //handle yes answer here
          },
      },
      {
          text: "No",
          type: AlertView.Android.ButtonType.NEGATIVE,
-         onClick: function() { 
+         onClick: function() {
              //handle no answer here
          },
      }

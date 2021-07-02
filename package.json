@@ -1,8 +1,9 @@
 {
   "name": "sf-extension-utils",
-  "version": "14.12.4",
+  "version": "14.12.7",
   "description": "Utils Extension for Smartface Native Framework",
   "main": "lib/index.js",
+  "repository": "https://github.com/smartface/sf-extension-utils",
   "scripts": {
     "docs": "bash ./createdoc.sh",
     "publish-util": "npm publish --registry https://cd.smartface.io/repository/smartfacenpmpublic"
@@ -31,11 +32,11 @@
     "semver": "^5.7.1",
     "squel": "^5.13.0",
     "tinycolor2": "^1.4.1",
-    "wolfy87-eventemitter": "^5.2.9"
+    "wolfy87-eventemitter": "^5.2.9",
+    "jsdoc-to-markdown": "^5.0.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.14.0",
-    "cz-conventional-changelog": "^2.1.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-airbnb-base": "^14.0.0",
@@ -46,9 +47,6 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.18.0",
     "eslint-plugin-react-hooks": "^1.7.0",
-    "estraverse": "^4.3.0",
-    "gitmoji-changelog": "^2.0.1",
-    "jsdoc-to-markdown": "^5.0.0",
     "prettier": "^1.19.1"
   },
   "config": {
