@@ -12,9 +12,7 @@ jobs:
         with:
           node-version: 14
           registry-url: https://registry.npmjs.org/
-      - run: NODE_ENV=production npm i
       - run: npm config set email info@smartface.io
       - run: npm config set _auth ${{ secrets.NEXUS_AUTH }}
       - run: npm config set always-auth true
-      - run: npm run docs
       - run: npm run publish-util
