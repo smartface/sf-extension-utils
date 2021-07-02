@@ -44,6 +44,14 @@ declare enum StyleTypesEnum {
     zIndex = "z-index"
 }
 
+/**
+ * Custom props of elements
+ */
+declare type AttributeOptions = {
+    /** Key and Value of the prop */
+    [key: string]: any
+}
+
 /** CSS properties available within this component */
 declare class Styles {
     width?: string;
@@ -86,6 +94,9 @@ declare class ColumnOptions {
 
     /** Inline style of column */
     columnStyles?: Styles;
+
+    /** Attributes of column */
+    columnAttributes?: AttributeOptions;
 }
 
 /** Properties of rows in the table */
@@ -95,6 +106,9 @@ declare class RowOptions {
 
     /** Class of row */
     rowClass?: string;
+
+    /** Attributes of row */
+    rowAttributes?: AttributeOptions;
 
     /** Columns in the row */
     columns?: ColumnOptions[];
@@ -113,6 +127,9 @@ declare class TableOptions {
 
     /** Inline style of table */
     tableStyles?: Styles;
+
+    /** Attributes of table */
+    tableAttributes?: AttributeOptions;
 
     /** Rows in the table */
     rows?: RowOptions[];
