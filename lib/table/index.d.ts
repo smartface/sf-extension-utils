@@ -244,4 +244,10 @@ export default class Table extends TableInitOptions {
      * @public
      */
     render(): void;
+    /**
+     * It returns the generated html string
+     * @method
+     * @public
+     */
+     generateHtml(): string;
 }
