@@ -5,20 +5,23 @@
  * @copyright Smartface 2021
  */
 
-import WebViewBridge from '../webviewbridge'
+import WebViewBridge from '../webviewbridge';
 import { ApexOptions } from 'apexcharts';
 
 /** It allows passing custom data into the chart */
 declare type BarOptions = {
-    [key: string]: any
-}
+	[key: string]: any;
+};
 
 declare class ChartOptions {
-    /** Browser to display ApexCharts charts and listen to events */
-    webViewBridge?: WebViewBridge;
+	/** Browser to display ApexCharts charts and listen to events */
+	webViewBridge?: WebViewBridge;
 
-    /** Required options for render to chart. More info {@link https://github.com/apexcharts/apexcharts.js|ApexCharts.js} */
-    apexOptions?: ApexOptions & { barOptions?: BarOptions };
+	/** Required options for render to chart. More info {@link https://github.com/apexcharts/apexcharts.js|ApexCharts.js} */
+	apexOptions?: ApexOptions & { barOptions?: BarOptions };
+
+	/** Optional css options for html */
+	customCss?: string;
 }
 
 /**
@@ -28,11 +31,12 @@ declare class ChartOptions {
  * @param {object} options - Base options object
  * @param {WebViewBridge} options.webViewBridge - Browser to display ApexCharts charts and listen to events
  * @param {ApexOptions} options.apexOptions - Required options for render to chart. More info {@link https://github.com/apexcharts/apexcharts.js|ApexCharts.js}
+ * @param {string} options.customCss - Optional css options for html
  * @example
  *const wvb = new WebViewBridge({
  *    webView: this.webView1
  *});
- * 
+ *
  * wvb.on('markerClick', function (event) {
  *     console.log('Clicked to a marker on Smartface');
  * });
@@ -87,20 +91,20 @@ declare class ChartOptions {
  * chart.render();
  */
 export default class Chart extends ChartOptions {
-    constructor(options?: ChartOptions);
+	constructor(options?: ChartOptions);
 
-    /**
-     * It converts chart options to string for render to WebView
-     * @method
-     * @param {object} obj - Chart options
-     * @public
-     */
-    convertObjectToString(obj: any): string;
+	/**
+	 * It converts chart options to string for render to WebView
+	 * @method
+	 * @param {object} obj - Chart options
+	 * @public
+	 */
+	convertObjectToString(obj: any): string;
 
-    /**
-     * It renders the given chart options to the WebViewBridge browser
-     * @method
-     * @public
-     */
-    render(): void;
+	/**
+	 * It renders the given chart options to the WebViewBridge browser
+	 * @method
+	 * @public
+	 */
+	render(): void;
 }
