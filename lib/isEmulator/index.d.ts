@@ -1,18 +1,18 @@
 /**
- * Determine if the current running platform is Smartface Emulator or published application
- * @module guid
+ *
+ * @module isEmulator
  * @type {function}
  * @author Furkan Arabacı <furkan.arabaci@smartface.io>
  * @copyright Smartface 2021
  */
 
 /**
- * Creates a UUID v4 string
+ * Determine if the current running platform is Smartface Emulator or published application
  * @method
  * @public
  * @returns {boolean} true if the current platform is Smartface Emulator
  * @example
- * import isEmulator from 'sf-extension-utils/lib/isemulator';
+ * import isEmulator from 'sf-extension-utils/lib/isEmulator';
  * if(isEmulator()) {
  *  console.info("Device is Smartface Emulator");
  * }
