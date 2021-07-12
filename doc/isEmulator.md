@@ -13,7 +13,7 @@ Determine if the current running platform is Smartface Emulator or published app
 **Access**: public  
 **Example**  
 ```js
-import isEmulator from 'sf-extension-utils/lib/isemulator';
+import isEmulator from 'sf-extension-utils/lib/isEmulator';
 if(isEmulator()) {
  console.info("Device is Smartface Emulator");
 }
