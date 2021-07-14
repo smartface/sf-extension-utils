@@ -6,10 +6,6 @@
  * @copyright Smartface 2020
  */
 
-const Hardware = require('@smartface/native/device/hardware');
-const System = require('@smartface/native/device/system');
-const deviceMapping = require("./deviceMapping.json");
-
 /**
  * Gets the human readable modelname for iphone devies.
  * Returns empty string on Android devices.

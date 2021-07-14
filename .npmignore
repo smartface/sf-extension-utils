@@ -1,9 +1,1 @@
-README.md
-.git
-.gitignore
-.npmrc
-.npmignore
-npm-debug.log
-samples
 createdoc.sh
-.c9
