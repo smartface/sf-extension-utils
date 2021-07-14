@@ -31,6 +31,7 @@ An extension that has following utility classes for Smartface Native Framework. 
 - PDF (renders base64 string as pdf file in a WebView)
 - RootDetection (detects if the device is rooted or not)
 - Art (Smartface module that allows you to draw vector graphics)
+- DateHourPicker (creates a date or hour picker)
 
 ## Installation
 By default, Utility Extension is installed on any Smartface Project. If not installed or accidentally deleted, you can install it via:
