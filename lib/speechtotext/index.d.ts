@@ -21,7 +21,7 @@ import TextBox = require('@smartface/native/ui/textbox');
  * @public
  * @static
  * @example
- * const speechToText = require("sf-extension-utils/lib/speechtotext");
+ * const speechToText = require("@smartface/extension-utils/lib/speechtotext");
  * speechToText.startType(myTextBoxInput,4000);
  */
 export function startType(textBox: TextBox, timeout?: number, onStop?: () => any): void;

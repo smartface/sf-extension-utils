@@ -19,7 +19,7 @@ import TextBox = require('@smartface/native/ui/textbox');
  * @params {number} maxLength - Maximum text length of the TextBox
  * @params {function} [onTextChange] - User defined onTextChanged event for the TextBox
  * @example
- * const textBoxUtil = require("sf-extension-utils/lib/textbox");
+ * const textBoxUtil = require("@smartface/extension-utils/lib/textbox");
  * //inside page.onLoad
  * const page = this;
  * const tb = page.textBox1;

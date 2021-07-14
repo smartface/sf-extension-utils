@@ -72,7 +72,7 @@ Data will be written encrypted.
 
 **Example**  
 ```js
-import BiometricLogin from "sf-extension-utils/lib/biometricLogin";
+import BiometricLogin from "@smartface/extension-utils/lib/biometricLogin";
 function onLoad(superOnLoad) {
     superOnLoad();
     const { mtbEmail, mtbPassword, btnLogin } = this;

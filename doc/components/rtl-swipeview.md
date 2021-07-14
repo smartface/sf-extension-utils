@@ -33,7 +33,7 @@ Note: Returned indexes or arrays won't impact the logic.
 
 **Example**  
 ```js
-import RTLSwipeView from "sf-extension-utils/lib/components/rtl-swipeview";
+import RTLSwipeView from "@smartface/extension-utils/lib/components/rtl-swipeview";
 
 const swipeView = new RTLSwipeView({
     page: currentPage,

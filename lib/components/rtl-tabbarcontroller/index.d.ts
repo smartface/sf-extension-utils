@@ -22,7 +22,7 @@ import RTLAndroidSwipeView from '../rtl-swipeview';
  * @see {@link http://ref.smartface.io/#!/api/UI.TabBarController arguments, properties & methods}
  * @example
  * 
- * import RTLTabBarController from 'sf-extension-utils/lib/components/rtl-tabbarcontroller';
+ * import RTLTabBarController from '@smartface/extension-utils/lib/components/rtl-tabbarcontroller';
  * 
  * class MyTabBarController extends RTLTabBarController {
  *     constructor() {

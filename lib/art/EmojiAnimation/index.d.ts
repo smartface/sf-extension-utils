@@ -28,7 +28,7 @@ declare class EmojiAnimationOptions {
  * @author Ali Tugrul Pinar <ali.pinar@smartface.io>
  * @copyright Smartface 2020
  * @example
- * import EmojiAnimation from 'sf-extension-utils/lib/art/EmojiAnimation';
+ * import EmojiAnimation from '@smartface/extension-utils/lib/art/EmojiAnimation';
  *
  * const emojiAnimation = new EmojiAnimation({
  *     emojis: ['data:image/base64:eymBASDASd']

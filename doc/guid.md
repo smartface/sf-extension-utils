@@ -15,6 +15,6 @@ Creates a UUID v4 string
 **Access**: public  
 **Example**  
 ```js
-import guid from "sf-extension-utils/lib/guid";
+import guid from "@smartface/extension-utils/lib/guid";
 const newItem = { id: guid() };
 ```

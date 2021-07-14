@@ -21,7 +21,7 @@
 
 **Example**  
 ```js
-import CircularProgressBar from "sf-extension-utils/lib/art/CircularProgressBar";
+import CircularProgressBar from "@smartface/extension-utils/lib/art/CircularProgressBar";
 
 const circularProgressBar = new CircularProgressBar({
     width: 130,

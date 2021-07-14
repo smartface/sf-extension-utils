@@ -128,7 +128,7 @@ export function setDefaults(options: IDefaults): void;
  * @method
  * @returns {touch~Defaults} default values for touch effects
  * @example
- * import touch from 'sf-extension-utils/lib/touch'
+ * import touch from '@smartface/extension-utils/lib/touch'
  * console.log("Animation FPS = " + touch.getDefaults().fps);
  */
 export function getDefaults(): IDefaults;
@@ -153,7 +153,7 @@ export function getDefaults(): IDefaults;
  * @params {number} [options.fadeDuration=200] - Sets duration to fade effect. This option specfic to iOS. Default 0.2
  * @params {number} [options.fadeMaxOpacity=0.3] - Sets maximum opacity to fade effect. This option specfic to iOS. Default 0.3
  * @example
- * import touch from 'sf-extension-utils/lib/touch'
+ * import touch from '@smartface/extension-utils/lib/touch'
  * //inside page.onLoad
  * touch.addPressEvent(this.flBtn, () => {
  *     alert("Pressed");
@@ -166,7 +166,7 @@ export function addPressEvent(target: View, event: () => any, options?: IPressEv
  * @public
  * @static
  * @example
- * import touch = require("sf-extension-utils/lib/touch");
+ * import touch = require("@smartface/extension-utils/lib/touch");
  * import System = require('@smartface/native/device/system');
  * //inside page.onLoad
  * touch.addPressEvent(this.flBtn, () => {
@@ -183,7 +183,7 @@ export function defaultAddPressEffect(): void;
  * @public
  * @static
  * @example
- * import touch from 'sf-extension-utils/lib/touch';
+ * import touch from '@smartface/extension-utils/lib/touch';
  * import System = require('@smartface/native/device/system');
  * //inside page.onLoad
  * touch.addPressEvent(this.flBtn, () => {

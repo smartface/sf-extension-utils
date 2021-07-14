@@ -72,7 +72,7 @@ export default class {
      * @example
      * 
      * // services/serviceConfig.ts
-     * import ServiceCall from 'sf-extension-utils/lib/service-call"';
+     * import ServiceCall from '@smartface/extension-utils/lib/service-call"';
      * export const sc = new ServiceCall({
      *     baseUrl: "http://api.myBaseUrl.com",
      *     logEnabled: true,

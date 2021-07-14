@@ -33,7 +33,7 @@ import Page = require("@smartface/native/ui/page");
  * @param {Object} options.location - Destination location which contains latitude and longitude
  * @return {Promise<string>} - returns the message of state
  * @example
- * import { showMapsMenu } from "sf-extension-utils/lib/maps";
+ * import { showMapsMenu } from "@smartface/extension-utils/lib/maps";
  * showMapsMenu({
  *      page,
  *      location: {

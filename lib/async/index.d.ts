@@ -16,7 +16,7 @@
  * @param {object} [options.thisObject = global] - `this` keyword for the function to be callled
  * @returns {getter} a function which returns promise
  * @example
- * import { createAsyncGetter } from 'sf-extension-utils/lib/async';
+ * import { createAsyncGetter } from '@smartface/extension-utils/lib/async';
  * import System = require('@smartface/native/device/system');
  * 
  * 
@@ -54,7 +54,7 @@ export function createAsyncGetter(task: () => {}, options: { forceSync?: boolean
  * @param {object} [options.thisObject = global] - `this` keyword for the function to be callled
  * @returns {Promise} when resolved return value of the task is provided
  * @example
- * import { createAsyncTask } from 'sf-extension-utils/lib/async';
+ * import { createAsyncTask } from '@smartface/extension-utils/lib/async';
  * import Http = require("@smartface/native/net/http");
  * createAsyncTask(()=> new Http()).then(http => http.request(requestOptions));
  */

@@ -37,7 +37,7 @@ It sets the starting point to your current location, if the permission is grante
 
 **Example**  
 ```js
-import { showMapsMenu } from "sf-extension-utils/lib/maps";
+import { showMapsMenu } from "@smartface/extension-utils/lib/maps";
 showMapsMenu({
      page,
      location: {

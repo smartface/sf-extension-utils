@@ -34,7 +34,7 @@ Configures service-call-offline. Call this in your app once before using any fun
 
 **Example**  
 ```js
-import { init } from "sf-extension-utils/lib/service-call-offline";
+import { init } from "@smartface/extension-utils/lib/service-call-offline";
 import Blob from '@smartface/native/blob';
 
 const basicEncrypt = plainData => {
@@ -79,7 +79,7 @@ network connection is available
 
 **Example**  
 ```js
-import { OfflineRequestServiceCall } from "sf-extension-utils/lib/service-call-offline";
+import { OfflineRequestServiceCall } from "@smartface/extension-utils/lib/service-call-offline";
 sc = new OfflineRequestServiceCall({
     baseUrl: "http://smartface.io",
     logEnabled: true,
@@ -117,7 +117,7 @@ Response is served from DB then request is made to update the DB
 
 **Example**  
 ```js
-import { OfflineResponseServiceCall } from "sf-extension-utils/lib/service-call-offline";
+import { OfflineResponseServiceCall } from "@smartface/extension-utils/lib/service-call-offline";
 sc = sc || new OfflineResponseServiceCall({
     baseUrl: "http://smartface.io",
     logEnabled: true,

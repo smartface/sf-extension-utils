@@ -18,7 +18,7 @@
 
 **Example**  
 ```js
-import EmojiAnimation from "sf-extension-utils/lib/art/EmojiAnimation";
+import EmojiAnimation from "@smartface/extension-utils/lib/art/EmojiAnimation";
 
 const emojiAnimation = new EmojiAnimation({
     webView: this.webViewComponent,

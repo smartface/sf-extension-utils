@@ -12,7 +12,7 @@
  * @public
  * @returns {boolean} true if the current platform is Smartface Emulator
  * @example
- * import isEmulator from 'sf-extension-utils/lib/isEmulator';
+ * import isEmulator from '@smartface/extension-utils/lib/isEmulator';
  * if(isEmulator()) {
  *  console.info("Device is Smartface Emulator");
  * }

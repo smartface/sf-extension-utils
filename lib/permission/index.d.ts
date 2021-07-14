@@ -23,7 +23,7 @@ import Application = require('@smartface/native/application');
  * @see {@link http://ref.smartface.io/#!/api/Application.android.Permissions|Permission Types}
  * @see {@link https://developer.smartface.io/docs/application-permission-management|Application Permission Management}
  * @example
- * import permissionUtil from 'sf-extension-utils/lib/permission';
+ * import permissionUtil from '@smartface/extension-utils/lib/permission';
  * permissionUtil.getPermission({
  *         androidPermission: Application.Android.Permissions.CAMERA,
  *         iosPermission: permissionUtil.IOS_PERMISSIONS.CAMERA,

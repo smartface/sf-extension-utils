@@ -23,7 +23,7 @@ Also for android it makes sure that activityIndicator remains on top of the butt
 
 **Example**  
 ```js
-import setupButtonActivity from "sf-extension-utils/lib/button-activity";
+import setupButtonActivity from "@smartface/extension-utils/lib/button-activity";
 setupButtonActivity(page.btnLogin, page.aiWait, (showIndicator, hideIndicator) => {
      showIndicator();
      userService.login(tbUsername.text, tbPassword.text).then(()=> {

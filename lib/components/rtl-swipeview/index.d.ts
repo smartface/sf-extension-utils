@@ -19,7 +19,7 @@ import SwipeView = require("@smartface/native/ui/swipeview");
  * @class
  * @see {@link http://ref.smartface.io/#!/api/UI.SwipeView All supported arguments, properties & methods}
  * @example
- * import RTLSwipeView from 'sf-extension-utils/lib/components/rtl-swipeview';
+ * import RTLSwipeView from '@smartface/extension-utils/lib/components/rtl-swipeview';
  * 
  * var swipeView = new RTLSwipeView({
  *     page: currentPage,

@@ -30,7 +30,7 @@ Note: Returned indexes or arrays won't impact the logic.
 
 **Example**  
 ```js
-import RTLTabBarController from "sf-extension-utils/lib/components/rtl-tabbarcontroller";
+import RTLTabBarController from "@smartface/extension-utils/lib/components/rtl-tabbarcontroller";
 
 const MyTabBarController = extend(RTLTabBarController)(
     function(_super, params) {

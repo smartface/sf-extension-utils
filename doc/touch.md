@@ -34,7 +34,7 @@ Gets the default values for touch effects
 **Access**: public  
 **Example**  
 ```js
-import touch from "sf-extension-utils/lib/touch";
+import touch from "@smartface/extension-utils/lib/touch";
 console.log("Animation FPS = " + touch.getDefaults().fps);
 ```
 <a name="module_touch.addPressEvent"></a>
@@ -61,7 +61,7 @@ This replaces existing touch events
 **Params**: <code>number</code> [options.fadeMaxOpacity=0.3] - Sets maximum opacity to fade effect. This option specfic to iOS. Default 0.3  
 **Example**  
 ```js
-import touch from "sf-extension-utils/lib/touch";
+import touch from "@smartface/extension-utils/lib/touch";
 //inside page.onLoad
 const page = this;
 touch.addPressEvent(page.flBtn, () => {
@@ -77,7 +77,7 @@ Default press effect function. Takes `this` as target. Darkens color for iOS, ad
 **Access**: public  
 **Example**  
 ```js
-import touch from "sf-extension-utils/lib/touch";
+import touch from "@smartface/extension-utils/lib/touch";
 import System from '@smartface/native/device/system';
 //inside page.onLoad
 const page = this;
@@ -97,7 +97,7 @@ Default remove press effect function. Takes `this` as target. Restores the color
 **Access**: public  
 **Example**  
 ```js
-import touch from "sf-extension-utils/lib/touch";
+import touch from "@smartface/extension-utils/lib/touch";
 import System from '@smartface/native/device/system';
 //inside page.onLoad
 const page = this;

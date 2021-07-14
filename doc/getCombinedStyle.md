@@ -22,7 +22,7 @@ Creates a style object from a context class. Results are cached. If same classNa
 **Params**: <code>string</code> className - One or more class names seperated with space  
 **Example**  
 ```js
-import { getCombinedStyle } from "sf-extension-utils/lib/getCombinedStyle";
+import { getCombinedStyle } from "@smartface/extension-utils/lib/getCombinedStyle";
 const buttonStyle = getCombinedStyle(".button");
 Object.assign(btn, buttonStyle);
 ```
@@ -35,7 +35,7 @@ Removes all items from cache
 **Access**: public  
 **Example**  
 ```js
-import { clearCache } from "sf-extension-utils/lib/getCombinedStyle";
+import { clearCache } from "@smartface/extension-utils/lib/getCombinedStyle";
 function onContextChangeEvent() {
  clearCache();
 }

@@ -17,7 +17,7 @@ Creates a deep high-performing copy of a variable
 **Params**: <code>\*</code> [destination]  
 **Example**  
 ```js
-import copy from "sf-extension-utils/lib/copy";
+import copy from "@smartface/extension-utils/lib/copy";
 const src = {nested: {x: 4}}; //deep nested object
 const cpy = copy(src);
 
@@ -26,7 +26,7 @@ console.log(src.nested === cpy.nested); //false
 ```
 **Example**  
 ```js
-import copy from "sf-extension-utils/lib/copy";
+import copy from "@smartface/extension-utils/lib/copy";
 const src = {nested: {x: 4}}; //deep nested object
 let cpy;
 //targeting

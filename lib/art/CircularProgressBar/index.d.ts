@@ -44,7 +44,7 @@ declare class CircularProgressBarOptions {
  * @author Ozcan Ovunc <ozcan.ovunc@smartface.io>
  * @copyright Smartface 2020
  * @example
- * import CircularProgressBar from 'sf-extension-utils/lib/art/CircularProgressBar';
+ * import CircularProgressBar from '@smartface/extension-utils/lib/art/CircularProgressBar';
  *
  * const circularProgressBar = new CircularProgressBar({
  *     width: 130,

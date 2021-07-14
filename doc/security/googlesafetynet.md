@@ -68,7 +68,7 @@ Creates a GoogleSafetyNet class with given configurations.
 
 **Example**  
 ```js
-import GoogleSafetyNet from "sf-extension-utils/lib/security/googlesafetynet";
+import GoogleSafetyNet from "@smartface/extension-utils/lib/security/googlesafetynet";
 if (System.OS === "Android") {
     const googleSafetyNet = new GoogleSafetyNet({
         apiKey: "***********"

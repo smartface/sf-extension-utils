@@ -32,6 +32,7 @@ It allows creating charts using the ApexCharts. It communicates between the even
 | options | <code>object</code> | Base options object |
 | options.webViewBridge | <code>WebViewBridge</code> | Browser to display ApexCharts charts and listen to events |
 | options.apexOptions | <code>ApexOptions</code> | Required options for render to chart. More info [ApexCharts.js](https://github.com/apexcharts/apexcharts.js) |
+| options.customCss | <code>string</code> | Optional css options html |
 
 **Example**  
 ```js

@@ -60,7 +60,7 @@ Creates a ServiceCall helper class with common configuration to be used across m
 **Example**  
 ```js
 // Shared service-call.js file
-import ServiceCall from "sf-extension-utils/lib/service-call";
+import ServiceCall from "@smartface/extension-utils/lib/service-call";
 const sc = new ServiceCall({
     baseUrl: "http://api.myBaseUrl.com",
     logEnabled: true,

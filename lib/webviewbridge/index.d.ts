@@ -67,7 +67,7 @@ interface IBridgeConstructorOptions {
  * @augments EventEmitter
  * @example
  * //Bridge Creation with AM-Charts
- * import WebViewBridge from 'sf-extension-utils/lib/webviewbridge'
+ * import WebViewBridge from '@smartface/extension-utils/lib/webviewbridge'
  * 
  * this.webView.visible = false;
  * this.aiWait.visible = true;
@@ -164,7 +164,7 @@ interface IBridgeConstructorOptions {
  * `
  * @example
  * //bi-directional communication
- * import WebViewBridge from 'sf-extension-utils/lib/webviewbridge';
+ * import WebViewBridge from '@smartface/extension-utils/lib/webviewbridge';
  * 
  * const wvb = this.wvb = new WebViewBridge({
  *     webView: this.webView,

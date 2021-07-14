@@ -11,7 +11,7 @@
  * @return {Promise<Object>} - Resolves if the internet connectivity is available,
  * rejects o/w
  * @example
- * import network from 'sf-extension-utils/lib/network';
+ * import network from '@smartface/extension-utils/lib/network';
  * network.isConnected()
  *     .then(() => {
  *         console.info("Connected to internet");
@@ -26,7 +26,7 @@ export function isConnected(): Promise<{ [key: string]: any }>;
  * @function
  * @return {Promise<string>} - Resolves current IP address of the device
  * @example
- * import network from "sf-extension-utils/lib/network";
+ * import network from "@smartface/extension-utils/lib/network";
  * network.getIpAddress()
  *     .then((ip) => {
  *         console.info(`Retrieved device IP ${ip}`);
