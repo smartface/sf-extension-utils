@@ -12,7 +12,7 @@
  * @public
  * @returns {string} Random generated uuid v4 string
  * @example
- * import guid from 'sf-extension-utils/lib/guid';
+ * import guid from '@smartface/extension-utils/lib/guid';
  * var newItem = { id: guid() };
  */ 
 export default function(): string;

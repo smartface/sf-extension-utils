@@ -16,6 +16,6 @@ Returns empty string on Android devices.
 **Ios**:   
 **Example**  
 ```js
-import AppleDevices from "sf-extension-utils/lib/appleDevices";
+import AppleDevices from "@smartface/extension-utils/lib/appleDevices";
 AppleDevices.getModelName();
 ```

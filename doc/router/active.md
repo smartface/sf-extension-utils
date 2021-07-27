@@ -19,7 +19,7 @@ Gets or sets the current page instance for the router util. This is managed by t
 
 **Example**  
 ```js
-import active from "sf-extension-utils/lib/router/active";
+import active from "@smartface/extension-utils/lib/router/active";
 const currentPage = active.page;
 currentPage.layout.applyLayout();
 ```

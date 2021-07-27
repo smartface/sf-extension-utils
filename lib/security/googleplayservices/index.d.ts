@@ -17,7 +17,7 @@
  * @see {@link https://developer.android.com/training/articles/security-gms-provider}
  * @example
  *
- * import GooglePlayServices from 'sf-extension-utils/lib/security/googleplayservices';
+ * import GooglePlayServices from '@smartface/extension-utils/lib/security/googleplayservices';
  * if (System.OS === "Android") {
  *     GooglePlayServices.upgradeSecurityProvider()
  *     .then(() => {

@@ -27,8 +27,8 @@ if silent parameter not given. This function will handle permission operations i
 
 **Example**  
 ```js
-import System from "sf-core/device/system";
-import rau from "sf-extension-utils/lib/rau";
+import System from "@smartface/native/device/system";
+import rau from "@smartface/extension-utils/lib/rau";
 rau.checkUpdate({
  showProgressCheck: true,
  showProgressErrorAlert: true,

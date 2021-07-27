@@ -33,9 +33,9 @@ An extension that has following utility classes for Smartface Native Framework. 
 - Art (Smartface module that allows you to draw vector graphics)
 
 ## Installation
-By default, Utility Extension is installed on any Smartface Project. If not installed or accidentally deleted, you can install it via:
+By default, Utility Extension is installed on any Smartface Project. If not installed or accidentally deleted, you can install it via on your script folder:
 ```shell
-(cd /projects/workspace/scripts && npm i sf-extension-utils)
+npm i @smartface/extension-utils
 ```
 ## How to use
 Smartface Utility Extension behaves like a normal npm package. You require/import the packages and you can use your Smartface Application on stereoids!

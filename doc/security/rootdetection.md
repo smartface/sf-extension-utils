@@ -32,7 +32,7 @@ Checks the device either rooted or not.
 **Access**: public  
 **Example**  
 ```js
-import RootDetection from "sf-extension-utils/lib/security/rootdetection";
+import RootDetection from "@smartface/extension-utils/lib/security/rootdetection";
 
 if (RootDetection.isRooted()) {
     console.log("Attention your device is not trusted.");

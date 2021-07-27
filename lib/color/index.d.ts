@@ -6,12 +6,12 @@
  * @copyright Smartface 2018
  * @see {@link https://www.npmjs.com/package/tinycolor2|tinycolor2}
  * @example
- * import Color = require('sf-core/ui/color');
- * import colorUtil from 'sf-extension-utils/lib/color';
+ * import Color = require('@smartface/native/ui/color');
+ * import colorUtil from '@smartface/extension-utils/lib/color';
  * colorUtil.rgb(Color.RED); //#ff0000
  * colorUtil.rgb(Color.BLUE).tinycolor.darken().toHexString(); //'#0000cc'
  */
-const Color = require('sf-core/ui/color');
+const Color = require('@smartface/native/ui/color');
 const tinycolor_ = require("tinycolor2");
 
 /**

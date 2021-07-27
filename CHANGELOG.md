@@ -395,7 +395,7 @@
 
 ### Miscellaneous
 
--  Adapt location util for changes in sf-core [[e990971](https://github.com/smartface/sf-extension-utils/commit/e990971325198e456e47a2fbc38a7bc806f8cdd6)]
+-  Adapt location util for changes in @smartface/native [[e990971](https://github.com/smartface/sf-extension-utils/commit/e990971325198e456e47a2fbc38a7bc806f8cdd6)]
 -  v5.5.3 [[ad6c31f](https://github.com/smartface/sf-extension-utils/commit/ad6c31f4f994bc1aa4ff5daa61ab4db3ec6d7245)]
 
 
@@ -653,9 +653,9 @@
 -  updated documentation generation [[2978c97](https://github.com/smartface/sf-extension-utils/commit/2978c97ee7c360e01f744630aee1d5c65c4232e1)]
 -  added onBeforeRestart event to RAU [[ac91d49](https://github.com/smartface/sf-extension-utils/commit/ac91d493768c2ecafb5b462835c3b8dcdf0c5c77)]
 -  Merge pull request [#10](https://github.com/smartface/sf-extension-utils/issues/10) from muhammedyalcin/master [[0331e3d](https://github.com/smartface/sf-extension-utils/commit/0331e3dddc9fda7fcfd702ad89c1d37ba18ccf67)]
--  updated sf-core version [[588b2a1](https://github.com/smartface/sf-extension-utils/commit/588b2a1796a095f4a0a766389e237b822f3e606c)]
+-  updated @smartface/native version [[588b2a1](https://github.com/smartface/sf-extension-utils/commit/588b2a1796a095f4a0a766389e237b822f3e606c)]
 -  if the READ_PHONE_STATE permission is not granted, it continues to check [[5b65877](https://github.com/smartface/sf-extension-utils/commit/5b658771d8e392db6680287f1c3462ca05f94832)]
--  backward compatiblity for sf-core version while getting location [[71bb18f](https://github.com/smartface/sf-extension-utils/commit/71bb18f4a148d8ae1b56003f7c9e7b5fc4009a2b)]
+-  backward compatiblity for @smartface/native version while getting location [[71bb18f](https://github.com/smartface/sf-extension-utils/commit/71bb18f4a148d8ae1b56003f7c9e7b5fc4009a2b)]
 -  location and speechtotest issues fixed [[2b47f7b](https://github.com/smartface/sf-extension-utils/commit/2b47f7b41ccb6e3c9a7042d319ce57a0edb4afbd)]
 -  Rau checkupdate needs permission check otherwise crashes [[4dec602](https://github.com/smartface/sf-extension-utils/commit/4dec602f9099bf4c499e5bbabad6cad5811e6141)]
 -  Merge pull request [#9](https://github.com/smartface/sf-extension-utils/issues/9) from THaliloglu/rauChanges [[7cbfd3b](https://github.com/smartface/sf-extension-utils/commit/7cbfd3bc0263869a30a4b9a4a088849cdd4370d4)]

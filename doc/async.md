@@ -29,8 +29,8 @@ Returns a getter function, which returns the promise of the asyc task.
 
 **Example**  
 ```js
-import { createAsyncGetter } from "sf-extension-utils/lib/async";
-import { OS } from 'sf-core/device/system';
+import { createAsyncGetter } from "@smartface/extension-utils/lib/async";
+import { OS } from '@smartface/native/device/system';
 
 
 getLibphonenumber = createAsyncGetter(() => {
@@ -81,7 +81,7 @@ Runs the async task and responds a promise
 
 **Example**  
 ```js
-import { createAsyncTask } from "sf-extension-utils/lib/async";
-import Http from "sf-core/net/http";
+import { createAsyncTask } from "@smartface/extension-utils/lib/async";
+import Http from "@smartface/native/net/http";
 createAsyncTask(()=> new Http()).then(http => http.request(requestOptions));
 ```

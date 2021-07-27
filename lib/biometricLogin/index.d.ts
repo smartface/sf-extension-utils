@@ -9,7 +9,7 @@
  * @copyright Smartface 2019
  */
 
-import SecureData = require("sf-core/global/securedata");
+import SecureData = require("@smartface/native/global/securedata");
 
 declare interface IBiometricLoginParams {
     doNotAskOnFirstTime?: boolean;
@@ -25,7 +25,7 @@ declare interface IBiometricLoginParams {
 /**
  * @class 
  * @example
- * import BiometricLogin from 'sf-extension-utils/lib/biometricLogin';
+ * import BiometricLogin from '@smartface/extension-utils/lib/biometricLogin';
  * function onLoad(superOnLoad) {
  *     superOnLoad();
  *     const mtbEmail = this.mtbEmail;

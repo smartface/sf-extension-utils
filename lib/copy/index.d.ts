@@ -14,14 +14,14 @@
  * @params {*} [destination]
  * @returns {*} copy of the source
  * @example
- * import copy from 'sf-extension-utils/lib/copy';
+ * import copy from '@smartface/extension-utils/lib/copy';
  * const src = {nested: {x: 4}}; //deep nested object
  * const cpy = copy(src);
  * 
  * console.log(src === cpy); //false
  * console.log(src.nested === cpy.nested); //false
  * @example
- * import copy from 'sf-extension-utils/lib/copy';
+ * import copy from '@smartface/extension-utils/lib/copy';
  * const src = {nested: {x: 4}}; //deep nested object
  * const cpy;
  * //targeting

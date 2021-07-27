@@ -6,8 +6,8 @@
  * @copyright Smartface 2018
  */
  
-const Button = require('sf-core/ui/button');
-const ActivityIndicator = require('sf-core/ui/activityindicator');
+const Button = require('@smartface/native/ui/button');
+const ActivityIndicator = require('@smartface/native/ui/activityindicator');
 
 /**
  * Setups button and activity indicator for event. <br />
@@ -20,7 +20,7 @@ const ActivityIndicator = require('sf-core/ui/activityindicator');
  * @param {ActivityIndicator} activityIndicator - to show on top of button
  * @param {function} onPress - event function for onPress of the button, has two arguments showIndicator & hideIndicator functions
  * @example
- * import setupButtonActivity from 'sf-extension-utils/lib/button-activity';
+ * import setupButtonActivity from '@smartface/extension-utils/lib/button-activity';
  * setupButtonActivity(page.btnLogin, page.aiWait, (showIndicator, hideIndicator) => {
  *      showIndicator();
  *      userService.login(tbUsername.text, tbPassword.text).then(()=> {

@@ -53,14 +53,14 @@ Creates a ServiceCall helper class with common configuration to be used across m
 | --- | --- | --- | --- |
 | options | <code>object</code> |  | Cofiguration of service call helper object (required) |
 | options.baseUrl | <code>string</code> |  | Base URL of all future service calls (required) |
-| [options.timeout] | <code>number</code> | <code>60000</code> | Timeout value for service calls. If not provided it uses the default timeout value from sf-core http |
+| [options.timeout] | <code>number</code> | <code>60000</code> | Timeout value for service calls. If not provided it uses the default timeout value from @smartface/native http |
 | [options.logEnabled] | <code>boolean</code> | <code>false</code> | Logs the service requests & responses to console |
 | [options.headers] | <code>object</code> |  | Sets the default headers for this configuration |
 
 **Example**  
 ```js
 // Shared service-call.js file
-import ServiceCall from "sf-extension-utils/lib/service-call";
+import ServiceCall from "@smartface/extension-utils/lib/service-call";
 const sc = new ServiceCall({
     baseUrl: "http://api.myBaseUrl.com",
     logEnabled: true,

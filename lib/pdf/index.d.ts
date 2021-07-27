@@ -5,13 +5,13 @@
  * @copyright Smartface 2019
  */
 
-import WebView = require('sf-core/ui/webview');
+import WebView = require('@smartface/native/ui/webview');
 
 /**
  * @function
  * Renders base64 string as pdf file in a WebView
  * @example
- * import pdf from 'sf-extension-utils/lib/pdf';
+ * import pdf from '@smartface/extension-utils/lib/pdf';
  * pdf.render({
  *     webView: webView,
  *     base64pdf: 'JVBERi0xLjcKCjEgMCBvYmogICUgZW50cnkgcG9pbnQKPDwKICAvVHlwZSAvQ2F0YWxvZwog' +

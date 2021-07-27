@@ -20,7 +20,7 @@ export class OfflineRequestServiceCall extends ServiceCall {
      * @param {function} offlineRequestHandler - Gets request options to be modified 
      * when network connection is available and returns a promise
      * @example
-     * import { OfflineRequestServiceCall } from 'sf-extension-utils/lib/service-call-offline';
+     * import { OfflineRequestServiceCall } from '@smartface/extension-utils/lib/service-call-offline';
      * sc = new OfflineRequestServiceCall({
      *     baseUrl: "http://smartface.io",
      *     logEnabled: true,
@@ -61,7 +61,7 @@ export class OfflineResponseServiceCall extends ServiceCall {
      * @augments ServiceCall
      * @param {function} requestCleaner - Returns modified request options
      * @example
-     * import { OfflineResponseServiceCall } from 'sf-extension-utils/lib/service-call-offline';
+     * import { OfflineResponseServiceCall } from '@smartface/extension-utils/lib/service-call-offline';
      * sc = sc || new OfflineResponseServiceCall({
      *     baseUrl: "http://smartface.io",
      *     logEnabled: true,
@@ -89,8 +89,8 @@ export class OfflineResponseServiceCall extends ServiceCall {
  * @public
  * @static
  * @example
- * import { init } from 'sf-extension-utils/lib/service-call-offline"'
- * import Blob = require('sf-core/blob');
+ * import { init } from '@smartface/extension-utils/lib/service-call-offline"'
+ * import Blob = require('@smartface/native/blob');
  * 
  * const basicEncrypt = plainData => {
  *     let b = Blob.createFromUTF8String(plainData);

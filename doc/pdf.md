@@ -12,7 +12,7 @@ If you want to catch the completion event, listen to onShow event.()
 **Kind**: inner method of [<code>pdf</code>](#module_pdf)  
 **Example**  
 ```js
-const pdf = require("sf-extension-utils/lib/pdf");
+const pdf = require("@smartface/extension-utils/lib/pdf");
 pdf.render({
     webView: webView,
     base64pdf: 'JVBERi0xLjcKCjEgMCBvYmogICUgZW50cnkgcG9pbnQKPDwKICAvVHlwZSAvQ2F0YWxvZwog' +

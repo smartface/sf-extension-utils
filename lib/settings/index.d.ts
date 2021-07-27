@@ -12,7 +12,7 @@
  * @method
  * @returns {Promise} 
  * @example
- * import { openApplicationSettings } from 'sf-extension-utils/lib/settings';
+ * import { openApplicationSettings } from '@smartface/extension-utils/lib/settings';
  * openApplicationSettings();
  *
  */

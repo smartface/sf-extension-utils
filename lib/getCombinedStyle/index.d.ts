@@ -14,7 +14,7 @@
  * @params {string} className - One or more class names seperated with space
  * @returns {object} Style object generated from cache
  * @example
- * import { getCombinedStyle } from 'sf-extension-utils/lib/getCombinedStyle';
+ * import { getCombinedStyle } from '@smartface/extension-utils/lib/getCombinedStyle';
  * const buttonStyle = getCombinedStyle(".button");
  * Object.assign(btn, buttonStyle);
  */
@@ -25,7 +25,7 @@ export function getCombinedStyle<T>(className: string): { [key: string]: any };
  * @public
  * @method
  * @example
- * import { clearCache } from 'sf-extension-utils/lib/getCombinedStyle';
+ * import { clearCache } from '@smartface/extension-utils/lib/getCombinedStyle';
  * function onContextChangeEvent() {
  *  clearCache();
  * }

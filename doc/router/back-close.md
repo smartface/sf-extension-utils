@@ -26,7 +26,7 @@ Back & close headerbar handling for router
 
 **Example**  
 ```js
-import backClose from "sf-extension-utils/lib/router/back-close";
+import backClose from "@smartface/extension-utils/lib/router/back-close";
 backClose.dissmissBuilder = (match, routeData, router, pageInstance, pageProps, route) => {
  if(System.OS === "iOS") {
   if(match.url !== "specificPage")
@@ -53,6 +53,6 @@ Changes the defult back icon of the StackRouter. This is replacing the construct
 
 **Example**  
 ```js
-import backClose from "sf-extension-utils/lib/router/back-close";
+import backClose from "@smartface/extension-utils/lib/router/back-close";
 backClose.setDefaultBackStyle({image: backArrowImage, hideTitle: true});
 ```

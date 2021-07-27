@@ -18,7 +18,7 @@
 rejects o/w  
 **Example**  
 ```js
-import network from "sf-extension-utils/lib/network";
+import network from "@smartface/extension-utils/lib/network";
 network.isConnected()
     .then(() => {
         console.info("Connected to internet");
@@ -34,7 +34,7 @@ network.isConnected()
 **Returns**: <code>Promise.&lt;string&gt;</code> - - Resolves current IP address of the device  
 **Example**  
 ```js
-import network from "sf-extension-utils/lib/network";
+import network from "@smartface/extension-utils/lib/network";
 network.getIpAddress()
     .then((ip) => {
         console.info(`Retrieved device IP ${ip}`);

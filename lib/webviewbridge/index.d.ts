@@ -6,8 +6,8 @@
  * @copyright Smartface 2018
  */
 
-import WebView = require('sf-core/ui/webview');
-import File = require('sf-core/io/file');
+import WebView = require('@smartface/native/ui/webview');
+import File = require('@smartface/native/io/file');
 import EventEmitter = require('wolfy87-eventemitter');
 
 interface IBridgeConstructorOptions {
@@ -67,7 +67,7 @@ interface IBridgeConstructorOptions {
  * @augments EventEmitter
  * @example
  * //Bridge Creation with AM-Charts
- * import WebViewBridge from 'sf-extension-utils/lib/webviewbridge'
+ * import WebViewBridge from '@smartface/extension-utils/lib/webviewbridge'
  * 
  * this.webView.visible = false;
  * this.aiWait.visible = true;
@@ -164,7 +164,7 @@ interface IBridgeConstructorOptions {
  * `
  * @example
  * //bi-directional communication
- * import WebViewBridge from 'sf-extension-utils/lib/webviewbridge';
+ * import WebViewBridge from '@smartface/extension-utils/lib/webviewbridge';
  * 
  * const wvb = this.wvb = new WebViewBridge({
  *     webView: this.webView,

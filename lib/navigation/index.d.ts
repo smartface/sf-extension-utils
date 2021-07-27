@@ -21,7 +21,7 @@
  * ```
  */
 
-import Page = require('sf-core/ui/page');
+import Page = require('@smartface/native/ui/page');
 
 /**
  * Prompts a menu to choose which navigation app to handle the location.
@@ -32,7 +32,7 @@ import Page = require('sf-core/ui/page');
  * @param {Object} location - Destination location which contains latitude and longitude
  * @return {Promise<string>} - returns the message of state
  * @example
- * import { showNavigationMenu } from 'sf-extension-utils/lib/navigation';
+ * import { showNavigationMenu } from '@smartface/extension-utils/lib/navigation';
  * navigation.showNavigationMenu({
  *      page,
  *      transportType: "d",

@@ -1,6 +1,6 @@
 {
-  "name": "sf-extension-utils",
-  "version": "14.13.1",
+  "name": "@smartface/extension-utils",
+  "version": "15.0.0",
   "description": "Utils Extension for Smartface Native Framework",
   "main": "lib/index.js",
   "repository": "https://github.com/smartface/sf-extension-utils",
@@ -24,6 +24,9 @@
   "maintainers": [
     "Furkan Arabacı <furkan.arabaci@smartface.io>"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "apexcharts": "^3.26.3",
     "html-parse-stringify": "1.0.2",
@@ -46,8 +49,8 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.18.0",
     "eslint-plugin-react-hooks": "^1.7.0",
-    "prettier": "^1.19.1",
-    "jsdoc-to-markdown": "^5.0.0"
+    "jsdoc-to-markdown": "^5.0.0",
+    "prettier": "^1.19.1"
   },
   "config": {
     "commitizen": {

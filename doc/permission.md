@@ -32,7 +32,7 @@ Permission request numbers starts from 2000 and incremented on each requestPermi
 
 **Example**  
 ```js
-import permissionUtil from 'sf-extension-utils/lib/permission';
+import permissionUtil from '@smartface/extension-utils/lib/permission';
 permissionUtil.getPermission({
         androidPermission: Application.Android.Permissions.CAMERA,
         iosPermission: permissionUtil.IOS_PERMISSIONS.CAMERA,

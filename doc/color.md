@@ -8,8 +8,8 @@ Smartface Color Util module
 **Copyright**: Smartface 2018  
 **Example**  
 ```js
-import Color from 'sf-core/ui/color';
-import colorUtil from 'sf-extension-utils/lib/color');
+import Color from '@smartface/native/ui/color';
+import colorUtil from '@smartface/extension-utils/lib/color');
 colorUtil.rgb(Color.RED); //#ff0000
 colorUtil.rgb(Color.BLUE).tinycolor.darken().toHexString(); //'#0000cc'
 ```

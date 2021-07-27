@@ -48,7 +48,7 @@ For android, methods checks permissions automatically.
 
 **Example**  
 ```js
-import speechToText from "sf-extension-utils/lib/speechtotext";
+import speechToText from "@smartface/extension-utils/lib/speechtotext";
 speechToText.startType(myTextBoxInput,4000);
 ```
 <a name="module_speechToText.stop"></a>
