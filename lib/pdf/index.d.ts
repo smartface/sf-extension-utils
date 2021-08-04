@@ -30,4 +30,9 @@ import WebView = require('@smartface/native/ui/webview');
  *     zoomEnabled: true
  * });
  */
-export function render(options: { webView: WebView, base64pdf: string, zoomEnabled?: boolean }): void;
+export function render(options: {
+	customWidth?: number;
+	webView: WebView;
+	base64pdf: string;
+	zoomEnabled?: boolean;
+}): void;
