@@ -40,6 +40,10 @@
     "wolfy87-eventemitter": "^5.2.9"
   },
   "devDependencies": {
+    "@smartface/contx": "^4.0.0 || ^4.0.0-rc || ^4.0.1-rc",
+    "@smartface/native": "^4.3.4 || ^4.3.5-beta || ^4.3.5.alpha",
+    "@smartface/router": "^2.0.0 || ^2.0.0-rc",
+    "@types/node": "^16.6.1",
     "@typescript-eslint/eslint-plugin": "^4.14.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
@@ -53,10 +57,7 @@
     "eslint-plugin-react-hooks": "^1.7.0",
     "install-peers-cli": "^2.2.0",
     "jsdoc-to-markdown": "^5.0.0",
-    "prettier": "^1.19.1",
-    "@smartface/router": "^2.0.0 || ^2.0.0-rc",
-    "@smartface/contx": "^4.0.0 || ^4.0.0-rc || ^4.0.1-rc",
-    "@smartface/native": "^4.3.4 || ^4.3.5-beta || ^4.3.5.alpha"
+    "prettier": "^1.19.1"
   },
   "peerDependencies": {
     "@@smartface/router": "^2.0.0 || ^2.0.0-rc",
