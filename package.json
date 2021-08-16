@@ -6,7 +6,8 @@
   "repository": "https://github.com/smartface/sf-extension-utils",
   "scripts": {
     "docs": "bash ./createdoc.sh",
-    "publish-util": "npm publish --registry https://cd.smartface.io/repository/smartfacenpmpublic"
+    "watch": "tsc -w",
+    "build": "tsc"
   },
   "keywords": [
     "smartface",
@@ -35,6 +36,7 @@
     "semver": "^5.7.1",
     "squel": "^5.13.0",
     "tinycolor2": "^1.4.1",
+    "typescript": "^4.3.5",
     "wolfy87-eventemitter": "^5.2.9"
   },
   "devDependencies": {
@@ -49,12 +51,16 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.18.0",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "install-peers-cli": "^2.2.0",
     "jsdoc-to-markdown": "^5.0.0",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "@smartface/router": "^2.0.0 || ^2.0.0-rc",
+    "@smartface/contx": "^4.0.0 || ^4.0.0-rc || ^4.0.1-rc",
+    "@smartface/native": "^4.3.4 || ^4.3.5-beta || ^4.3.5.alpha"
   },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
+  "peerDependencies": {
+    "@@smartface/router": "^2.0.0 || ^2.0.0-rc",
+    "@smartface/contx": "^4.0.0 || ^4.0.0-rc || ^4.0.1-rc",
+    "@smartface/native": "^4.3.4 || ^4.3.5-beta || ^4.3.5.alpha"
   }
 }
