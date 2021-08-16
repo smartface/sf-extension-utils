@@ -7,15 +7,20 @@
     "checkJs": true,
     "declaration": true,
     "sourceMap": true,
-    "outDir": "./dist",
-    "rootDir": "./src",
+    "outDir": "dist",
+    "rootDir": "src",
     "downlevelIteration": true,
     "strict": true,
-    "baseUrl": "./src",
+    "baseUrl": "src",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-  }
+  },
+  "include": ["src"],
+  "exclude": [
+      "node_modules",
+      "lib"
+  ],
 }
