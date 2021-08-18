@@ -44,18 +44,21 @@ export async function getLocation(
 		androidPermission: Application.Android.Permissions.ACCESS_FINE_LOCATION,
 		iosPermission: IOS_PERMISSIONS.LOCATION,
 		showSettingsAlert,
-		permissionText: '',
-		permissionTitle: '',
+		permissionText: "",
+		permissionTitle: "",
 	});
-  System.OS === "iOS" ? getLocationAction() : getLocationActionForAndroid()
+	System.OS === System.OSType.IOS
+		? getLocationAction()
+		: getLocationActionForAndroid();
 	if (callback) {
-    try {
-      const location = await getLocationPromise;
-      callback(null, location);
-    }
-    catch(e) {
-      callback(e);
-    }
+		try {
+			const location = await getLocationPromise;
+			callback(null, location);
+		} catch (e) {
+			callback(e);
+		} finally {
+			return getLocationPromise;
+		}
 	} else {
 		return getLocationPromise;
 	}
