@@ -53,7 +53,7 @@ export async function getPermission(
 		iosPermission: undefined,
 		showSettingsAlert: true,
 	}
-): Promise<any> {
+): Promise<string> {
 	return new Promise((resolve, reject) => {
 		if (System.OS === System.OSType.IOS) {
 			if (opts.iosPermission === IOS_PERMISSIONS.CAMERA) {
@@ -125,7 +125,7 @@ export async function getPermission(
 				}
 			} else {
 				// Hardcoded logic for iOS to pass
-				resolve(null);
+				resolve('');
 			}
 		} else {
 			const requestPermissionCode = lastRequestPermissionCode++;
@@ -134,7 +134,7 @@ export async function getPermission(
 				opts.androidPermission
 			);
 			if (Application.android.checkPermission(opts.androidPermission)) {
-				resolve(null);
+				resolve('');
 			} else {
 				Application.android.onRequestPermissionsResult = (e) => {
 					//@ts-ignore

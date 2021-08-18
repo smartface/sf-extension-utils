@@ -39,20 +39,23 @@ export async function getLocation(
 	showSettingsAlert = true,
 	permissionText?: string,
 	permissionTitle?: string
-): Promise<{ latitude: number; longitude: number }> {
-	const getLocationPromise = await getPermission({
-		androidPermission: Application.Android.Permissions.ACCESS_FINE_LOCATION,
-		iosPermission: IOS_PERMISSIONS.LOCATION,
-		showSettingsAlert,
-		permissionText: "",
-		permissionTitle: "",
-	});
-	System.OS === System.OSType.IOS
+): Promise<Location> {
+	const getLocationPromise = async () => {
+		await getPermission({
+			androidPermission: Application.Android.Permissions.ACCESS_FINE_LOCATION,
+			iosPermission: IOS_PERMISSIONS.LOCATION,
+			showSettingsAlert,
+			permissionText: "",
+			permissionTitle: "",
+		});
+		return System.OS === System.OSType.IOS
 		? getLocationAction()
 		: getLocationActionForAndroid();
+	}
+	
 	if (callback) {
 		try {
-			const location = await getLocationPromise;
+			const location = await getLocationPromise();
 			callback(null, location);
 		} catch (e) {
 			callback(e);
@@ -60,11 +63,11 @@ export async function getLocation(
 			return getLocationPromise;
 		}
 	} else {
-		return getLocationPromise;
+		return await getLocationPromise();
 	}
 }
 
-function getLocationAction() {
+function getLocationAction(): Promise<Location> {
 	return new Promise((resolve) => {
 		Location.start(Location.Android.Priority.HIGH_ACCURACY, 1000);
 		Location.onLocationChanged = (location) => {
@@ -75,7 +78,7 @@ function getLocationAction() {
 	});
 }
 
-function getLocationActionForAndroid() {
+function getLocationActionForAndroid(): Promise<Location> {
 	return new Promise((resolve, reject) => {
 		//@ts-ignore
 		Location.android.checkSettings({
