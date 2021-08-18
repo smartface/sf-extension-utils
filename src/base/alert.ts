@@ -104,4 +104,4 @@ const oldAlert = global.alert;
 //@ts-ignore
 global.alert = alert;
 
-module.exports = exports = oldAlert;
+export default oldAlert;
