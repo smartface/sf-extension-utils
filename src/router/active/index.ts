@@ -13,6 +13,9 @@ interface ExternalPageParams {
     shouldExit: any;
     goBack: () => void;
     parentController: any;
+    pageName?: string | undefined;
+    extendEvent?: ((...args: any) => any) | undefined;
+    setBackItem: any;
 }
 
 /**

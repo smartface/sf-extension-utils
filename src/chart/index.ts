@@ -89,12 +89,12 @@ export default class Chart implements ChartOptions {
 	apexOptions;
 	customCss;
 	constructor(options: ChartOptions) {
+		if (!options.webViewBridge) {
+			throw new Error("webViewBridge parameter is required");
+		}
 		this.webViewBridge = options.webViewBridge;
 		this.apexOptions = options.apexOptions;
 		this.customCss = options.customCss;
-		if (!this.webViewBridge) {
-			throw new Error("webViewBridge parameter is required");
-		}
 	}
 
 	/**

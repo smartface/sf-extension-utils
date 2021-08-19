@@ -126,12 +126,7 @@ function buildExtender(
 		buildExtender.preProcessors.forEach((pp) =>
 			pp(match, routeData, router, view, pageProps, route)
 		);
-		let pageInstance: Page & {
-			pageName?: string;
-			extendEvent?: (...args: any) => any;
-      parentController?: any;
-      setBackItem: any;
-		};
+		let pageInstance: typeof active.page
 
 		if (view && options.singleton) {
 			pageInstance = view;
