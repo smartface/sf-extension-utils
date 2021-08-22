@@ -120,6 +120,7 @@ interface TableInitOptions {
  * @param {WebView | WebViewBridge} webView The browser for creating a table
  * @param {TableOptions} tableOptions The options for creating a table
  * @example
+ * ```
  * const headerColumns = ['First name', 'Last name'];
  * const bodyColumns = [
  *     { first: 'Shmi', last: 'Skywalker' },
@@ -155,6 +156,7 @@ interface TableInitOptions {
  *     }
  * });
  * table.render();
+ * ```
  */
 export default class Table implements TableInitOptions {
 	/** Web equivalent of CSS properties */
@@ -170,6 +172,7 @@ export default class Table implements TableInitOptions {
 	 * @param {WebView | WebViewBridge} webView The browser for create a table
 	 * @param {TableOptions} tableOptions The options for create a table
 	 * @example
+	 * ```
 	 * const headerColumns = ['First name', 'Last name'];
 	 * const bodyColumns = [
 	 *     { first: 'Shmi', last: 'Skywalker' },
@@ -205,6 +208,7 @@ export default class Table implements TableInitOptions {
 	 *     }
 	 * });
 	 * table.render();
+	 * ```
 	 */
 	constructor(options: TableInitOptions) {
 		this.webView = options.webView || new WebView();

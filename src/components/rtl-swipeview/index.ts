@@ -23,6 +23,7 @@ import Page from "@smartface/native/ui/page";
  * @class
  * @see {@link http://ref.smartface.io/#!/api/UI.SwipeView All supported arguments, properties & methods}
  * @example
+ * ```
  * import RTLSwipeView from '@smartface/extension-utils/lib/components/rtl-swipeview';
  *
  * var swipeView = new RTLSwipeView({
@@ -35,6 +36,7 @@ import Page from "@smartface/native/ui/page";
  * swipeView.onPageSelected = function(index, page) {
  *     console.info(`page index ${index}`);
  * };
+ * ```
  */
 
 class RTLAndroidSwipeView extends SwipeView {

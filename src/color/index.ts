@@ -6,10 +6,12 @@
  * @copyright Smartface 2018
  * @see {@link https://www.npmjs.com/package/tinycolor2|tinycolor2}
  * @example
+ * ```
  * import Color = require('@smartface/native/ui/color');
  * import colorUtil from '@smartface/extension-utils/lib/color';
  * colorUtil.rgb(Color.RED); //#ff0000
  * colorUtil.rgb(Color.BLUE).tinycolor.darken().toHexString(); //'#0000cc'
+ * ```
  */
 import Color from '@smartface/native/ui/color';
 import TinyColor from "tinycolor2";

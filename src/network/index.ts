@@ -14,6 +14,7 @@ import Http from "@smartface/native/net/http";
  * @return {Promise<Object>} - Resolves if the internet connectivity is available,
  * rejects o/w
  * @example
+ * ```
  * import network from '@smartface/extension-utils/lib/network';
  * network.isConnected()
  *     .then(() => {
@@ -22,6 +23,7 @@ import Http from "@smartface/native/net/http";
  *     .catch(() => {
  *         console.error("Not connected to internet");
  *     });
+ * ```
  */
 export function isConnected(): Promise<{ [key: string]: any }> {
 	return new Promise((resolve, reject) => {
@@ -51,6 +53,7 @@ export function isConnected(): Promise<{ [key: string]: any }> {
  * @function
  * @return {Promise<string>} - Resolves current IP address of the device
  * @example
+ * ```
  * import network from "@smartface/extension-utils/lib/network";
  * network.getIpAddress()
  *     .then((ip) => {
@@ -59,6 +62,7 @@ export function isConnected(): Promise<{ [key: string]: any }> {
  *     .catch(() => {
  *         console.error("Cannot retrieve device IP");
  *     });
+ * ```
  */
 export function getIpAddress(): Promise<string> {
 	return new Promise((resolve, reject) => {

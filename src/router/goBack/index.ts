@@ -5,6 +5,7 @@
  * Handles router.goBack and router.dismiss automatically
  * Custome behaviour can be overwritten by setting pageInstance.goBack
  * @example
+ * ```
  * import Page1Design from 'generated/pages/page1';
  * export default class Page1 extends Page1Design {
  * // You should add this function by manual
@@ -25,6 +26,7 @@
  * function onLoad(this: Page1, superOnLoad: () => void) {
  *     superOnLoad();
  * }
+ * ``
  * @module router
  * @type {object}
  * @author Alper Ozisik <alper.ozisik@smartface.io>

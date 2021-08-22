@@ -15,9 +15,10 @@ import System from "@smartface/native/device/system";
  * @method
  * @returns {Promise}
  * @example
+ * ```
  * import { openApplicationSettings } from '@smartface/extension-utils/lib/settings';
  * openApplicationSettings();
- *
+ *```
  */
 export function openApplicationSettings(): Promise<void> {
 	return new Promise((resolve, reject) => {

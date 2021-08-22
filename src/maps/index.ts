@@ -33,6 +33,7 @@ import { MAPS_LIST } from 'shared';
  * It sets the starting point to your current location, if the permission is granted.
  * @function
  * @example
+ * ```
  * import { showMapsMenu } from "@smartface/extension-utils/lib/maps";
  * showMapsMenu({
  *      page,
@@ -42,7 +43,7 @@ import { MAPS_LIST } from 'shared';
  *      },
  *      name: "Smartface Inc."
  *  });
- *
+ *```
  */
 export function showMapsMenu(options: MapsOptions): Promise<string> {
 	return System.OS === System.OSType.IOS

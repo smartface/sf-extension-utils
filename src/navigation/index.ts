@@ -33,6 +33,7 @@ export { TransportTypes } from "shared";
  * Prompts a menu to choose which navigation app to handle the location.
  * It sets the starting point to your current location, if the permission is granted.
  * @example
+ * ```
  * import { showNavigationMenu } from '@smartface/extension-utils/lib/navigation';
  * navigation.showNavigationMenu({
  *      page,
@@ -42,7 +43,7 @@ export { TransportTypes } from "shared";
  *          longitude: -122.1600047
  *      }
  *  });
- *
+ *```
  */
 export function showNavigationMenu(options: MapsOptions): Promise<string> {
 	return System.OS === System.OSType.IOS

@@ -35,14 +35,19 @@ interface AlertOptions {
  * @see {@link https://developer.smartface.io/docs/alertview|AlertView Guide}
  * @see {@link http://ref.smartface.io/#!/api/UI.AlertView.Android.ButtonType|Button Types}
  * @example
+ * ```
  * alert("Hello World!");
+ * ```
  * @example
+ * ```
  * alert({
  *  message: "message",
  *  title: "title", //optional
  *  defaultButtonText: "Okay"
  * });
+ * ```
  * @example
+ * ```
  * alert({
  *  message: "Would you like to answer?",
  *  title: "Question", //optional
@@ -62,9 +67,12 @@ interface AlertOptions {
  *          },
  *      }
  *  ]});
+ * ```
  * @example
+ * ```
  * const alertView = alert({ message:"this is an alert", buttons: [] }); //alert without buttons
  * setTimeout(() => alertView.dismiss(), 2000); //closes the alert after 2 seconds
+ * ```
  */
 function alert(options: string | AlertOptions): AlertView {
     let paramOptions: AlertOptions = {

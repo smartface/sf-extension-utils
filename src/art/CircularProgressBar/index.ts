@@ -51,6 +51,7 @@ interface CircularProgressBarOptions {
  * @author Ozcan Ovunc <ozcan.ovunc@smartface.io>
  * @copyright Smartface 2020
  * @example
+ * ```
  * import CircularProgressBar from '@smartface/extension-utils/lib/art/CircularProgressBar';
  *
  * const circularProgressBar = new CircularProgressBar({
@@ -62,6 +63,7 @@ interface CircularProgressBarOptions {
  *
  * // Triggers the render method whenever the value is set
  * circularProgressBar.value = 70;
+ * ```
  */
 export default class CircularProgressBar {
   /**

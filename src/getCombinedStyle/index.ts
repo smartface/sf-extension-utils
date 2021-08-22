@@ -16,9 +16,11 @@ let cache: { [key: string]: any } = {};
  * @params {string} className - One or more class names seperated with space
  * @returns {object} Style object generated from cache
  * @example
+ * ```
  * import { getCombinedStyle } from '@smartface/extension-utils/lib/getCombinedStyle';
  * const buttonStyle = getCombinedStyle(".button");
  * Object.assign(btn, buttonStyle);
+ * ```
  */
 export function getCombinedStyle(className: string): { [key: string]: any } {
 	if (cache[className]) return cache[className];
@@ -44,10 +46,12 @@ export function getCombinedStyle(className: string): { [key: string]: any } {
  * @public
  * @method
  * @example
+ * ```
  * import { clearCache } from '@smartface/extension-utils/lib/getCombinedStyle';
  * function onContextChangeEvent() {
  *  clearCache();
  * }
+ * ```
  */
 export function clearCache() {
 	cache = {};

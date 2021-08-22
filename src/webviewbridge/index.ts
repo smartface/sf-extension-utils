@@ -67,6 +67,7 @@ interface IBridgeConstructorOptions {
  * @class
  * @augments EventEmitter
  * @example
+ * ```
  * //Bridge Creation with AM-Charts
  * import WebViewBridge from '@smartface/extension-utils/lib/webviewbridge'
  *
@@ -163,7 +164,9 @@ interface IBridgeConstructorOptions {
  *      ]
  *  });
  * `
+ * ```
  * @example
+ * ```
  * //bi-directional communication
  * import WebViewBridge from '@smartface/extension-utils/lib/webviewbridge';
  *
@@ -206,7 +209,7 @@ interface IBridgeConstructorOptions {
  *         });
  *
  *         `);
- *
+ *```
  */
 
 export default class WebViewBridge extends EventEmitter
@@ -348,11 +351,13 @@ export default class WebViewBridge extends EventEmitter
 	 * @param {string|string[]} - List of script names.
 	 * @returns {Promise} - Execution status of the Scripts can be checked by the first argument of the promise
 	 * @example
+	 * ```
 	 * //Assume script1.js is to be failed, script2.js to be succeed
 	 * wvb.loadScripts("script1.js", "script2.js").then((loadedScripts) => {
 	 *     console.log("is script1 loaded? " + loadedScripts["script1.js"]); //false
 	 *     console.log("is script2 loaded? " + loadedScripts["script2.js"]); //true
 	 * });
+	 * ```
 	 */
 	loadScripts(names: string | string[]): Promise<any> {
 		let scriptNames: any[] = [];
@@ -454,11 +459,13 @@ export default class WebViewBridge extends EventEmitter
 	 * @param {string} [options.cookie] - Full browser cookie to set
 	 * @param {string} [options.userAgent] - Custom user agent to set
 	 * @example
+	 * ```
 	 * wvb.customNavigate({
 	 *   url: "http://example.com",
 	 *   userAgent: "smartface",
 	 *   cookie: "yummy_cookie=choco; tasty_cookie=strawberry;"
 	 * });
+	 * ```
 	 */
 	customNavigate(options: {
 		url: string;

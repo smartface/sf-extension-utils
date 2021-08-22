@@ -204,6 +204,7 @@ interface EmojiAnimationOptions {
  * @author Ali Tugrul Pinar <ali.pinar@smartface.io>
  * @copyright Smartface 2020
  * @example
+ * ```
  * import EmojiAnimation from '@smartface/extension-utils/lib/art/EmojiAnimation';
  *
  * const emojiAnimation = new EmojiAnimation({
@@ -213,6 +214,7 @@ interface EmojiAnimationOptions {
  *
  * // Play first emoji on WebView with 3 second animation
  * emojiAnimation.play(0, 3);
+ * ```
  */
 export default class EmojiAnimation {
   private __webView: WebView;

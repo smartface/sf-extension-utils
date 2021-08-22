@@ -29,7 +29,7 @@ const MATCH_PARENT = -1;
  * @class
  * @see {@link http://ref.smartface.io/#!/api/UI.TabBarController arguments, properties & methods}
  * @example
- *
+ *```
  * import RTLTabBarController from '@smartface/extension-utils/lib/components/rtl-tabbarcontroller';
  *
  * class MyTabBarController extends RTLTabBarController {
@@ -38,6 +38,7 @@ const MATCH_PARENT = -1;
  *         this.onPageCreate = (index) => {}
  *     }
  * }
+ * ```
  */
 class RTLAndroidTabBarController extends TabBarController {
 	NativeRelativeLayout: any;

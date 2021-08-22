@@ -76,6 +76,7 @@ interface IBuildExtenderOptions {
  * @copyright Smartface 2020
  * @returns {function} build function for Route
  * @example
+ * ```
  * import buildExtender from '@smartface/extension-utils/lib/router/buildExtender';
  *
  * const mainRouter = StackRouter.of({
@@ -111,6 +112,7 @@ interface IBuildExtenderOptions {
  *         mainRouter
  *     ]
  * });
+ * ```
  */
 function buildExtender(
 	options: IBuildExtenderOptions
@@ -227,10 +229,12 @@ namespace buildExtender {
 	 * Gets or sets the list of preProcessors running for each page. Callback(s) are called with the following arguments: match, routeData, router, view, pageProps, route
 	 * @property {function[]} buildExtender.preProcessors
 	 * @example
+	 * ```
 	 * import buildExtender from '@smartface/extension-utils/lib/router/buildExtender';
 	 * buildExtender.preProcessors.push((match, routeData, router, view, pageProps, route) => {
 	 *  //
 	 * });
+	 * ```
 	 */
 	export const preProcessors: ProcessorOptions[] = [];
 
@@ -238,10 +242,12 @@ namespace buildExtender {
 	 * Gets or sets the list of postProcessors running for each page. Callback(s) are called with the following arguments: match, routeData, router, pageInstance, pageProps, route
 	 * @property {function[]} buildExtender.postProcessors
 	 * @example
+	 * ```
 	 * import buildExtender from '@smartface/extension-utils/lib/router/buildExtender';
 	 * buildExtender.postProcessors.push((match, routeData, router, pageInstance, pageProps, route) => {
 	 *  //
 	 * });
+	 * ```
 	 */
 	export const postProcessors: ProcessorOptions[] = [];
 }

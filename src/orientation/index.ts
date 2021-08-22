@@ -22,12 +22,14 @@ const OrientationTypes = {
  * @static
  * @returns {string}
  * @example
+ * ```
  * import orientationLib from '@smartface/extension-utils/lib/orientation';
  * this.onShow = function() {
  *     const orientation = orientationLib.getOrientation();
  *     console.log(orientation); // portrait
  *     arrangeLayout(this, orientation);
  * };
+ * ```
  */
 export function getOrientation(): string {
   return Screen.height > Screen.width ? OrientationTypes.PORTRAIT : OrientationTypes.LANDSCAPE;
@@ -41,9 +43,11 @@ export function getOrientation(): string {
  * @public
  * @returns {string} rotated value for the given orientation
  * @example
+ * ```
  * import orientationLib from '@smartface/extension-utils/lib/orientation';
  * const orientation = orientationLib.rotate(orientationLib.PORTRAIT);
  * console.log(String(orientation === orientationLib.LANDSCAPE); //true
+ * ```
  */
 export function rotate(orientation: string): string {
   return orientation === OrientationTypes.LANDSCAPE ? OrientationTypes.PORTRAIT : OrientationTypes.LANDSCAPE;
@@ -57,12 +61,14 @@ export function rotate(orientation: string): string {
  * @public
  * @returns {string} target orientation value when the rotation completes
  * @example
+ * ```
  * import orientationLib from '@smartface/extension-utils/lib/orientation';
  * this.onOrientationChange = function() {
  *     const orientation = orientationLib.getOrientationOnchage();
  *     console.log(orientation); // landscape
  *     arrangeLayout(this, orientation);
  * };
+ * ```
  */
 export function getOrientationOnchage(): string {
   const orientation = getOrientation();

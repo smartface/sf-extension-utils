@@ -27,6 +27,7 @@ interface ChartOptions {
 /**
  * It allows creating charts using the ApexCharts. It communicates between the events of the ApexCharts and the Smartface using WebViewBridge
  * @example
+ * ```
  *const wvb = new WebViewBridge({
  *    webView: this.webView1
  *});
@@ -83,6 +84,7 @@ interface ChartOptions {
  *     }
  * });
  * chart.render();
+ * ```
  */
 export default class Chart implements ChartOptions {
 	webViewBridge;

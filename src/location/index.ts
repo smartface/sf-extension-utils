@@ -17,6 +17,7 @@ import { getPermission, IOS_PERMISSIONS } from "permission";
 /**
  * Gets location latitude and longitude. Handles permissions by itself.
  * @example
+ * ```
  * import { location } from '@smartface/extension-utils/lib/location';
  *
  * location.getLocation()
@@ -33,6 +34,7 @@ import { getPermission, IOS_PERMISSIONS } from "permission";
  *         // "DENIED" / Returned for all other cases
  *         console.log("Location cannot be retrieved");
  *     });
+ * ```
  */
 export async function getLocation(
 	callback?: (...args: any) => void,

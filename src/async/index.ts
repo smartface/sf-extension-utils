@@ -13,6 +13,7 @@ import AsyncTask from "@smartface/native/global/asynctask";
  * @public
  * @method
  * @example
+ * ```
  * import { createAsyncGetter } from '@smartface/extension-utils/lib/async';
  * import System = require('@smartface/native/device/system');
  *
@@ -38,6 +39,7 @@ import AsyncTask from "@smartface/native/global/asynctask";
  *             phoneUtil.getNumberType(phoneNumber) === PNT.MOBILE;
  *     });
  * };
+ * ```
  */
 export function createAsyncGetter(
   task: () => void,
@@ -91,9 +93,11 @@ export function createAsyncGetter(
  * @param {object} [options.thisObject = global] - `this` keyword for the function to be callled
  * @returns {Promise} when resolved return value of the task is provided
  * @example
+ * ```
  * import { createAsyncTask } from '@smartface/extension-utils/lib/async';
  * import Http = require("@smartface/native/net/http");
  * createAsyncTask(()=> new Http()).then(http => http.request(requestOptions));
+ * ```
  */
 export function createAsyncTask(
   task: () => void,

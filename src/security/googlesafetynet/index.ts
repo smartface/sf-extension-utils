@@ -15,7 +15,7 @@
  * @class
  * @see {@link https://developer.android.com/training/safetynet/attestation.html}
  * @example
- *
+ *```
  * import GoogleSafetyNet from '@smartface/extension-utils/lib/security/googlesafetynet';
  * if (System.OS === System.OSType.ANDROID) {
  *     const googleSafetyNet = new GoogleSafetyNet({
@@ -36,7 +36,7 @@
  *         console.info("Google Play services are not available. You cannot proceed further");
  *     }
  * }
- *
+ *```
  */
 export default class GoogleSafetyNet {
 	private apiKey = "";
@@ -109,7 +109,7 @@ export default class GoogleSafetyNet {
 	 * @instance
 	 * @see {@link https://developer.android.com/training/safetynet/attestation.html}
 	 * @example
-	 *
+	 *```
 	 * if (System.OS === "Android") {
 	 *     sendAttestationRequest("a2d0sa1@3sqwe123f12sww")
 	 *         .then(jws => {
@@ -119,7 +119,7 @@ export default class GoogleSafetyNet {
 	 *             console.error(e);
 	 *         });
 	 * }
-	 *
+	 *```
 	 */
 	sendAttestationRequest(nonce: string): Promise<any> {
 		return new Promise((resolve, reject) => {
@@ -137,8 +137,9 @@ export default class GoogleSafetyNet {
 	 * @public
 	 * @instance
 	 * @example
-	 *
+	 *```
 	 * let nonce = googleSafetyNet.generateNonce();
+	 * ```
 	 */
 
 	generateNonce(): string {
@@ -152,8 +153,9 @@ export default class GoogleSafetyNet {
 	 * @public
 	 * @instance
 	 * @example
-	 *
+	 *```
 	 * let isPlayServicesAvailable = googleSafetyNet.isPlayServicesAvailable();
+	 * ```
 	 */
 	isPlayServicesAvailable(): boolean {
 		const isPlayServicesAvailable = this.safetyNet.isPlayServicesAvailable();

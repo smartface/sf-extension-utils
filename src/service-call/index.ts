@@ -96,7 +96,7 @@ export default class ServiceCall {
 	 * @param {boolean} [options.logEnabled = false] - Logs the service requests & responses to console
 	 * @param {object} [options.headers] - Sets the default headers for this configuration
 	 * @example
-	 *
+	 *```
 	 * // services/serviceConfig.ts
 	 * import ServiceCall from '@smartface/extension-utils/lib/service-call"';
 	 * export const sc = new ServiceCall({
@@ -138,6 +138,7 @@ export default class ServiceCall {
 	 *          alert("Cannot login");
 	 *      });
 	 * };
+	 * ```
 	 */
 	constructor(options: {
 		baseUrl: string;
@@ -163,17 +164,23 @@ export default class ServiceCall {
 	 * @param {string} key - Header name to set
 	 * @param {string} value - Value to set of the key. If value is not a string, key is removed from header
 	 * @example
+	 * ```
 	 * //After login
 	 * sc.setHeader("Authorization", "Basic 12345");
+	 * ```
 	 * @example
+	 * ```
 	 * //After logout
 	 * sc.setHeader("Authorization");
+	 * ```
 	 * @example
+	 * ```
 	 * // set multiple headers at once
 	 * sc.setHeader({
 	 *  environment: "test",
 	 *  apiVersion: "1.2"  //replaces the existing
 	 * });
+	 * ```
 	 */
 	setHeader(key: string | Record<string, any>, value?: string): void {
 		const serviceCallOptions = optionsMap.get(this);
@@ -237,6 +244,7 @@ export default class ServiceCall {
 	 * creates a request options object for http request
 	 * @method
 	 * @example
+	 * ```
 	 * const reqOps = sc.createRequestOptions(`/auth/login`, {
 	 *        method: "POST",
 	 *        body: {
@@ -252,6 +260,7 @@ export default class ServiceCall {
 	 *    }).catch((err) => {
 	 *        //logic
 	 *    });
+	 * ```
 	 */
 	createRequestOptions(
 		endpointPath: string,
@@ -282,6 +291,7 @@ export default class ServiceCall {
 	 * @see ServiceCall.createRequestOptions
 	 * @see ServiceCall.request
 	 * @example
+	 * ```
 	 * function login(userName, password) {
 	 *      return sc.request("/auth/login", {
 	 *          method: "POST",
@@ -291,6 +301,7 @@ export default class ServiceCall {
 	 *          }
 	 *      });
 	 *  }
+	 * ```
 	 */
 	request(endpointPath: string, options: IRequestOptions): Promise<any> {
 		const requestOptions = this.createRequestOptions(endpointPath, options);
@@ -302,6 +313,7 @@ export default class ServiceCall {
 	 * @static
 	 * @method
 	 * @example
+	 * ```
 	 * var reqOps = sc.createRequestOptions(`/auth/login`, {
 	 *        method: "POST",
 	 *        body: {
@@ -317,6 +329,7 @@ export default class ServiceCall {
 	 *    }).catch((err) => {
 	 *        //logic
 	 *    });
+	 * ```
 	 */
 	static request(options: IRequestOptions): Promise<any> {
 		options = Object.assign({}, options);

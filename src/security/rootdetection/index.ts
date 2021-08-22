@@ -122,7 +122,7 @@ class RootDetection {
 	 * @public
 	 * @instance
 	 * @example
-	 *
+	 *```
 	 * import RootDetection from '@smartface/extension-utils/lib/security/rootdetection;
 	 *
 	 * if (RootDetection.isRooted()) {
@@ -130,7 +130,7 @@ class RootDetection {
 	 * } else {
 	 *     console.log("It seems you can trust your device");
 	 * }
-	 *
+	 *```
 	 */
 	isRooted(): boolean {
 		if (System.OS === System.OSType.IOS){

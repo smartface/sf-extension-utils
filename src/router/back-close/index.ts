@@ -39,8 +39,10 @@ type DismissBuilderOptions = {
  * Changes the defult back icon of the StackRouter. This is replacing the constructor of the StackRouter. It should be called before creating any Router to be effective. Calling it after creation of the router has no effect.
  * @public
  * @example
+ * ```
  * import { backClose } from '@smartface/extension-utils/lib/router/back-close';
  * backClose.setDefaultBackStyle({image: backArrowImage, hideTitle: true});
+ * ```
  */
 export function setDefaultBackStyle(opts: {
 	image: Image;
@@ -61,6 +63,7 @@ export function setDefaultBackStyle(opts: {
  * If this is not set, default configuration will be used: left side text = done
  *
  * @example
+ * ```
  * import backClose from "@smartface/extension-utils/lib/router/back-close";
  * backClose.dissmissBuilder = (match, routeData, router, pageInstance, pageProps, route) => {
  *  if(System.OS === "iOS") {
@@ -71,6 +74,7 @@ export function setDefaultBackStyle(opts: {
  *  }
  *  else return {image: closeImage, position: "left", color: Color.WHITE};
  * };
+ * ```
  */
 export let dissmissBuilder: (
 	match?: any,

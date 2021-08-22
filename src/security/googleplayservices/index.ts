@@ -17,7 +17,7 @@
  * @class
  * @see {@link https://developer.android.com/training/articles/security-gms-provider}
  * @example
- *
+ *```
  * import GooglePlayServices from '@smartface/extension-utils/lib/security/googleplayservices';
  * if (System.OS === "Android") {
  *     GooglePlayServices.upgradeSecurityProvider()
@@ -28,7 +28,7 @@
  *         console.error("Error code: ", errorCode);
  *     });
  * }
- *
+ *```
  */
 export default class GooglePlayServices {
 	/**

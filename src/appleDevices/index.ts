@@ -12,9 +12,11 @@ import deviceMapping from 'appleDevices/deviceMapping.json';
 /**
  * Gets the human readable modelname for iphone devies.
  * Returns empty string on Android devices.
- *  @example
+ * @example
+ * ```
  * import AppleDevices from "@smartface/extension-utils/lib/appleDevices";
  * AppleDevices.getModelName();
+ * ```
  * @ios
  * @returns {string} Device model
  */
