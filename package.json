@@ -1,11 +1,11 @@
 {
   "name": "@smartface/extension-utils",
-  "version": "15.0.2",
+  "version": "16.0.0",
   "description": "Utils Extension for Smartface Native Framework",
   "main": "lib/index.js",
   "repository": "https://github.com/smartface/sf-extension-utils",
   "scripts": {
-    "docs": "bash ./createdoc.sh",
+    "docs": "node typedoc.js",
     "watch": "tsc -w",
     "build": "tsc"
   },
@@ -58,7 +58,8 @@
     "eslint-plugin-react-hooks": "^1.7.0",
     "install-peers-cli": "^2.2.0",
     "jsdoc-to-markdown": "^5.0.0",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "typedoc": "^0.21.6"
   },
   "peerDependencies": {
     "@@smartface/router": "^2.0.0 || ^2.0.0-rc",
