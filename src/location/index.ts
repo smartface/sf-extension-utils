@@ -41,7 +41,7 @@ export async function getLocation(
 	showSettingsAlert = true,
 	permissionText?: string,
 	permissionTitle?: string
-): Promise<Location> {
+): Promise<MapsOptions['location']> {
 	const getLocationPromise = async () => {
 		await getPermission({
 			androidPermission: Application.Android.Permissions.ACCESS_FINE_LOCATION,
@@ -62,14 +62,14 @@ export async function getLocation(
 		} catch (e) {
 			callback(e);
 		} finally {
-			return getLocationPromise;
+			return getLocationPromise();
 		}
 	} else {
 		return await getLocationPromise();
 	}
 }
 
-function getLocationAction(): Promise<Location> {
+function getLocationAction(): Promise<MapsOptions['location']> {
 	return new Promise((resolve) => {
 		Location.start(Location.Android.Priority.HIGH_ACCURACY, 1000);
 		Location.onLocationChanged = (location) => {
@@ -80,7 +80,7 @@ function getLocationAction(): Promise<Location> {
 	});
 }
 
-function getLocationActionForAndroid(): Promise<Location> {
+function getLocationActionForAndroid(): Promise<MapsOptions['location']> {
 	return new Promise((resolve, reject) => {
 		//@ts-ignore
 		Location.android.checkSettings({

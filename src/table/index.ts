@@ -95,7 +95,7 @@ type TableOptions = {
 	tableClass?: string;
 
 	/** Inline style of table */
-	tableStyles?: typeof Styles;
+	tableStyles?: Partial<typeof Styles>;
 
 	/** Attributes of table */
 	tableAttributes?: AttributeOptions;
