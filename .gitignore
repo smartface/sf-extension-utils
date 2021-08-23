@@ -4,4 +4,5 @@ node_modules/
 yarn-*
 tsconfig.ts*
 dist
+lib
 docs
