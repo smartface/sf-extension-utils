@@ -2,6 +2,7 @@
   "compilerOptions": {
     "incremental": true,
     "target": "es5",
+		"moduleResolution": "node",
     "module": "commonjs",
     "lib": ["es6"],
     "checkJs": true,

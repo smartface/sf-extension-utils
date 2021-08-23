@@ -5,3 +5,4 @@ doc
 docs
 .github
 typedoc.js
+tsconfig.*
