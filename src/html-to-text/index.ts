@@ -13,7 +13,7 @@ import HTML from 'html-parse-stringify';
 import AttributedString from "@smartface/native/ui/attributedstring";
 import propFactory from "@smartface/contx/lib/smartface/sfCorePropFactory";
 
-import * as util from 'html-to-text/util';
+import * as util from './util';
 
 let lastTextNode: any = null;
 

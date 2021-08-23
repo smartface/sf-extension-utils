@@ -4,6 +4,6 @@ global.process = global.process || {
   },
 };
 
-import "base/alert";
-import "base/timers";
-import "base/polyfill";
+import "./alert";
+import "./timers";
+import "./polyfill";
