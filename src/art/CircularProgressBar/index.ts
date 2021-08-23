@@ -79,7 +79,7 @@ export default class CircularProgressBar {
   private __width = 100;
   private __webView: WebView;
   constructor(options: CircularProgressBarOptions) {
-    if (options.webView) {
+    if (!options.webView) {
       throw Error("webView parameter is required");
     }
     this.__strokeWidth = options.strokeWidth || this.__strokeWidth;

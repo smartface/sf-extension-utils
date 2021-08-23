@@ -148,7 +148,7 @@ interface IPressEventOptions {
  * @method
  * @params {touch~Defaults} options - Changes the default values for the given key
  */
-export function setDefaults(options: Partial<IDefaults>): void {
+function setDefaults(options: Partial<IDefaults>): void {
 	Object.entries(options).forEach((entry) => {
 		const [key, value] = entry;
 		(CurrentDefault as any)[key] = value;
@@ -165,7 +165,7 @@ export function setDefaults(options: Partial<IDefaults>): void {
  * import touch from '@smartface/extension-utils/lib/touch'
  * console.log("Animation FPS = " + touch.getDefaults().fps);
  */
-export function getDefaults(): IDefaults {
+function getDefaults(): IDefaults {
 	return Object.assign({}, CurrentDefault);
 }
 
@@ -195,7 +195,7 @@ export function getDefaults(): IDefaults {
  *     alert("Pressed");
  * });
  */
-export function addPressEvent(
+function addPressEvent(
 	target: View,
 	event: () => any,
 	options?: Partial<IPressEventOptions>
@@ -499,4 +499,10 @@ function applyRippleEffect(
 	this.android.useForeground = useForeground;
 	//@ts-ignore
 	this.android.rippleColor = rippleColor;
+}
+
+export = {
+	setDefaults,
+	getDefaults,
+	addPressEvent
 }

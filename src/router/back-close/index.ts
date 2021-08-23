@@ -22,7 +22,6 @@ const POSITION = {
 };
 
 let backArrowImage: Image | null = null;
-let dissmissBuilderCache: (...args: any) => any = () => {};
 let hideBackBarButton = false;
 
 type DismissBuilderOptions = {
@@ -44,7 +43,7 @@ type DismissBuilderOptions = {
  * backClose.setDefaultBackStyle({image: backArrowImage, hideTitle: true});
  * ```
  */
-export function setDefaultBackStyle(opts: {
+function setDefaultBackStyle(opts: {
 	image: Image;
 	hideTitle: boolean;
 }): void {
@@ -76,14 +75,14 @@ export function setDefaultBackStyle(opts: {
  * };
  * ```
  */
-export let dissmissBuilder: (
+let dissmissBuilder: (
 	match?: any,
 	routeData?: any,
 	router?: any,
 	pageInstance?: any,
 	pageProps?: any,
 	route?: any
-) => DismissBuilderOptions;
+) => DismissBuilderOptions = defaultDissmissBuilder;
 
 function defaultDissmissBuilder(
 	match: any,
@@ -232,3 +231,8 @@ function backClose(
 }
 
 buildExtender.postProcessors.push(backClose);
+
+export = {
+	dissmissBuilder,
+	setDefaultBackStyle
+}
