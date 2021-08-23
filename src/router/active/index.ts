@@ -8,14 +8,14 @@ import Page from '@smartface/native/ui/page';
  */
 
 interface ExternalPageParams {
-    router: any;
-    match: any;
-    shouldExit: any;
-    goBack: () => void;
-    parentController: any;
+    router?: any;
+    match?: any;
+    shouldExit?: any;
+    goBack?: () => void;
+    parentController?: any;
     pageName?: string | undefined;
     extendEvent?: ((...args: any) => any) | undefined;
-    setBackItem: any;
+    setBackItem?: any;
 }
 
 /**
@@ -29,8 +29,8 @@ interface ExternalPageParams {
  * currentPage.layout.applyLayout(); 
  * ```
  */
-declare namespace active {
-    export let page: Page & ExternalPageParams;
-}
 
-export default active;
+let page: Page & ExternalPageParams = new Page();
+export default {
+    page
+};
