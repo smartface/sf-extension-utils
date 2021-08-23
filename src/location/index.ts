@@ -2,7 +2,7 @@
 import Location from "@smartface/native/device/location";
 import Application from "@smartface/native/application";
 import System from "@smartface/native/device/system";
-import { getPermission, IOS_PERMISSIONS } from "permission";
+import { getPermission, IOS_PERMISSIONS } from "../permission";
 
 /**
  * Smartface Location module

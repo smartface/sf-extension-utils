@@ -14,7 +14,7 @@ import HeaderBarItem from "@smartface/native/ui/headerbaritem";
 import System from "@smartface/native/device/system";
 //@ts-ignore
 import StackRouter from "@smartface/router/src/native/NativeStackRouter";
-import buildExtender from "router/buildExtender";
+import buildExtender from "../buildExtender";
 
 const POSITION = {
 	LEFT: "left",

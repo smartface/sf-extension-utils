@@ -26,7 +26,7 @@ import System from "@smartface/native/device/system";
 import Menu from "@smartface/native/ui/menu";
 import MenuItem from "@smartface/native/ui/menuitem";
 import Page from "@smartface/native/ui/page";
-import { MAPS_LIST } from 'shared';
+import { MAPS_LIST } from '../shared';
 
 /**
  * Prompts a menu to choose which navigation app to handle the location.

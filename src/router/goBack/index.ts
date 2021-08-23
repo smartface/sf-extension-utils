@@ -36,12 +36,12 @@
  */
 
 import Application from "@smartface/native/application";
-import active from "router/active";
+import active from "../active";
 //@ts-ignore
 import StackRouter from "@smartface/router/src/native/NativeStackRouter";
 //@ts-ignore
 import BottomTabBarRouter from "@smartface/router/src/native/BottomTabBarRouter";
-import buildExtender from "router/buildExtender";
+import buildExtender from "../buildExtender";
 
 Application.android.onBackButtonPressed = () => {
 	active?.page?.goBack && active.page.goBack();

@@ -3,8 +3,8 @@ import Page from "@smartface/native/ui/page";
 import View from "@smartface/native/ui/view";
 //@ts-ignore
 import StackRouter from "@smartface/router/src/native/NativeStackRouter";
-import extendEvent from "extendEvent";
-import active from "router/active";
+import extendEvent from "../../extendEvent";
+import active from "../active";
 
 interface ProcessorOptions {
 	(

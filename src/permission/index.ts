@@ -12,8 +12,8 @@ import Application from "@smartface/native/application";
 import System from "@smartface/native/device/system";
 import AlertView from "@smartface/native/ui/alertview";
 import Multimedia from "@smartface/native/device/multimedia";
-import alert from "base/alert";
-import { openApplicationSettings } from "settings";
+import alert from "../base/alert";
+import { openApplicationSettings } from "../settings";
 import Location from "@smartface/native/device/location";
 
 let lastRequestPermissionCode = 2000;

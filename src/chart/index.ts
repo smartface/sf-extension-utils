@@ -5,7 +5,7 @@
  * @copyright Smartface 2021
  */
 
-import WebViewBridge from "webviewbridge";
+import WebViewBridge from "../webviewbridge";
 import { ApexOptions } from "apexcharts";
 
 /** It allows passing custom data into the chart */

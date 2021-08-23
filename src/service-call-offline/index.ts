@@ -12,9 +12,9 @@
 import System from "@smartface/native/device/system";
 import Data from "@smartface/native/global/data";
 import Network from "@smartface/native/device/network";
-import guid from "guid";
-import copy from "copy";
-import ServiceCall from "service-call";
+import guid from "../guid";
+import copy from "../copy";
+import ServiceCall from "../service-call";
 
 const TABLE_NAMES = Object.freeze({
 	CACHED_REQUESTS: "SF_EXTENSION_UTILS_OFFLINE_ALL_CACHED_REQUESTS",

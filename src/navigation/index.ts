@@ -26,9 +26,9 @@ import Page from "@smartface/native/ui/page";
 import Application from "@smartface/native/application";
 import Menu from "@smartface/native/ui/menu";
 import MenuItem from "@smartface/native/ui/menuitem";
-import { MAPS_LIST, TransportTypes } from 'shared';
+import { MAPS_LIST, TransportTypes } from '../shared';
 
-export { TransportTypes } from "shared";
+export { TransportTypes } from "../shared";
 /**
  * Prompts a menu to choose which navigation app to handle the location.
  * It sets the starting point to your current location, if the permission is granted.

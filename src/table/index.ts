@@ -6,7 +6,7 @@
  */
 
 import WebView from "@smartface/native/ui/webview";
-import WebViewBridge from "webviewbridge";
+import WebViewBridge from "../webviewbridge";
 
 /** CSS properties available within this component */
 const Styles = {

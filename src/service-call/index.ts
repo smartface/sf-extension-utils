@@ -11,9 +11,9 @@
 import Http from "@smartface/native/net/http";
 //@ts-ignore
 import mixinDeep from "mixin-deep";
-import copy from "copy";
+import copy from "../copy";
 import queryString from "query-string";
-import { createAsyncGetter } from "async";
+import { createAsyncGetter } from "../async";
 
 const reHTTPUrl = /^http(s?):\/\//i;
 const reParseBodyAsText = /(?:application\/(?:x-csh|json|javascript|rtf|xml)|text\/.*|.*\/.*(:?\+xml|xml\+).*)/i;

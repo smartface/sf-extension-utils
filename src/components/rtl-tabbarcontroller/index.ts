@@ -10,7 +10,7 @@
 import Application from "@smartface/native/application";
 import System from "@smartface/native/device/system";
 import TabBarController from "@smartface/native/ui/tabbarcontroller";
-import RTLAndroidSwipeView from "components/rtl-swipeview";
+import RTLAndroidSwipeView from "../rtl-swipeview";
 
 const GRAVITY_RIGHT = 5;
 const MODE_SCROLLABLE = 0;

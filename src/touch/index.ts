@@ -11,7 +11,7 @@
 import System from "@smartface/native/device/system";
 import Color from "@smartface/native/ui/color";
 import View from "@smartface/native/ui/view";
-import { tinycolor } from "color";
+import { tinycolor } from "../color";
 
 const DEFAULT_GREY = "#d8d8d8";
 

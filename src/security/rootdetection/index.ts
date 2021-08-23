@@ -9,8 +9,8 @@
  */
 
 import System from "@smartface/native/device/system";
-import AndroidRootConfig from 'security/rootdetection/androidRoot.json';
-import iOSJailBreakConfig from 'security/rootdetection/iOSJailBreak.json';
+import AndroidRootConfig from './androidRoot.json';
+import iOSJailBreakConfig from './iOSJailBreak.json';
 
 let rootDetectionNative: any;
 

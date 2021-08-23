@@ -8,7 +8,7 @@
 
 import Hardware from '@smartface/native/device/hardware';
 import System from '@smartface/native/device/system';
-import deviceMapping from 'appleDevices/deviceMapping.json';
+import deviceMapping from './deviceMapping.json';
 /**
  * Gets the human readable modelname for iphone devies.
  * Returns empty string on Android devices.
