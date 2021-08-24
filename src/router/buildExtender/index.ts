@@ -161,8 +161,7 @@ function buildExtender(
 				let pageHeaderbarStyle = {};
 				["leftItemEnabled", "largeTitleDisplayMode"].forEach((key) => {
 					if (options?.headerBarStyle?.hasOwnProperty(key))
-						//@ts-ignore
-						pageHeaderbarStyle[key] = headerBarStyle[key];
+						(pageHeaderbarStyle as any)[key] = options.headerBarStyle[key];
 				});
 				if (Object.keys(pageHeaderbarStyle).length) {
 					pageInstance.extendEvent("onLoad", () => {
@@ -177,8 +176,7 @@ function buildExtender(
 				let controllerHeaderbarStyle = {};
 				["visible"].forEach((key) => {
 					if (options?.headerBarStyle?.hasOwnProperty(key))
-						//@ts-ignore
-						controllerHeaderbarStyle[key] = headerBarStyle[key];
+						(controllerHeaderbarStyle as any)[key] = options.headerBarStyle[key];
 				});
 				if (Object.keys(controllerHeaderbarStyle).length && router.headerBar) {
 					pageInstance.extendEvent("onShow", () => {
