@@ -117,17 +117,22 @@ interface IBuildExtenderOptions {
 function buildExtender(
 	options: IBuildExtenderOptions
 ): (router: any, route: any) => Page {
-	function builder(router: any, route: any) {
+	const builder = (router: any, route: any): InstanceType<typeof Page> => {
 		let { routeData, match, view } = route.getState();
 		const pageProps = options.pageProps || {};
-		if (routeData && routeData.routeData) routeData = routeData.routeData;
-		routeData = routeData || {};
-
-		options.preProcessor &&
+		if (routeData?.routeData) {
+			routeData = routeData.routeData;
+		}
+		else {
+			routeData = routeData || {};
+		}
+		if (options.preProcessor) {
+			//@ts-ignore
 			options.preProcessor(match, routeData, router, view, pageProps, route);
-		buildExtender.preProcessors.forEach((pp) =>
+		}
+		buildExtender.preProcessors.forEach((pp) => {
 			pp(match, routeData, router, view, pageProps, route)
-		);
+		});
 		let pageInstance: typeof active.page
 
 		if (view && options.singleton) {
@@ -153,7 +158,9 @@ function buildExtender(
 				let returnValue = originalDidEnter
 					? originalDidEnter(router, route)
 					: true;
-				pageInstance && (active.page = pageInstance);
+				if (pageInstance) {
+					active.page = pageInstance
+				}
 				return returnValue;
 			};
 
@@ -214,9 +221,9 @@ function buildExtender(
 		buildExtender.postProcessors.forEach((pp) =>
 			pp(match, routeData, router, pageInstance, pageProps, route)
 		);
-		options.postProcessor &&
+		if(options.postProcessor) {
 			options.postProcessor(match, routeData, router, pageInstance, pageProps, route);
-
+		}
 		return pageInstance;
 	}
 	return builder;
@@ -250,4 +257,4 @@ namespace buildExtender {
 	export const postProcessors: ProcessorOptions[] = [];
 }
 
-export default buildExtender;
+export = buildExtender;
