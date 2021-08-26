@@ -29,8 +29,8 @@ interface ExternalPageParams {
  * currentPage.layout.applyLayout(); 
  * ```
  */
-
-let page: Page & ExternalPageParams = new Page();
-export default {
+//@ts-ignore
+let page: Page & ExternalPageParams = null;
+export = {
     page
 };

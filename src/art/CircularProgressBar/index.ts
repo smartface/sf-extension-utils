@@ -101,7 +101,7 @@ export default class CircularProgressBar {
    * @property {number} value
    */
   public get value(): number {
-    return this.value;
+    return this.__value;
   }
 
   /**
@@ -109,7 +109,7 @@ export default class CircularProgressBar {
    * @property {number} value
    */
   public set value(value: number) {
-    this.value = value;
+    this.__value = value;
     this.render();
   }
   /**

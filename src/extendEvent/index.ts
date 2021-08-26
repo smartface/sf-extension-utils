@@ -24,10 +24,10 @@
  * });
  * ```
  */
-export default function(
-	target: { [key: string]: any },
+function extendEvent(
+	target: Record<string, any>,
 	eventName: string,
-	newEvent: () => {}
+	newEvent: (...args: any) => any
 ): void {
 	if (!newEvent) return;
 	let oldEvent = (target[eventName] && target[eventName].bind(target)) || null;
@@ -46,3 +46,5 @@ function eventWrapper(this: any) {
 		? oldReturnValue
 		: newReturnValue;
 }
+
+export = extendEvent;
