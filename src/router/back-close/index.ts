@@ -231,8 +231,15 @@ function backClose(
 }
 
 buildExtender.postProcessors.push(backClose);
-
-export = {
-	dissmissBuilder,
-	setDefaultBackStyle
-}
+//@ts-ignore
+exports.setDefaultBackStyle = setDefaultBackStyle;
+//@ts-ignore
+exports.dissmissBuilder = null;
+//@ts-ignore
+Object.defineProperty(exports, "dissmissBuilder", {
+    get: () => dissmissBuilder,
+    set: value => dissmissBuilder = value,
+    configurable: false,
+    enumerable: true
+});
+export = exports
