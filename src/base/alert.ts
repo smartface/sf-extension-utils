@@ -74,15 +74,16 @@ interface AlertOptions {
  * setTimeout(() => alertView.dismiss(), 2000); //closes the alert after 2 seconds
  * ```
  */
-function alert(options: string | AlertOptions): AlertView {
+function alert(options: string | AlertOptions, title?: string): AlertView {
     let paramOptions: AlertOptions = {
         message: '',
-        title: '',
+        title: title || '',
         defaultButtonText: 'OK'
     };
     const defaultButton: AlertButton = {
         type: AlertView.Android.ButtonType.NEUTRAL,
-        text: '',
+        //@ts-ignore
+        text: global?.lang?.ok || 'OK',
         onClick: () => {}
     }
     let buttons: AlertButton[] = [];
@@ -96,12 +97,12 @@ function alert(options: string | AlertOptions): AlertView {
     }
     else {
         paramOptions.message = options;
+        buttons = [defaultButton];
     }
-    const alertView = new AlertView(options);
+    const alertView = new AlertView(paramOptions);
     if (System.OS === System.OSType.ANDROID) {
         alertView.android.cancellable = false;
     }
-
     buttons = buttons.reverse();
     buttons.forEach((button) => alertView.addButton(button));
     alertView.show();
@@ -112,4 +113,4 @@ const oldAlert = global.alert;
 //@ts-ignore
 global.alert = alert;
 
-export default oldAlert;
+export = oldAlert;
