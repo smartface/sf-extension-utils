@@ -40,7 +40,8 @@ function clearTimer(id: number): void {
     return;
   }
   Timer.clearTimer(timer);
-  definedTimers[id] = new Timer(); // Empty timer
+  //@ts-ignore
+  definedTimers[id] = null; // Empty timer
 }
 
 //@ts-ignore
