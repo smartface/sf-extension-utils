@@ -169,11 +169,12 @@ function createMapsMenuForIOS() {
  *  });
  *```
  */
-const showMapsMenu = (options: MapsOptions): Promise<string> => {
+export function showMapsMenu (options: MapsOptions): Promise<string> {
 	return System.OS === System.OSType.IOS
 		? showMapsMenuForIOS(options)
 		: showMapsForAndroid(options);
 }
 
-exports.showMapsMenu = showMapsMenu;
-export = exports
+export default {
+	showMapsMenu
+}
