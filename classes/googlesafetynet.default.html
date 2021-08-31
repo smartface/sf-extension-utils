@@ -1,0 +1,418 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>default | @smartface/extension-utils</title>
+	<meta name="description" content="Documentation for @smartface/extension-utils">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+	<script async src="../assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">@smartface/extension-utils</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../modules.html">@smartface/extension-utils</a>
+				</li>
+				<li>
+					<a href="../modules/googlesafetynet.html">googlesafetynet</a>
+				</li>
+				<li>
+					<a href="googlesafetynet.default.html">default</a>
+				</li>
+			</ul>
+			<h1>Class default</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Helper class for Google&#39;s SafetyNet. SafetyNet provides a set of services and
+							APIs that help protect your app against security threats, including device
+						tampering, bad URLs, potentially harmful apps, and fake users.</p>
+					</div>
+					<dl class="tsd-comment-tags">
+						<dt>see</dt>
+						<dd><p><a href="https://developer.android.com/training/safetynet/attestation.html" class="external">https://developer.android.com/training/safetynet/attestation.html</a></p>
+						</dd>
+						<dt>example</dt>
+						<dd><pre><code><span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">GoogleSafetyNet</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@smartface/extension-utils/lib/security/googlesafetynet&#039;</span><span style="color: #000000">;</span>
+<span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">System</span><span style="color: #000000">.</span><span style="color: #0070C1">OS</span><span style="color: #000000"> === </span><span style="color: #001080">System</span><span style="color: #000000">.</span><span style="color: #001080">OSType</span><span style="color: #000000">.</span><span style="color: #0070C1">ANDROID</span><span style="color: #000000">) {</span>
+<span style="color: #000000">    </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">googleSafetyNet</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">GoogleSafetyNet</span><span style="color: #000000">({</span>
+<span style="color: #000000">        </span><span style="color: #001080">apiKey:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;***********&quot;</span>
+<span style="color: #000000">    });</span>
+<span style="color: #000000">    </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">googleSafetyNet</span><span style="color: #000000">.</span><span style="color: #795E26">isPlayServicesAvailable</span><span style="color: #000000">()) {</span>
+<span style="color: #000000">        </span><span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">nonce</span><span style="color: #000000"> = </span><span style="color: #001080">googleSafetyNet</span><span style="color: #000000">.</span><span style="color: #795E26">generateNonce</span><span style="color: #000000">();</span>
+<span style="color: #000000">        </span><span style="color: #008000">// Nonce should be at least 16 bytes length</span>
+<span style="color: #000000">        </span><span style="color: #001080">googleSafetyNet</span><span style="color: #000000">.</span><span style="color: #795E26">sendAttestationRequest</span><span style="color: #000000">(</span><span style="color: #001080">nonce</span><span style="color: #000000">)</span>
+<span style="color: #000000">            .</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">jws</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">                </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">info</span><span style="color: #000000">(</span><span style="color: #A31515">`JWS </span><span style="color: #0000FF">${</span><span style="color: #001080">jws</span><span style="color: #0000FF">}</span><span style="color: #A31515">`</span><span style="color: #000000">);</span>
+<span style="color: #000000">            })</span>
+<span style="color: #000000">            .</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">e</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">                </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #001080">e</span><span style="color: #000000">);</span>
+<span style="color: #000000">            });</span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000">    </span><span style="color: #AF00DB">else</span><span style="color: #000000"> {</span>
+<span style="color: #000000">        </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">info</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;Google Play services are not available. You cannot proceed further&quot;</span><span style="color: #000000">);</span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000">}</span>
+</code></pre>
+						</dd>
+					</dl>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">default</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="googlesafetynet.default.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="googlesafetynet.default.html#sendAttestationRequest" class="tsd-kind-icon">send<wbr>Attestation<wbr>Request</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="googlesafetynet.default.html#generateNonce" class="tsd-kind-icon">generate<wbr>Nonce</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="googlesafetynet.default.html#isPlayServicesAvailable" class="tsd-kind-icon">is<wbr>Play<wbr>Services<wbr>Available</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new default<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>apiKey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="googlesafetynet.default.html" class="tsd-signature-type" data-tsd-kind="Class">default</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/c60c323/src/security/googlesafetynet/index.ts#L50">src/security/googlesafetynet/index.ts:50</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a GoogleSafetyNet class with given configurations.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>options: <span class="tsd-signature-symbol">{ </span>apiKey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Cofiguration of GoogleSafetyNet helper object (required)</p>
+										</div>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5>api<wbr>Key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+											<div class="tsd-comment tsd-typography">
+												<p>API key from Google APIs (required).
+												<a href="https://developer.android.com/training/safetynet/attestation#obtain-api-key">See here</a></p>
+											</div>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="googlesafetynet.default.html" class="tsd-signature-type" data-tsd-kind="Class">default</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="sendAttestationRequest" class="tsd-anchor"></a>
+					<h3>send<wbr>Attestation<wbr>Request</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">send<wbr>Attestation<wbr>Request<span class="tsd-signature-symbol">(</span>nonce<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/c60c323/src/security/googlesafetynet/index.ts#L124">src/security/googlesafetynet/index.ts:124</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sends the runtime environment and request a signed attestation of the
+										assessment results from Google&#39;s servers and then resolves the returned
+										assessment result as JWS string. In case of Google backend services
+									are not available reject the request.</p>
+								</div>
+								<pre>
+//JWS example
+<code>
+{
+   "timestampMs": 9860437986543,
+   "nonce": "R2Rra24fVm5xa2Mg",
+   "apkPackageName": "com.package.name.of.requesting.app",
+   "apkCertificateDigestSha256": ["base64 encoded, SHA-256 hash of the
+                                   certificate used to sign requesting app"],
+   "ctsProfileMatch": true,
+   "basicIntegrity": true,
+ }
+</code>
+A signed attestation's payload typically contains the following fields:
+
+<b>apkCertificateDigestSha256</b>: Base-64 encoded representation(s) of
+the SHA-256 hash of the calling app's signing certificate(s)
+<b>apkPackageName</b>: The calling app's package name.
+<b>nonce</b>: The single-use token that the calling app passes to the API.
+<b>timestampMs</b>: Milliseconds past the UNIX epoch when the JWS response
+message was generated by Google's servers.
+<b>ctsProfileMatch</b>: A stricter verdict of device integrity. If the value
+of ctsProfileMatch is true, then the profile of the device running your app
+matches the profile of a device that has passed Android compatibility testing.
+<b>basicIntegrity</b>: A more lenient verdict of device integrity. If only
+the value of basicIntegrity is true, then the device running your app likely
+wasn't tampered with. However, the device hasn't necessarily passed Android
+compatibility testing.
+
+You should trust the APK information only if the value of ctsProfileMatch
+is true. So to validate device is trusted, check JWS's ctsProfileMatch &
+basicIntegrity boolean variables. Google has a table
+to show how device status could affect the values of basicIntegrity and
+ctsProfileMatch. <a href="https://developer.android.com/training/safetynet/attestation#potential-integrity-verdicts">See here</a>
+
+Note: Do not validate these two variables in source code if the code can
+be accessed by reverse-engineering
+
+</pre>
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd></dd>
+									<dt>instance</dt>
+									<dd></dd>
+									<dt>see</dt>
+									<dd><p><a href="https://developer.android.com/training/safetynet/attestation.html" class="external">https://developer.android.com/training/safetynet/attestation.html</a></p>
+									</dd>
+									<dt>example</dt>
+									<dd><pre><code><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">System</span><span style="color: #000000">.</span><span style="color: #0070C1">OS</span><span style="color: #000000"> === </span><span style="color: #A31515">&quot;Android&quot;</span><span style="color: #000000">) {</span>
+<span style="color: #000000">    </span><span style="color: #795E26">sendAttestationRequest</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;a2d0sa1@3sqwe123f12sww&quot;</span><span style="color: #000000">)</span>
+<span style="color: #000000">        .</span><span style="color: #795E26">then</span><span style="color: #000000">(</span><span style="color: #001080">jws</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">            </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">`JWS </span><span style="color: #0000FF">${</span><span style="color: #001080">jws</span><span style="color: #0000FF">}</span><span style="color: #A31515">`</span><span style="color: #000000">);</span>
+<span style="color: #000000">        })</span>
+<span style="color: #000000">        .</span><span style="color: #795E26">catch</span><span style="color: #000000">(</span><span style="color: #001080">e</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">            </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #001080">e</span><span style="color: #000000">);</span>
+<span style="color: #000000">        });</span>
+<span style="color: #000000">}</span>
+</code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>nonce: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Unique identifier for validation of returned JWS.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>resolved with JWS and rejected with error message.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="generateNonce" class="tsd-anchor"></a>
+					<h3>generate<wbr>Nonce</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">generate<wbr>Nonce<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/c60c323/src/security/googlesafetynet/index.ts#L145">src/security/googlesafetynet/index.ts:145</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Generates random strings.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd><p>generateNonce</p>
+									</dd>
+									<dt>instance</dt>
+									<dd></dd>
+									<dt>example</dt>
+									<dd><pre><code><span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">nonce</span><span style="color: #000000"> = </span><span style="color: #001080">googleSafetyNet</span><span style="color: #000000">.</span><span style="color: #795E26">generateNonce</span><span style="color: #000000">();</span>
+</code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<ul>
+								<li>returns converted UTF-8 string from random generated 16 bytes.</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="isPlayServicesAvailable" class="tsd-anchor"></a>
+					<h3>is<wbr>Play<wbr>Services<wbr>Available</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Play<wbr>Services<wbr>Available<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/c60c323/src/security/googlesafetynet/index.ts#L160">src/security/googlesafetynet/index.ts:160</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Checks google play services availability.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd><p>isPlayServicesAvailable</p>
+									</dd>
+									<dt>instance</dt>
+									<dd></dd>
+									<dt>example</dt>
+									<dd><pre><code><span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">isPlayServicesAvailable</span><span style="color: #000000"> = </span><span style="color: #001080">googleSafetyNet</span><span style="color: #000000">.</span><span style="color: #795E26">isPlayServicesAvailable</span><span style="color: #000000">();</span>
+</code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<ul>
+								<li>returns either google play services available currently or not.</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="../modules.html">Modules</a>
+					</li>
+					<li class="current tsd-kind-module">
+						<a href="../modules/googlesafetynet.html">googlesafetynet</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-module">
+						<a href="googlesafetynet.default.html" class="tsd-kind-icon">default</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="googlesafetynet.default.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="googlesafetynet.default.html#sendAttestationRequest" class="tsd-kind-icon">send<wbr>Attestation<wbr>Request</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="googlesafetynet.default.html#generateNonce" class="tsd-kind-icon">generate<wbr>Nonce</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="googlesafetynet.default.html#isPlayServicesAvailable" class="tsd-kind-icon">is<wbr>Play<wbr>Services<wbr>Available</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-namespace"><span class="tsd-kind-icon">Namespace</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>export&#x3D; | @smartface/extension-utils</title>
+	<meta name="description" content="Documentation for @smartface/extension-utils">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+	<script async src="../assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">@smartface/extension-utils</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../modules.html">@smartface/extension-utils</a>
+				</li>
+				<li>
+					<a href="router_buildExtender.html">router/buildExtender</a>
+				</li>
+				<li>
+					<a href="router_buildExtender.export_-1.html">export&#x3D;</a>
+				</li>
+			</ul>
+			<h1>Namespace export&#x3D;</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Variables</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable tsd-parent-kind-namespace"><a href="router_buildExtender.export_-1.html#preProcessors" class="tsd-kind-icon">pre<wbr>Processors</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-namespace"><a href="router_buildExtender.export_-1.html#postProcessors" class="tsd-kind-icon">post<wbr>Processors</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-namespace">
+					<a name="preProcessors" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> pre<wbr>Processors</h3>
+					<div class="tsd-signature tsd-kind-icon">pre<wbr>Processors<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ProcessorOptions</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/c60c323/src/router/buildExtender/index.ts#L244">src/router/buildExtender/index.ts:244</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Gets or sets the list of preProcessors running for each page. Callback(s) are called with the following arguments: match, routeData, router, view, pageProps, route</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>property</dt>
+							<dd><p>{function[]} buildExtender.preProcessors</p>
+							</dd>
+							<dt>example</dt>
+							<dd><pre><code><span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">buildExtender</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@smartface/extension-utils/lib/router/buildExtender&#039;</span><span style="color: #000000">;</span>
+<span style="color: #001080">buildExtender</span><span style="color: #000000">.</span><span style="color: #001080">preProcessors</span><span style="color: #000000">.</span><span style="color: #795E26">push</span><span style="color: #000000">((</span><span style="color: #001080">match</span><span style="color: #000000">, </span><span style="color: #001080">routeData</span><span style="color: #000000">, </span><span style="color: #001080">router</span><span style="color: #000000">, </span><span style="color: #001080">view</span><span style="color: #000000">, </span><span style="color: #001080">pageProps</span><span style="color: #000000">, </span><span style="color: #001080">route</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000"> </span><span style="color: #008000">//</span>
+<span style="color: #000000">});</span>
+</code></pre>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-namespace">
+					<a name="postProcessors" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> post<wbr>Processors</h3>
+					<div class="tsd-signature tsd-kind-icon">post<wbr>Processors<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ProcessorOptions</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/c60c323/src/router/buildExtender/index.ts#L257">src/router/buildExtender/index.ts:257</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Gets or sets the list of postProcessors running for each page. Callback(s) are called with the following arguments: match, routeData, router, pageInstance, pageProps, route</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>property</dt>
+							<dd><p>{function[]} buildExtender.postProcessors</p>
+							</dd>
+							<dt>example</dt>
+							<dd><pre><code><span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">buildExtender</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@smartface/extension-utils/lib/router/buildExtender&#039;</span><span style="color: #000000">;</span>
+<span style="color: #001080">buildExtender</span><span style="color: #000000">.</span><span style="color: #001080">postProcessors</span><span style="color: #000000">.</span><span style="color: #795E26">push</span><span style="color: #000000">((</span><span style="color: #001080">match</span><span style="color: #000000">, </span><span style="color: #001080">routeData</span><span style="color: #000000">, </span><span style="color: #001080">router</span><span style="color: #000000">, </span><span style="color: #001080">pageInstance</span><span style="color: #000000">, </span><span style="color: #001080">pageProps</span><span style="color: #000000">, </span><span style="color: #001080">route</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000"> </span><span style="color: #008000">//</span>
+<span style="color: #000000">});</span>
+</code></pre>
+							</dd>
+						</dl>
+					</div>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="../modules.html">Modules</a>
+					</li>
+					<li class="current tsd-kind-module">
+						<a href="router_buildExtender.html">router/build<wbr>Extender</a>
+						<ul>
+							<li class="current tsd-kind-namespace tsd-parent-kind-module">
+								<a href="router_buildExtender.export_-1.html">export&#61;</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-variable tsd-parent-kind-namespace">
+						<a href="router_buildExtender.export_-1.html#preProcessors" class="tsd-kind-icon">pre<wbr>Processors</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-namespace">
+						<a href="router_buildExtender.export_-1.html#postProcessors" class="tsd-kind-icon">post<wbr>Processors</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-namespace"><span class="tsd-kind-icon">Namespace</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

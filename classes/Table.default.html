@@ -1,0 +1,413 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>default | @smartface/extension-utils</title>
+	<meta name="description" content="Documentation for @smartface/extension-utils">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+	<script async src="../assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">@smartface/extension-utils</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../modules.html">@smartface/extension-utils</a>
+				</li>
+				<li>
+					<a href="../modules/Table.html">Table</a>
+				</li>
+				<li>
+					<a href="Table.default.html">default</a>
+				</li>
+			</ul>
+			<h1>Class default</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>It&#39;s creating a table in <strong>WebView</strong> or <strong>WebViewBridge</strong> using given values and style parameters</p>
+					</div>
+					<dl class="tsd-comment-tags">
+						<dt>param</dt>
+						<dd><p>options - Base options object</p>
+						</dd>
+						<dt>param</dt>
+						<dd><p>The browser for creating a table</p>
+						</dd>
+						<dt>param</dt>
+						<dd><p>The options for creating a table</p>
+						</dd>
+						<dt>example</dt>
+						<dd><pre><code><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">headerColumns</span><span style="color: #000000"> = [</span><span style="color: #A31515">&#039;First name&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;Last name&#039;</span><span style="color: #000000">];</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">bodyColumns</span><span style="color: #000000"> = [</span>
+<span style="color: #000000">    { </span><span style="color: #001080">first:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;Shmi&#039;</span><span style="color: #000000">, </span><span style="color: #001080">last:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;Skywalker&#039;</span><span style="color: #000000"> },</span>
+<span style="color: #000000">    { </span><span style="color: #001080">first:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;Anakin&#039;</span><span style="color: #000000">, </span><span style="color: #001080">last:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;Skywalker&#039;</span><span style="color: #000000"> },</span>
+<span style="color: #000000">    { </span><span style="color: #001080">first:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;Luke&#039;</span><span style="color: #000000">, </span><span style="color: #001080">last:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;Skywalker&#039;</span><span style="color: #000000"> },</span>
+<span style="color: #000000">    { </span><span style="color: #001080">first:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;Leia&#039;</span><span style="color: #000000">, </span><span style="color: #001080">last:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;Organa&#039;</span><span style="color: #000000"> },</span>
+<span style="color: #000000">    { </span><span style="color: #001080">first:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;Han&#039;</span><span style="color: #000000">, </span><span style="color: #001080">last:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;Solo&#039;</span><span style="color: #000000"> }</span>
+<span style="color: #000000">];</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">table</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Table</span><span style="color: #000000">({</span>
+<span style="color: #000000">    </span><span style="color: #001080">webView:</span><span style="color: #000000"> </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">webView1</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">tableOptions:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">        </span><span style="color: #001080">rows:</span><span style="color: #000000"> [</span>
+<span style="color: #000000">            {</span>
+<span style="color: #000000">                </span><span style="color: #001080">rowStyles:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">                    </span><span style="color: #001080">color:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;#fff&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">                    </span><span style="color: #001080">fontWeight:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;bold&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">                    </span><span style="color: #001080">backgroundColor:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;#000&#039;</span>
+<span style="color: #000000">                },</span>
+<span style="color: #000000">                </span><span style="color: #001080">columns:</span><span style="color: #000000"> </span><span style="color: #001080">headerColumns</span><span style="color: #000000">.</span><span style="color: #795E26">map</span><span style="color: #000000">(</span><span style="color: #001080">key</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> ({ </span><span style="color: #001080">key</span><span style="color: #000000"> }))</span>
+<span style="color: #000000">            },</span>
+<span style="color: #000000">            ...</span><span style="color: #001080">bodyColumns</span><span style="color: #000000">.</span><span style="color: #795E26">map</span><span style="color: #000000">(</span><span style="color: #001080">column</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> ({</span>
+<span style="color: #000000">                </span><span style="color: #001080">rowStyles:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">                    </span><span style="color: #001080">padding:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;10px 0&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">                    </span><span style="color: #001080">borderBottom:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;1px solid #000&#039;</span>
+<span style="color: #000000">                },</span>
+<span style="color: #000000">                </span><span style="color: #001080">columns:</span><span style="color: #000000"> [</span>
+<span style="color: #000000">                    { </span><span style="color: #001080">key:</span><span style="color: #000000"> </span><span style="color: #001080">column</span><span style="color: #000000">.</span><span style="color: #001080">first</span><span style="color: #000000"> },</span>
+<span style="color: #000000">                    { </span><span style="color: #001080">key:</span><span style="color: #000000"> </span><span style="color: #001080">column</span><span style="color: #000000">.</span><span style="color: #001080">last</span><span style="color: #000000"> }</span>
+<span style="color: #000000">                ]</span>
+<span style="color: #000000">            }))</span>
+<span style="color: #000000">        ]</span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000">});</span>
+<span style="color: #001080">table</span><span style="color: #000000">.</span><span style="color: #795E26">render</span><span style="color: #000000">();</span>
+</code></pre>
+						</dd>
+					</dl>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">default</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implements</h3>
+				<ul class="tsd-hierarchy">
+					<li><span class="tsd-signature-type">TableInitOptions</span></li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="Table.default.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Table.default.html#styleTypes" class="tsd-kind-icon">style<wbr>Types</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Table.default.html#webView" class="tsd-kind-icon">web<wbr>View</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Table.default.html#tableOptions" class="tsd-kind-icon">table<wbr>Options</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Table.default.html#render" class="tsd-kind-icon">render</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Table.default.html#generateHtml" class="tsd-kind-icon">generate<wbr>Html</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new default<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TableInitOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Table.default.html" class="tsd-signature-type" data-tsd-kind="Class">default</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/c60c323/src/table/index.ts#L213">src/table/index.ts:213</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>It&#39;s creating a table in <strong>WebView</strong> or <strong>WebViewBridge</strong> using given values and style parameters</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">headerColumns</span><span style="color: #000000"> = [</span><span style="color: #A31515">&#039;First name&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;Last name&#039;</span><span style="color: #000000">];</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">bodyColumns</span><span style="color: #000000"> = [</span>
+<span style="color: #000000">    { </span><span style="color: #001080">first:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;Shmi&#039;</span><span style="color: #000000">, </span><span style="color: #001080">last:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;Skywalker&#039;</span><span style="color: #000000"> },</span>
+<span style="color: #000000">    { </span><span style="color: #001080">first:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;Anakin&#039;</span><span style="color: #000000">, </span><span style="color: #001080">last:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;Skywalker&#039;</span><span style="color: #000000"> },</span>
+<span style="color: #000000">    { </span><span style="color: #001080">first:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;Luke&#039;</span><span style="color: #000000">, </span><span style="color: #001080">last:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;Skywalker&#039;</span><span style="color: #000000"> },</span>
+<span style="color: #000000">    { </span><span style="color: #001080">first:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;Leia&#039;</span><span style="color: #000000">, </span><span style="color: #001080">last:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;Organa&#039;</span><span style="color: #000000"> },</span>
+<span style="color: #000000">    { </span><span style="color: #001080">first:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;Han&#039;</span><span style="color: #000000">, </span><span style="color: #001080">last:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;Solo&#039;</span><span style="color: #000000"> }</span>
+<span style="color: #000000">];</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">table</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Table</span><span style="color: #000000">({</span>
+<span style="color: #000000">    </span><span style="color: #001080">webView:</span><span style="color: #000000"> </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">webView1</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">tableOptions:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">        </span><span style="color: #001080">rows:</span><span style="color: #000000"> [</span>
+<span style="color: #000000">            {</span>
+<span style="color: #000000">                </span><span style="color: #001080">rowStyles:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">                    </span><span style="color: #001080">color:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;#fff&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">                    </span><span style="color: #001080">fontWeight:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;bold&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">                    </span><span style="color: #001080">backgroundColor:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;#000&#039;</span>
+<span style="color: #000000">                },</span>
+<span style="color: #000000">                </span><span style="color: #001080">columns:</span><span style="color: #000000"> </span><span style="color: #001080">headerColumns</span><span style="color: #000000">.</span><span style="color: #795E26">map</span><span style="color: #000000">(</span><span style="color: #001080">key</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> ({ </span><span style="color: #001080">key</span><span style="color: #000000"> }))</span>
+<span style="color: #000000">            },</span>
+<span style="color: #000000">            ...</span><span style="color: #001080">bodyColumns</span><span style="color: #000000">.</span><span style="color: #795E26">map</span><span style="color: #000000">(</span><span style="color: #001080">column</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> ({</span>
+<span style="color: #000000">                </span><span style="color: #001080">rowStyles:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">                    </span><span style="color: #001080">padding:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;10px 0&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">                    </span><span style="color: #001080">borderBottom:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;1px solid #000&#039;</span>
+<span style="color: #000000">                },</span>
+<span style="color: #000000">                </span><span style="color: #001080">columns:</span><span style="color: #000000"> [</span>
+<span style="color: #000000">                    { </span><span style="color: #001080">key:</span><span style="color: #000000"> </span><span style="color: #001080">column</span><span style="color: #000000">.</span><span style="color: #001080">first</span><span style="color: #000000"> },</span>
+<span style="color: #000000">                    { </span><span style="color: #001080">key:</span><span style="color: #000000"> </span><span style="color: #001080">column</span><span style="color: #000000">.</span><span style="color: #001080">last</span><span style="color: #000000"> }</span>
+<span style="color: #000000">                ]</span>
+<span style="color: #000000">            }))</span>
+<span style="color: #000000">        ]</span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000">});</span>
+<span style="color: #001080">table</span><span style="color: #000000">.</span><span style="color: #795E26">render</span><span style="color: #000000">();</span>
+</code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>options: <span class="tsd-signature-type">TableInitOptions</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>options - Base options object</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="Table.default.html" class="tsd-signature-type" data-tsd-kind="Class">default</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="styleTypes" class="tsd-anchor"></a>
+					<h3>style<wbr>Types</h3>
+					<div class="tsd-signature tsd-kind-icon">style<wbr>Types<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Readonly</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">{ </span>width<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>height<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>margin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>marginLeft<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>marginRight<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>marginBottom<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>marginTop<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>padding<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>paddingLeft<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>paddingRight<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>paddingBottom<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>paddingTop<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>color<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>background<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>backgroundColor<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>fontSize<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>fontWeight<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>fontFamily<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>border<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>borderLeft<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>borderRight<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>borderBottom<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>borderTop<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>alignItems<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>justifyContent<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>diplay<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>position<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>left<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>right<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>bottom<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>top<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>zIndex<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/c60c323/src/table/index.ts#L163">src/table/index.ts:163</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Web equivalent of CSS properties</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="webView" class="tsd-anchor"></a>
+					<h3>web<wbr>View</h3>
+					<div class="tsd-signature tsd-kind-icon">web<wbr>View<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">WebView</span><span class="tsd-signature-symbol"> | </span><a href="WebViewBridge.default.html" class="tsd-signature-type" data-tsd-kind="Class">default</a></div>
+					<aside class="tsd-sources">
+						<p>Implementation of TableInitOptions.webView</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/c60c323/src/table/index.ts#L164">src/table/index.ts:164</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="tableOptions" class="tsd-anchor"></a>
+					<h3>table<wbr>Options</h3>
+					<div class="tsd-signature tsd-kind-icon">table<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">TableOptions</span></div>
+					<aside class="tsd-sources">
+						<p>Implementation of TableInitOptions.tableOptions</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/c60c323/src/table/index.ts#L165">src/table/index.ts:165</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="render" class="tsd-anchor"></a>
+					<h3>render</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">render<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/c60c323/src/table/index.ts#L235">src/table/index.ts:235</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>It renders the table chart options to the WebView or WebViewBridge browser</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="generateHtml" class="tsd-anchor"></a>
+					<h3>generate<wbr>Html</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">generate<wbr>Html<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/c60c323/src/table/index.ts#L248">src/table/index.ts:248</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>It returns the generated html string</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>method</dt>
+									<dd></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="../modules.html">Modules</a>
+					</li>
+					<li class="current tsd-kind-module">
+						<a href="../modules/Table.html">Table</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-module">
+						<a href="Table.default.html" class="tsd-kind-icon">default</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="Table.default.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="Table.default.html#styleTypes" class="tsd-kind-icon">style<wbr>Types</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="Table.default.html#webView" class="tsd-kind-icon">web<wbr>View</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="Table.default.html#tableOptions" class="tsd-kind-icon">table<wbr>Options</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Table.default.html#render" class="tsd-kind-icon">render</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Table.default.html#generateHtml" class="tsd-kind-icon">generate<wbr>Html</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-namespace"><span class="tsd-kind-icon">Namespace</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>@smartface/extension-utils</title>
+	<meta name="description" content="Documentation for @smartface/extension-utils">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">@smartface/extension-utils</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<h1>@smartface/extension-utils</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#utility-extension-from-smartface" id="utility-extension-from-smartface" style="color: inherit; text-decoration: none;">
+					<h1>Utility Extension from Smartface</h1>
+				</a>
+				<p><a href="https://twitter.com/smartface_io"><img src="https://img.shields.io/badge/contact-@Smartface_io-blue.svg?style=flat" alt="Twitter: @Smartface_io"></a>
+				<a href="https://raw.githubusercontent.com/smartface/sf-extension-utils/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat" alt="License"></a></p>
+				<p>An extension that has following utility classes for Smartface Native Framework. You can check the documentation of each module under <a href="https://github.com/smartface/sf-extension-utils/tree/master/doc">doc directory</a></p>
+				<ul>
+					<li>RAU (easy use for Remote App Update)</li>
+					<li>Apple Device Namings (e.g converts iPhone12,5 to human readable iPhone 11 Pro Max)</li>
+					<li>Biometrics (easy &amp; best practice use for Fingerprint or Face ID)</li>
+					<li>Alert (fixes global alert)</li>
+					<li>SpeechToText (setups timers for speech recognition)</li>
+					<li>Permission (gets permissions with ease using a simple callback)</li>
+					<li>Location (gets location with callback, no need to worry for the permission code)</li>
+					<li>Nagivation (Draws a navigation route through your favorite applications like Google Maps, Yandex Navi, Apple Maps)</li>
+					<li>Nagivation (Drops a pin through your favorite applications like Google Maps, Yandex Maps, Apple Maps)</li>
+					<li>Timers (fixes thread issue of setTimeout &amp; setInterval)</li>
+					<li>Orientation (solves problems of managing different behaviour of Oritentation of iOS &amp; Android)</li>
+					<li>ServiceCall (service call library for common JSON requests)</li>
+					<li>ServiceCallOffline (service call library with offline capability)</li>
+					<li>ButtonActivity (setting an activity indicator with correct elevation on top of a button)</li>
+					<li>WebViewBridge (bi directional webview communication)</li>
+					<li>Touch (addPress event to any target object)</li>
+					<li>Color (converts Smartface color to TinyColor for color manipulations)</li>
+					<li>TextBox (max text length)</li>
+					<li>Html to Text (Converts html to natively supported AttributedString)</li>
+					<li>Copy (creates a shallow copy of an object)</li>
+					<li>Router (with buildExtender page management made easy and with back-close navigations made easy)</li>
+					<li>Guid (creates uuid-v4 text)</li>
+					<li>getCombinedStyle (gets style object from theme class)</li>
+					<li>RTLTabBarController (supports Right-To-Left direction and vice versa)</li>
+					<li>RTLSwipeView (supports Right-To-Left direction and vice versa)</li>
+					<li>PDF (renders base64 string as pdf file in a WebView)</li>
+					<li>RootDetection (detects if the device is rooted or not)</li>
+					<li>Art (Smartface module that allows you to draw vector graphics)</li>
+				</ul>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
+				</a>
+				<p>By default, Utility Extension is installed on any Smartface Project. If not installed or accidentally deleted, you can install it via on your script folder:</p>
+				<pre><code class="language-shell"><span style="color: #000000">npm i @smartface/extension-utils</span>
+</code></pre>
+				<a href="#how-to-use" id="how-to-use" style="color: inherit; text-decoration: none;">
+					<h2>How to use</h2>
+				</a>
+				<p>Smartface Utility Extension behaves like a normal npm package. You require/import the packages and you can use your Smartface Application on stereoids!</p>
+				<a href="#1-fix-global-methods" id="1-fix-global-methods" style="color: inherit; text-decoration: none;">
+					<h3>1. Fix global methods</h3>
+				</a>
+				<p>In <code>app.ts</code> make sure that <code>import &quot;sf-extension-utils&quot;</code> is set. This is fixing <code>alert</code>, <code>setTimeout</code>, <code>setInterval</code>, <code>clearTimeout</code> and <code>clearInterval</code> methods. Some of the other util modules might depend on it!</p>
+				<a href="#2-import-util-modules" id="2-import-util-modules" style="color: inherit; text-decoration: none;">
+					<h3>2. Import util modules</h3>
+				</a>
+				<p>Later in any file, import it with the path: <code>import &quot;sf-extension-utils/lib/&lt;moduleName&gt;&quot;</code> Such as:</p>
+				<ul>
+					<li><code>import &quot;sf-extension-utils/lib/rau&quot;</code></li>
+					<li><code>import &quot;sf-extension-utils/lib/permission&quot;</code></li>
+					<li><code>import &quot;sf-extension-utils/lib/biometricLogin&quot;</code></li>
+					<li><code>import &quot;sf-extension-utils/lib/speechtotext&quot;</code></li>
+					<li><code>import &quot;sf-extension-utils/lib/location&quot;</code></li>
+				</ul>
+				<a href="#3-import-their-default-or-normal-exports" id="3-import-their-default-or-normal-exports" style="color: inherit; text-decoration: none;">
+					<h3>3. Import their default or normal exports</h3>
+				</a>
+				<p>Some modules will only have one export, so they will be having default export. Before using any module, read their documentation for more information.
+				Example of default import:</p>
+				<ul>
+					<li><code>import BiometricLogin from &quot;sf-extension-utils/lib/biometricLogin&quot;</code></li>
+				</ul>
+				<p>However, some others will have different export types. You can import them like:</p>
+				<ul>
+					<li><code>import { createAttributedTexts, createAttributedStrings } from &quot;sf-extension-utils/lib/html-to-text&quot;</code></li>
+				</ul>
+				<a href="#api" id="api" style="color: inherit; text-decoration: none;">
+					<h3>API</h3>
+				</a>
+				<p>For each module api documentation is in separate file. Please visit <a href="./doc">doc</a> folder</p>
+				<a href="#release" id="release" style="color: inherit; text-decoration: none;">
+					<h2>Release</h2>
+				</a>
+				<p>Steps to do before release:</p>
+				<ul>
+					<li>Make sure the docs are up-to-date. Run <code>npm run docs</code> to update them.</li>
+					<li>Make sure that the version is appropiate to semver guidelines. Use e.g. <code>npm version minor</code> to change version. Do not do it manually.</li>
+					<li>Make sure your auth is correct.</li>
+				</ul>
+				<p>To publish a new release, use the command</p>
+				<pre><code><span style="color: #001080">npm</span><span style="color: #000000"> </span><span style="color: #001080">run</span><span style="color: #000000"> </span><span style="color: #001080">publish</span><span style="color: #000000">-</span><span style="color: #001080">utl</span>
+</code></pre>
+				<p>to publish to the right repository. Otherwise, you will get an error.</p>
+				<a href="#need-help" id="need-help" style="color: inherit; text-decoration: none;">
+					<h2>Need Help?</h2>
+				</a>
+				<p>Please <a href="https://github.com/smartface/sf-extension-utils/issues">submit an issue</a> on GitHub and provide information about your problem.</p>
+				<a href="#support-amp-documentation-amp-useful-links" id="support-amp-documentation-amp-useful-links" style="color: inherit; text-decoration: none;">
+					<h2>Support &amp; Documentation &amp; Useful Links</h2>
+				</a>
+				<ul>
+					<li><a href="https://docs.smartface.io/">Guides</a></li>
+					<li><a href="http://ref.smartface.io/">API Docs</a></li>
+					<li><a href="https://ide.smartface.io">Smartface Cloud Dashboard</a></li>
+				</ul>
+				<a href="#code-of-conduct" id="code-of-conduct" style="color: inherit; text-decoration: none;">
+					<h2>Code of Conduct</h2>
+				</a>
+				<p>We are committed to making participation in this project a harassment-free experience for everyone, regardless of the level of experience, gender, gender identity and expression, sexual orientation, disability, personal appearance, body size, race, ethnicity, age, religion, or nationality.
+				Please read and follow our <a href="./CODE_OF_CONDUCT.md">Code of Conduct</a>.</p>
+				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
+					<h2>License</h2>
+				</a>
+				<p>This project is licensed under the terms of the MIT license. See the <a href="./LICENSE">LICENSE</a> file. Within the scope of this license, all modifications to the source code, regardless of the fact that it is used commercially or not, shall be committed as a contribution back to this repository.</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="modules.html">Modules</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/Chart.html">Chart</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/CircularProgressBar.html">Circular<wbr>Progress<wbr>Bar</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/EmojiAnimation.html">Emoji<wbr>Animation</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/RTLSwipeView.html">RTLSwipe<wbr>View</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/RTLTabBarController.html">RTLTab<wbr>Bar<wbr>Controller</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/Table.html">Table</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/WebViewBridge.html">Web<wbr>View<wbr>Bridge</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/alert.html">alert</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/appleDevices.html">apple<wbr>Devices</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/async.html">async</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/color.html">color</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/copy.html">copy</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/extendEvent.html">extend<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/getCombinedStyle.html">get<wbr>Combined<wbr>Style</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/googleplayservcies.html">googleplayservcies</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/googlesafetynet.html">googlesafetynet</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/guid.html">guid</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/html_to_text.html">html-<wbr>to-<wbr>text</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/html_to_text_util.html">html-<wbr>to-<wbr>text/util</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/isEmulator.html">is<wbr>Emulator</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/location.html">location</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/map.html">map</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/navigation.html">navigation</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/network.html">network</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/orientation.html">orientation</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/pdf.html">pdf</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/permission.html">permission</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/rootdetection.html">rootdetection</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/router.html">router</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/router_active.html">router/active</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/router_buildExtender.html">router/build<wbr>Extender</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/service_call.html">service-<wbr>call</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/service_call_offline.html">service-<wbr>call-<wbr>offline</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/settings.html">settings</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/touch.html">touch</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-namespace"><span class="tsd-kind-icon">Namespace</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
