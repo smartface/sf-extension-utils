@@ -63,42 +63,12 @@
 				</a>
 				<p><a href="https://twitter.com/smartface_io"><img src="https://img.shields.io/badge/contact-@Smartface_io-blue.svg?style=flat" alt="Twitter: @Smartface_io"></a>
 				<a href="https://raw.githubusercontent.com/smartface/sf-extension-utils/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat" alt="License"></a></p>
-				<p>An extension that has following utility classes for Smartface Native Framework. You can check the documentation of each module under <a href="https://github.com/smartface/sf-extension-utils/tree/master/doc">doc directory</a></p>
-				<ul>
-					<li>RAU (easy use for Remote App Update)</li>
-					<li>Apple Device Namings (e.g converts iPhone12,5 to human readable iPhone 11 Pro Max)</li>
-					<li>Biometrics (easy &amp; best practice use for Fingerprint or Face ID)</li>
-					<li>Alert (fixes global alert)</li>
-					<li>SpeechToText (setups timers for speech recognition)</li>
-					<li>Permission (gets permissions with ease using a simple callback)</li>
-					<li>Location (gets location with callback, no need to worry for the permission code)</li>
-					<li>Nagivation (Draws a navigation route through your favorite applications like Google Maps, Yandex Navi, Apple Maps)</li>
-					<li>Nagivation (Drops a pin through your favorite applications like Google Maps, Yandex Maps, Apple Maps)</li>
-					<li>Timers (fixes thread issue of setTimeout &amp; setInterval)</li>
-					<li>Orientation (solves problems of managing different behaviour of Oritentation of iOS &amp; Android)</li>
-					<li>ServiceCall (service call library for common JSON requests)</li>
-					<li>ServiceCallOffline (service call library with offline capability)</li>
-					<li>ButtonActivity (setting an activity indicator with correct elevation on top of a button)</li>
-					<li>WebViewBridge (bi directional webview communication)</li>
-					<li>Touch (addPress event to any target object)</li>
-					<li>Color (converts Smartface color to TinyColor for color manipulations)</li>
-					<li>TextBox (max text length)</li>
-					<li>Html to Text (Converts html to natively supported AttributedString)</li>
-					<li>Copy (creates a shallow copy of an object)</li>
-					<li>Router (with buildExtender page management made easy and with back-close navigations made easy)</li>
-					<li>Guid (creates uuid-v4 text)</li>
-					<li>getCombinedStyle (gets style object from theme class)</li>
-					<li>RTLTabBarController (supports Right-To-Left direction and vice versa)</li>
-					<li>RTLSwipeView (supports Right-To-Left direction and vice versa)</li>
-					<li>PDF (renders base64 string as pdf file in a WebView)</li>
-					<li>RootDetection (detects if the device is rooted or not)</li>
-					<li>Art (Smartface module that allows you to draw vector graphics)</li>
-				</ul>
+				<p>An extension that has following utility classes for Smartface Native Framework. You can check the documentation here: <a href="https://smartface.github.io/sf-extension-utils/">https://smartface.github.io/sf-extension-utils/</a></p>
 				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
 					<h2>Installation</h2>
 				</a>
 				<p>By default, Utility Extension is installed on any Smartface Project. If not installed or accidentally deleted, you can install it via on your script folder:</p>
-				<pre><code class="language-shell"><span style="color: #000000">npm i @smartface/extension-utils</span>
+				<pre><code class="language-shell"><span style="color: #000000">yarn add @smartface/extension-utils</span>
 </code></pre>
 				<a href="#how-to-use" id="how-to-use" style="color: inherit; text-decoration: none;">
 					<h2>How to use</h2>
@@ -111,13 +81,13 @@
 				<a href="#2-import-util-modules" id="2-import-util-modules" style="color: inherit; text-decoration: none;">
 					<h3>2. Import util modules</h3>
 				</a>
-				<p>Later in any file, import it with the path: <code>import &quot;sf-extension-utils/lib/&lt;moduleName&gt;&quot;</code> Such as:</p>
+				<p>Later in any file, import it with the path: <code>import &quot;@smartface/extension-utils/lib/&lt;moduleName&gt;&quot;</code> Such as:</p>
 				<ul>
-					<li><code>import &quot;sf-extension-utils/lib/rau&quot;</code></li>
-					<li><code>import &quot;sf-extension-utils/lib/permission&quot;</code></li>
-					<li><code>import &quot;sf-extension-utils/lib/biometricLogin&quot;</code></li>
-					<li><code>import &quot;sf-extension-utils/lib/speechtotext&quot;</code></li>
-					<li><code>import &quot;sf-extension-utils/lib/location&quot;</code></li>
+					<li><code>import &quot;@smartface/extension-utils/lib/rau&quot;</code></li>
+					<li><code>import &quot;@smartface/extension-utils/lib/permission&quot;</code></li>
+					<li><code>import &quot;@smartface/extension-utils/lib/biometricLogin&quot;</code></li>
+					<li><code>import &quot;@smartface/extension-utils/lib/speechtotext&quot;</code></li>
+					<li><code>import &quot;@smartface/extension-utils/lib/location&quot;</code></li>
 				</ul>
 				<a href="#3-import-their-default-or-normal-exports" id="3-import-their-default-or-normal-exports" style="color: inherit; text-decoration: none;">
 					<h3>3. Import their default or normal exports</h3>
@@ -125,11 +95,11 @@
 				<p>Some modules will only have one export, so they will be having default export. Before using any module, read their documentation for more information.
 				Example of default import:</p>
 				<ul>
-					<li><code>import BiometricLogin from &quot;sf-extension-utils/lib/biometricLogin&quot;</code></li>
+					<li><code>import BiometricLogin from &quot;@smartface/extension-utils/lib/biometricLogin&quot;</code></li>
 				</ul>
 				<p>However, some others will have different export types. You can import them like:</p>
 				<ul>
-					<li><code>import { createAttributedTexts, createAttributedStrings } from &quot;sf-extension-utils/lib/html-to-text&quot;</code></li>
+					<li><code>import { createAttributedTexts, createAttributedStrings } from &quot;@smartface/extension-utils/lib/html-to-text&quot;</code></li>
 				</ul>
 				<a href="#api" id="api" style="color: inherit; text-decoration: none;">
 					<h3>API</h3>
@@ -140,14 +110,9 @@
 				</a>
 				<p>Steps to do before release:</p>
 				<ul>
-					<li>Make sure the docs are up-to-date. Run <code>npm run docs</code> to update them.</li>
-					<li>Make sure that the version is appropiate to semver guidelines. Use e.g. <code>npm version minor</code> to change version. Do not do it manually.</li>
-					<li>Make sure your auth is correct.</li>
+					<li>Make sure that the version is appropiate to semver guidelines. Use e.g. <code>yarn version --minor</code> to change version.</li>
 				</ul>
-				<p>To publish a new release, use the command</p>
-				<pre><code><span style="color: #001080">npm</span><span style="color: #000000"> </span><span style="color: #001080">run</span><span style="color: #000000"> </span><span style="color: #001080">publish</span><span style="color: #000000">-</span><span style="color: #001080">utl</span>
-</code></pre>
-				<p>to publish to the right repository. Otherwise, you will get an error.</p>
+				<p>To publish a new release, create a pull request or push directly to the master with new version. The script will publish it automatically.</p>
 				<a href="#need-help" id="need-help" style="color: inherit; text-decoration: none;">
 					<h2>Need Help?</h2>
 				</a>
@@ -158,7 +123,6 @@
 				<ul>
 					<li><a href="https://docs.smartface.io/">Guides</a></li>
 					<li><a href="http://ref.smartface.io/">API Docs</a></li>
-					<li><a href="https://ide.smartface.io">Smartface Cloud Dashboard</a></li>
 				</ul>
 				<a href="#code-of-conduct" id="code-of-conduct" style="color: inherit; text-decoration: none;">
 					<h2>Code of Conduct</h2>
