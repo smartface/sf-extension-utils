@@ -40,7 +40,7 @@ const ALERT_TIMEOUT = 500;
  * ```
  */
 
-export async function getPermission(
+export const getPermission = async (
 	opts: {
 		permissionTitle?: string;
 		androidPermission: keyof typeof Application.Android.Permissions;
@@ -55,7 +55,7 @@ export async function getPermission(
 		iosPermission: undefined,
 		showSettingsAlert: true,
 	}
-): Promise<string> {
+): Promise<string> => {
 	return new Promise((resolve, reject) => {
 		if (System.OS === System.OSType.IOS) {
 			if (opts.iosPermission === IOS_PERMISSIONS.CAMERA) {
@@ -169,6 +169,7 @@ export async function getPermission(
 	});
 }
 
+
 export const PERMISSION_STATUS: {
 	GRANTED: string;
 	DENIED: string;
@@ -226,4 +227,10 @@ function showAlertAndRedirectToSettings(
 			},
 		],
 	});
+}
+
+export default {
+	getPermission,
+	PERMISSION_STATUS,
+	IOS_PERMISSIONS
 }

@@ -14,7 +14,7 @@ const OrientationTypes = {
   PORTRAIT: "portrait",
   LANDSCAPE: "landscape"
 };
-
+exports.OrientationTypes = OrientationTypes;
 /**
  * gets current orientation of the device. Better to be called when the page is shown or later
  * @function orientation:getOrientation
@@ -31,9 +31,10 @@ const OrientationTypes = {
  * };
  * ```
  */
-export function getOrientation(): string {
+function getOrientation(): string {
   return Screen.height > Screen.width ? OrientationTypes.PORTRAIT : OrientationTypes.LANDSCAPE;
 }
+exports.getOrientation = getOrientation;
 
 /**
  * gives rotated value for the given orientation. Does not roates the screen!
@@ -49,9 +50,10 @@ export function getOrientation(): string {
  * console.log(String(orientation === orientationLib.LANDSCAPE); //true
  * ```
  */
-export function rotate(orientation: string): string {
+function rotate(orientation: string): string {
   return orientation === OrientationTypes.LANDSCAPE ? OrientationTypes.PORTRAIT : OrientationTypes.LANDSCAPE;
 }
+exports.rotate = rotate;
 
 /**
  * gives new orientation value during {UI.Page.onOrientationChange} event.
@@ -70,22 +72,25 @@ export function rotate(orientation: string): string {
  * };
  * ```
  */
-export function getOrientationOnchage(): string {
+function getOrientationOnchage(): string {
   const orientation = getOrientation();
   if (System.OS === System.OSType.ANDROID)
       return orientation;
   else
       return rotate(orientation);
 }
+exports.getOrientationOnchage = getOrientationOnchage;
 
 /**
  * Returns the short side of the phone.
  * E.g. for 840x680 device, it will return 680
  */
-export const shortEdge: number = Math.min(Screen.width, Screen.height);
-
+const shortEdge: number = Math.min(Screen.width, Screen.height);
+exports.shortEdge = shortEdge;
 /**
  * Returns the short side of the phone.
  * E.g. for 840x680 device, it will return 840
  */
-export const longEdge: number = Math.max(Screen.width, Screen.height)
+const longEdge: number = Math.max(Screen.width, Screen.height)
+exports.longEdge = longEdge;
+export = exports;
