@@ -213,7 +213,7 @@ interface EmojiAnimationOptions {
  * });
  *
  * // Play first emoji on WebView with 3 second animation
- * emojiAnimation.play(0, 3);
+ * emojiAnimation.playEmoji(0, 3);
  * ```
  */
 export default class EmojiAnimation {

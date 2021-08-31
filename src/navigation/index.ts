@@ -28,7 +28,7 @@ import Menu from "@smartface/native/ui/menu";
 import MenuItem from "@smartface/native/ui/menuitem";
 import { MAPS_LIST, TransportTypes } from '../shared';
 
-export { TransportTypes } from "../shared";
+//export { TransportTypes } from "../shared";
 /**
  * Prompts a menu to choose which navigation app to handle the location.
  * It sets the starting point to your current location, if the permission is granted.
@@ -45,12 +45,14 @@ export { TransportTypes } from "../shared";
  *  });
  *```
  */
-export function showNavigationMenu(options: MapsOptions): Promise<string> {
+ function showNavigationMenu(options: MapsOptions): Promise<string> {
 	return System.OS === System.OSType.IOS
 		? showNavigationMenuForIOS(options)
 		: showNavigationMenuForAndroid(options);
 }
-
+exports.TransportTypes = TransportTypes;
+exports.showNavigationMenu = showNavigationMenu;
+export = exports
 const showNavigationMenuForIOS = (function() {
 	let menu: Menu;
 	return function(options: MapsOptions): Promise<string> {
@@ -121,7 +123,6 @@ async function showNavigationMenuForAndroid(
 		const { latitude, longitude } = opts.location;
 		Application.call({
 			uriScheme: `geo:${latitude},${longitude}?q=${latitude},${longitude}&mode=${opts.transportType}`,
-			action: "",
 			//@ts-ignore
 			chooserTitle: global.lang.chooseMapsApp || "Choose Maps App",
 			//@ts-ignore
