@@ -16,6 +16,11 @@ jobs:
       - run: yarn
       - run: yarn run build
       - run: yarn run docs
+      - name: Deploy with gh-pages
+        run: |
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          npx gh-pages -d build -u "github-actions-bot <support+actions@github.com>"
       - run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

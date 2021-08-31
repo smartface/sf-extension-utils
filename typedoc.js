@@ -1,7 +1,6 @@
 const TypeDoc = require("typedoc");
 const fs = require('fs');
 const path = require('path');
-const ghpages = require('gh-pages');
 
 const OUTPUT_DIR = 'docs';
 const BASE_PATH = 'src';
@@ -32,7 +31,6 @@ async function main() {
   if (project) {
     // Rendered docs
     await app.generateDocs(project, OUTPUT_DIR);
-    ghpages.publish(OUTPUT_DIR)
   }
 }
 
