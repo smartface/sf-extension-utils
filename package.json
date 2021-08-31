@@ -6,6 +6,7 @@
   "repository": "https://github.com/smartface/sf-extension-utils",
   "scripts": {
     "docs": "bash ./createdoc.sh",
+    "test": "mocha",
     "publish-util": "npm publish --registry https://cd.smartface.io/repository/smartfacenpmpublic"
   },
   "keywords": [
@@ -39,6 +40,7 @@
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.14.0",
+    "chai": "^4.3.4",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-airbnb-base": "^14.0.0",
@@ -50,6 +52,7 @@
     "eslint-plugin-react": "^7.18.0",
     "eslint-plugin-react-hooks": "^1.7.0",
     "jsdoc-to-markdown": "^5.0.0",
+    "mocha": "^9.1.0",
     "prettier": "^1.19.1"
   },
   "config": {
