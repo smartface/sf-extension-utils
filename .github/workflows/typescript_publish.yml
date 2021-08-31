@@ -18,7 +18,7 @@ jobs:
       - run: yarn run docs
       - run: |
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-          npx gh-pages -d docs -u "github-actions-bot <support+actions@github.com>""
+          npx gh-pages -d docs -u "github-actions-bot <support+actions@github.com>"
       - run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH }}

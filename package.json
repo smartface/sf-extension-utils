@@ -7,8 +7,7 @@
   "scripts": {
     "docs": "node typedoc.js",
     "watch": "tsc -w",
-    "build": "tsc",
-    "gh-pages": "gh-pages -d docs -u 'github-actions-bot <support+actions@github.com>'"
+    "build": "tsc"
   },
   "keywords": [
     "smartface",
