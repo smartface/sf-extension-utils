@@ -1,6 +1,7 @@
 const TypeDoc = require("typedoc");
 const fs = require('fs');
 const path = require('path');
+const ghpages = require('gh-pages');
 
 const OUTPUT_DIR = 'docs';
 const BASE_PATH = 'src';
@@ -26,13 +27,12 @@ async function main() {
   });
 
   const project = app.convert();
-
+  
+  // Project may not have converted correctly
   if (project) {
-    // Project may not have converted correctly
-    const outputDir = OUTPUT_DIR;
-
     // Rendered docs
-    await app.generateDocs(project, outputDir);
+    await app.generateDocs(project, OUTPUT_DIR);
+    ghpages.publish(OUTPUT_DIR)
   }
 }
 
