@@ -28,29 +28,6 @@ import MenuItem from "@smartface/native/ui/menuitem";
 import Page from "@smartface/native/ui/page";
 import { MAPS_LIST } from '../shared';
 
-/**
- * Prompts a menu to choose which navigation app to handle the location.
- * It sets the starting point to your current location, if the permission is granted.
- * @function
- * @example
- * ```
- * import { showMapsMenu } from "@smartface/extension-utils/lib/maps";
- * showMapsMenu({
- *      page,
- *      location: {
- *          latitude: 37.4488259,
- *          longitude: -122.1600047
- *      },
- *      name: "Smartface Inc."
- *  });
- *```
- */
-export function showMapsMenu(options: MapsOptions): Promise<string> {
-	return System.OS === System.OSType.IOS
-		? showMapsMenuForIOS(options)
-		: showMapsForAndroid(options);
-}
-
 const showMapsMenuForIOS = (function() {
 	let menu: Menu;
 	return function(options: MapsOptions): Promise<string> {
@@ -122,7 +99,6 @@ async function showMapsForAndroid(
 			uriScheme: `geo:${latitude},${longitude}?q=${encodeURIComponent(
 				opts.name
 			)}`,
-			action: "",
 			//@ts-ignore
 			chooserTitle: global.lang.chooseMapsApp || "Choose Maps App",
 			//@ts-ignore
@@ -175,3 +151,29 @@ function createMapsMenuForIOS() {
 	menu.items = menuItems;
 	return menu;
 }
+
+/**
+ * Prompts a menu to choose which navigation app to handle the location.
+ * It sets the starting point to your current location, if the permission is granted.
+ * @function
+ * @example
+ * ```
+ * import { showMapsMenu } from "@smartface/extension-utils/lib/maps";
+ * showMapsMenu({
+ *      page,
+ *      location: {
+ *          latitude: 37.4488259,
+ *          longitude: -122.1600047
+ *      },
+ *      name: "Smartface Inc."
+ *  });
+ *```
+ */
+const showMapsMenu = (options: MapsOptions): Promise<string> => {
+	return System.OS === System.OSType.IOS
+		? showMapsMenuForIOS(options)
+		: showMapsForAndroid(options);
+}
+
+exports.showMapsMenu = showMapsMenu;
+export = exports
