@@ -85,91 +85,20 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Functions</h3>
+							<h3>References</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="network.html#isConnected" class="tsd-kind-icon">is<wbr>Connected</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="network.html#getIpAddress" class="tsd-kind-icon">get<wbr>IpAddress</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="network.html#export_" class="tsd-kind-icon">export&#61;</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="isConnected" class="tsd-anchor"></a>
-					<h3>is<wbr>Connected</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Connected<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/4f2210d/src/network/index.ts#L28">src/network/index.ts:28</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<dl class="tsd-comment-tags">
-									<dt>function</dt>
-									<dd></dd>
-									<dt>example</dt>
-									<dd><pre><code><span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">network</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@smartface/extension-utils/lib/network&#039;</span><span style="color: #000000">;</span>
-<span style="color: #001080">network</span><span style="color: #000000">.</span><span style="color: #795E26">isConnected</span><span style="color: #000000">()</span>
-<span style="color: #000000">    .</span><span style="color: #795E26">then</span><span style="color: #000000">(() </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">        </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">info</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;Connected to internet&quot;</span><span style="color: #000000">);</span>
-<span style="color: #000000">    })</span>
-<span style="color: #000000">    .</span><span style="color: #795E26">catch</span><span style="color: #000000">(() </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">        </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;Not connected to internet&quot;</span><span style="color: #000000">);</span>
-<span style="color: #000000">    });</span>
-</code></pre>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<ul>
-								<li>Resolves if the internet connectivity is available,
-								rejects o/w</li>
-							</ul>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="getIpAddress" class="tsd-anchor"></a>
-					<h3>get<wbr>IpAddress</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>IpAddress<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/4f2210d/src/network/index.ts#L67">src/network/index.ts:67</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<dl class="tsd-comment-tags">
-									<dt>function</dt>
-									<dd></dd>
-									<dt>example</dt>
-									<dd><pre><code><span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">network</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;@smartface/extension-utils/lib/network&quot;</span><span style="color: #000000">;</span>
-<span style="color: #001080">network</span><span style="color: #000000">.</span><span style="color: #795E26">getIpAddress</span><span style="color: #000000">()</span>
-<span style="color: #000000">    .</span><span style="color: #795E26">then</span><span style="color: #000000">((</span><span style="color: #001080">ip</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">        </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">info</span><span style="color: #000000">(</span><span style="color: #A31515">`Retrieved device IP </span><span style="color: #0000FF">${</span><span style="color: #001080">ip</span><span style="color: #0000FF">}</span><span style="color: #A31515">`</span><span style="color: #000000">);</span>
-<span style="color: #000000">    })</span>
-<span style="color: #000000">    .</span><span style="color: #795E26">catch</span><span style="color: #000000">(() </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">        </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;Cannot retrieve device IP&quot;</span><span style="color: #000000">);</span>
-<span style="color: #000000">    });</span>
-</code></pre>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<ul>
-								<li>Resolves current IP address of the device</li>
-							</ul>
-						</li>
-					</ul>
+				<h2>References</h2>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="export_" class="tsd-anchor"></a>
+					<h3>export&#61;</h3>
+					Re-exports <a href="location.html#export_">export&#x3D;</a>
 				</section>
 			</section>
 		</div>
@@ -186,11 +115,8 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="network.html#isConnected" class="tsd-kind-icon">is<wbr>Connected</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="network.html#getIpAddress" class="tsd-kind-icon">get<wbr>IpAddress</a>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="network.html#export_" class="tsd-kind-icon">export&#61;</a>
 					</li>
 				</ul>
 			</nav>

@@ -88,182 +88,20 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Functions</h3>
+							<h3>References</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="orientation.html#getOrientation" class="tsd-kind-icon">get<wbr>Orientation</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="orientation.html#rotate" class="tsd-kind-icon">rotate</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="orientation.html#getOrientationOnchage" class="tsd-kind-icon">get<wbr>Orientation<wbr>Onchage</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Variables</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="orientation.html#shortEdge" class="tsd-kind-icon">short<wbr>Edge</a></li>
-								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="orientation.html#longEdge" class="tsd-kind-icon">long<wbr>Edge</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="orientation.html#export_" class="tsd-kind-icon">export&#61;</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="getOrientation" class="tsd-anchor"></a>
-					<h3>get<wbr>Orientation</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Orientation<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/4f2210d/src/orientation/index.ts#L34">src/orientation/index.ts:34</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>gets current orientation of the device. Better to be called when the page is shown or later</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>function</dt>
-									<dd><p>orientation:getOrientation</p>
-									</dd>
-									<dt>static</dt>
-									<dd></dd>
-									<dt>example</dt>
-									<dd><pre><code><span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">orientationLib</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@smartface/extension-utils/lib/orientation&#039;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">onShow</span><span style="color: #000000"> = </span><span style="color: #0000FF">function</span><span style="color: #000000">() {</span>
-<span style="color: #000000">    </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">orientation</span><span style="color: #000000"> = </span><span style="color: #001080">orientationLib</span><span style="color: #000000">.</span><span style="color: #795E26">getOrientation</span><span style="color: #000000">();</span>
-<span style="color: #000000">    </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">orientation</span><span style="color: #000000">); </span><span style="color: #008000">// portrait</span>
-<span style="color: #000000">    </span><span style="color: #795E26">arrangeLayout</span><span style="color: #000000">(</span><span style="color: #0000FF">this</span><span style="color: #000000">, </span><span style="color: #001080">orientation</span><span style="color: #000000">);</span>
-<span style="color: #000000">};</span>
-</code></pre>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="rotate" class="tsd-anchor"></a>
-					<h3>rotate</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">rotate<span class="tsd-signature-symbol">(</span>orientation<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/4f2210d/src/orientation/index.ts#L52">src/orientation/index.ts:52</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>gives rotated value for the given orientation. Does not roates the screen!</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>function</dt>
-									<dd><p>orientation:rotate</p>
-									</dd>
-									<dt>static</dt>
-									<dd></dd>
-									<dt>example</dt>
-									<dd><pre><code><span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">orientationLib</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@smartface/extension-utils/lib/orientation&#039;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">orientation</span><span style="color: #000000"> = </span><span style="color: #001080">orientationLib</span><span style="color: #000000">.</span><span style="color: #795E26">rotate</span><span style="color: #000000">(</span><span style="color: #001080">orientationLib</span><span style="color: #000000">.</span><span style="color: #0070C1">PORTRAIT</span><span style="color: #000000">);</span>
-<span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #267F99">String</span><span style="color: #000000">(</span><span style="color: #001080">orientation</span><span style="color: #000000"> === </span><span style="color: #001080">orientationLib</span><span style="color: #000000">.</span><span style="color: #0070C1">LANDSCAPE</span><span style="color: #000000">); </span><span style="color: #008000">//true</span>
-</code></pre>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>orientation: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>value</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>rotated value for the given orientation</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="getOrientationOnchage" class="tsd-anchor"></a>
-					<h3>get<wbr>Orientation<wbr>Onchage</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Orientation<wbr>Onchage<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/4f2210d/src/orientation/index.ts#L73">src/orientation/index.ts:73</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>gives new orientation value during {UI.Page.onOrientationChange} event.
-									Should be called only within that event. Handles iOS &amp; Android differnces.</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>function</dt>
-									<dd><p>orientation:getOrientationOnchage</p>
-									</dd>
-									<dt>static</dt>
-									<dd></dd>
-									<dt>example</dt>
-									<dd><pre><code><span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">orientationLib</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@smartface/extension-utils/lib/orientation&#039;</span><span style="color: #000000">;</span>
-<span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">onOrientationChange</span><span style="color: #000000"> = </span><span style="color: #0000FF">function</span><span style="color: #000000">() {</span>
-<span style="color: #000000">    </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">orientation</span><span style="color: #000000"> = </span><span style="color: #001080">orientationLib</span><span style="color: #000000">.</span><span style="color: #795E26">getOrientationOnchage</span><span style="color: #000000">();</span>
-<span style="color: #000000">    </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #001080">orientation</span><span style="color: #000000">); </span><span style="color: #008000">// landscape</span>
-<span style="color: #000000">    </span><span style="color: #795E26">arrangeLayout</span><span style="color: #000000">(</span><span style="color: #0000FF">this</span><span style="color: #000000">, </span><span style="color: #001080">orientation</span><span style="color: #000000">);</span>
-<span style="color: #000000">};</span>
-</code></pre>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>target orientation value when the rotation completes</p>
-						</li>
-					</ul>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Variables</h2>
-				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
-					<a name="shortEdge" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> short<wbr>Edge</h3>
-					<div class="tsd-signature tsd-kind-icon">short<wbr>Edge<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = ...</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/4f2210d/src/orientation/index.ts#L85">src/orientation/index.ts:85</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Returns the short side of the phone.
-							E.g. for 840x680 device, it will return 680</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
-					<a name="longEdge" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> long<wbr>Edge</h3>
-					<div class="tsd-signature tsd-kind-icon">long<wbr>Edge<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = ...</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/4f2210d/src/orientation/index.ts#L91">src/orientation/index.ts:91</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Returns the short side of the phone.
-							E.g. for 840x680 device, it will return 840</p>
-						</div>
-					</div>
+				<h2>References</h2>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="export_" class="tsd-anchor"></a>
+					<h3>export&#61;</h3>
+					Re-exports <a href="location.html#export_">export&#x3D;</a>
 				</section>
 			</section>
 		</div>
@@ -280,20 +118,8 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="orientation.html#getOrientation" class="tsd-kind-icon">get<wbr>Orientation</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="orientation.html#rotate" class="tsd-kind-icon">rotate</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="orientation.html#getOrientationOnchage" class="tsd-kind-icon">get<wbr>Orientation<wbr>Onchage</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-module">
-						<a href="orientation.html#shortEdge" class="tsd-kind-icon">short<wbr>Edge</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-module">
-						<a href="orientation.html#longEdge" class="tsd-kind-icon">long<wbr>Edge</a>
+					<li class=" tsd-kind-reference tsd-parent-kind-module">
+						<a href="orientation.html#export_" class="tsd-kind-icon">export&#61;</a>
 					</li>
 				</ul>
 			</nav>
