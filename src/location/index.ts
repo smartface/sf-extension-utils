@@ -36,7 +36,7 @@ import { getPermission, IOS_PERMISSIONS } from "../permission";
  *     });
  * ```
  */
-async function getLocation(
+export async function getLocation(
 	callback?: (...args: any) => void,
 	showSettingsAlert = true,
 	permissionText?: string,
@@ -98,5 +98,6 @@ function getLocationActionForAndroid(): Promise<MapsOptions['location']> {
 	});
 }
 
-exports.getLocation = getLocation;
-export = exports;
+export default {
+	getLocation
+}

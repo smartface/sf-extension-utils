@@ -10,11 +10,11 @@
 import Screen from "@smartface/native/device/screen";
 import System from "@smartface/native/device/system";
 
-const OrientationTypes = {
+export const OrientationTypes = {
   PORTRAIT: "portrait",
   LANDSCAPE: "landscape"
 };
-exports.OrientationTypes = OrientationTypes;
+
 /**
  * gets current orientation of the device. Better to be called when the page is shown or later
  * @function orientation:getOrientation
@@ -31,10 +31,9 @@ exports.OrientationTypes = OrientationTypes;
  * };
  * ```
  */
-function getOrientation(): string {
+export function getOrientation(): string {
   return Screen.height > Screen.width ? OrientationTypes.PORTRAIT : OrientationTypes.LANDSCAPE;
 }
-exports.getOrientation = getOrientation;
 
 /**
  * gives rotated value for the given orientation. Does not roates the screen!
@@ -50,10 +49,9 @@ exports.getOrientation = getOrientation;
  * console.log(String(orientation === orientationLib.LANDSCAPE); //true
  * ```
  */
-function rotate(orientation: string): string {
+export function rotate(orientation: string): string {
   return orientation === OrientationTypes.LANDSCAPE ? OrientationTypes.PORTRAIT : OrientationTypes.LANDSCAPE;
 }
-exports.rotate = rotate;
 
 /**
  * gives new orientation value during {UI.Page.onOrientationChange} event.
@@ -72,25 +70,29 @@ exports.rotate = rotate;
  * };
  * ```
  */
-function getOrientationOnchage(): string {
+export function getOrientationOnchage(): string {
   const orientation = getOrientation();
   if (System.OS === System.OSType.ANDROID)
       return orientation;
   else
       return rotate(orientation);
 }
-exports.getOrientationOnchage = getOrientationOnchage;
 
 /**
  * Returns the short side of the phone.
  * E.g. for 840x680 device, it will return 680
  */
-const shortEdge: number = Math.min(Screen.width, Screen.height);
-exports.shortEdge = shortEdge;
+export const shortEdge: number = Math.min(Screen.width, Screen.height);
 /**
  * Returns the short side of the phone.
  * E.g. for 840x680 device, it will return 840
  */
-const longEdge: number = Math.max(Screen.width, Screen.height)
-exports.longEdge = longEdge;
-export = exports;
+export const longEdge: number = Math.max(Screen.width, Screen.height);
+export default {
+  OrientationTypes,
+  getOrientation,
+  rotate,
+  getOrientationOnchage,
+  shortEdge,
+  longEdge
+}

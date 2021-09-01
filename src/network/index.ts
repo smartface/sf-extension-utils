@@ -25,7 +25,7 @@ import Http from "@smartface/native/net/http";
  *     });
  * ```
  */
-function isConnected(): Promise<{ [key: string]: any }> {
+export function isConnected(): Promise<{ [key: string]: any }> {
 	return new Promise((resolve, reject) => {
 		const noConnection = Network.connectionType === Network.ConnectionType.NONE;
 		if (noConnection) {
@@ -64,7 +64,7 @@ function isConnected(): Promise<{ [key: string]: any }> {
  *     });
  * ```
  */
-function getIpAddress(): Promise<string> {
+export function getIpAddress(): Promise<string> {
 	return new Promise((resolve, reject) => {
 		const http = new Http();
 		http.requestString({
@@ -77,7 +77,7 @@ function getIpAddress(): Promise<string> {
 		});
 	});
 }
-
-exports.isConnected = isConnected;
-exports.getIpAddress = getIpAddress;
-export = exports;
+export default {
+	isConnected,
+	getIpAddress
+}
