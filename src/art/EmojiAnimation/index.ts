@@ -208,8 +208,8 @@ interface EmojiAnimationOptions {
  * import EmojiAnimation from '@smartface/extension-utils/lib/art/EmojiAnimation';
  *
  * const emojiAnimation = new EmojiAnimation({
- *     emojis: ['data:image/base64:eymBASDASd']
- *     webView: this.wvCircularAnimation
+ *     emojis: ['data:image/png;base64,eymBASDASd']
+ *     webView: this.wvEmojiAnimation
  * });
  *
  * // Play first emoji on WebView with 3 second animation
