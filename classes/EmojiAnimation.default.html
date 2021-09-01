@@ -81,12 +81,38 @@
 						<dd><pre><code><span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">EmojiAnimation</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@smartface/extension-utils/lib/art/EmojiAnimation&#039;</span><span style="color: #000000">;</span>
 
 <span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">emojiAnimation</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">EmojiAnimation</span><span style="color: #000000">({</span>
-<span style="color: #000000">    </span><span style="color: #001080">emojis:</span><span style="color: #000000"> [</span><span style="color: #A31515">&#039;data:image/base64:eymBASDASd&#039;</span><span style="color: #000000">]</span>
-<span style="color: #000000">    </span><span style="color: #001080">webView</span><span style="color: #000000">: </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">wvCircularAnimation</span>
+<span style="color: #000000">    </span><span style="color: #001080">emojis:</span><span style="color: #000000"> [</span><span style="color: #A31515">&#039;data:image/png;base64,eymBASDASd&#039;</span><span style="color: #000000">]</span>
+<span style="color: #000000">    </span><span style="color: #001080">webView</span><span style="color: #000000">: </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">wvEmojiAnimation</span>
 <span style="color: #000000">});</span>
 
 <span style="color: #008000">// Play first emoji on WebView with 3 second animation</span>
 <span style="color: #001080">emojiAnimation</span><span style="color: #000000">.</span><span style="color: #795E26">playEmoji</span><span style="color: #000000">(</span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #098658">3</span><span style="color: #000000">);</span>
+</code></pre>
+						</dd>
+						<dt>example</dt>
+						<dd><p>EmojiAnimation with an image inside the project</p>
+							<pre><code><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">emojiAnimation</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">EmojiAnimation</span><span style="color: #000000">({</span>
+<span style="color: #000000">    </span><span style="color: #001080">emojis:</span><span style="color: #000000"> [</span><span style="color: #A31515">`data:image/png;base64,</span><span style="color: #0000FF">${</span><span style="color: #001080">Image</span><span style="color: #000000FF">.</span><span style="color: #795E26">createFromFile</span><span style="color: #000000FF">(</span><span style="color: #A31515">&quot;images://smartface.png&quot;</span><span style="color: #000000FF">).</span><span style="color: #795E26">toBlob</span><span style="color: #000000FF">().</span><span style="color: #795E26">toBase64</span><span style="color: #000000FF">()</span><span style="color: #0000FF">}</span><span style="color: #A31515">`</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;data:image/png;base64,eymBASDASd&#039;</span><span style="color: #000000">]</span>
+<span style="color: #000000">    </span><span style="color: #001080">webView</span><span style="color: #000000">: </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">wvEmojiAnimation</span>
+<span style="color: #000000">});</span>
+
+<span style="color: #008000">// Play two emojis on WebView with 3 second animation</span>
+<span style="color: #001080">emojiAnimation</span><span style="color: #000000">.</span><span style="color: #795E26">playEmoji</span><span style="color: #000000">(</span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #098658">3</span><span style="color: #000000">);</span>
+<span style="color: #001080">emojiAnimation</span><span style="color: #000000">.</span><span style="color: #795E26">playEmoji</span><span style="color: #000000">(</span><span style="color: #098658">1</span><span style="color: #000000">, </span><span style="color: #098658">3</span><span style="color: #000000">);</span>
+</code></pre>
+							<ul>
+								<li>@example
+									Or do it with forEach
+									```
+									const emojiAnimation = new EmojiAnimation({
+									emojis: [<code>data:image/png;base64,${Image.createFromFile(&quot;images://smartface.png&quot;).toBlob().toBase64()}</code>, &#39;data:image/png;base64,eymBASDASd&#39;]
+									webView: this.wvEmojiAnimation
+								});</li>
+							</ul>
+							<p>// Play first emoji on WebView with 3 second animation
+								// Or use it with forEach.
+							emojiAnimation.emojis.forEach((_, index) =&gt; emojiAnimation.playEmoji(index, 3));</p>
+							<pre><code>
 </code></pre>
 						</dd>
 					</dl>
@@ -116,6 +142,12 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="EmojiAnimation.default.html#playEmoji" class="tsd-kind-icon">play<wbr>Emoji</a></li>
 							</ul>
 						</section>
+						<section class="tsd-index-section ">
+							<h3>Accessors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="EmojiAnimation.default.html#emojis" class="tsd-kind-icon">emojis</a></li>
+							</ul>
+						</section>
 					</div>
 				</section>
 			</section>
@@ -131,7 +163,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/02554b5/src/art/EmojiAnimation/index.ts#L224">src/art/EmojiAnimation/index.ts:224</a></li>
+									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/64f9afe/src/art/EmojiAnimation/index.ts#L254">src/art/EmojiAnimation/index.ts:254</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -157,7 +189,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/02554b5/src/art/EmojiAnimation/index.ts#L269">src/art/EmojiAnimation/index.ts:269</a></li>
+									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/64f9afe/src/art/EmojiAnimation/index.ts#L305">src/art/EmojiAnimation/index.ts:305</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -172,6 +204,51 @@
 								</li>
 								<li>
 									<h5>timing: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Accessors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
+					<a name="emojis" class="tsd-anchor"></a>
+					<h3>emojis</h3>
+					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> emojis<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> emojis<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/64f9afe/src/art/EmojiAnimation/index.ts#L312">src/art/EmojiAnimation/index.ts:312</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>To change emoji values, call the constructor(create new instance) again.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/64f9afe/src/art/EmojiAnimation/index.ts#L315">src/art/EmojiAnimation/index.ts:315</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>To change emoji values, call the constructor(create new instance) again.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -204,6 +281,9 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="EmojiAnimation.default.html#playEmoji" class="tsd-kind-icon">play<wbr>Emoji</a>
 							</li>
+							<li class=" tsd-kind-accessor tsd-parent-kind-class">
+								<a href="EmojiAnimation.default.html#emojis" class="tsd-kind-icon">emojis</a>
+							</li>
 						</ul>
 					</li>
 				</ul>
@@ -218,14 +298,15 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
-				<li class="tsd-kind-namespace"><span class="tsd-kind-icon">Namespace</span></li>
-				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
-				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
-			</ul>
-			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
 				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-namespace"><span class="tsd-kind-icon">Namespace</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
