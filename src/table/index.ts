@@ -71,7 +71,7 @@ type ColumnOptions = {
 /** Properties of rows in the table */
 type RowOptions = {
 	/** Inline style of row */
-	rowStyles?: typeof Styles;
+	rowStyles?: Partial<typeof Styles>;
 
 	/** Class of row */
 	rowClass?: string;

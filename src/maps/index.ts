@@ -26,7 +26,7 @@ import System from "@smartface/native/device/system";
 import Menu from "@smartface/native/ui/menu";
 import MenuItem from "@smartface/native/ui/menuitem";
 import Page from "@smartface/native/ui/page";
-import { MAPS_LIST } from '../shared';
+import { MAPS_LIST } from "../shared";
 
 const showMapsMenuForIOS = (function() {
 	let menu: Menu;
@@ -37,17 +37,21 @@ const showMapsMenuForIOS = (function() {
 
 			const { page, location, name } = options;
 			const locationName = name || "";
+
+			const appleMapsOnSelected = () => {
+				Application.call({
+					uriScheme: MAPS_LIST.APPLE_MAPS.URL,
+					data: {
+						ll: `${location.latitude},${location.longitude}`,
+						q: encodeURIComponent(locationName),
+					},
+					onSuccess: () => resolve(MAPS_LIST.APPLE_MAPS.SUCCESS_TEXT),
+					onFailure: () => reject(MAPS_LIST.APPLE_MAPS.FAILURE_TEXT),
+				});
+			};
 			menu.items.forEach((item) => {
 				if (item.title === MAPS_LIST.APPLE_MAPS.NAME) {
-					Application.call({
-						uriScheme: MAPS_LIST.APPLE_MAPS.URL,
-						data: {
-							ll: `${location.latitude},${location.longitude}`,
-							q: encodeURIComponent(locationName),
-						},
-						onSuccess: () => resolve(MAPS_LIST.APPLE_MAPS.SUCCESS_TEXT),
-						onFailure: () => reject(MAPS_LIST.APPLE_MAPS.FAILURE_TEXT),
-					});
+					item.onSelected = appleMapsOnSelected;
 				} else if (item.title === MAPS_LIST.GOOGLE_MAPS.NAME) {
 					item.onSelected = () => {
 						Application.call({
@@ -57,28 +61,30 @@ const showMapsMenuForIOS = (function() {
 								query: `${location.latitude},${location.longitude}`,
 								q: encodeURIComponent(locationName),
 							},
-              onSuccess: () => resolve(MAPS_LIST.GOOGLE_MAPS.SUCCESS_TEXT),
-              onFailure: () => reject(MAPS_LIST.GOOGLE_MAPS.FAILURE_TEXT),
+							onSuccess: () => resolve(MAPS_LIST.GOOGLE_MAPS.SUCCESS_TEXT),
+							onFailure: () => reject(MAPS_LIST.GOOGLE_MAPS.FAILURE_TEXT),
 						});
 					};
 				} else if (item.title === MAPS_LIST.YANDEX_MAPS.NAME) {
-          item.onSelected = () => {
+					item.onSelected = () => {
 						Application.call({
 							uriScheme: MAPS_LIST.YANDEX_MAPS.SCHEME,
-              data: {
-                ll: `${location.latitude},${location.longitude}`,
-                text: encodeURIComponent(locationName),
-              },
-              onSuccess: () => resolve(MAPS_LIST.YANDEX_MAPS.SUCCESS_TEXT),
-              onFailure: () => reject(MAPS_LIST.YANDEX_MAPS.FAILURE_TEXT),
+							data: {
+								ll: `${location.latitude},${location.longitude}`,
+								text: encodeURIComponent(locationName),
+							},
+							onSuccess: () => resolve(MAPS_LIST.YANDEX_MAPS.SUCCESS_TEXT),
+							onFailure: () => reject(MAPS_LIST.YANDEX_MAPS.FAILURE_TEXT),
 						});
-          }
-        } else if (item.ios.style === MenuItem.ios.Style.CANCEL) {
-          item.onSelected = () => reject('User Cancelled the choice');
-        }
+					};
+				} else if (item.ios.style === MenuItem.ios.Style.CANCEL) {
+					item.onSelected = () => reject("User Cancelled the choice");
+				}
 			});
-      const appleMapsItem = menu.items.find((item) => item.title === MAPS_LIST.APPLE_MAPS.NAME);
-			menu.items.length ? menu.show(page) : appleMapsItem?.onSelected();
+			const appleMapsItem = menu.items.find(
+				(item) => item.title === MAPS_LIST.APPLE_MAPS.NAME
+			);
+			menu.items.length ? menu.show(page) : appleMapsOnSelected();
 		});
 	};
 })();
@@ -90,7 +96,7 @@ async function showMapsForAndroid(
 			latitude: 0,
 			longitude: 0,
 		},
-    page: new Page()
+		page: new Page(),
 	}
 ): Promise<string> {
 	return new Promise((resolve, reject) => {
@@ -169,12 +175,12 @@ function createMapsMenuForIOS() {
  *  });
  *```
  */
-export function showMapsMenu (options: MapsOptions): Promise<string> {
+export function showMapsMenu(options: MapsOptions): Promise<string> {
 	return System.OS === System.OSType.IOS
 		? showMapsMenuForIOS(options)
 		: showMapsForAndroid(options);
 }
 
 export default {
-	showMapsMenu
-}
+	showMapsMenu,
+};
