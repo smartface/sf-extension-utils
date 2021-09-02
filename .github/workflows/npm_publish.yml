@@ -1,3 +1,4 @@
+
 name: Publish NPM
 on:
   push:
@@ -12,6 +13,20 @@ jobs:
         with:
           node-version: 14
           registry-url: https://registry.npmjs.org/
-      - run: yarn publish
+
+      - name: Install Dependencies
+        run: yarn
+      - name: Compile Project
+        run: yarn run build
+      - name: Generate Docs
+        run: yarn run docs
+      - name: Deploy Using gh-pages
+        run: |
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          npx gh-pages -d docs -u "github-actions-bot <support+actions@github.com>"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish Package
+        run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH }}
