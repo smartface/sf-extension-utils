@@ -90,26 +90,213 @@
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section tsd-is-external">
-							<h3>Variables</h3>
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-variable tsd-parent-kind-module tsd-is-external"><a href="router.html#export_" class="tsd-kind-icon">export&#61;</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="router.html#setDefaultBackStyle" class="tsd-kind-icon">set<wbr>Default<wbr>Back<wbr>Style</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="router.html#dissmissBuilder" class="tsd-kind-icon">dissmiss<wbr>Builder</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-module"><a href="router.html#default" class="tsd-kind-icon">default</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-external">
-				<h2>Variables</h2>
-				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module tsd-is-external">
-					<a name="export_" class="tsd-anchor"></a>
-					<h3>export&#61;</h3>
-					<div class="tsd-signature tsd-kind-icon">export&#61;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="setDefaultBackStyle" class="tsd-anchor"></a>
+					<h3>set<wbr>Default<wbr>Back<wbr>Style</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Default<wbr>Back<wbr>Style<span class="tsd-signature-symbol">(</span>opts<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>image<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Image</span><span class="tsd-signature-symbol">; </span>hideTitle<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/9774878/src/router/back-close/index.ts#L46">src/router/back-close/index.ts:46</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Changes the defult back icon of the StackRouter. This is replacing the constructor of the StackRouter. It should be called before creating any Router to be effective. Calling it after creation of the router has no effect.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">backClose</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@smartface/extension-utils/lib/router/back-close&#039;</span><span style="color: #000000">;</span>
+<span style="color: #001080">backClose</span><span style="color: #000000">.</span><span style="color: #795E26">setDefaultBackStyle</span><span style="color: #000000">({</span><span style="color: #001080">image:</span><span style="color: #000000"> </span><span style="color: #001080">backArrowImage</span><span style="color: #000000">, </span><span style="color: #001080">hideTitle:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000">});</span>
+</code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>opts: <span class="tsd-signature-symbol">{ </span>image<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Image</span><span class="tsd-signature-symbol">; </span>hideTitle<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> }</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5><span class="tsd-flag ts-flagOptional">Optional</span> image<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Image</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>hide<wbr>Title<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="dissmissBuilder" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagLet">Let</span> dissmiss<wbr>Builder</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">dissmiss<wbr>Builder<span class="tsd-signature-symbol">(</span>match<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, routeData<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, router<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, pageInstance<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, pageProps<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, route<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">DismissBuilderOptions</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/9774878/src/router/back-close/index.ts#L78">src/router/back-close/index.ts:78</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code><span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">backClose</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;@smartface/extension-utils/lib/router/back-close&quot;</span><span style="color: #000000">;</span>
+<span style="color: #001080">backClose</span><span style="color: #000000">.</span><span style="color: #795E26">dissmissBuilder</span><span style="color: #000000"> = (</span><span style="color: #001080">match</span><span style="color: #000000">, </span><span style="color: #001080">routeData</span><span style="color: #000000">, </span><span style="color: #001080">router</span><span style="color: #000000">, </span><span style="color: #001080">pageInstance</span><span style="color: #000000">, </span><span style="color: #001080">pageProps</span><span style="color: #000000">, </span><span style="color: #001080">route</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000"> </span><span style="color: #AF00DB">if</span><span style="color: #000000">(</span><span style="color: #001080">System</span><span style="color: #000000">.</span><span style="color: #0070C1">OS</span><span style="color: #000000"> === </span><span style="color: #A31515">&quot;iOS&quot;</span><span style="color: #000000">) {</span>
+<span style="color: #000000">  </span><span style="color: #AF00DB">if</span><span style="color: #000000">(</span><span style="color: #001080">match</span><span style="color: #000000">.</span><span style="color: #001080">url</span><span style="color: #000000"> !== </span><span style="color: #A31515">&quot;specificPage&quot;</span><span style="color: #000000">)</span>
+<span style="color: #000000">     </span><span style="color: #AF00DB">return</span><span style="color: #000000"> {</span><span style="color: #001080">text:</span><span style="color: #000000"> </span><span style="color: #001080">global</span><span style="color: #000000">.</span><span style="color: #001080">lang</span><span style="color: #000000">.</span><span style="color: #001080">done</span><span style="color: #000000">, </span><span style="color: #001080">position:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;right&quot;</span><span style="color: #000000">};</span>
+<span style="color: #000000">  </span><span style="color: #AF00DB">else</span>
+<span style="color: #000000">     </span><span style="color: #AF00DB">return</span><span style="color: #000000"> {</span><span style="color: #001080">image:</span><span style="color: #000000"> </span><span style="color: #001080">closeImage</span><span style="color: #000000">, </span><span style="color: #001080">position:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;left&quot;</span><span style="color: #000000">};</span>
+<span style="color: #000000"> }</span>
+<span style="color: #000000"> </span><span style="color: #AF00DB">else</span><span style="color: #000000"> </span><span style="color: #AF00DB">return</span><span style="color: #000000"> {</span><span style="color: #001080">image:</span><span style="color: #000000"> </span><span style="color: #001080">closeImage</span><span style="color: #000000">, </span><span style="color: #001080">position:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;left&quot;</span><span style="color: #000000">, </span><span style="color: #001080">color:</span><span style="color: #000000"> </span><span style="color: #001080">Color</span><span style="color: #000000">.</span><span style="color: #0070C1">WHITE</span><span style="color: #000000">};</span>
+<span style="color: #000000">};</span>
+</code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> match: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> routeData: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> router: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> pageInstance: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> pageProps: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> route: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">DismissBuilderOptions</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-module">
+					<a name="default" class="tsd-anchor"></a>
+					<h3>default</h3>
+					<div class="tsd-signature tsd-kind-icon">default<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>setDefaultBackStyle<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>opts<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>image<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Image</span><span class="tsd-signature-symbol">; </span>hideTitle<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">; </span>dissmissBuilder<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>match<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, routeData<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, router<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, pageInstance<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, pageProps<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, route<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">DismissBuilderOptions</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in node_modules/@types/node/globals.d.ts:37</li>
-						</ul>
 					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5>set<wbr>Default<wbr>Back<wbr>Style<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>opts<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>image<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Image</span><span class="tsd-signature-symbol">; </span>hideTitle<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+								<ul class="tsd-parameters">
+									<li class="tsd-parameter-signature">
+										<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal">
+											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>opts<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>image<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Image</span><span class="tsd-signature-symbol">; </span>hideTitle<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+										</ul>
+										<ul class="tsd-descriptions">
+											<li class="tsd-description">
+												<div class="tsd-comment tsd-typography">
+													<div class="lead">
+														<p>Changes the defult back icon of the StackRouter. This is replacing the constructor of the StackRouter. It should be called before creating any Router to be effective. Calling it after creation of the router has no effect.</p>
+													</div>
+													<dl class="tsd-comment-tags">
+														<dt>example</dt>
+														<dd><pre><code><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">backClose</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@smartface/extension-utils/lib/router/back-close&#039;</span><span style="color: #000000">;</span>
+<span style="color: #001080">backClose</span><span style="color: #000000">.</span><span style="color: #795E26">setDefaultBackStyle</span><span style="color: #000000">({</span><span style="color: #001080">image:</span><span style="color: #000000"> </span><span style="color: #001080">backArrowImage</span><span style="color: #000000">, </span><span style="color: #001080">hideTitle:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000">});</span>
+</code></pre>
+														</dd>
+													</dl>
+												</div>
+												<h4 class="tsd-parameters-title">Parameters</h4>
+												<ul class="tsd-parameters">
+													<li>
+														<h5>opts: <span class="tsd-signature-symbol">{ </span>image<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Image</span><span class="tsd-signature-symbol">; </span>hideTitle<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> }</span></h5>
+														<ul class="tsd-parameters">
+															<li class="tsd-parameter">
+																<h5><span class="tsd-flag ts-flagOptional">Optional</span> image<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Image</span></h5>
+															</li>
+															<li class="tsd-parameter">
+																<h5>hide<wbr>Title<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
+															</li>
+														</ul>
+													</li>
+												</ul>
+												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li class="tsd-parameter">
+								<h5>dissmiss<wbr>Builder<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>match<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, routeData<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, router<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, pageInstance<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, pageProps<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, route<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">DismissBuilderOptions</span></h5>
+								<ul class="tsd-parameters">
+									<li class="tsd-parameter-signature">
+										<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal">
+											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>match<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, routeData<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, router<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, pageInstance<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, pageProps<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, route<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">DismissBuilderOptions</span></li>
+										</ul>
+										<ul class="tsd-descriptions">
+											<li class="tsd-description">
+												<h4 class="tsd-parameters-title">Parameters</h4>
+												<ul class="tsd-parameters">
+													<li>
+														<h5><span class="tsd-flag ts-flagOptional">Optional</span> match: <span class="tsd-signature-type">any</span></h5>
+													</li>
+													<li>
+														<h5><span class="tsd-flag ts-flagOptional">Optional</span> routeData: <span class="tsd-signature-type">any</span></h5>
+													</li>
+													<li>
+														<h5><span class="tsd-flag ts-flagOptional">Optional</span> router: <span class="tsd-signature-type">any</span></h5>
+													</li>
+													<li>
+														<h5><span class="tsd-flag ts-flagOptional">Optional</span> pageInstance: <span class="tsd-signature-type">any</span></h5>
+													</li>
+													<li>
+														<h5><span class="tsd-flag ts-flagOptional">Optional</span> pageProps: <span class="tsd-signature-type">any</span></h5>
+													</li>
+													<li>
+														<h5><span class="tsd-flag ts-flagOptional">Optional</span> route: <span class="tsd-signature-type">any</span></h5>
+													</li>
+												</ul>
+												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">DismissBuilderOptions</span></h4>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -126,8 +313,14 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-external">
-						<a href="router.html#export_" class="tsd-kind-icon">export&#61;</a>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="router.html#setDefaultBackStyle" class="tsd-kind-icon">set<wbr>Default<wbr>Back<wbr>Style</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="router.html#dissmissBuilder" class="tsd-kind-icon">dissmiss<wbr>Builder</a>
+					</li>
+					<li class=" tsd-kind-property tsd-parent-kind-module">
+						<a href="router.html#default" class="tsd-kind-icon">default</a>
 					</li>
 				</ul>
 			</nav>
