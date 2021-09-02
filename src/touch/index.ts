@@ -153,6 +153,7 @@ function setDefaults(options: Partial<IDefaults>): void {
 		const [key, value] = entry;
 		(CurrentDefault as any)[key] = value;
 	});
+
 }
 
 /**
@@ -222,8 +223,6 @@ function addPressEvent(
 	target.__fadeMaxOpacity = currentOptions.fadeMaxOpacity;
 	//@ts-ignore
 	target.__fadeEffectColor__ = currentOptions.fadeColor;
-	//@ts-ignore
-	target.__fadeDuration__ = currentOptions.fadeDuration;
 
 	let touchStarted = false;
 
@@ -242,7 +241,7 @@ function addPressEvent(
 		triggerPress && touchStarted && event.call(target);
 		touchStarted = false;
 	}
-	var handleTouch = () => currentOptions.consumeTouch;
+	const handleTouch = () => !currentOptions.consumeTouch;
 
 	target.onTouch = () => {
 		startTouch();
@@ -289,9 +288,9 @@ function addPressEvent(
   });
   */
 function defaultAddPressEffect(this: View): void {
-	const TICKS = 1000 / DEFAULTS.fps;
+	const TICKS = 1000 / CurrentDefault.fps;
 	const ELEVATION_CHANGE_PER_FRAME =
-		DEFAULTS.elevationChange / (DEFAULTS.androidAnimationDuration / TICKS);
+		CurrentDefault.elevationChange / (CurrentDefault.androidAnimationDuration / TICKS);
 	if (System.OS === System.OSType.ANDROID) {
 		//@ts-ignore
 		this.__pressEffectAnimating__ = "addPress";
@@ -306,8 +305,8 @@ function defaultAddPressEffect(this: View): void {
 		//@ts-ignore
 		let maxZIndex =
 			//@ts-ignore
-			this.__pressEffectOriginalZIndex__ + DEFAULTS.elevationChange;
-		if (DEFAULTS.elevationChange !== 0) {
+			this.__pressEffectOriginalZIndex__ + CurrentDefault.elevationChange;
+		if (CurrentDefault.elevationChange !== 0) {
 			let animationInterval = setInterval(() => {
 				//@ts-ignore
 				if (this.__pressEffectAnimating__ !== "addPress") {
@@ -412,9 +411,9 @@ function defaultAddPressEffect(this: View): void {
   });
   */
 function defaultClearPressEffect(this: View): void {
-	const TICKS = 1000 / DEFAULTS.fps;
+	const TICKS = 1000 / CurrentDefault.fps;
 	const ELEVATION_CHANGE_PER_FRAME =
-		DEFAULTS.elevationChange / (DEFAULTS.androidAnimationDuration / TICKS);
+		CurrentDefault.elevationChange / (CurrentDefault.androidAnimationDuration / TICKS);
 	if (
 		System.OS === System.OSType.ANDROID &&
 		//@ts-ignore
@@ -424,7 +423,7 @@ function defaultClearPressEffect(this: View): void {
 	) {
 		//@ts-ignore
 		this.__pressEffectAnimating__ = "removePress";
-		if (DEFAULTS.elevationChange !== 0) {
+		if (CurrentDefault.elevationChange !== 0) {
 			let animationInterval = setInterval(() => {
 				//@ts-ignore
 				if (this.__pressEffectAnimating__ !== "removePress") {
