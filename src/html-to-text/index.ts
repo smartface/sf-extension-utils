@@ -34,12 +34,12 @@ type ArgumentTypes<F extends Function> = F extends (...args: infer A) => any
         const textView = new TextView();
         const htmlSource = "<span style=\"font-size: 24px; color: rgb(0, 0, 0); text-decoration-color: rgb(0, 0, 0);\"><span style=\"font-family: Nunito-LightItalic; font-size: 24px; background-color: transparent; color: rgb(0, 0, 0); text-decoration-color: rgb(0, 0, 0);\">Your </span><font face=\"ios-Default-Bold\" style=\"font-size: 24px; font-family: ios-Default-Regular; background-color: transparent; color: rgb(0, 0, 0); text-decoration-color: rgb(0, 0, 0);\">attributed </font><span style=\"text-decoration-line: underline; color: rgb(139, 87, 42); font-size: 24px; font-family: ios-Default-Regular; background-color: transparent; text-decoration-color: rgb(0, 0, 0);\">Stri<span style=\"color: rgb(139, 87, 42); text-decoration-line: underline ; text-decoration-color: rgb(0, 0, 0); font-size: 24px; font-family: ios-Default-Regular; background-color: transparent;\">ngs</span></span></span><div><span style=\"font-size: 16px; font-family: ios-Default-Regular; text-decoration-color: rgb(0, 0, 0);\"><span style=\"text-decoration-line: underline; font-size: 16px; font-family: ios-Default-Regular; text-decoration-color: rgb(0, 0, 0);\"><span style=\"text-decoration-line: underline; text-decoration-color: rgb(0, 0, 0); font-size: 24px; font-family: ios-Default-Regular; background-color: rgb(189, 16, 224);\">second</span></span></span></div><div><span style=\"font-size: 16px; font-family: ios-Default-Regular; text-decoration-color: rgb(0, 0, 0);\"><span style=\"text-decoration-line: underline; font-size: 16px; font-family: ios-Default-Regular; text-decoration-color: rgb(0, 0, 0);\"><span style=\"text-decoration-line: underline; text-decoration-color: rgb(0, 0, 0); font-size: 16px; font-family: ios-Default-Regular; background-color: rgb(189, 16, 224); color: rgb(248, 231, 28);\">Third</span></span></span></div>";
         const attributedStrings = createAttributedTexts(htmlSource);
-        textView.attributedText = attributedStrings.map(s => new AttributedString(propFactory(s)));
+        textView.attributedText = attributedStrings;
         ```
   * @param {string} htmlSource - Your html content to work with. The limitations and rules are specified in the document of this module.
   * @returns {Array.<AttributedString>}
   */
-export function createAttributedTexts(htmlSource: string): ArgumentTypes<typeof propFactory>[0] {
+export function createAttributedTexts(htmlSource: string): AttributedString[] {
 	const spannedHtmlSource = `<span>${htmlSource}</span>`;
 	const ast = HTML.parse(spannedHtmlSource.replace(/<br>/gim, "\n"));
 	const tree = getParsedTree(ast[0]);
@@ -60,14 +60,14 @@ export function createAttributedTexts(htmlSource: string): ArgumentTypes<typeof 
 
         const textView = new TextView();
         const htmlSource = "<span style=\"font-size: 24px; color: rgb(0, 0, 0); text-decoration-color: rgb(0, 0, 0);\"><span style=\"font-family: Nunito-LightItalic; font-size: 24px; background-color: transparent; color: rgb(0, 0, 0); text-decoration-color: rgb(0, 0, 0);\">Your </span><font face=\"ios-Default-Bold\" style=\"font-size: 24px; font-family: ios-Default-Regular; background-color: transparent; color: rgb(0, 0, 0); text-decoration-color: rgb(0, 0, 0);\">attributed </font><span style=\"text-decoration-line: underline; color: rgb(139, 87, 42); font-size: 24px; font-family: ios-Default-Regular; background-color: transparent; text-decoration-color: rgb(0, 0, 0);\">Stri<span style=\"color: rgb(139, 87, 42); text-decoration-line: underline ; text-decoration-color: rgb(0, 0, 0); font-size: 24px; font-family: ios-Default-Regular; background-color: transparent;\">ngs</span></span></span><div><span style=\"font-size: 16px; font-family: ios-Default-Regular; text-decoration-color: rgb(0, 0, 0);\"><span style=\"text-decoration-line: underline; font-size: 16px; font-family: ios-Default-Regular; text-decoration-color: rgb(0, 0, 0);\"><span style=\"text-decoration-line: underline; text-decoration-color: rgb(0, 0, 0); font-size: 24px; font-family: ios-Default-Regular; background-color: rgb(189, 16, 224);\">second</span></span></span></div><div><span style=\"font-size: 16px; font-family: ios-Default-Regular; text-decoration-color: rgb(0, 0, 0);\"><span style=\"text-decoration-line: underline; font-size: 16px; font-family: ios-Default-Regular; text-decoration-color: rgb(0, 0, 0);\"><span style=\"text-decoration-line: underline; text-decoration-color: rgb(0, 0, 0); font-size: 16px; font-family: ios-Default-Regular; background-color: rgb(189, 16, 224); color: rgb(248, 231, 28);\">Third</span></span></span></div>";
-        textView.attributedText = createAttributedStrings(htmlSource);
+        textView.attributedText = attributedStrings.map(s => new AttributedString(propFactory(s)));
         ```
  * @param {string} htmlSource - Your html content to work with. The limitations and rules are specified in the document of this module.
  * @returns {Array.<AttributedString>}
  */
 export function createAttributedStrings(
 	htmlSource: string
-): AttributedString[] {
+): ArgumentTypes<typeof propFactory>[0] {
   const spannedHtmlSource = `<span>${htmlSource}</span>`;
   const ast = HTML.parse(spannedHtmlSource.replace(/<br>/gim, '\n'));
   const tree = getParsedTree(ast[0]);
@@ -125,7 +125,7 @@ function getParsedStyleObject(style: any) {
   return res;
 }
 
-function getAttributedStringsFromTree(tree: any, resStrings?: AttributedString[]) {
+function getAttributedStringsFromTree(tree: any, resStrings?: AttributedString[]): AttributedString[] {
   resStrings = resStrings || [];
 
   let obj = { font: {} };
