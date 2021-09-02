@@ -39,7 +39,7 @@ type ArgumentTypes<F extends Function> = F extends (...args: infer A) => any
   * @param {string} htmlSource - Your html content to work with. The limitations and rules are specified in the document of this module.
   * @returns {Array.<AttributedString>}
   */
-export function createAttributedTexts(htmlSource: string): AttributedString[] {
+export function createAttributedTexts(htmlSource: string): ArgumentTypes<typeof propFactory>[0] {
 	const spannedHtmlSource = `<span>${htmlSource}</span>`;
 	const ast = HTML.parse(spannedHtmlSource.replace(/<br>/gim, "\n"));
 	const tree = getParsedTree(ast[0]);
@@ -67,7 +67,7 @@ export function createAttributedTexts(htmlSource: string): AttributedString[] {
  */
 export function createAttributedStrings(
 	htmlSource: string
-): ArgumentTypes<typeof propFactory>[0] {
+): AttributedString[] {
   const spannedHtmlSource = `<span>${htmlSource}</span>`;
   const ast = HTML.parse(spannedHtmlSource.replace(/<br>/gim, '\n'));
   const tree = getParsedTree(ast[0]);

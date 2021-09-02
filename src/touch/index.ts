@@ -474,9 +474,11 @@ function defaultClearPressEffect(this: View): void {
 		__SF_CATransaction.commit();
 		//@ts-ignore
 		var animationDelegate = new __SF_SMFCAAnimationDelegate();
-		animationDelegate.animationDidStop = function(result: any) {
+		animationDelegate.animationDidStop = (result: any) => {
 			if (result.flag) {
+				//@ts-ignore
 				this.__pressEffectLayer__.removeFromSuperlayer();
+				//@ts-ignore
 				this.__isPressEffetLayerActive__ = false;
 			}
 		};
