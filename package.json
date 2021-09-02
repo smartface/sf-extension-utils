@@ -1,13 +1,14 @@
 {
   "name": "@smartface/extension-utils",
-  "version": "15.0.2",
+  "version": "16.0.0-rc.22",
   "description": "Utils Extension for Smartface Native Framework",
   "main": "lib/index.js",
   "repository": "https://github.com/smartface/sf-extension-utils",
   "scripts": {
-    "docs": "bash ./createdoc.sh",
-    "test": "mocha",
-    "publish-util": "npm publish --registry https://cd.smartface.io/repository/smartfacenpmpublic"
+    "docs": "node typedoc.js",
+    "watch": "tsc -w",
+    "build": "tsc",
+    "test": "mocha"
   },
   "keywords": [
     "smartface",
@@ -39,8 +40,17 @@
     "wolfy87-eventemitter": "^5.2.9"
   },
   "devDependencies": {
+    "@smartface/contx": "^4.0.0 || ^4.0.0-rc || ^4.0.1-rc",
+    "@smartface/native": "^4.3.4 || ^4.3.5-beta || ^4.3.5.alpha",
+    "@smartface/router": "^2.0.0 || ^2.0.0-rc",
+    "@types/node": "^16.6.1",
+    "@types/tinycolor2": "^1.4.3",
     "@typescript-eslint/eslint-plugin": "^4.14.0",
+<<<<<<< HEAD
+    "@typescript-eslint/parser": "^4.29.2",
+=======
     "chai": "^4.3.4",
+>>>>>>> master
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-airbnb-base": "^14.0.0",
@@ -51,13 +61,21 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.18.0",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "gh-pages": "^3.2.3",
+    "install-peers-cli": "^2.2.0",
     "jsdoc-to-markdown": "^5.0.0",
+<<<<<<< HEAD
+    "prettier": "^1.19.1",
+    "typedoc": "^0.21.6",
+    "typescript": "^4.3.5"
+=======
     "mocha": "^9.1.0",
     "prettier": "^1.19.1"
+>>>>>>> master
   },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
+  "peerDependencies": {
+    "@smartface/contx": "^4.0.0 || ^4.0.0-rc || ^4.0.1-rc",
+    "@smartface/native": "^4.3.4 || ^4.3.5-beta || ^4.3.5.alpha",
+    "@smartface/router": "^2.0.0 || ^2.0.0-rc"
   }
 }

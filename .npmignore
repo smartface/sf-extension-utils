@@ -1,1 +1,8 @@
 createdoc.sh
+node_modules
+src
+doc
+docs
+.github
+typedoc.js
+tsconfig.*
