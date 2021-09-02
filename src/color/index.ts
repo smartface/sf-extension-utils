@@ -80,3 +80,10 @@ function pad0(value: string): string {
       return "0" + value;
   else return value;
 }
+
+export default {
+  rgb,
+  rgba,
+  argb,
+  tinycolor
+}
