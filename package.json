@@ -1,6 +1,6 @@
 {
   "name": "@smartface/extension-utils",
-  "version": "16.0.0-rc.22",
+  "version": "16.0.0-rc.23",
   "description": "Utils Extension for Smartface Native Framework",
   "main": "lib/index.js",
   "repository": "https://github.com/smartface/sf-extension-utils",
@@ -61,10 +61,10 @@
     "gh-pages": "^3.2.3",
     "install-peers-cli": "^2.2.0",
     "jsdoc-to-markdown": "^5.0.0",
+    "mocha": "^9.1.0",
     "prettier": "^1.19.1",
     "typedoc": "^0.21.6",
-    "typescript": "^4.3.5",
-    "mocha": "^9.1.0"
+    "typescript": "^4.3.5"
   },
   "peerDependencies": {
     "@smartface/contx": "^4.0.0 || ^4.0.0-rc || ^4.0.1-rc",
