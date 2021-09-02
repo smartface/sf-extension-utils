@@ -1,5 +1,5 @@
 const { expect } = require("chai");
-const guid = require("../lib/guid");
+const guid = require("../lib/guid").default;
 
 const guidRegex = /^[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}$/i;
 

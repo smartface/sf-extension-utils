@@ -1,5 +1,5 @@
 const { expect } = require("chai");
-const copy = require("../lib/copy");
+const copy = require("../lib/copy").default;
 
 
 const languages = ['TR', 'US', 'UK', 'NZ', 'AU'];
