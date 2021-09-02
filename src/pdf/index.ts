@@ -83,7 +83,7 @@ const htmlTemplate = `
  *     zoomEnabled: true
  * });
  */
-function render(options: {
+export function render(options: {
 	customWidth?: number;
 	webView: WebView;
 	base64pdf: string;
@@ -99,5 +99,6 @@ function render(options: {
 	options.webView.loadHTML(html);
 }
 
-exports.render = render;
-export = exports;
+export default {
+    render
+}
