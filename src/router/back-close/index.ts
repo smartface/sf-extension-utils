@@ -43,7 +43,7 @@ type DismissBuilderOptions = {
  * backClose.setDefaultBackStyle({image: backArrowImage, hideTitle: true});
  * ```
  */
-export function setDefaultBackStyle(opts: {
+function setDefaultBackStyle(opts: {
 	image?: Image;
 	hideTitle: boolean;
 }): void {
@@ -75,7 +75,7 @@ export function setDefaultBackStyle(opts: {
  * };
  * ```
  */
-export let dissmissBuilder: (
+let dissmissBuilder: (
 	match?: any,
 	routeData?: any,
 	router?: any,
@@ -229,7 +229,15 @@ function backClose(
 }
 
 buildExtender.postProcessors.push(backClose);
-export default {
-	setDefaultBackStyle,
-	dissmissBuilder
-}
+//@ts-ignore
+exports.setDefaultBackStyle = setDefaultBackStyle;
+//@ts-ignore
+exports.dissmissBuilder = null;
+//@ts-ignore
+Object.defineProperty(exports, "dissmissBuilder", {
+    get: () => dissmissBuilder,
+    set: value => dissmissBuilder = value,
+    configurable: false,
+    enumerable: true
+});
+export = exports 
