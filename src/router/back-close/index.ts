@@ -21,11 +21,11 @@ const POSITION = {
 	RIGHT: "right",
 };
 
-let backArrowImage: Image | null = null;
+let backArrowImage: Image = Image.createFromFile("images://arrow_back.png");
 let hideBackBarButton = false;
 
 type DismissBuilderOptions = {
-	image: Image;
+	image?: Image;
 	position: string;
 	color?: Color;
 	skip?: boolean;
@@ -43,11 +43,11 @@ type DismissBuilderOptions = {
  * backClose.setDefaultBackStyle({image: backArrowImage, hideTitle: true});
  * ```
  */
-function setDefaultBackStyle(opts: {
-	image: Image;
+export function setDefaultBackStyle(opts: {
+	image?: Image;
 	hideTitle: boolean;
 }): void {
-	backArrowImage = opts.image;
+	backArrowImage = opts.image || backArrowImage;
 	hideBackBarButton = opts.hideTitle;
 }
 
@@ -75,7 +75,7 @@ function setDefaultBackStyle(opts: {
  * };
  * ```
  */
-let dissmissBuilder: (
+export let dissmissBuilder: (
 	match?: any,
 	routeData?: any,
 	router?: any,
@@ -97,7 +97,7 @@ function defaultDissmissBuilder(
 		position = POSITION.LEFT;
 	}
 	return {
-		image: new Image(),
+		//image: new Image(),
 		//@ts-ignore
 		text: global.lang.done,
 		position,
@@ -175,7 +175,6 @@ function backClose(
 				}
 			} else {
 				pageInstance.extendEvent("onLoad", () => {
-					if (backArrowImage) {
 						let hbi = new HeaderBarItem({
 							image: backArrowImage,
 							onPress: () => {
@@ -188,7 +187,6 @@ function backClose(
 						});
 						pageInstance.headerBar.setLeftItem(hbi);
 						pageInstance.headerBar.leftItemEnabled = true;
-					}
 				});
 			}
 		} else if (System.OS === System.OSType.IOS) {
@@ -231,15 +229,7 @@ function backClose(
 }
 
 buildExtender.postProcessors.push(backClose);
-//@ts-ignore
-exports.setDefaultBackStyle = setDefaultBackStyle;
-//@ts-ignore
-exports.dissmissBuilder = null;
-//@ts-ignore
-Object.defineProperty(exports, "dissmissBuilder", {
-    get: () => dissmissBuilder,
-    set: value => dissmissBuilder = value,
-    configurable: false,
-    enumerable: true
-});
-export = exports
+export default {
+	setDefaultBackStyle,
+	dissmissBuilder
+}
