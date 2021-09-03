@@ -210,7 +210,7 @@ function addPressEvent(
 
 	currentOptions.startTouchEffect = defaultAddPressEffect.bind(target);
 	currentOptions.endTouchEffect = defaultClearPressEffect.bind(target);
-	if (currentOptions.disableRippleEffect) {
+	if (!currentOptions.disableRippleEffect) {
 		applyRippleEffect.call(
 			target,
 			!currentOptions.rippleUseBackground,
