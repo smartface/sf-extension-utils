@@ -4,15 +4,13 @@ const path = require('path');
 
 const OUTPUT_DIR = 'docs';
 const BASE_PATH = 'src';
-const BASE_DIRECTORY = 'base'; // To be excluded from documentation
 
 function getModuleNamesWithPath(basePath) {
   const files = fs.readdirSync(basePath, { 
     withFileTypes: true
   });
   const directories = files.filter((dirent) => dirent.isDirectory());
-  const filteredDirectories = directories.filter((directory) => directory.name !== BASE_DIRECTORY);
-  return filteredDirectories.map((dirent) => `${basePath}${path.sep}${dirent.name}`);
+  return directories.map((dirent) => `${basePath}${path.sep}${dirent.name}`);
 }
 
 async function main() {
@@ -23,7 +21,12 @@ async function main() {
     // typedoc options here
     entryPoints: fileNames,
     sort: ["source-order", "visibility"],
-    excludePrivate: true
+    excludePrivate: true,
+    excludeNotDocumented: true,
+    excludeInternal: true,
+    pretty: true,
+    categorizeByGroup: true,
+    emit: true
   });
 
   const project = app.convert();
