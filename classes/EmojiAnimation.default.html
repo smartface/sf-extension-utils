@@ -100,19 +100,17 @@
 <span style="color: #001080">emojiAnimation</span><span style="color: #000000">.</span><span style="color: #795E26">playEmoji</span><span style="color: #000000">(</span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #098658">3</span><span style="color: #000000">);</span>
 <span style="color: #001080">emojiAnimation</span><span style="color: #000000">.</span><span style="color: #795E26">playEmoji</span><span style="color: #000000">(</span><span style="color: #098658">1</span><span style="color: #000000">, </span><span style="color: #098658">3</span><span style="color: #000000">);</span>
 </code></pre>
-							<ul>
-								<li>@example
-									Or do it with forEach
-									```
-									const emojiAnimation = new EmojiAnimation({
-									emojis: [<code>data:image/png;base64,${Image.createFromFile(&quot;images://smartface.png&quot;).toBlob().toBase64()}</code>, &#39;data:image/png;base64,eymBASDASd&#39;]
-									webView: this.wvEmojiAnimation
-								});</li>
-							</ul>
-							<p>// Play first emoji on WebView with 3 second animation
-								// Or use it with forEach.
-							emojiAnimation.emojis.forEach((_, index) =&gt; emojiAnimation.playEmoji(index, 3));</p>
-							<pre><code>
+						</dd>
+						<dt>example</dt>
+						<dd><p>Or do it with forEach</p>
+							<pre><code><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">emojiAnimation</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">EmojiAnimation</span><span style="color: #000000">({</span>
+<span style="color: #000000">    </span><span style="color: #001080">emojis:</span><span style="color: #000000"> [</span><span style="color: #A31515">`data:image/png;base64,</span><span style="color: #0000FF">${</span><span style="color: #001080">Image</span><span style="color: #000000FF">.</span><span style="color: #795E26">createFromFile</span><span style="color: #000000FF">(</span><span style="color: #A31515">&quot;images://smartface.png&quot;</span><span style="color: #000000FF">).</span><span style="color: #795E26">toBlob</span><span style="color: #000000FF">().</span><span style="color: #795E26">toBase64</span><span style="color: #000000FF">()</span><span style="color: #0000FF">}</span><span style="color: #A31515">`</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;data:image/png;base64,eymBASDASd&#039;</span><span style="color: #000000">]</span>
+<span style="color: #000000">    </span><span style="color: #001080">webView</span><span style="color: #000000">: </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">wvEmojiAnimation</span>
+<span style="color: #000000">});</span>
+
+<span style="color: #008000">// Play first emoji on WebView with 3 second animation</span>
+<span style="color: #008000">// Or use it with forEach.</span>
+<span style="color: #001080">emojiAnimation</span><span style="color: #000000">.</span><span style="color: #001080">emojis</span><span style="color: #000000">.</span><span style="color: #795E26">forEach</span><span style="color: #000000">((</span><span style="color: #001080">_</span><span style="color: #000000">, </span><span style="color: #001080">index</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">emojiAnimation</span><span style="color: #000000">.</span><span style="color: #795E26">playEmoji</span><span style="color: #000000">(</span><span style="color: #001080">index</span><span style="color: #000000">, </span><span style="color: #098658">3</span><span style="color: #000000">));</span>
 </code></pre>
 						</dd>
 					</dl>
@@ -163,7 +161,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/627d1c9/src/art/EmojiAnimation/index.ts#L254">src/art/EmojiAnimation/index.ts:254</a></li>
+									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/5b46b9c/src/art/EmojiAnimation/index.ts#L254">src/art/EmojiAnimation/index.ts:254</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -189,7 +187,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/627d1c9/src/art/EmojiAnimation/index.ts#L305">src/art/EmojiAnimation/index.ts:305</a></li>
+									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/5b46b9c/src/art/EmojiAnimation/index.ts#L305">src/art/EmojiAnimation/index.ts:305</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -224,7 +222,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/627d1c9/src/art/EmojiAnimation/index.ts#L312">src/art/EmojiAnimation/index.ts:312</a></li>
+									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/5b46b9c/src/art/EmojiAnimation/index.ts#L312">src/art/EmojiAnimation/index.ts:312</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -237,7 +235,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/627d1c9/src/art/EmojiAnimation/index.ts#L315">src/art/EmojiAnimation/index.ts:315</a></li>
+									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/5b46b9c/src/art/EmojiAnimation/index.ts#L315">src/art/EmojiAnimation/index.ts:315</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

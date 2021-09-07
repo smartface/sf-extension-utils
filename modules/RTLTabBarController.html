@@ -68,8 +68,12 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Smartface RTLTabBarController To Support RIGHT-TO-LEFT Languages</p>
+						<p>Smartface RTLTabBarController To Support RIGHT-TO-LEFT Languages
+							RTLTabBarController class is inherited from TabBarController. It manipulates
+							the index/array based functions/properties to support RTL languages. Such as,
+						in case of app direction is RTL, array &amp; index values are reversed.</p>
 					</div>
+					<p>Note: Returned indexes or arrays won&#39;t impact the logic.</p>
 					<dl class="tsd-comment-tags">
 						<dt>author</dt>
 						<dd><p>Muhammed Yalcin Kuru <a href="mailto:yalcin.kuru@smartface.io">yalcin.kuru@smartface.io</a></p>
@@ -79,6 +83,20 @@
 						</dd>
 						<dt>copyright</dt>
 						<dd><p>Smartface 2019</p>
+						</dd>
+						<dt>see</dt>
+						<dd><p><a href="http://ref.smartface.io/#!/api/UI.TabBarController" class="external">arguments, properties &amp; methods</a></p>
+						</dd>
+						<dt>example</dt>
+						<dd><pre><code><span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">RTLTabBarController</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@smartface/extension-utils/lib/components/rtl-tabbarcontroller&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyTabBarController</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">RTLTabBarController</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #0000FF">constructor</span><span style="color: #000000">() {</span>
+<span style="color: #000000">        </span><span style="color: #0000FF">super</span><span style="color: #000000">();</span>
+<span style="color: #000000">        </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">onPageCreate</span><span style="color: #000000"> = (</span><span style="color: #001080">index</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {}</span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000">}</span>
+</code></pre>
 						</dd>
 					</dl>
 				</div>

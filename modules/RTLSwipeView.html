@@ -68,8 +68,12 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Smartface RTLSwipeView To Support RIGHT-TO-LEFT Languages</p>
+						<p>Smartface RTLSwipeView To Support RIGHT-TO-LEFT Languages
+							RTLSwipeView class is inherited from SwipeView. It manipulates the index/array
+							based functions/properties to support RTL languages. Such as, in case of app
+						direction is RTL, array &amp; index values are reversed.</p>
 					</div>
+					<p>Note: Returned indexes or arrays won&#39;t impact the logic.</p>
 					<dl class="tsd-comment-tags">
 						<dt>author</dt>
 						<dd><p>Muhammed Yalcin Kuru <a href="mailto:yalcin.kuru@smartface.io">yalcin.kuru@smartface.io</a></p>
@@ -79,6 +83,24 @@
 						</dd>
 						<dt>copyright</dt>
 						<dd><p>Smartface 2019</p>
+						</dd>
+						<dt>see</dt>
+						<dd><p><a href="http://ref.smartface.io/#!/api/UI.SwipeView" class="external">All supported arguments, properties &amp; methods</a></p>
+						</dd>
+						<dt>example</dt>
+						<dd><pre><code><span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">RTLSwipeView</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@smartface/extension-utils/lib/components/rtl-swipeview&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">var</span><span style="color: #000000"> </span><span style="color: #001080">swipeView</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">RTLSwipeView</span><span style="color: #000000">({</span>
+<span style="color: #000000">    </span><span style="color: #001080">page:</span><span style="color: #000000"> </span><span style="color: #001080">currentPage</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">width:</span><span style="color: #000000"> </span><span style="color: #098658">300</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">maxHeight:</span><span style="color: #000000"> </span><span style="color: #098658">300</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">pages:</span><span style="color: #000000"> [</span><span style="color: #001080">Page1</span><span style="color: #000000">, </span><span style="color: #001080">Page2</span><span style="color: #000000">, </span><span style="color: #001080">Page3</span><span style="color: #000000">, </span><span style="color: #001080">Page4</span><span style="color: #000000">]</span>
+<span style="color: #000000">});</span>
+
+<span style="color: #001080">swipeView</span><span style="color: #000000">.</span><span style="color: #795E26">onPageSelected</span><span style="color: #000000"> = </span><span style="color: #0000FF">function</span><span style="color: #000000">(</span><span style="color: #001080">index</span><span style="color: #000000">, </span><span style="color: #001080">page</span><span style="color: #000000">) {</span>
+<span style="color: #000000">    </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">info</span><span style="color: #000000">(</span><span style="color: #A31515">`page index </span><span style="color: #0000FF">${</span><span style="color: #001080">index</span><span style="color: #0000FF">}</span><span style="color: #A31515">`</span><span style="color: #000000">);</span>
+<span style="color: #000000">};</span>
+</code></pre>
 						</dd>
 					</dl>
 				</div>
