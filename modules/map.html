@@ -101,12 +101,6 @@
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="map.html#showMapsMenu" class="tsd-kind-icon">show<wbr>Maps<wbr>Menu</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section ">
-							<h3>Properties</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-module"><a href="map.html#default" class="tsd-kind-icon">default</a></li>
-							</ul>
-						</section>
 					</div>
 				</section>
 			</section>
@@ -122,7 +116,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/5b46b9c/src/maps/index.ts#L178">src/maps/index.ts:178</a></li>
+									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/245fd67/src/maps/index.ts#L178">src/maps/index.ts:178</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -158,64 +152,6 @@
 					</ul>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-module">
-					<a name="default" class="tsd-anchor"></a>
-					<h3>default</h3>
-					<div class="tsd-signature tsd-kind-icon">default<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>showMapsMenu<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MapsOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> }</span></div>
-					<aside class="tsd-sources">
-					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter">
-								<h5>show<wbr>Maps<wbr>Menu<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MapsOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-								<ul class="tsd-parameters">
-									<li class="tsd-parameter-signature">
-										<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal">
-											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MapsOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
-										</ul>
-										<ul class="tsd-descriptions">
-											<li class="tsd-description">
-												<div class="tsd-comment tsd-typography">
-													<div class="lead">
-														<p>Prompts a menu to choose which navigation app to handle the location.
-														It sets the starting point to your current location, if the permission is granted.</p>
-													</div>
-													<dl class="tsd-comment-tags">
-														<dt>function</dt>
-														<dd></dd>
-														<dt>example</dt>
-														<dd><pre><code><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">showMapsMenu</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;@smartface/extension-utils/lib/maps&quot;</span><span style="color: #000000">;</span>
-<span style="color: #795E26">showMapsMenu</span><span style="color: #000000">({</span>
-<span style="color: #000000">     </span><span style="color: #001080">page</span><span style="color: #000000">,</span>
-<span style="color: #000000">     </span><span style="color: #001080">location:</span><span style="color: #000000"> {</span>
-<span style="color: #000000">         </span><span style="color: #001080">latitude:</span><span style="color: #000000"> </span><span style="color: #098658">37.4488259</span><span style="color: #000000">,</span>
-<span style="color: #000000">         </span><span style="color: #001080">longitude:</span><span style="color: #000000"> -</span><span style="color: #098658">122.1600047</span>
-<span style="color: #000000">     },</span>
-<span style="color: #000000">     </span><span style="color: #001080">name:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;Smartface Inc.&quot;</span>
-<span style="color: #000000"> });</span>
-</code></pre>
-														</dd>
-													</dl>
-												</div>
-												<h4 class="tsd-parameters-title">Parameters</h4>
-												<ul class="tsd-parameters">
-													<li>
-														<h5>options: <span class="tsd-signature-type">MapsOptions</span></h5>
-													</li>
-												</ul>
-												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
-											</li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-				</section>
-			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
@@ -233,9 +169,6 @@
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="map.html#showMapsMenu" class="tsd-kind-icon">show<wbr>Maps<wbr>Menu</a>
 					</li>
-					<li class=" tsd-kind-property tsd-parent-kind-module">
-						<a href="map.html#default" class="tsd-kind-icon">default</a>
-					</li>
 				</ul>
 			</nav>
 		</div>
@@ -249,9 +182,6 @@
 				<li class="tsd-kind-namespace"><span class="tsd-kind-icon">Namespace</span></li>
 				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>

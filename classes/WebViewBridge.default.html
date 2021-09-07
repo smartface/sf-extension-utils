@@ -112,14 +112,14 @@
 <span style="color: #A31515">     },</span>
 <span style="color: #A31515">     &quot;trendLines&quot;: [],</span>
 <span style="color: #A31515">     &quot;graphs&quot;: [{</span>
-<span style="color: #A31515">             &quot;balloonText&quot;: &quot;[[title]] of [[category]]:&lt;a href=&quot;CircularProgressBar.default.html#value&quot;&gt;value&lt;/a&gt;&quot;,</span>
+<span style="color: #A31515">             &quot;balloonText&quot;: &quot;[[title]] of [[category]]:[[value]]&quot;,</span>
 <span style="color: #A31515">             &quot;bullet&quot;: &quot;round&quot;,</span>
 <span style="color: #A31515">             &quot;id&quot;: &quot;AmGraph-1&quot;,</span>
 <span style="color: #A31515">             &quot;title&quot;: &quot;graph 1&quot;,</span>
 <span style="color: #A31515">             &quot;valueField&quot;: &quot;column-1&quot;</span>
 <span style="color: #A31515">         },</span>
 <span style="color: #A31515">         {</span>
-<span style="color: #A31515">             &quot;balloonText&quot;: &quot;[[title]] of [[category]]:&lt;a href=&quot;CircularProgressBar.default.html#value&quot;&gt;value&lt;/a&gt;&quot;,</span>
+<span style="color: #A31515">             &quot;balloonText&quot;: &quot;[[title]] of [[category]]:[[value]]&quot;,</span>
 <span style="color: #A31515">             &quot;bullet&quot;: &quot;square&quot;,</span>
 <span style="color: #A31515">             &quot;id&quot;: &quot;AmGraph-2&quot;,</span>
 <span style="color: #A31515">             &quot;title&quot;: &quot;graph 2&quot;,</span>
@@ -277,7 +277,6 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="WebViewBridge.default.html#trigger" class="tsd-kind-icon">trigger</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="WebViewBridge.default.html#emit" class="tsd-kind-icon">emit</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="WebViewBridge.default.html#setOnceReturnValue" class="tsd-kind-icon">set<wbr>Once<wbr>Return<wbr>Value</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="WebViewBridge.default.html#readyFunction" class="tsd-kind-icon">ready<wbr>Function</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="WebViewBridge.default.html#loadScripts" class="tsd-kind-icon">load<wbr>Scripts</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="WebViewBridge.default.html#refresh" class="tsd-kind-icon">refresh</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="WebViewBridge.default.html#evaluateJS" class="tsd-kind-icon">evaluateJS</a></li>
@@ -567,7 +566,7 @@
 					<a name="flattenListeners" class="tsd-anchor"></a>
 					<h3>flatten<wbr>Listeners</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
-						<li class="tsd-signature tsd-kind-icon">flatten<wbr>Listeners<span class="tsd-signature-symbol">(</span>listeners<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">[]</span></li>
+						<li class="tsd-signature tsd-kind-icon">flatten<wbr>Listeners<span class="tsd-signature-symbol">(</span>listeners<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -585,7 +584,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>listeners: <span class="tsd-signature-symbol">{ </span>listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>listeners: <span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Raw listener objects.</p>
 									</div>
@@ -1735,23 +1734,6 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="readyFunction" class="tsd-anchor"></a>
-					<h3>ready<wbr>Function</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">ready<wbr>Function<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/5b46b9c/src/webviewbridge/index.ts#L336">src/webviewbridge/index.ts:336</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="loadScripts" class="tsd-anchor"></a>
 					<h3>load<wbr>Scripts</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -1761,7 +1743,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/5b46b9c/src/webviewbridge/index.ts#L362">src/webviewbridge/index.ts:362</a></li>
+									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/245fd67/src/webviewbridge/index.ts#L362">src/webviewbridge/index.ts:362</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1806,7 +1788,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/5b46b9c/src/webviewbridge/index.ts#L401">src/webviewbridge/index.ts:401</a></li>
+									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/245fd67/src/webviewbridge/index.ts#L401">src/webviewbridge/index.ts:401</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1834,7 +1816,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/5b46b9c/src/webviewbridge/index.ts#L432">src/webviewbridge/index.ts:432</a></li>
+									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/245fd67/src/webviewbridge/index.ts#L432">src/webviewbridge/index.ts:432</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1886,13 +1868,13 @@
 					<a name="customNavigate" class="tsd-anchor"></a>
 					<h3>custom<wbr>Navigate</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">custom<wbr>Navigate<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>cookie<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>userAgent<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">custom<wbr>Navigate<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/5b46b9c/src/webviewbridge/index.ts#L470">src/webviewbridge/index.ts:470</a></li>
+									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/245fd67/src/webviewbridge/index.ts#L470">src/webviewbridge/index.ts:470</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1917,23 +1899,11 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>options: <span class="tsd-signature-symbol">{ </span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>cookie<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>userAgent<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></h5>
+									<h5>options: <span class="tsd-signature-symbol">{}</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>is used to pass all options in single parameter</p>
 									</div>
 									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
-											<div class="tsd-comment tsd-typography">
-												<p>Remote url to open</p>
-											</div>
-										</li>
-										<li class="tsd-parameter">
-											<h5>cookie<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>user<wbr>Agent<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
-										</li>
 									</ul>
 								</li>
 							</ul>
@@ -1955,7 +1925,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides EventEmitter.constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/5b46b9c/src/webviewbridge/index.ts#L273">src/webviewbridge/index.ts:273</a></li>
+									<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/245fd67/src/webviewbridge/index.ts#L273">src/webviewbridge/index.ts:273</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1978,7 +1948,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of IBridgeConstructorOptions.webView</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/5b46b9c/src/webviewbridge/index.ts#L223">src/webviewbridge/index.ts:223</a></li>
+							<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/245fd67/src/webviewbridge/index.ts#L223">src/webviewbridge/index.ts:223</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -2000,7 +1970,7 @@
 					<div class="tsd-signature tsd-kind-icon">loaded<wbr>Script<wbr>Names<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/5b46b9c/src/webviewbridge/index.ts#L230">src/webviewbridge/index.ts:230</a></li>
+							<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/245fd67/src/webviewbridge/index.ts#L230">src/webviewbridge/index.ts:230</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -2022,7 +1992,7 @@
 					<div class="tsd-signature tsd-kind-icon">ready<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/5b46b9c/src/webviewbridge/index.ts#L238">src/webviewbridge/index.ts:238</a></li>
+							<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/245fd67/src/webviewbridge/index.ts#L238">src/webviewbridge/index.ts:238</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -2073,7 +2043,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of IBridgeConstructorOptions.source</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/5b46b9c/src/webviewbridge/index.ts#L245">src/webviewbridge/index.ts:245</a></li>
+							<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/245fd67/src/webviewbridge/index.ts#L245">src/webviewbridge/index.ts:245</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -2096,7 +2066,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of IBridgeConstructorOptions.parseResponses</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/5b46b9c/src/webviewbridge/index.ts#L252">src/webviewbridge/index.ts:252</a></li>
+							<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/245fd67/src/webviewbridge/index.ts#L252">src/webviewbridge/index.ts:252</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -2120,7 +2090,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of IBridgeConstructorOptions.delay</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/5b46b9c/src/webviewbridge/index.ts#L259">src/webviewbridge/index.ts:259</a></li>
+							<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/245fd67/src/webviewbridge/index.ts#L259">src/webviewbridge/index.ts:259</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -2144,7 +2114,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of IBridgeConstructorOptions.skipBoubleEvent</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/5b46b9c/src/webviewbridge/index.ts#L260">src/webviewbridge/index.ts:260</a></li>
+							<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/245fd67/src/webviewbridge/index.ts#L260">src/webviewbridge/index.ts:260</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2154,7 +2124,7 @@
 					<div class="tsd-signature tsd-kind-icon">lastURL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot;&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/5b46b9c/src/webviewbridge/index.ts#L267">src/webviewbridge/index.ts:267</a></li>
+							<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/245fd67/src/webviewbridge/index.ts#L267">src/webviewbridge/index.ts:267</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -2178,7 +2148,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of IBridgeConstructorOptions.scheme</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/5b46b9c/src/webviewbridge/index.ts#L268">src/webviewbridge/index.ts:268</a></li>
+							<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/245fd67/src/webviewbridge/index.ts#L268">src/webviewbridge/index.ts:268</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2189,7 +2159,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of IBridgeConstructorOptions.skipLoadEvents</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/5b46b9c/src/webviewbridge/index.ts#L272">src/webviewbridge/index.ts:272</a></li>
+							<li>Defined in <a href="https://github.com/smartface/sf-extension-utils/blob/245fd67/src/webviewbridge/index.ts#L272">src/webviewbridge/index.ts:272</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -2310,9 +2280,6 @@
 								<a href="WebViewBridge.default.html#skipLoadEvents" class="tsd-kind-icon">skip<wbr>Load<wbr>Events</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="WebViewBridge.default.html#readyFunction" class="tsd-kind-icon">ready<wbr>Function</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="WebViewBridge.default.html#loadScripts" class="tsd-kind-icon">load<wbr>Scripts</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -2347,9 +2314,6 @@
 				<li class="tsd-kind-namespace"><span class="tsd-kind-icon">Namespace</span></li>
 				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
 			</ul>
 		</div>
 	</div>
