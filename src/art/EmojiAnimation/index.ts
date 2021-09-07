@@ -232,7 +232,7 @@ interface EmojiAnimationOptions {
  * emojiAnimation.playEmoji(0, 3);
  * emojiAnimation.playEmoji(1, 3);
  * ```
- *  * @example
+ * @example
  * Or do it with forEach
  * ```
  * const emojiAnimation = new EmojiAnimation({

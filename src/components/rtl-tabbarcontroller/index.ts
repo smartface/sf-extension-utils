@@ -1,32 +1,15 @@
 /**
  * Smartface RTLTabBarController To Support RIGHT-TO-LEFT Languages
- * @module RTLTabBarController
- * @type {object}
- * @author Muhammed Yalcin Kuru <yalcin.kuru@smartface.io>
- * @author Ozcan Ovunc <ozcan.ovunc@smartface.io>
- * @copyright Smartface 2019
- */
-
-import Application from "@smartface/native/application";
-import System from "@smartface/native/device/system";
-import TabBarController from "@smartface/native/ui/tabbarcontroller";
-import RTLAndroidSwipeView from "../rtl-swipeview";
-
-const GRAVITY_RIGHT = 5;
-const MODE_SCROLLABLE = 0;
-const MODE_FIXED = 1;
-const WRAP_CONTENT = -2;
-const MATCH_PARENT = -1;
-
-/**
  * RTLTabBarController class is inherited from TabBarController. It manipulates
  * the index/array based functions/properties to support RTL languages. Such as,
  * in case of app direction is RTL, array & index values are reversed.
  *
  * Note: Returned indexes or arrays won't impact the logic.
- *
- * @public
- * @class
+ * @module RTLTabBarController
+ * @type {Class}
+ * @author Muhammed Yalcin Kuru <yalcin.kuru@smartface.io>
+ * @author Ozcan Ovunc <ozcan.ovunc@smartface.io>
+ * @copyright Smartface 2019
  * @see {@link http://ref.smartface.io/#!/api/UI.TabBarController arguments, properties & methods}
  * @example
  *```
@@ -40,6 +23,18 @@ const MATCH_PARENT = -1;
  * }
  * ```
  */
+
+import Application from "@smartface/native/application";
+import System from "@smartface/native/device/system";
+import TabBarController from "@smartface/native/ui/tabbarcontroller";
+import RTLAndroidSwipeView from "../rtl-swipeview";
+
+const GRAVITY_RIGHT = 5;
+const MODE_SCROLLABLE = 0;
+const MODE_FIXED = 1;
+const WRAP_CONTENT = -2;
+const MATCH_PARENT = -1;
+
 class RTLAndroidTabBarController extends TabBarController {
 	NativeRelativeLayout: any;
 	private swipeView: InstanceType<typeof RTLAndroidSwipeView>;

@@ -1,26 +1,15 @@
 /**
  * Smartface RTLSwipeView To Support RIGHT-TO-LEFT Languages
- * @module RTLSwipeView
- * @type {object}
- * @author Muhammed Yalcin Kuru <yalcin.kuru@smartface.io>
- * @author Ozcan Ovunc <ozcan.ovunc@smartface.io>
- * @copyright Smartface 2019
- */
-import SwipeView from "@smartface/native/ui/swipeview";
-import Application from "@smartface/native/application";
-import System from "@smartface/native/device/system";
-import AndroidUnitConverter from "@smartface/native/util/Android/unitconverter";
-import Page from "@smartface/native/ui/page";
-
-/**
  * RTLSwipeView class is inherited from SwipeView. It manipulates the index/array
  * based functions/properties to support RTL languages. Such as, in case of app
  * direction is RTL, array & index values are reversed.
  *
  * Note: Returned indexes or arrays won't impact the logic.
- *
- * @public
- * @class
+ * @module RTLSwipeView
+ * @type {Class}
+ * @author Muhammed Yalcin Kuru <yalcin.kuru@smartface.io>
+ * @author Ozcan Ovunc <ozcan.ovunc@smartface.io>
+ * @copyright Smartface 2019
  * @see {@link http://ref.smartface.io/#!/api/UI.SwipeView All supported arguments, properties & methods}
  * @example
  * ```
@@ -38,6 +27,11 @@ import Page from "@smartface/native/ui/page";
  * };
  * ```
  */
+import SwipeView from "@smartface/native/ui/swipeview";
+import Application from "@smartface/native/application";
+import System from "@smartface/native/device/system";
+import AndroidUnitConverter from "@smartface/native/util/Android/unitconverter";
+import Page from "@smartface/native/ui/page";
 
 class RTLAndroidSwipeView extends SwipeView {
 	private callbackOnPageSelected: SwipeView["onPageSelected"] = () => {};

@@ -4,19 +4,20 @@ const path = require('path');
 
 const OUTPUT_DIR = 'docs';
 const BASE_PATH = 'src';
+const BASE_DIRECTORY = 'base'; // To be excluded from documentation
 
 function getModuleNamesWithPath(basePath) {
   const files = fs.readdirSync(basePath, { 
     withFileTypes: true
   });
   const directories = files.filter((dirent) => dirent.isDirectory());
-  return directories.map((dirent) => `${basePath}${path.sep}${dirent.name}`);
+  const filteredDirectories = directories.filter((directory) => directory.name !== BASE_DIRECTORY);
+  return filteredDirectories.map((dirent) => `${basePath}${path.sep}${dirent.name}`);
 }
 
 async function main() {
   const app = new TypeDoc.Application();
   app.options.addReader(new TypeDoc.TSConfigReader());
-
   const fileNames = getModuleNamesWithPath(BASE_PATH);
   app.bootstrap({
     // typedoc options here

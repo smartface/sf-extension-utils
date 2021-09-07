@@ -12,7 +12,7 @@ yarn add @smartface/extension-utils
 ## How to use
 Smartface Utility Extension behaves like a normal npm package. You require/import the packages and you can use your Smartface Application on stereoids!
 ### 1. Fix global methods
-In `app.ts` make sure that `import "sf-extension-utils"` is set. This is fixing `alert`, `setTimeout`, `setInterval`, `clearTimeout` and `clearInterval` methods. Some of the other util modules might depend on it!
+In `app.ts` make sure that `import "@smartface/extension-utils"` is set. This will fix `alert`, `setTimeout`, `setInterval`, `clearTimeout` and `clearInterval` methods. Some of the other util modules might depend on it!
 ### 2. Import util modules
 Later in any file, import it with the path: `import "@smartface/extension-utils/lib/<moduleName>"` Such as:
 - `import "@smartface/extension-utils/lib/rau"`
@@ -30,7 +30,7 @@ However, some others will have different export types. You can import them like:
 - `import { createAttributedTexts, createAttributedStrings } from "@smartface/extension-utils/lib/html-to-text"`
 
 ### API
-For each module api documentation is in separate file. Please visit [doc](./doc) folder
+For each module api documentation is in separate file. Please visit [Utility API Documentation](https://smartface.github.io/sf-extension-utils/).
 
 ## Release
 Steps to do before release:
