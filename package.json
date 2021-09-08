@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "repository": "https://github.com/smartface/sf-extension-utils",
   "scripts": {
-    "docs": "node typedoc.js",
+    "docs": "rm -rf docs && node typedoc.js",
     "watch": "tsc -w",
     "build": "tsc",
     "test": "mocha"
@@ -63,7 +63,7 @@
     "jsdoc-to-markdown": "^5.0.0",
     "mocha": "^9.1.0",
     "prettier": "^1.19.1",
-    "typedoc": "^0.21.6",
+    "typedoc": "beta",
     "typescript": "^4.3.5"
   },
   "peerDependencies": {

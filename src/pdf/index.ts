@@ -64,6 +64,7 @@ const htmlTemplate = `
  * @function
  * Renders base64 string as pdf file in a WebView
  * @example
+ * ```
  * import pdf from '@smartface/extension-utils/lib/pdf';
  * pdf.render({
  *     webView: webView,
@@ -82,6 +83,7 @@ const htmlTemplate = `
  *         'dCAxIDAgUgo+PgpzdGFydHhyZWYKNDkyCiUlRU9G',
  *     zoomEnabled: true
  * });
+ * ```
  */
 export function render(options: {
 	customWidth?: number;
