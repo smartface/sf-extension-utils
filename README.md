@@ -15,16 +15,15 @@ Smartface Utility Extension behaves like a normal npm package. You require/impor
 In `app.ts` make sure that `import "@smartface/extension-utils"` is set. This will fix `alert`, `setTimeout`, `setInterval`, `clearTimeout` and `clearInterval` methods. Some of the other util modules might depend on it!
 ### 2. Import util modules
 Later in any file, import it with the path: `import "@smartface/extension-utils/lib/<moduleName>"` Such as:
-- `import "@smartface/extension-utils/lib/rau"`
+- `import "@smartface/extension-utils/lib/color"`
 - `import "@smartface/extension-utils/lib/permission"`
-- `import "@smartface/extension-utils/lib/biometricLogin"`
 - `import "@smartface/extension-utils/lib/speechtotext"`
 - `import "@smartface/extension-utils/lib/location"`
 
 ### 3. Import their default or normal exports
 Some modules will only have one export, so they will be having default export. Before using any module, read their documentation for more information.
 Example of default import:
-- `import BiometricLogin from "@smartface/extension-utils/lib/biometricLogin"`
+- `import Table from "@smartface/extension-utils/lib/table"`
 
 However, some others will have different export types. You can import them like:
 - `import { createAttributedTexts, createAttributedStrings } from "@smartface/extension-utils/lib/html-to-text"`
