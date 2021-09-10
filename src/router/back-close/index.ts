@@ -13,7 +13,7 @@ import Color from "@smartface/native/ui/color";
 import HeaderBarItem from "@smartface/native/ui/headerbaritem";
 import System from "@smartface/native/device/system";
 //@ts-ignore
-import StackRouter from "@smartface/router/src/native/NativeStackRouter";
+import StackRouter from "@smartface/router/lib/native/NativeStackRouter";
 import buildExtender from "../buildExtender";
 
 const POSITION = {

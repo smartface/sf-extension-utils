@@ -38,9 +38,9 @@
 import Application from "@smartface/native/application";
 import active from "../active";
 //@ts-ignore
-import StackRouter from "@smartface/router/src/native/NativeStackRouter";
+import StackRouter from "@smartface/router/lib/native/NativeStackRouter";
 //@ts-ignore
-import BottomTabBarRouter from "@smartface/router/src/native/BottomTabBarRouter";
+import BottomTabBarRouter from "@smartface/router/lib/native/BottomTabBarRouter";
 import buildExtender from "../buildExtender";
 
 Application.android.onBackButtonPressed = () => {

@@ -2,7 +2,7 @@ import System from "@smartface/native/device/system";
 import Page from "@smartface/native/ui/page";
 import View from "@smartface/native/ui/view";
 //@ts-ignore
-import StackRouter from "@smartface/router/src/native/NativeStackRouter";
+import StackRouter from "@smartface/router/lib/native/NativeStackRouter";
 import extendEvent from "../../extendEvent";
 import active from "../active";
 
