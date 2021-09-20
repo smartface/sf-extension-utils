@@ -6,3 +6,4 @@ docs
 .github
 typedoc.js
 tsconfig.*
+test
