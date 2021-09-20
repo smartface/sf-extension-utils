@@ -214,7 +214,7 @@ function buildExtender(
 			});
 		}
 
-		router instanceof StackRouter && (pageInstance.setBackItem = (item: any) => {});
+		router.constructor.name === 'NativeStackRouter' && (pageInstance.setBackItem = (item: any) => {});
 
 		Object.assign(pageInstance, { match, routeData, router, route }, pageProps);
 

@@ -53,7 +53,7 @@ const defaultGoBack = () => {
 		Application.exit();
 		return;
 	}
-	if (router instanceof BottomTabBarRouter) {
+	if (router.constructor.name === 'BottomTabBarRouter') {
 		return; // TODO: Find a way to go between BottomTabBarRouters
 	}
 	if (router.constructor.name === 'NativeStackRouter') {

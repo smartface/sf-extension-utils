@@ -130,7 +130,7 @@ function backClose(
 	if (pageInstance.__backCloseAdded) {
 		return;
 	}
-	if (router instanceof StackRouter) {
+	if (router.constructor.name === 'NativeStackRouter') {
 		const dismissConfig = (dissmissBuilder || defaultDissmissBuilder)(
 			match,
 			routeData,
