@@ -1,4 +1,5 @@
 # Utility Extension from Smartface
+[![NPM](https://img.shields.io/npm/v/@smartface/extension-utils?style=flat-square)](https://www.npmjs.com/package/@smartface/extension-utils)
 [![Twitter: @Smartface_io](https://img.shields.io/badge/contact-@Smartface_io-blue.svg?style=flat)](https://twitter.com/smartface_io)
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/smartface/sf-extension-utils/master/LICENSE)
 
