@@ -56,7 +56,7 @@ const defaultGoBack = () => {
 	if (router instanceof BottomTabBarRouter) {
 		return; // TODO: Find a way to go between BottomTabBarRouters
 	}
-	if (router instanceof StackRouter) {
+	if (router.constructor.name === 'NativeStackRouter') {
 		let historyAsArray = router.getHistoryasArray();
 		if (historyAsArray) {
 			if (
