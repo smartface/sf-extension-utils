@@ -29,8 +29,13 @@ interface ExternalPageParams {
  * currentPage.layout.applyLayout(); 
  * ```
  */
-//@ts-ignore
-let page: Page & ExternalPageParams = null;
-export = {
-    page
-};
+let currentPage: Page & ExternalPageParams;
+
+export default class Active {
+    static get page(): typeof currentPage {
+        return currentPage;
+    }
+    static set page(value: Page) {
+        currentPage = value;
+    }
+}

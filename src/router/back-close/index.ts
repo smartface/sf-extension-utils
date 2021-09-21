@@ -108,13 +108,14 @@ if (System.OS === System.OSType.IOS) {
 	let original_StackRouter_of = StackRouter.of;
 	StackRouter.of = (props: any) => {
 		let stackRouter = original_StackRouter_of(props);
-		backArrowImage &&
+		if (backArrowImage && stackRouter.headerBar?.nativeObject) {
 			Object.assign(stackRouter.headerBar.nativeObject, {
 				//@ts-ignore
 				backIndicatorImage: backArrowImage.nativeObject,
 				//@ts-ignore
 				backIndicatorTransitionMaskImage: backArrowImage.nativeObject,
 			});
+		}
 		return stackRouter;
 	};
 }

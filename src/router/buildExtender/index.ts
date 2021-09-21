@@ -1,8 +1,6 @@
 import System from "@smartface/native/device/system";
 import Page from "@smartface/native/ui/page";
 import View from "@smartface/native/ui/view";
-//@ts-ignore
-import StackRouter from "@smartface/router/lib/native/NativeStackRouter";
 import extendEvent from "../../extendEvent";
 import active from "../active";
 
@@ -153,11 +151,9 @@ function buildExtender(
 		if (!pageInstance.extendEvent) {
 			pageInstance.extendEvent = extendEvent.bind(null, pageInstance);
 
-			let originalDidEnter = route._routeDidEnter;
-			route._routeDidEnter = (router: any, route: any) => {
-				let returnValue = originalDidEnter
-					? originalDidEnter(router, route)
-					: true;
+			let originalDidEnter = route.doRouteDidEnter;
+			route.doRouteDidEnter = (router: any, route: any) => {
+				let returnValue = originalDidEnter ? originalDidEnter(router, route) : true;
 				if (pageInstance) {
 					active.page = pageInstance
 				}
