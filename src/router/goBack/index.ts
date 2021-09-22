@@ -37,10 +37,7 @@
 
 import Application from "@smartface/native/application";
 import active from "../active";
-//@ts-ignore
-import StackRouter from "@smartface/router/lib/native/NativeStackRouter";
-//@ts-ignore
-import BottomTabBarRouter from "@smartface/router/lib/native/BottomTabBarRouter";
+import { NativeStackRouter, BottomTabBarRouter } from "@smartface/router";
 import buildExtender from "../buildExtender";
 
 Application.android.onBackButtonPressed = () => {
@@ -53,10 +50,10 @@ const defaultGoBack = () => {
 		Application.exit();
 		return;
 	}
-	if (router.constructor.name === 'BottomTabBarRouter') {
+	if (router instanceof BottomTabBarRouter) {
 		return; // TODO: Find a way to go between BottomTabBarRouters
 	}
-	if (router.constructor.name === 'NativeStackRouter') {
+	if (router instanceof NativeStackRouter) {
 		let historyAsArray = router.getHistoryasArray();
 		if (historyAsArray) {
 			if (

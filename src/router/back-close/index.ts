@@ -12,8 +12,7 @@ import Image from "@smartface/native/ui/image";
 import Color from "@smartface/native/ui/color";
 import HeaderBarItem from "@smartface/native/ui/headerbaritem";
 import System from "@smartface/native/device/system";
-//@ts-ignore
-import StackRouter from "@smartface/router/lib/native/NativeStackRouter";
+import { NativeStackRouter } from "@smartface/router";
 import buildExtender from "../buildExtender";
 
 const POSITION = {
@@ -105,8 +104,8 @@ function defaultDissmissBuilder(
 }
 
 if (System.OS === System.OSType.IOS) {
-	let original_StackRouter_of = StackRouter.of;
-	StackRouter.of = (props: any) => {
+	let original_StackRouter_of = NativeStackRouter.of;
+	NativeStackRouter.of = (props: any) => {
 		let stackRouter = original_StackRouter_of(props);
 		if (backArrowImage && stackRouter.headerBar?.nativeObject) {
 			Object.assign(stackRouter.headerBar.nativeObject, {
@@ -131,7 +130,7 @@ function backClose(
 	if (pageInstance.__backCloseAdded) {
 		return;
 	}
-	if (router.constructor.name === 'NativeStackRouter') {
+	if (router instanceof NativeStackRouter) {
 		const dismissConfig = (dissmissBuilder || defaultDissmissBuilder)(
 			match,
 			routeData,
