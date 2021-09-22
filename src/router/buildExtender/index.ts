@@ -3,7 +3,7 @@ import Page from "@smartface/native/ui/page";
 import View from "@smartface/native/ui/view";
 import extendEvent from "../../extendEvent";
 import active from "../active";
-
+import { NativeStackRouter } from "@smartface/router";
 interface ProcessorOptions {
 	(
 		match: any,
@@ -121,9 +121,7 @@ function buildExtender(
 		if (routeData?.routeData) {
 			routeData = routeData.routeData;
 		}
-		else {
-			routeData = routeData || {};
-		}
+		routeData = routeData || {};
 		if (options.preProcessor) {
 			//@ts-ignore
 			options.preProcessor(match, routeData, router, view, pageProps, route);
@@ -151,14 +149,27 @@ function buildExtender(
 		if (!pageInstance.extendEvent) {
 			pageInstance.extendEvent = extendEvent.bind(null, pageInstance);
 
-			let originalDidEnter = route.doRouteDidEnter;
-			route.doRouteDidEnter = (router: any, route: any) => {
-				let returnValue = originalDidEnter ? originalDidEnter(router, route) : true;
+			/**
+			 * This is written like this due to router typescript migration backward compatibility.
+			 * If you are not sure when router is migrated to typescript,
+			 * you can safely remove "|| _routeDidEnter" statement. It is not being used anymore.
+			 */
+			let originalDidEnter = route.doRouteDidEnter || route._routeDidEnter;
+			const newRouteDidEnter = (router: any, route: any) => {
+				const returnValue = originalDidEnter ? originalDidEnter(router, route) : true;
 				if (pageInstance) {
 					active.page = pageInstance
 				}
 				return returnValue;
 			};
+
+			route.doRouteDidEnter = newRouteDidEnter;
+			/**
+			 * This is written like this due to router typescript migration backward compatibility.
+			 * If you are not sure when router is migrated to typescript,
+			 * you can safely remove the following line. _routeDidEnter is not being used anymore.
+			 */
+			route._routeDidEnter = newRouteDidEnter;
 
 			if (System.OS === System.OSType.IOS) {
 				let pageHeaderbarStyle = {};
@@ -210,7 +221,7 @@ function buildExtender(
 			});
 		}
 
-		router.constructor.name === 'NativeStackRouter' && (pageInstance.setBackItem = (item: any) => {});
+		router instanceof NativeStackRouter && (pageInstance.setBackItem = (item: any) => {});
 
 		Object.assign(pageInstance, { match, routeData, router, route }, pageProps);
 
