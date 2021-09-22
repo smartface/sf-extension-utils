@@ -86,9 +86,9 @@
   integrity sha512-yD3DLC1lqe+SqBxC1YuwO8ep1686Yi1kHh4vWOAKGXldB94hQ1QuOzsQAt06qUA3DGF3OhJwwZCN2F/1D/SEdQ==
 
 "@smartface/router@^2.0.0 || ^2.0.0-rc":
-  version "2.0.0-rc.2"
-  resolved "https://registry.yarnpkg.com/@smartface/router/-/router-2.0.0-rc.2.tgz#b40ada151421def107560cad26b1d06cbf6ea8c9"
-  integrity sha512-lY8ubqLJnzXlYH35i96VwDuj4nto2xJ/GxgC/Cvis5x0wbMleAY+apjjo9KKtwkH6weBAhbpzAMb+O3vQlEFGQ==
+  version "2.0.0-rc.3"
+  resolved "https://registry.yarnpkg.com/@smartface/router/-/router-2.0.0-rc.3.tgz#7a2f1edb010ebc4ef3affbc9936353a060fbe433"
+  integrity sha512-qcE7dn0mn7eUh+h2eCo1pYKJqqjpWqIeg9ecuO6Eln4kCSaZfQ85N9PSXeIpWn2GVyW1UySfMGH/mO34V5sJ8g==
   dependencies:
     path-to-regexp "^2.4.0"
     resolve-pathname "^2.2.0"

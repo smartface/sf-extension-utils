@@ -107,7 +107,9 @@ if (System.OS === System.OSType.IOS) {
 	let original_StackRouter_of = NativeStackRouter.of;
 	NativeStackRouter.of = (props: any) => {
 		let stackRouter = original_StackRouter_of(props);
+		//@ts-ignore
 		if (backArrowImage && stackRouter.headerBar?.nativeObject) {
+			//@ts-ignore
 			Object.assign(stackRouter.headerBar.nativeObject, {
 				//@ts-ignore
 				backIndicatorImage: backArrowImage.nativeObject,
