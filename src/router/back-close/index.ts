@@ -15,9 +15,9 @@ import System from "@smartface/native/device/system";
 import { NativeStackRouter } from "@smartface/router";
 import buildExtender from "../buildExtender";
 
-const POSITION = {
-	LEFT: "left",
-	RIGHT: "right",
+enum DismissPosition {
+	LEFT,
+	RIGHT,
 };
 
 let backArrowImage: Image = Image.createFromFile("images://arrow_back.png");
@@ -25,7 +25,7 @@ let hideBackBarButton = false;
 
 type DismissBuilderOptions = {
 	image?: Image;
-	position: string;
+	position: DismissPosition;
 	color?: Color;
 	skip?: boolean;
 	text?: string;
@@ -33,47 +33,6 @@ type DismissBuilderOptions = {
 	doNotDisableLeftItem?: boolean;
 };
 
-/**
- * Changes the defult back icon of the StackRouter. This is replacing the constructor of the StackRouter. It should be called before creating any Router to be effective. Calling it after creation of the router has no effect.
- * @public
- * @example
- * ```
- * import { backClose } from '@smartface/extension-utils/lib/router/back-close';
- * backClose.setDefaultBackStyle({image: backArrowImage, hideTitle: true});
- * ```
- */
-function setDefaultBackStyle(opts: {
-	image?: Image;
-	hideTitle: boolean;
-}): void {
-	backArrowImage = opts.image || backArrowImage;
-	hideBackBarButton = opts.hideTitle;
-}
-
-/**
- * @public
- *  * callback event function used to customise the default dissmiss behaviour for a modal & stack router.
- * That build method takes match, routeData, router, pageInstance, pageProps, route.
- * Arguments are used to shape the returning configuration object with image or text and position.
- * Image and text should be used exclusively. Position is a string enumeration "left" or "right".
- * This configurator is used to shape the HeaderbarItem.
- * The returned object might have retrieveItem method; in that case retrieveItem is called after the headerbarItem is created and given as an argument.
- * If this is not set, default configuration will be used: left side text = done
- *
- * @example
- * ```
- * import backClose from "@smartface/extension-utils/lib/router/back-close";
- * backClose.dissmissBuilder = (match, routeData, router, pageInstance, pageProps, route) => {
- *  if(System.OS === "iOS") {
- *   if(match.url !== "specificPage")
- *      return {text: global.lang.done, position: "right"};
- *   else
- *      return {image: closeImage, position: "left"};
- *  }
- *  else return {image: closeImage, position: "left", color: Color.WHITE};
- * };
- * ```
- */
 let dissmissBuilder: (
 	match?: any,
 	routeData?: any,
@@ -91,15 +50,10 @@ function defaultDissmissBuilder(
 	pageProps: any,
 	route: any
 ): DismissBuilderOptions {
-	let position = POSITION.RIGHT;
-	if (System.OS === "iOS") {
-		position = POSITION.LEFT;
-	}
 	return {
-		//image: new Image(),
 		//@ts-ignore
-		text: global.lang.done,
-		position,
+		text: global.lang.done || 'Done',
+		position: System.OS === System.OSType.IOS ? DismissPosition.LEFT : DismissPosition.RIGHT,
 	};
 }
 
@@ -144,6 +98,7 @@ function backClose(
 		if (dismissConfig.skip) {
 			return;
 		}
+		console.log("Before OS Check")
 		if (System.OS === System.OSType.ANDROID) {
 			if (router.getHistoryasArray()[0] === match.url) {
 				// First item in the stack
@@ -161,7 +116,7 @@ function backClose(
 								}
 							},
 						});
-						if (dismissConfig.position === POSITION.LEFT) {
+						if (dismissConfig.position === DismissPosition.LEFT) {
 							pageInstance.headerBar.setLeftItem(hbi);
 							pageInstance.headerBar.leftItemEnabled = true;
 						} else {
@@ -208,7 +163,7 @@ function backClose(
 								}
 							},
 						});
-						if (dismissConfig.position === POSITION.LEFT) {
+						if (dismissConfig.position === DismissPosition.LEFT) {
 							pageInstance.headerBar.setLeftItem(hbi);
 							pageInstance.headerBar.leftItemEnabled = true;
 						} else {
@@ -231,15 +186,55 @@ function backClose(
 }
 
 buildExtender.postProcessors.push(backClose);
-//@ts-ignore
-exports.setDefaultBackStyle = setDefaultBackStyle;
-//@ts-ignore
-exports.dissmissBuilder = null;
-//@ts-ignore
-Object.defineProperty(exports, "dissmissBuilder", {
-    get: () => dissmissBuilder,
-    set: value => dissmissBuilder = value,
-    configurable: false,
-    enumerable: true
-});
-export = exports 
+
+export default class BackClose {
+	/**
+	 * @public
+	 *  * callback event function used to customise the default dissmiss behaviour for a modal & stack router.
+	 * That build method takes match, routeData, router, pageInstance, pageProps, route.
+	 * Arguments are used to shape the returning configuration object with image or text and position.
+	 * Image and text should be used exclusively. Position is a string enumeration "left" or "right".
+	 * This configurator is used to shape the HeaderbarItem.
+	 * The returned object might have retrieveItem method; in that case retrieveItem is called after the headerbarItem is created and given as an argument.
+	 * If this is not set, default configuration will be used: left side text = done
+	 *
+	 * @example
+	 * ```
+	 * import backClose from "@smartface/extension-utils/lib/router/back-close";
+	 * backClose.dissmissBuilder = (match, routeData, router, pageInstance, pageProps, route) => {
+	 *  if(System.OS === "iOS") {
+	 *   if(match.url !== "specificPage")
+	 *      return {text: global.lang.done, position: "right"};
+	 *   else
+	 *      return {image: closeImage, position: "left"};
+	 *  }
+	 *  else return {image: closeImage, position: "left", color: Color.WHITE};
+	 * };
+	 * ```
+	 */
+	static set dismissBuilder(value: typeof dissmissBuilder) {
+		dissmissBuilder = value;
+	}
+	static get dismissBuilder(): typeof dissmissBuilder {
+		return dissmissBuilder;
+	}
+	
+	/**
+	 * Changes the defult back icon of the StackRouter. This is replacing the constructor of the StackRouter. It should be called before creating any Router to be effective. Calling it after creation of the router has no effect.
+	 * @public
+	 * @example
+	 * ```
+	 * import { backClose } from '@smartface/extension-utils/lib/router/back-close';
+	 * backClose.setDefaultBackStyle({image: backArrowImage, hideTitle: true});
+	 * ```
+	 */
+	static setDefaultBackStyle(opts: {
+		image?: Image;
+		hideTitle: boolean;
+	}): void {
+		backArrowImage = opts.image || backArrowImage;
+		hideBackBarButton = opts.hideTitle;
+	}
+
+	static DismissPosition = DismissPosition
+}
