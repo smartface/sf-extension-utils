@@ -98,7 +98,6 @@ function backClose(
 		if (dismissConfig.skip) {
 			return;
 		}
-		console.log("Before OS Check")
 		if (System.OS === System.OSType.ANDROID) {
 			if (router.getHistoryasArray()[0] === match.url) {
 				// First item in the stack

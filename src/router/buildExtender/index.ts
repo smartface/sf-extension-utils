@@ -154,7 +154,7 @@ function buildExtender(
 			 * If you are not sure when router is migrated to typescript,
 			 * you can safely remove "|| _routeDidEnter" statement. It is not being used anymore.
 			 */
-			let originalDidEnter = route.doRouteDidEnter || route._routeDidEnter;
+			let originalDidEnter = route.emitRouteDidEnter || route._routeDidEnter;
 			const newRouteDidEnter = (router: any, route: any) => {
 				const returnValue = originalDidEnter ? originalDidEnter(router, route) : true;
 				if (pageInstance) {
@@ -163,7 +163,7 @@ function buildExtender(
 				return returnValue;
 			};
 
-			route.doRouteDidEnter = newRouteDidEnter;
+			route.emitRouteDidEnter = newRouteDidEnter;
 			/**
 			 * This is written like this due to router typescript migration backward compatibility.
 			 * If you are not sure when router is migrated to typescript,
