@@ -192,9 +192,9 @@ function buildExtender(
 					if (options?.headerBarStyle?.hasOwnProperty(key))
 						(controllerHeaderbarStyle as any)[key] = options.headerBarStyle[key];
 				});
-				if (Object.keys(controllerHeaderbarStyle).length && router.headerBar) {
+				if (Object.keys(controllerHeaderbarStyle).length) {
 					pageInstance.extendEvent("onShow", () => {
-						Object.assign(router.headerBar, controllerHeaderbarStyle);
+						Object.assign(pageInstance.parentController.headerBar, controllerHeaderbarStyle);
 					});
 				}
 			}
