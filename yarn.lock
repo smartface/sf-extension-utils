@@ -80,10 +80,12 @@
   dependencies:
     html-parse-stringify "1.0.2"
 
-"@smartface/native@^4.3.5-beta.2":
-  version "4.3.5-beta.2"
-  resolved "https://registry.yarnpkg.com/@smartface/native/-/native-4.3.5-beta.2.tgz#7703180dc59494dfd1dc49fa9c6882798892a349"
-  integrity sha512-yD3DLC1lqe+SqBxC1YuwO8ep1686Yi1kHh4vWOAKGXldB94hQ1QuOzsQAt06qUA3DGF3OhJwwZCN2F/1D/SEdQ==
+"@smartface/native@^4.3.5-beta.4":
+  version "4.3.5-beta.4"
+  resolved "https://registry.yarnpkg.com/@smartface/native/-/native-4.3.5-beta.4.tgz#adaebe61d29df4a800a08a79fff1d003ff5a63b2"
+  integrity sha512-VUeoQR06r1hm7WhQiOTjpX3Kgij45OmVWKT39zZ+oYgtRizhIoGRXQjoH6HVC5BxmdSzQ34uK4zC4rE4Wx58yw==
+  dependencies:
+    events "^3.3.0"
 
 "@smartface/router@^2.0.0 || ^2.0.0-rc":
   version "2.0.0-rc.3"
@@ -1109,6 +1111,11 @@ esutils@^2.0.2:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/esutils/-/esutils-2.0.3.tgz#74d2eb4de0b8da1293711910d50775b9b710ef64"
   integrity sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==
+
+events@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/events/-/events-3.3.0.tgz#31a95ad0a924e2d2c419a813aeb2c4e878ea7400"
+  integrity sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==
 
 executioner@^2.0.1:
   version "2.0.1"

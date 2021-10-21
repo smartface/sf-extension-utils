@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@smartface/contx": "^4.0.0 || ^4.0.0-rc || ^4.0.1-rc",
-    "@smartface/native": "^4.3.5-beta.2",
+    "@smartface/native": "^4.3.5-beta.4",
     "@smartface/router": "^2.0.0 || ^2.0.0-rc",
     "@types/node": "^16.6.1",
     "@types/tinycolor2": "^1.4.3",
@@ -68,7 +68,7 @@
   },
   "peerDependencies": {
     "@smartface/contx": "^4.0.0 || ^4.0.0-rc || ^4.0.1-rc",
-    "@smartface/native": "^4.3.4 || ^4.3.5-beta || ^4.3.5.alpha",
+    "@smartface/native": "^4.3.5-beta.4 || ^4.3.5.alpha",
     "@smartface/router": "^2.0.0 || ^2.0.0-rc"
   }
 }

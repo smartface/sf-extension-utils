@@ -43,23 +43,18 @@ class RTLAndroidTabBarController extends TabBarController {
 	private mScrollEnabled = false;
 	private _items: any[] = [];
 	constructor(options: ConstructorParameters<typeof TabBarController>) {
-		//@ts-ignore
 		super(options);
 		//@ts-ignore
 		this.NativeRelativeLayout = requireClass("android.widget.RelativeLayout");
-		//@ts-ignore
 		this.swipeView = new RTLAndroidSwipeView({
-			//@ts-ignore
 			page: this,
 			flexGrow: 1,
 			onPageCreate: (position: number) =>
 				this.onPageCreate ? this.onPageCreate(position) : null,
 		});
-		//@ts-ignore
 		this.isRTL =
-			//@ts-ignore
 			Application.android.getLayoutDirection ===
-			//@ts-ignore
+			//@ts-ignore - You can remove this after beta.4
 			Application.LayoutDirection.RIGHTTOLEFT;
 	}
 	private getArray(array: any[]): any[] {
@@ -68,7 +63,7 @@ class RTLAndroidTabBarController extends TabBarController {
 	private getIndex(position: number): number {
 		return this.isRTL ? this.items.length - 1 - position : position;
 	}
-
+	//@ts-ignore
 	get onSelected(): TabBarController["onSelected"] {
 		return (position: number) => {
 			const rPosition = this.getIndex(position);
@@ -80,6 +75,7 @@ class RTLAndroidTabBarController extends TabBarController {
 		this.onSelectedCallback = value;
 	}
 
+	//@ts-ignore
 	set items(value: any[]) {
 		this._items = value;
 		const rItemArray = this.getArray(value);
@@ -106,6 +102,7 @@ class RTLAndroidTabBarController extends TabBarController {
 		return this._items;
 	}
 
+	//@ts-ignore
 	set scrollEnabled(value: boolean) {
 		this.mScrollEnabled = value;
 		if (value) {
