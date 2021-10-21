@@ -145,13 +145,17 @@ export default class ServiceCall {
 		timeout?: number;
 		logEnabled?: boolean;
 		headers?: { [key: string]: any } | string;
+		sslPinning?: Http['ios']['sslPinning']
 	}) {
 		options = copy(options);
 		options.baseUrl = options.baseUrl || "";
-		const httpOptions = {};
+		const httpOptions: Partial<Http> = {};
 		if (options.timeout) {
 			//@ts-ignore
 			httpOptions.timeout = options.timeout;
+		}
+		if (options.sslPinning) {
+			httpOptions.ios = { sslPinning: options.sslPinning };
 		}
 		const http = new Http(httpOptions);
 		httpMap.set(this, http);
