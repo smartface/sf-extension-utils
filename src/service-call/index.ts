@@ -154,9 +154,6 @@ export default class ServiceCall {
 			//@ts-ignore
 			httpOptions.timeout = options.timeout;
 		}
-		if (options.sslPinning) {
-			httpOptions.ios = { sslPinning: options.sslPinning };
-		}
 		const http = new Http(httpOptions);
 		httpMap.set(this, http);
 		optionsMap.set(this, options);
@@ -399,10 +396,11 @@ export default class ServiceCall {
 					}
 				}
 			}
-
 			getHttp()
 				.then((http: any) => {
+					const doesSSLExist = Array.isArray(requestOptions.sslPinning) && requestOptions.sslPinning.length > 0;
 					requestOptions.timeout && (http.timeout = requestOptions.timeout);
+					doesSSLExist && (http.ios.sslPinning = requestOptions.sslPinning);
 					http.request(requestOptions);
 				})
 				.catch(reject);
