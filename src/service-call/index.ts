@@ -280,6 +280,7 @@ export default class ServiceCall {
 				url,
 				headers: serviceCallOptions.headers,
 				logEnabled: !!serviceCallOptions.logEnabled,
+				sslPinning: serviceCallOptions.sslPinning || undefined
 			},
 			options || {}
 		);
@@ -306,6 +307,7 @@ export default class ServiceCall {
 	 */
 	request(endpointPath: string, options: IRequestOptions): Promise<any> {
 		const requestOptions = this.createRequestOptions(endpointPath, options);
+		console.info("instance request: ", requestOptions);
 		return ServiceCall.request(requestOptions);
 	}
 
@@ -346,6 +348,7 @@ export default class ServiceCall {
 		}
 
 		return new Promise((resolve, reject) => {
+			console.info("options: ", options);
 			let requestOptions = mixinDeep(
 				{
 					onLoad: (response: any) => {
@@ -369,6 +372,7 @@ export default class ServiceCall {
 				},
 				options
 			);
+			console.info("requestOptions: ", requestOptions);
 			if (METHODS_WITHOUT_BODY.indexOf(requestOptions.method) !== -1) {
 				if (requestOptions.body) {
 					delete requestOptions.body;
@@ -401,6 +405,12 @@ export default class ServiceCall {
 					const doesSSLExist = Array.isArray(requestOptions.sslPinning) && requestOptions.sslPinning.length > 0;
 					requestOptions.timeout && (http.timeout = requestOptions.timeout);
 					doesSSLExist && (http.ios.sslPinning = requestOptions.sslPinning);
+
+					console.info({
+						doesSSLExist,
+						requestPinning: requestOptions.sslPinning,
+						httpPinning: http.ios.sslPinning
+					})
 					http.request(requestOptions);
 				})
 				.catch(reject);
