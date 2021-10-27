@@ -348,7 +348,6 @@ export default class ServiceCall {
 		}
 
 		return new Promise((resolve, reject) => {
-			console.info("options: ", options);
 			let requestOptions = mixinDeep(
 				{
 					onLoad: (response: any) => {
@@ -372,7 +371,6 @@ export default class ServiceCall {
 				},
 				options
 			);
-			console.info("requestOptions: ", requestOptions);
 			if (METHODS_WITHOUT_BODY.indexOf(requestOptions.method) !== -1) {
 				if (requestOptions.body) {
 					delete requestOptions.body;
@@ -405,12 +403,6 @@ export default class ServiceCall {
 					const doesSSLExist = Array.isArray(requestOptions.sslPinning) && requestOptions.sslPinning.length > 0;
 					requestOptions.timeout && (http.timeout = requestOptions.timeout);
 					doesSSLExist && (http.ios.sslPinning = requestOptions.sslPinning);
-
-					console.info({
-						doesSSLExist,
-						requestPinning: requestOptions.sslPinning,
-						httpPinning: http.ios.sslPinning
-					})
 					http.request(requestOptions);
 				})
 				.catch(reject);
