@@ -88,11 +88,8 @@ function getLocationActionForAndroid(): Promise<MapsOptions['location']> {
 				getLocationAction().then(resolve);
 			},
 			onFailure: (e: { statusCode: Location.Android.SettingsStatusCodes }) => {
-				if (e.statusCode === Location.Android.SettingsStatusCodes.DENIED) {
-					reject("DENIED");
-				} else {
-					reject("OTHER");
-				}
+				const isFailureReasonDeny = e.statusCode === Location.Android.SettingsStatusCodes.DENIED;
+				reject(isFailureReasonDeny ? "DENIED" : "OTHER");
 			},
 		});
 	});

@@ -36,6 +36,7 @@ interface OfflineRequestOptions {
 	baseUrl: string;
 	logEnabled?: boolean;
 	offlineRequestHandler: () => Promise<any>;
+	sslPinning?: ConstructorParameters<typeof ServiceCall>[0]['sslPinning']
 }
 
 export const closeOfflineDatabase = sameReturner;
