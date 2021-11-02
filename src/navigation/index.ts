@@ -143,7 +143,7 @@ async function showNavigationMenuForAndroid(
 
 function createMapsMenuForIOS() {
 	const menu = new Menu();
-	const menuItems = [];
+	const menuItems: MenuItem[] = [];
 	const googleMapsAvailable = Application.ios.canOpenUrl(
 		MAPS_LIST.GOOGLE_MAPS.SCHEME
 	);
