@@ -26,17 +26,13 @@ let encryptFunction;
 let decryptFunction;
 let isConfigured = false;
 
-function isOnline(): Promise<void> {
-	return Network.connectionType === Network.ConnectionType.NONE
-		? Promise.reject()
-		: Promise.resolve();
+async function isOnline(): Promise<void> {
+	const isOnline = Network.connectionType === Network.ConnectionType.NONE;
+	return isOnline ? Promise.resolve() : Promise.reject();
 }
 
 interface OfflineRequestOptions {
-	baseUrl: string;
-	logEnabled?: boolean;
-	offlineRequestHandler: () => Promise<any>;
-	sslPinning?: ConstructorParameters<typeof ServiceCall>[0]['sslPinning']
+	offlineRequestHandler?<T = any>(e: T): Promise<T>;
 }
 
 export const closeOfflineDatabase = sameReturner;
@@ -67,22 +63,35 @@ export class OfflineRequestServiceCall extends ServiceCall {
 	 * });
 	 * ```
 	 */
-	constructor(options: OfflineRequestOptions) {
+	constructor(options: OfflineRequestOptions & ConstructorParameters<typeof ServiceCall>['0']) {
 		if (!isConfigured) {
 			throw Error("First you need to configure");
 		}
 		super(options);
-		this.offlineRequestHandler = options.offlineRequestHandler;
+		this.offlineRequestHandler = options.offlineRequestHandler || ((e: any) => Promise.resolve(e));
+
+			//@ts-ignore
+		const notifier = new Network.createNotifier();
+		const networkListener = async () => {
+			try {
+				await isOnline();
+				this.sendAll();
+				this.clearJobs();
+			} finally {
+			}
+			networkListener();
+			notifier.subscribe(networkListener);
+		}
 	}
 
 	async request(
 		endpointPath: string,
-		options: Parameters<typeof ServiceCall["request"]>[0]
+		options: Parameters<ServiceCall["request"]>[1]
 	): Promise<any> {
 		const requestOptions = this.createRequestOptions(endpointPath, options);
 		try {
 			await isOnline();
-			return ServiceCall.request(requestOptions);
+			return super.request(endpointPath, options);
 		} catch (e) {
 			const requestID = guid();
 			saveToTable({
@@ -100,7 +109,7 @@ export class OfflineRequestServiceCall extends ServiceCall {
 	 * @method
 	 * @returns {Promise}
 	 */
-	static async sendAll(): Promise<any> {
+	async sendAll(): Promise<any> {
 		return Promise.resolve().then(() => {
 			const allPendingRequestsString = Data.getStringVariable(
 				TABLE_NAMES.PENDING_REQUESTS
@@ -110,20 +119,16 @@ export class OfflineRequestServiceCall extends ServiceCall {
 				: [];
 			return Promise.all(
 				allPendingRequests.map((requestID: string) => {
-					let requestOptions = Data.getStringVariable(requestID);
-					requestOptions = JSON.parse(requestOptions);
-					//@ts-ignore ????
-					let requestHandlerPromise = this.offlineRequestHandler
-						? //@ts-ignore ????
-						  this.offlineRequestHandler(copy(requestOptions))
-						: Promise.resolve(requestOptions);
-					return requestHandlerPromise.then((o: any) => ServiceCall.request(o));
+					const requestOptions = Data.getStringVariable(requestID);
+					const requestOptionsAsJSON = JSON.parse(requestOptions);
+					const requestHandlerPromise = this.offlineRequestHandler ? this.offlineRequestHandler(copy(requestOptionsAsJSON)) : Promise.resolve();
+					return requestHandlerPromise.then((o: any) => this.request(this.baseUrl, requestOptionsAsJSON));
 				})
 			);
 		});
 	}
 
-	static clearJobs(): Promise<any> {
+	private clearJobs(): Promise<any> {
 		return new Promise((resolve) => {
 			const allPendingRequestsString = Data.getStringVariable(
 				TABLE_NAMES.PENDING_REQUESTS
@@ -139,7 +144,7 @@ export class OfflineRequestServiceCall extends ServiceCall {
 }
 
 export class OfflineResponseServiceCall extends ServiceCall {
-	private _requestCleaner: (...args: any) => any;
+	private _requestCleaner: OfflineRequestOptions['offlineRequestHandler'];
 	/**
 	 * Creates an OfflineResponseServiceCall helper class
 	 * Response is served from DB then request is made to update the DB
@@ -162,31 +167,29 @@ export class OfflineResponseServiceCall extends ServiceCall {
 	constructor(options: {
 		baseUrl: string;
 		logEnabled?: boolean;
-		requestCleaner: (requestOptions: {
-			[key: string]: any;
-		}) => { [key: string]: any };
+		requestCleaner: OfflineRequestOptions['offlineRequestHandler'];
+		encryptionFunction: (e: any) => any;
+		decryptionFunction: (e: any) => any;
 	}) {
 		if (!isConfigured) {
 			throw Error("First you need to configure");
 		}
 		super(options);
-		this._requestCleaner = options.requestCleaner;
+		this._requestCleaner = options.requestCleaner || ((e: any) => Promise.resolve(e));
 	}
 
 	request(
 		endpointPath: string,
-		options?: Parameters<typeof ServiceCall["request"]>[0]
+		options?: Parameters<ServiceCall["request"]>[1]
 	): Promise<any> {
 		//@ts-ignore
 		const requestOptions = this.createRequestOptions(endpointPath, options);
-		let cleanedRequestOptions = this._requestCleaner
-			? this._requestCleaner(copy(requestOptions))
-			: requestOptions;
-		cleanedRequestOptions = JSON.stringify(cleanedRequestOptions);
+		const cleanedRequestOptions = this._requestCleaner ? this._requestCleaner(copy(requestOptions)) : requestOptions;
+		const cleanedRequestOptionsAsString = JSON.stringify(cleanedRequestOptions);
 
 		let offlineRequest = () => {
 			return new Promise((resolve, reject) => {
-				let cachedResponse = Data.getStringVariable(cleanedRequestOptions);
+				let cachedResponse = Data.getStringVariable(cleanedRequestOptionsAsString);
 				cachedResponse
 					? resolve(JSON.parse(cachedResponse))
 					: reject("No records found");
@@ -194,10 +197,10 @@ export class OfflineResponseServiceCall extends ServiceCall {
 		};
 
 		let onlineRequest = () => {
-			return ServiceCall.request(requestOptions).then((response) => {
+			return this.request(endpointPath, options).then((response) => {
 				saveToTable({
 					tableID: TABLE_NAMES.CACHED_REQUESTS,
-					requestID: cleanedRequestOptions,
+					requestID: cleanedRequestOptionsAsString,
 					data: JSON.stringify(response),
 				});
 				return response;
@@ -207,7 +210,7 @@ export class OfflineResponseServiceCall extends ServiceCall {
 		return new Promise((resolve, reject) => {
 			return offlineRequest()
 				.then((e) => {
-					onlineRequest(); // Make sure cache is uptodate
+					onlineRequest(); // Make sure cache is up to date
 					resolve(e);
 				})
 				.catch((e) => {
@@ -231,61 +234,6 @@ const errorHandler = (err: any) => {
 		};
 	else return err;
 };
-
-/**
- * Configures service-call-offline. Call this in your app once before using any functionality.
- * @function service-call-offline:init
- * @param {object} options configuration options
- * @param {fingerprint:CryptopgyFunction} [options.encryptionFunction] stored data is encrypted with the given function
- * @param {fingerprint:CryptopgyFunction} [options.decryptionFunction] stored data is decrypted with the given function
- * @public
- * @static
- * @example
- * ```
- * import { init } from '@smartface/extension-utils/lib/service-call-offline"'
- * import Blob = require('@smartface/native/blob');
- *
- * const basicEncrypt = plainData => {
- *     let b = Blob.createFromUTF8String(plainData);
- *     let encryptedData = b.toBase64();
- *     return encryptedData;
- * };
- *
- * const basicDecrypt = encryptedData => {
- *     let b = Blob.createFromBase64(encryptedData);
- *     let decryptedData = b.toString();
- *     return decryptedData;
- * };
- *
- * // It is recommended this to be called in app.ts:
- * init({
- *     encryptionFunction: basicEncrypt,
- *     decryptionFunction: basicDecrypt
- * });
- *```
- */
-export function init(options: {
-	encryptionFunction: any;
-	decryptionFunction: any;
-}): void {
-	isConfigured = true;
-
-	encryptFunction = options.encryptionFunction || sameReturner;
-	decryptFunction = options.decryptionFunction || sameReturner;
-
-	//@ts-ignore
-	const notifier = new Network.createNotifier();
-	const networkListener = async () => {
-		try {
-			await isOnline();
-			OfflineRequestServiceCall.sendAll();
-			OfflineRequestServiceCall.clearJobs();
-		} finally {
-		}
-		networkListener();
-		notifier.subscribe(networkListener);
-	};
-}
 
 export function clearOfflineDatabase(): Promise<void> {
 	return new Promise((resolve, reject) => {

@@ -9,11 +9,9 @@
  */
 
 import Http from "@smartface/native/net/http";
-//@ts-ignore
 import mixinDeep from "mixin-deep";
 import copy from "../copy";
 import queryString from "query-string";
-import { createAsyncGetter } from "../async";
 
 const reHTTPUrl = /^http(s?):\/\//i;
 const reParseBodyAsText = /(?:application\/(?:x-csh|json|javascript|rtf|xml)|text\/.*|.*\/.*(:?\+xml|xml\+).*)/i;
@@ -22,16 +20,13 @@ const reJSON = /^application\/json/i;
 const METHODS_WITHOUT_BODY = ["GET", "HEAD"];
 const BASE_HEADERS = Object.freeze({
 	"Content-Type": "application/json",
-	Accept: "application/json",
+	"Accept": "application/json",
 	//@ts-ignore
 	"Accept-Language": global.Device.language || "en",
 	"Cache-Control": "no-cache",
 });
 
-const httpMap = new WeakMap();
-const optionsMap = new WeakMap();
-
-const getHttp = createAsyncGetter(() => new Http(), {});
+const DEFAULT_TIMEOUT = 60000;
 
 interface IRequestOptions {
 	/**
@@ -73,11 +68,19 @@ interface IRequestOptions {
 	url?: string;
 }
 
+interface IServiceCallParameters {
+	baseUrl: string;
+	timeout?: number;
+	logEnabled?: boolean;
+	headers?: { [key: string]: string };
+	sslPinning?: Http['ios']['sslPinning']
+}
 /**
  * Helper class for calling JSON based restful services.
  * @public
  */
 export default class ServiceCall {
+	protected _http: Http;
 	/**
 	 * Base URL for this service-call library uses. This can be get and set
 	 * @property {string} baseUrl
@@ -140,23 +143,17 @@ export default class ServiceCall {
 	 * };
 	 * ```
 	 */
-	constructor(options: {
-		baseUrl: string;
-		timeout?: number;
-		logEnabled?: boolean;
-		headers?: { [key: string]: any } | string;
-		sslPinning?: Http['ios']['sslPinning']
-	}) {
-		options = copy(options);
-		options.baseUrl = options.baseUrl || "";
-		const httpOptions: Partial<Http> = {};
-		if (options.timeout) {
-			//@ts-ignore
-			httpOptions.timeout = options.timeout;
-		}
-		const http = new Http(httpOptions);
-		httpMap.set(this, http);
-		optionsMap.set(this, options);
+	constructor(options: IServiceCallParameters) {
+		this.baseUrl = options.baseUrl;
+		this.logEnabled = !!options.logEnabled;
+		const httpOptions: Partial<Http> = {
+			timeout: options.timeout || DEFAULT_TIMEOUT, // Default timeout
+			ios: {
+				sslPinning: options.sslPinning || []
+			},
+			headers: options.headers || BASE_HEADERS
+		};
+		this._http = new Http(httpOptions);
 	}
 
 	/**
@@ -184,7 +181,6 @@ export default class ServiceCall {
 	 * ```
 	 */
 	setHeader(key: string | Record<string, any>, value?: string): void {
-		const serviceCallOptions = optionsMap.get(this);
 		if (typeof key === "object") {
 			for (let k in key) {
 				let v = key[k];
@@ -192,9 +188,9 @@ export default class ServiceCall {
 			}
 		} else if (typeof key === "string") {
 			if (value) {
-				serviceCallOptions.headers[key] = String(value);
+				this._http.headers[key] = String(value);
 			} else {
-				delete serviceCallOptions.headers[key];
+				delete this._http.headers[key];
 			}
 		} else {
 			throw Error("key must be string or object");
@@ -207,8 +203,7 @@ export default class ServiceCall {
 	 * @returns {object} headers
 	 */
 	getHeaders(): Record<string, any> {
-		const serviceCallOptions = copy(optionsMap.get(this));
-		return serviceCallOptions.headers;
+		return this._http.headers;
 	}
 
 	/**
@@ -216,14 +211,11 @@ export default class ServiceCall {
 	 * @property {string} baseUrl
 	 */
 	get baseUrl(): string {
-		const serviceCallOptions = copy(optionsMap.get(this));
-		return serviceCallOptions.baseUrl;
+		return this._baseUrl;;
 	}
 
 	set baseUrl(value: string) {
-		const serviceCallOptions = copy(optionsMap.get(this));
-		serviceCallOptions.baseUrl = value;
-		optionsMap.set(this, serviceCallOptions);
+		this._baseUrl = value;
 	}
 
 	/**
@@ -231,14 +223,11 @@ export default class ServiceCall {
 	 * @property {boolean} logEnabled
 	 */
 	get logEnabled(): boolean {
-		const serviceCallOptions = copy(optionsMap.get(this));
-		return serviceCallOptions.logEnabled;
+		return this._logEnabled;
 	}
 
 	set logEnabled(value: boolean) {
-		const serviceCallOptions = copy(optionsMap.get(this));
-		serviceCallOptions.logEnabled = value;
-		optionsMap.set(this, serviceCallOptions);
+		this._logEnabled = value;
 	}
 
 	/**
@@ -256,7 +245,7 @@ export default class ServiceCall {
 	 *            "Content-Type": "application/json"
 	 *        }
 	 *    });
-	 *    ServiceCall.request(reqOps).then((result) => {
+	 *    sc.request(reqOps).then((result) => {
 	 *        //logic
 	 *    }).catch((err) => {
 	 *        //logic
@@ -267,57 +256,29 @@ export default class ServiceCall {
 		endpointPath: string,
 		options: IRequestOptions
 	): IRequestOptions {
-		const serviceCallOptions = copy(optionsMap.get(this));
-		if (!serviceCallOptions) {
-			throw Error("This ServiceCall instnace is not configured");
-		}
-		const url = String(serviceCallOptions.baseUrl + endpointPath);
+		const url = String(this._baseUrl + endpointPath);
 		if (!reHTTPUrl.test(url)) {
 			throw Error(`URL is not valid for http(s) request: ${url}`);
 		}
 		const requestOptions = mixinDeep(
 			{
 				url,
-				headers: serviceCallOptions.headers,
-				logEnabled: !!serviceCallOptions.logEnabled,
-				sslPinning: serviceCallOptions.sslPinning || undefined
+				headers: this._http.headers,
+				logEnabled: !!this.logEnabled,
+				sslPinning: this._http.ios?.sslPinning || undefined
 			},
 			options || {}
 		);
 		return requestOptions;
 	}
 
-	/**
-	 * Combines serviceCall.createRequestOptions and ServiceCall.request
-	 * @method
-	 * @see ServiceCall.createRequestOptions
-	 * @see ServiceCall.request
-	 * @example
-	 * ```
-	 * function login(userName, password) {
-	 *      return sc.request("/auth/login", {
-	 *          method: "POST",
-	 *          body: {
-	 *              userName,
-	 *              password
-	 *          }
-	 *      });
-	 *  }
-	 * ```
-	 */
-	request(endpointPath: string, options: IRequestOptions): Promise<any> {
-		const requestOptions = this.createRequestOptions(endpointPath, options);
-		console.info("instance request: ", requestOptions);
-		return ServiceCall.request(requestOptions);
-	}
 
 	/**
 	 * Performs a service call and returns a promise to handle
-	 * @static
 	 * @method
 	 * @example
 	 * ```
-	 * var reqOps = sc.createRequestOptions(`/auth/login`, {
+	 * const reqOps = sc.createRequestOptions(`/auth/login`, {
 	 *        method: "POST",
 	 *        body: {
 	 *            userName,
@@ -327,33 +288,33 @@ export default class ServiceCall {
 	 *            "Content-Type": "application/json"
 	 *        }
 	 *    });
-	 *    ServiceCall.request(reqOps).then((result) => {
+	 *    sc.request(reqOps).then((result) => {
 	 *        //logic
 	 *    }).catch((err) => {
 	 *        //logic
 	 *    });
 	 * ```
 	 */
-	static request(options: IRequestOptions): Promise<any> {
-		options = Object.assign({}, options);
-		let { fullResponse = false } = options;
-		let query = options.q || options.query;
-		options.url = String(options.url);
+	request(endpointPath: string, options: IRequestOptions): Promise<any> {
+		const requestOptions = this.createRequestOptions(endpointPath, options);
+		let { fullResponse = false } = requestOptions;
+		let query = requestOptions.q || requestOptions.query;
+		requestOptions.url = String(requestOptions.url);
 		if (query) {
-			let urlParts = options.url.split("?");
+			let urlParts = requestOptions.url.split("?");
 			let q = Object.assign(queryString.parse(urlParts[1]), query);
 			let qString = queryString.stringify(q);
 			urlParts[1] = qString;
-			options.url = urlParts.join("?");
+			requestOptions.url = urlParts.join("?");
 		}
 
 		return new Promise((resolve, reject) => {
-			let requestOptions = mixinDeep(
+			let copiedOptions = mixinDeep(
 				{
 					onLoad: (response: any) => {
 						try {
-							response.logEnabled = !!options.logEnabled;
-							this.bodyParser(options.url || '', response);
+							response.logEnabled = !!this.logEnabled;
+							ServiceCall.bodyParser(requestOptions.url || '', response);
 							if (response.body && response.body.success === false)
 								reject(fullResponse ? response : response.body);
 							else resolve(fullResponse ? response : response.body);
@@ -362,50 +323,43 @@ export default class ServiceCall {
 						}
 					},
 					onError: (e: any) => {
-						e.logEnabled = !!options.logEnabled;
-						ServiceCall.bodyParser(options.url || '', e);
-						e.requestUrl = options.url;
+						e.logEnabled = !!this.logEnabled;
+						ServiceCall.bodyParser(requestOptions.url || '', e);
+						e.requestUrl = requestOptions.url;
 						reject(e);
 					},
 					headers: {},
 				},
-				options
+				requestOptions
 			);
-			if (METHODS_WITHOUT_BODY.indexOf(requestOptions.method) !== -1) {
-				if (requestOptions.body) {
-					delete requestOptions.body;
+			if (METHODS_WITHOUT_BODY.indexOf(copiedOptions.method) !== -1) {
+				if (copiedOptions.body) {
+					delete copiedOptions.body;
 				}
-				if (requestOptions.headers && requestOptions.headers["Content-Type"])
-					delete requestOptions.headers["Content-Type"];
-				options.logEnabled &&
-					console.log("request: ", options.url, " ", requestOptions);
+				if (copiedOptions.headers && copiedOptions.headers["Content-Type"])
+					delete copiedOptions.headers["Content-Type"];
+					copiedOptions.logEnabled &&
+					console.log("request: ", copiedOptions.url, " ", copiedOptions);
 			} else {
-				options.logEnabled &&
-					console.log("request: ", options.url, " ", requestOptions);
-				if (requestOptions.body && typeof requestOptions.body === "object") {
+				copiedOptions.logEnabled &&
+					console.log("request: ", copiedOptions.url, " ", copiedOptions);
+				if (copiedOptions.body && typeof copiedOptions.body === "object") {
 					if (
-						requestOptions.headers["Content-Type"].startsWith(
+						copiedOptions.headers["Content-Type"].startsWith(
 							"application/json"
 						)
 					) {
-						requestOptions.body = JSON.stringify(requestOptions.body);
+						copiedOptions.body = JSON.stringify(copiedOptions.body);
 					} else if (
-						requestOptions.headers["Content-Type"].includes(
+						copiedOptions.headers["Content-Type"].includes(
 							"x-www-form-urlencoded"
 						)
 					) {
-						requestOptions.body = ServiceCall.convertObjectToFormData(requestOptions.body);
+						copiedOptions.body = ServiceCall.convertObjectToFormData(copiedOptions.body);
 					}
 				}
 			}
-			getHttp()
-				.then((http: any) => {
-					const doesSSLExist = Array.isArray(requestOptions.sslPinning) && requestOptions.sslPinning.length > 0;
-					requestOptions.timeout && (http.timeout = requestOptions.timeout);
-					doesSSLExist && (http.ios.sslPinning = requestOptions.sslPinning);
-					http.request(requestOptions);
-				})
-				.catch(reject);
+			this._http.request(copiedOptions);
 		});
 	}
 
@@ -454,7 +408,7 @@ export default class ServiceCall {
 			);
 	}
 
-	static convertObjectToFormData(body: any) {
+	static convertObjectToFormData(body: { [key: string]: any }) {
 		let formData = "";
 		let bodyKeys = Object.keys(body);
 		bodyKeys.forEach((key, index) => {
