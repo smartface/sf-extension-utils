@@ -256,20 +256,16 @@ export default class ServiceCall {
 		endpointPath: string,
 		options: IRequestOptions
 	): IRequestOptions {
-		const url = String(this._baseUrl + endpointPath);
+		const url = `${this._baseUrl}${endpointPath}`;
 		if (!reHTTPUrl.test(url)) {
 			throw Error(`URL is not valid for http(s) request: ${url}`);
 		}
-		const requestOptions = mixinDeep(
-			{
-				url,
-				headers: this._http.headers,
-				logEnabled: !!this.logEnabled,
-				sslPinning: this._http.ios?.sslPinning || undefined
-			},
-			options || {}
-		);
-		return requestOptions;
+		return {
+			url,
+			logEnabled: !!this.logEnabled,
+			headers: this.getHeaders(),
+			...options
+		}
 	}
 
 
@@ -296,7 +292,17 @@ export default class ServiceCall {
 	 * ```
 	 */
 	request(endpointPath: string, options: IRequestOptions): Promise<any> {
-		const requestOptions = this.createRequestOptions(endpointPath, options);
+		const url = `${this._baseUrl}${endpointPath}`;
+		if (!reHTTPUrl.test(url)) {
+			throw Error(`URL is not valid for http(s) request: ${url}`);
+		}
+		const requestOptions = {
+			url,
+			logEnabled: !!this.logEnabled, 
+			...options
+		}
+		
+		// this.createRequestOptions(endpointPath, Object.assign({}, options));
 		let { fullResponse = false } = requestOptions;
 		let query = requestOptions.q || requestOptions.query;
 		requestOptions.url = String(requestOptions.url);
@@ -315,9 +321,13 @@ export default class ServiceCall {
 						try {
 							response.logEnabled = !!this.logEnabled;
 							ServiceCall.bodyParser(requestOptions.url || '', response);
-							if (response.body && response.body.success === false)
+							if (response.body && response.body.success === false){
 								reject(fullResponse ? response : response.body);
-							else resolve(fullResponse ? response : response.body);
+							}
+							else { 
+
+								resolve(fullResponse ? response : response.body);
+							}
 						} catch (ex) {
 							reject(ex);
 						}
@@ -326,35 +336,31 @@ export default class ServiceCall {
 						e.logEnabled = !!this.logEnabled;
 						ServiceCall.bodyParser(requestOptions.url || '', e);
 						e.requestUrl = requestOptions.url;
+
 						reject(e);
 					},
 					headers: {},
 				},
 				requestOptions
 			);
+
 			if (METHODS_WITHOUT_BODY.indexOf(copiedOptions.method) !== -1) {
 				if (copiedOptions.body) {
 					delete copiedOptions.body;
 				}
 				if (copiedOptions.headers && copiedOptions.headers["Content-Type"])
 					delete copiedOptions.headers["Content-Type"];
-					copiedOptions.logEnabled &&
-					console.log("request: ", copiedOptions.url, " ", copiedOptions);
+					if(copiedOptions.logEnabled) {
+						console.log("request: ", copiedOptions.url, " ", copiedOptions);
+					}
 			} else {
-				copiedOptions.logEnabled &&
+				if(copiedOptions.logEnabled) {
 					console.log("request: ", copiedOptions.url, " ", copiedOptions);
+				}
 				if (copiedOptions.body && typeof copiedOptions.body === "object") {
-					if (
-						copiedOptions.headers["Content-Type"].startsWith(
-							"application/json"
-						)
-					) {
+					if (copiedOptions.headers["Content-Type"].startsWith("application/json")) {
 						copiedOptions.body = JSON.stringify(copiedOptions.body);
-					} else if (
-						copiedOptions.headers["Content-Type"].includes(
-							"x-www-form-urlencoded"
-						)
-					) {
+					} else if (copiedOptions.headers["Content-Type"].includes("x-www-form-urlencoded")) {
 						copiedOptions.body = ServiceCall.convertObjectToFormData(copiedOptions.body);
 					}
 				}
