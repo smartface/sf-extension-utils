@@ -12,7 +12,6 @@ import Application from "@smartface/native/application";
 import System from "@smartface/native/device/system";
 import AlertView from "@smartface/native/ui/alertview";
 import Multimedia from "@smartface/native/device/multimedia";
-import alert from "../base/alert";
 import { openApplicationSettings } from "../settings";
 import Location from "@smartface/native/device/location";
 
@@ -186,7 +185,7 @@ export enum IOS_PERMISSIONS {
 }
 
 function alertWrapper(permissionText = "", permissionTitle = "") {
-	if (System.OS === "iOS") {
+	if (System.OS === System.OSType.IOS) {
 		//@ts-ignore
 		__SF_Dispatch.mainAsync(() => {
 			showAlertAndRedirectToSettings(permissionText, permissionTitle);
@@ -200,7 +199,7 @@ function showAlertAndRedirectToSettings(
 	permissionText: string,
 	permissionTitle: string
 ) {
-	const alertView: AlertView = alert({
+	const alertView: AlertView = global.alert({
 		title:
 			permissionTitle ||
 			//@ts-ignore
@@ -215,13 +214,13 @@ function showAlertAndRedirectToSettings(
 		buttons: [
 			{
 				//@ts-ignore
-				text: global.lang.goToSettings,
+				text: global.lang.goToSettings || "Go to Settings",
 				type: AlertView.Android.ButtonType.POSITIVE,
 				onClick: () => openApplicationSettings(),
 			},
 			{
 				//@ts-ignore
-				text: global.lang.cancel,
+				text: global.lang.cancel || "Cancel",
 				type: AlertView.Android.ButtonType.NEGATIVE,
 				onClick: () => alertView.dismiss(),
 			},
