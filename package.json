@@ -1,6 +1,6 @@
 {
   "name": "@smartface/extension-utils",
-  "version": "16.2.6",
+  "version": "16.2.7-rc.3",
   "description": "Utils Extension for Smartface Native Framework",
   "main": "lib/index.js",
   "repository": "https://github.com/smartface/sf-extension-utils",
@@ -65,10 +65,5 @@
     "prettier": "^1.19.1",
     "typedoc": "beta",
     "typescript": "^4.3.5"
-  },
-  "peerDependencies": {
-    "@smartface/contx": "^4.0.0 || ^4.0.0-rc || ^4.0.1-rc",
-    "@smartface/native": "^4.3.5-beta.4 || ^4.3.5.alpha",
-    "@smartface/router": "^2.0.0 || ^2.0.0-rc"
   }
 }
