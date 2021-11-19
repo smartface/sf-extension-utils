@@ -9,6 +9,9 @@
 
 import AlertView from "@smartface/native/ui/alertview";
 import System from '@smartface/native/device/system';
+import Application from '@smartface/native/application';
+
+const ALERT_TIMEOUT = 600;
 
 interface AlertButton {
     type: AlertView.Android.ButtonType;
@@ -105,7 +108,12 @@ function alert(options: string | AlertOptions, title?: string): AlertView {
     }
     buttons = buttons.reverse();
     buttons.forEach((button) => alertView.addButton(button));
-    alertView.show();
+    Application.hideKeyboard();
+    /**
+     * The setTimeout solution is a workaround for 
+     * keyboard re-opening on alert show in iOS.
+     */
+    setTimeout(() => alertView.show(), ALERT_TIMEOUT);
     return alertView;
 }
 //@ts-ignore
