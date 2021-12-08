@@ -223,7 +223,7 @@ export default class BackClose {
 	 * @public
 	 * @example
 	 * ```
-	 * import { backClose } from '@smartface/extension-utils/lib/router/back-close';
+	 * import backClose from '@smartface/extension-utils/lib/router/back-close';
 	 * backClose.setDefaultBackStyle({image: backArrowImage, hideTitle: true});
 	 * ```
 	 */
