@@ -80,10 +80,9 @@
   dependencies:
     html-parse-stringify "1.0.2"
 
-"@smartface/native@^4.3.5-beta.4":
-  version "4.3.5"
-  resolved "https://registry.yarnpkg.com/@smartface/native/-/native-4.3.5.tgz#820a405f3df32c8e099a1a1658bc57673e053c1e"
-  integrity sha512-/mgbbu/tPbbEmPlsVWsDOAgfdDkAt3PIZmINvwFXeX1A4DeEahtCzjcMWNUaCZZTtcrHtRfCPWzTZuRcjIkZCg==
+"@smartface/native@smartface/smartface-native#feature/util-to-native":
+  version "4.3.6-alpha.13"
+  resolved "https://codeload.github.com/smartface/smartface-native/tar.gz/d9bb3f961a087b55e0305920ef8cfada10d4815f"
   dependencies:
     events "^3.3.0"
 
