@@ -33,7 +33,7 @@ interface ExternalPageParams {
 let currentPage: Page & ExternalPageParams;
 
 export default class Active {
-    /**
+	/**
 	 * @deprecated To get the current page you can directly use Router's getState() function
 	 * @example
 	 * ```
