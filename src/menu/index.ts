@@ -1,5 +1,5 @@
 import Linking from '@smartface/native/application/linking';
-import { MapList } from '@smartface/native/application/linking/shared/map';
+import { MapList, MapTypes } from '@smartface/native/application/linking/shared/map';
 import { MapOptions, NavigationOptions } from '@smartface/native/application/maps'
 import { getMapOptions } from '@smartface/native/application/maps/maps';
 import System from '@smartface/native/device/system';
