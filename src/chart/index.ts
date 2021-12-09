@@ -5,6 +5,7 @@
  * @copyright Smartface 2021
  */
 
+// TODO - Update from path to the new package path
 import WebViewBridge from "../webviewbridge";
 import { ApexOptions } from "apexcharts";
 

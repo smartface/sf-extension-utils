@@ -6,6 +6,7 @@
  */
 
 import WebView from "@smartface/native/ui/webview";
+// TODO - Update from path to the new package path
 import WebViewBridge from "../webviewbridge";
 
 /** CSS properties available within this component */
