@@ -32,6 +32,13 @@ interface ExternalPageParams {
 let currentPage: Page & ExternalPageParams;
 
 export default class Active {
+    /**
+	 * @deprecated To get the current page you can use Router's getState() function
+	 * @example
+	 * ```
+	 * import { Router } from '@smartface/router';
+	 * const currentPage = Router.currentRouter.getState().view;
+	 */
     static get page(): typeof currentPage {
         return currentPage;
     }
