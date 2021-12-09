@@ -14,7 +14,7 @@ export function showMapsMenu(options: { mapOptions: MapOptions, page: Page }): P
 
 export function showNavigationMenu(options: { navigationOptions: NavigationOptions, page: Page }): Promise<any> {
   const { navigationOptions, page } = options;
-  return System.OS === System.OSType.IOS ? showMenuForIOS(navigationOptions, page) : showMenuForAndroid(navigationOptions);
+  return System.OS === System.OSType.IOS ? showMenuForIOS(navigationOptions, page, true) : showMenuForAndroid(navigationOptions, true);
 }
 
 function showMenuForIOS(options: NavigationOptions | MapOptions, page: Page, isNavigation = false) {
