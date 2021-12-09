@@ -1,4 +1,5 @@
 import Page from '@smartface/native/ui/page';
+import { Router } from '@smartface/router';
 /**
  * Active page reference for router
  * @module router
@@ -33,14 +34,14 @@ let currentPage: Page & ExternalPageParams;
 
 export default class Active {
     /**
-	 * @deprecated To get the current page you can use Router's getState() function
+	 * @deprecated To get the current page you can directly use Router's getState() function
 	 * @example
 	 * ```
 	 * import { Router } from '@smartface/router';
 	 * const currentPage = Router.currentRouter.getState().view;
 	 */
     static get page(): typeof currentPage {
-        return currentPage;
+        return Router.currentRouter.getState().view;
     }
     static set page(value: Page) {
         currentPage = value;
