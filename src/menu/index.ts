@@ -83,8 +83,13 @@ function showMenuForAndroid(options: MapOptions | NavigationOptions, isNavigatio
   return new Promise((resolve, reject) => {
     const { latitude, longitude } = options.location;
     const locationName = options.name || '';
+    // @ts-ignore
+    const transportType = options?.transportType;
+    const uriScheme = isNavigation
+      ? `geo:${latitude},${longitude}?q=${latitude},${longitude}&mode=${transportType}`
+      : `geo:${latitude},${longitude}?q=${encodeURIComponent(locationName)}`;
     Linking.openURL({
-      uriScheme: `geo:${latitude},${longitude}?q=${encodeURIComponent(locationName)}`,
+      uriScheme,
       chooserTitle: global.lang.chooseMapsApp || "Choose Maps App",
       onSuccess: (e) => resolve(e),
       onFailure: (e) => reject(e),
