@@ -87,6 +87,7 @@ export function createAsyncGetter(
  * Runs the async task and responds a promise
  * @public
  * @method
+ * @deprecated
  * @param {function} task - is called as AsyncTask. Make sure that no UI operation takes place. Return value of the task function is used as the resolved argument
  * @param {object} [options = {}] - Options object
  * @param {boolean} [options.forceSynch = false] - Calls the function direclty without async task
