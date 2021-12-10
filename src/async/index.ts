@@ -12,6 +12,7 @@ import AsyncTask from "@smartface/native/global/asynctask";
  * Returns a getter function, which returns the promise of the asyc task.
  * @public
  * @method
+ * @deprecated
  * @example
  * ```
  * import { createAsyncGetter } from '@smartface/extension-utils/lib/async';
@@ -87,6 +88,7 @@ export function createAsyncGetter(
  * Runs the async task and responds a promise
  * @public
  * @method
+ * @deprecated
  * @param {function} task - is called as AsyncTask. Make sure that no UI operation takes place. Return value of the task function is used as the resolved argument
  * @param {object} [options = {}] - Options object
  * @param {boolean} [options.forceSynch = false] - Calls the function direclty without async task
