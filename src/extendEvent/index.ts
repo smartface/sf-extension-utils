@@ -3,6 +3,7 @@
  * @public
  * @module extendEvent
  * @type {function}
+ * @deprecated
  * @author Alper Ozisik <alper.ozisik@smartface.io>
  * @copyright Smartface 2018
  * @param {object} target - to add the event
