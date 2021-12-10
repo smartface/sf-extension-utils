@@ -12,6 +12,7 @@ import AsyncTask from "@smartface/native/global/asynctask";
  * Returns a getter function, which returns the promise of the asyc task.
  * @public
  * @method
+ * @deprecated
  * @example
  * ```
  * import { createAsyncGetter } from '@smartface/extension-utils/lib/async';
