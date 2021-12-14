@@ -15,6 +15,7 @@
  * your app can ensure that it's running on a device that has the latest updates to protect against known exploits.
  * @public
  * @class
+ * @deprecated
  * @see {@link https://developer.android.com/training/articles/security-gms-provider}
  * @example
  *```
@@ -36,6 +37,7 @@ export default class GooglePlayServices {
 	 * This method must be called on the UI thread.
 	 * @method upgradeSecurityProvider
 	 * @returns {Promise} resolved and rejected with error code.
+	 * @deprecated
 	 * @see {@link https://developers.google.com/android/reference/com/google/android/gms/common/ConnectionResult}
 	 * @public
 	 * @static
