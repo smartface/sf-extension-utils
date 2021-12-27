@@ -32,7 +32,6 @@ if (System.OS === System.OSType.IOS) {
  * dangerous app packages/paths should be kept upto date by commuity.
  *
  * @public
- * @deprecated
  * @class
  *
  */
