@@ -13,6 +13,7 @@
  * tampering, bad URLs, potentially harmful apps, and fake users.
  * @public
  * @class
+ * @deprecated
  * @see {@link https://developer.android.com/training/safetynet/attestation.html}
  * @example
  *```
@@ -105,6 +106,7 @@ export default class GoogleSafetyNet {
 	 * @method
 	 * @param {string} nonce - Unique identifier for validation of returned JWS.
 	 * @returns {Promise} resolved with JWS and rejected with error message.
+	 * @deprecated
 	 * @public
 	 * @instance
 	 * @see {@link https://developer.android.com/training/safetynet/attestation.html}
@@ -134,6 +136,7 @@ export default class GoogleSafetyNet {
 	 * Generates random strings.
 	 * @method generateNonce
 	 * @return {string} - returns converted UTF-8 string from random generated 16 bytes.
+	 * @deprecated
 	 * @public
 	 * @instance
 	 * @example
@@ -150,6 +153,7 @@ export default class GoogleSafetyNet {
 	 * Checks google play services availability.
 	 * @method isPlayServicesAvailable
 	 * @return {boolean} - returns either google play services available currently or not.
+	 * @deprecated
 	 * @public
 	 * @instance
 	 * @example
