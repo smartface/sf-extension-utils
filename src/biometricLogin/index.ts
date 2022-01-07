@@ -17,14 +17,22 @@ type PromptBiometricUsage = {
   negativeActionText: string;
 };
 
-type ValidateBiometric = {
-  checkBiometricPromptAsked?: boolean;
-  promptBiometricUsage?: boolean;
-  title: string;
-  message: string;
-  cancelButtonText: string;
-  promptOpts?: PromptBiometricUsage;
-};
+type ValidateBiometric =
+  | {
+      promptBiometricUsage: true;
+      checkBiometricPromptAsked?: boolean;
+      title: string;
+      message: string;
+      cancelButtonText: string;
+      promptOpts: PromptBiometricUsage;
+    }
+  | {
+      promptBiometricUsage: false;
+      checkBiometricPromptAsked?: boolean;
+      title: string;
+      message: string;
+      cancelButtonText: string;
+    };
 
 class BiometricLogin {
   private __biometricEnabled;
@@ -105,7 +113,6 @@ class BiometricLogin {
       checkBiometricPromptAsked,
       promptBiometricUsage,
       cancelButtonText,
-      promptOpts,
     } = opts;
     return new Promise<void>(async (resolve, reject) => {
       if (this.__isBiometricValidationActive) {
@@ -118,7 +125,9 @@ class BiometricLogin {
       if (checkBiometricPromptAsked) {
         if (!this.__biometricPromptAsked && promptBiometricUsage) {
           try {
-            await this.promptBiometricUsage(promptOpts as PromptBiometricUsage);
+            await this.promptBiometricUsage(
+              opts.promptOpts as PromptBiometricUsage
+            );
           } catch (err) {
             reject(Error("Biometric is disabled"));
           }
@@ -126,7 +135,9 @@ class BiometricLogin {
       } else {
         if (promptBiometricUsage) {
           try {
-            await this.promptBiometricUsage(promptOpts as PromptBiometricUsage);
+            await this.promptBiometricUsage(
+              opts.promptOpts as PromptBiometricUsage
+            );
           } catch (err) {
             reject(Error("Biometric is disabled"));
           }
