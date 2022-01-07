@@ -86,7 +86,7 @@ class BiometricLogin {
                 resolve();
               } catch (err) {
                 this.biometricEnabled = false;
-                resolve(); // Warn user maybe ??
+                resolve();
               } finally {
                 this.biometricPromptAsked = true;
               }
