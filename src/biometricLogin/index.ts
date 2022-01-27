@@ -111,7 +111,6 @@ class BiometricLogin {
       title,
       message,
       checkBiometricPromptAsked,
-      promptBiometricUsage,
       cancelButtonText,
     } = opts;
     return new Promise<void>(async (resolve, reject) => {
@@ -123,21 +122,17 @@ class BiometricLogin {
       }
 
       if (checkBiometricPromptAsked) {
-        if (!this.__biometricPromptAsked && promptBiometricUsage) {
+        if (!this.__biometricPromptAsked && opts.promptBiometricUsage) {
           try {
-            await this.promptBiometricUsage(
-              opts.promptOpts as PromptBiometricUsage
-            );
+            await this.promptBiometricUsage(opts.promptOpts);
           } catch (err) {
             reject(Error("Biometric is disabled"));
           }
         }
       } else {
-        if (promptBiometricUsage) {
+        if (opts.promptBiometricUsage) {
           try {
-            await this.promptBiometricUsage(
-              opts.promptOpts as PromptBiometricUsage
-            );
+            await this.promptBiometricUsage(opts.promptOpts);
           } catch (err) {
             reject(Error("Biometric is disabled"));
           }
