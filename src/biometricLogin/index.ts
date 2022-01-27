@@ -35,8 +35,8 @@ type ValidateBiometric =
     };
 
 class BiometricLogin {
-  private __biometricEnabled;
-  private __biometricPromptAsked;
+  private __biometricEnabled: boolean;
+  private __biometricPromptAsked: boolean;
   private __isBiometricValidationActive = false;
   constructor() {
     this.__biometricEnabled = !!Data.getBooleanVariable(
