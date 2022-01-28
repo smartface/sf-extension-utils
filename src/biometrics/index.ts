@@ -10,31 +10,31 @@ enum DataVariables {
 
 const faceIDNotWorkingDevices = ["huawei"];
 
-type PromptBiometricUsage = {
+type PromptUsage = {
   title: string;
   message: string;
   positiveActionText: string;
   negativeActionText: string;
 };
 
-type ValidateBiometric =
+type Validate =
   | {
-      promptBiometricUsage: true;
-      checkBiometricPromptAsked?: boolean;
+      promptUsage: true;
+      checkPromptAsked?: boolean;
       title: string;
       message: string;
       cancelButtonText: string;
-      promptOpts: PromptBiometricUsage;
+      promptOpts: PromptUsage;
     }
   | {
-      promptBiometricUsage: false;
-      checkBiometricPromptAsked?: boolean;
+      promptUsage: false;
+      checkPromptAsked?: boolean;
       title: string;
       message: string;
       cancelButtonText: string;
     };
 
-class BiometricLogin {
+class Biometrics {
   private __biometricEnabled: boolean;
   private __biometricPromptAsked: boolean;
   private __isBiometricValidationActive = false;
@@ -48,29 +48,29 @@ class BiometricLogin {
     );
   }
 
-  get hasBiometricSupport(): boolean {
+  get hasSupport(): boolean {
     return System.biometricsAvailable;
   }
 
-  get biometricEnabled(): boolean {
+  get enabled(): boolean {
     return this.__biometricEnabled;
   }
 
-  set biometricEnabled(value: boolean) {
+  set enabled(value: boolean) {
     this.__biometricEnabled = value;
     Data.setBooleanVariable(DataVariables.BIOMETRIC_ENABLED, value);
   }
 
-  get biometricPromptAsked(): boolean {
+  get promptAsked(): boolean {
     return this.__biometricPromptAsked;
   }
 
-  set biometricPromptAsked(value: boolean) {
+  set promptAsked(value: boolean) {
     this.__biometricPromptAsked = value;
     Data.setBooleanVariable(DataVariables.BIOMETRIC_ACTIVATION_ASKED, value);
   }
 
-  private promptBiometricUsage(opts: PromptBiometricUsage) {
+  private promptUsage(opts: PromptUsage) {
     const { title, message, negativeActionText, positiveActionText } = opts;
     return new Promise<void>((resolve, reject) => {
       global.alert({
@@ -82,13 +82,13 @@ class BiometricLogin {
             type: AlertView.Android.ButtonType.POSITIVE,
             onClick: async () => {
               try {
-                this.biometricEnabled = true;
+                this.enabled = true;
                 resolve();
               } catch (err) {
-                this.biometricEnabled = false;
+                this.enabled = false;
                 resolve();
               } finally {
-                this.biometricPromptAsked = true;
+                this.promptAsked = true;
               }
             },
           },
@@ -96,8 +96,8 @@ class BiometricLogin {
             text: negativeActionText,
             type: AlertView.Android.ButtonType.NEGATIVE,
             onClick: () => {
-              this.biometricEnabled = false;
-              this.biometricPromptAsked = true;
+              this.enabled = false;
+              this.promptAsked = true;
               reject();
             },
           },
@@ -106,14 +106,8 @@ class BiometricLogin {
     });
   }
 
-  validateBiometric(opts: ValidateBiometric, showAlert = true) {
-    const {
-      title,
-      message,
-      checkBiometricPromptAsked,
-      promptBiometricUsage,
-      cancelButtonText,
-    } = opts;
+  validate(opts: Validate, showAlert = true) {
+    const { title, message, checkPromptAsked, cancelButtonText } = opts;
     return new Promise<void>(async (resolve, reject) => {
       if (this.__isBiometricValidationActive) {
         return reject({
@@ -122,22 +116,18 @@ class BiometricLogin {
         });
       }
 
-      if (checkBiometricPromptAsked) {
-        if (!this.__biometricPromptAsked && promptBiometricUsage) {
+      if (checkPromptAsked) {
+        if (!this.__biometricPromptAsked && opts.promptUsage) {
           try {
-            await this.promptBiometricUsage(
-              opts.promptOpts as PromptBiometricUsage
-            );
+            await this.promptUsage(opts.promptOpts);
           } catch (err) {
             reject(Error("Biometric is disabled"));
           }
         }
       } else {
-        if (promptBiometricUsage) {
+        if (opts.promptUsage) {
           try {
-            await this.promptBiometricUsage(
-              opts.promptOpts as PromptBiometricUsage
-            );
+            await this.promptUsage(opts.promptOpts);
           } catch (err) {
             reject(Error("Biometric is disabled"));
           }
@@ -148,7 +138,7 @@ class BiometricLogin {
       if (!this.__biometricEnabled) {
         return reject(Error("Biometric is disabled"));
       }
-      if (!this.hasBiometricSupport) {
+      if (!this.hasSupport) {
         if (!showAlert) {
           return reject(Error("Won't show use fingerprint alert"));
         }
@@ -180,4 +170,4 @@ class BiometricLogin {
   }
 }
 
-export default BiometricLogin;
+export default Biometrics;
