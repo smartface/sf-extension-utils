@@ -1,11 +1,14 @@
 {
-  "name": "sf-extension-utils",
-  "version": "14.9.4",
+  "name": "@smartface/extension-utils",
+  "version": "16.4.0",
   "description": "Utils Extension for Smartface Native Framework",
   "main": "lib/index.js",
+  "repository": "https://github.com/smartface/sf-extension-utils",
   "scripts": {
-    "docs": "bash ./createdoc.sh",
-    "changelog": "./node_modules/.bin/gitmoji-changelog"
+    "docs": "rm -rf docs && node typedoc.js",
+    "watch": "tsc -w",
+    "build": "tsc",
+    "test": "mocha"
   },
   "keywords": [
     "smartface",
@@ -21,9 +24,13 @@
   "license": "MIT",
   "homepage": "https://github.com/smartface/sf-extension-utils#readme",
   "maintainers": [
-    "Ozcan Ovunc <ozcan.ovunc@smartface.io>"
+    "Furkan Arabacı <furkan.arabaci@smartface.io>"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
+    "apexcharts": "^3.26.3",
     "html-parse-stringify": "1.0.2",
     "mixin-deep": "^1.3.1",
     "query-string": "^6.10.1",
@@ -33,8 +40,14 @@
     "wolfy87-eventemitter": "^5.2.9"
   },
   "devDependencies": {
+    "@smartface/contx": "^4.0.0 || ^4.0.0-rc || ^4.0.1-rc",
+    "@smartface/native": "^4.3.5-beta.4",
+    "@smartface/router": "^2.0.0 || ^2.0.0-rc",
+    "@types/node": "^16.6.1",
+    "@types/tinycolor2": "^1.4.3",
     "@typescript-eslint/eslint-plugin": "^4.14.0",
-    "cz-conventional-changelog": "^2.1.0",
+    "@typescript-eslint/parser": "^4.29.2",
+    "chai": "^4.3.4",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-airbnb-base": "^14.0.0",
@@ -45,18 +58,12 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.18.0",
     "eslint-plugin-react-hooks": "^1.7.0",
-    "estraverse": "^4.3.0",
-    "gitmoji-changelog": "^2.0.1",
+    "gh-pages": "^3.2.3",
+    "install-peers-cli": "^2.2.0",
     "jsdoc-to-markdown": "^5.0.0",
-    "prettier": "^1.19.1"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
-  "peerDependencies": {
-    "sf-core": "^4.0.0",
-    "@smartface/contx": "^3.0.1"
+    "mocha": "^9.1.0",
+    "prettier": "^1.19.1",
+    "typedoc": "beta",
+    "typescript": "^4.3.5"
   }
 }

@@ -1,0 +1,37 @@
+{
+  "knownRootAppPackages": [
+    "com.noshufou.android.su",
+    "com.noshufou.android.su.elite",
+    "eu.chainfire.supersu",
+    "com.koushikdutta.superuser",
+    "com.thirdparty.superuser",
+    "com.yellowes.su",
+    "com.topjohnwu.magisk",
+    "kingoroot.supersu"
+  ],
+  "shouldBeReadablePaths": [
+    "/system",
+    "/system/bin",
+    "/system/sbin",
+    "/system/xbin",
+    "/vendor/bin",
+    "/sbin",
+    "/etc"
+  ],
+  "suBinaryPaths": [
+    "/data/local/",
+    "/data/local/bin/",
+    "/data/local/xbin/",
+    "/sbin/",
+    "/su/bin/",
+    "/system/bin/",
+    "/system/bin/.ext/",
+    "/system/bin/failsafe/",
+    "/system/sd/xbin/",
+    "/system/usr/we-need-root/",
+    "/system/xbin/",
+    "/cache/",
+    "/data/",
+    "/dev/"
+  ]
+}

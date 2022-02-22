@@ -1,5 +1,8 @@
 .DS_Store
 npm-debug.log
-.c9
 node_modules/
-yarn.*
+yarn-*
+tsconfig.ts*
+dist
+lib
+docs

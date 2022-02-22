@@ -1,9 +1,9 @@
-README.md
-.git
-.gitignore
-.npmrc
-.npmignore
-npm-debug.log
-samples
 createdoc.sh
-.c9
+node_modules
+src
+doc
+docs
+.github
+typedoc.js
+tsconfig.*
+test
