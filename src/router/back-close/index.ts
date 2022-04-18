@@ -14,7 +14,6 @@ import HeaderBarItem from "@smartface/native/ui/headerbaritem";
 import System from "@smartface/native/device/system";
 import { NativeStackRouter } from "@smartface/router";
 import buildExtender from "../buildExtender";
-import { i18n } from "@smartface/i18n";
 
 enum DismissPosition {
 	LEFT,
@@ -35,6 +34,7 @@ type DismissBuilderOptions = {
 };
 
 let dissmissBuilder: (
+	text: string,
 	match?: any,
 	routeData?: any,
 	router?: any,
@@ -44,6 +44,7 @@ let dissmissBuilder: (
 ) => DismissBuilderOptions = defaultDissmissBuilder;
 
 function defaultDissmissBuilder(
+	text: string,
 	match: any,
 	routeData: any,
 	router: any,
@@ -52,7 +53,7 @@ function defaultDissmissBuilder(
 	route: any
 ): DismissBuilderOptions {
 	return {
-		text: i18n.instance.t('done') || 'Done',
+		text: text || 'Done',
 		position: System.OS === System.OSType.IOS ? DismissPosition.LEFT : DismissPosition.RIGHT,
 	};
 }
@@ -200,10 +201,10 @@ export default class BackClose {
 	 * @example
 	 * ```
 	 * import backClose from "@smartface/extension-utils/lib/router/back-close";
-	 * backClose.dissmissBuilder = (match, routeData, router, pageInstance, pageProps, route) => {
+	 * backClose.dissmissBuilder = (text, match, routeData, router, pageInstance, pageProps, route) => {
 	 *  if(System.OS === "iOS") {
 	 *   if(match.url !== "specificPage")
-	 *      return {text: i18n.instance.t('done'), position: "right"};
+	 *      return {text, position: "right"};
 	 *   else
 	 *      return {image: closeImage, position: "left"};
 	 *  }
