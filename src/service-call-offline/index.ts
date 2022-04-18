@@ -15,6 +15,7 @@ import Network from "@smartface/native/device/network";
 import guid from "../guid";
 import copy from "../copy";
 import ServiceCall from "../service-call";
+import { i18n } from "@smartface/i18n";
 
 const TABLE_NAMES = Object.freeze({
 	CACHED_REQUESTS: "SF_EXTENSION_UTILS_OFFLINE_ALL_CACHED_REQUESTS",
@@ -226,7 +227,7 @@ const errorHandler = (err: any) => {
 	if (err instanceof Error)
 		return {
 			//@ts-ignore
-			title: err.type || global.lang.applicationError,
+			title: err.type || i18n.instance.t('applicationError'),
 			message:
 				System.OS === System.OSType.ANDROID
 					? err.stack

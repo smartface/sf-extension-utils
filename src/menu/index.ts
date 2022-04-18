@@ -6,6 +6,7 @@ import System from '@smartface/native/device/system';
 import Menu from "@smartface/native/ui/menu";
 import MenuItem from "@smartface/native/ui/menuitem";
 import Page from '@smartface/native/ui/page';
+import { i18n } from '@smartface/i18n';
 
 export function showMapsMenu(options: { mapOptions: MapOptions, page: Page }): Promise<any> {
   const { mapOptions, page } = options;
@@ -52,8 +53,7 @@ function showMenuForIOS(options: NavigationOptions | MapOptions, page: Page, isN
       onSelected: () => mapsOnSelected(MapTypes.YANDEX_MAPS)
     });
     const cancelMenuItem = new MenuItem({
-      //@ts-ignore
-      title: global.lang.cancel || "Cancel",
+      title: i18n.instance.t('cancel') || "Cancel",
       ios: {
         style: MenuItem.ios.Style.CANCEL,
       },
@@ -90,7 +90,7 @@ function showMenuForAndroid(options: MapOptions | NavigationOptions, isNavigatio
       : `geo:${latitude},${longitude}?q=${encodeURIComponent(locationName)}`;
     Linking.openURL({
       uriScheme,
-      chooserTitle: global.lang.chooseMapsApp || "Choose Maps App",
+      chooserTitle: i18n.instance.t('chooseMapsApp') || "Choose Maps App",
       onSuccess: (e) => resolve(e),
       onFailure: (e) => reject(e),
       isShowChooser: true

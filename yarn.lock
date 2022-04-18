@@ -43,6 +43,13 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime@^7.17.2":
+  version "7.17.9"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.17.9.tgz#d19fbf802d01a8cb6cf053a64e472d42c434ba72"
+  integrity sha512-lSiBBvodq29uShpWGNbgFdKYNiFDo5/HIYsaCEY9ff4sb10x9jizo2+pRrSyF4jKZCXqgzuqBOQKbUm90gQwJg==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz#7619c2eb21b25483f6d167548b4cfd5a7488c3d5"
@@ -79,6 +86,21 @@
   integrity sha512-yKoQY2nfWiVEfXKdqvtswxPTQjt+WeNZl8gqnUXxRzZcm/trzcyHx8KGzTQHdLysQCDtOQhyIZXPTaWlFaFzFg==
   dependencies:
     html-parse-stringify "1.0.2"
+
+"@smartface/i18n@5.0.0-alpha.8":
+  version "5.0.0-alpha.8"
+  resolved "https://registry.yarnpkg.com/@smartface/i18n/-/i18n-5.0.0-alpha.8.tgz#66edda3e62c554abfeab11951535bfbd124136a5"
+  integrity sha512-Qy3+kZO6TdLUPkdgMxAuUaiwATW39SQCHMD9nUWAZTdPixQ5v613S6o4FNfIx0icpuBZAcfE+VB8m41X4kkWYA==
+  dependencies:
+    "@smartface/native" "^4.3.6-beta.6"
+    i18next "21.6.15"
+
+"@smartface/native@^4.3.6-beta.6":
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/@smartface/native/-/native-4.4.0.tgz#620b309ad66ebf0c7dff57fed1fc9eb87c8b6303"
+  integrity sha512-qKawjNvSiK2d0hkl/lkKk9ayXv6fOboto3EZcN3m8TwRnzW6hKQoWb/NbklbNEyClsH9244q8J6U8E8ZIIOKWA==
+  dependencies:
+    events "^3.3.0"
 
 "@smartface/native@smartface/smartface-native#feature/util-to-native":
   version "4.3.6-alpha.13"
@@ -1488,6 +1510,13 @@ html-parse-stringify@1.0.2:
   integrity sha1-EgjpjNdDCtfvsS4ees7pIU/SIoM=
   dependencies:
     void-elements "^1.0.0"
+
+i18next@21.6.15:
+  version "21.6.15"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-21.6.15.tgz#077e5798dbbd53d3aaa8ad66193758bd19836dbe"
+  integrity sha512-uMFyw5HGK9KSJ7ok/WUJfeNQj53VOR4NoITtErffWen2v2SjJfpCls7tKTLF1nTCdKRePY4lCoZMLKhRSj/1GA==
+  dependencies:
+    "@babel/runtime" "^7.17.2"
 
 iconv-lite@^0.4.24:
   version "0.4.24"

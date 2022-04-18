@@ -42,6 +42,7 @@
   "devDependencies": {
     "@smartface/contx": "^4.0.0 || ^4.0.0-rc || ^4.0.1-rc",
     "@smartface/native": "smartface/smartface-native#feature/util-to-native",
+    "@smartface/i18n": "5.0.0-alpha.8",
     "@smartface/router": "^2.0.0 || ^2.0.0-rc",
     "@types/node": "^16.6.1",
     "@types/tinycolor2": "^1.4.3",
