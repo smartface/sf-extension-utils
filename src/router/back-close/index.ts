@@ -34,23 +34,23 @@ type DismissBuilderOptions = {
 };
 
 let dissmissBuilder: (
-	text: string,
 	match?: any,
 	routeData?: any,
 	router?: any,
 	pageInstance?: any,
 	pageProps?: any,
-	route?: any
+	route?: any,
+	text?: string
 ) => DismissBuilderOptions = defaultDissmissBuilder;
 
 function defaultDissmissBuilder(
-	text: string,
 	match: any,
 	routeData: any,
 	router: any,
 	pageInstance: any,
 	pageProps: any,
-	route: any
+	route: any,
+	text?: string
 ): DismissBuilderOptions {
 	return {
 		text: text || 'Done',

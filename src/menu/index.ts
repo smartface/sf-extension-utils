@@ -7,12 +7,17 @@ import Menu from "@smartface/native/ui/menu";
 import MenuItem from "@smartface/native/ui/menuitem";
 import Page from '@smartface/native/ui/page';
 
-export function showMapsMenu(options: { mapOptions: MapOptions, page: Page }): Promise<any> {
+export type MenuStrings = {
+  chooserTitle?: string;
+  cancelText?: string;
+}
+
+export function showMapsMenu(options: { mapOptions: MapOptions & MenuStrings, page: Page }): Promise<any> {
   const { mapOptions, page } = options;
   return System.OS === System.OSType.IOS ? showMenuForIOS(mapOptions, page) : showMenuForAndroid(mapOptions);
 }
 
-export function showNavigationMenu(options: { navigationOptions: NavigationOptions, page: Page }): Promise<any> {
+export function showNavigationMenu(options: { navigationOptions: NavigationOptions & MenuStrings, page: Page }): Promise<any> {
   const { navigationOptions, page } = options;
   return System.OS === System.OSType.IOS ? showMenuForIOS(navigationOptions, page, true) : showMenuForAndroid(navigationOptions, true);
 }
