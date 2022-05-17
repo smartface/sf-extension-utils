@@ -39,7 +39,8 @@ let dissmissBuilder: (
 	router?: any,
 	pageInstance?: any,
 	pageProps?: any,
-	route?: any
+	route?: any,
+	text?: string
 ) => DismissBuilderOptions = defaultDissmissBuilder;
 
 function defaultDissmissBuilder(
@@ -48,11 +49,11 @@ function defaultDissmissBuilder(
 	router: any,
 	pageInstance: any,
 	pageProps: any,
-	route: any
+	route: any,
+	text?: string
 ): DismissBuilderOptions {
 	return {
-		//@ts-ignore
-		text: global.lang.done || 'Done',
+		text: text || 'Done',
 		position: System.OS === System.OSType.IOS ? DismissPosition.LEFT : DismissPosition.RIGHT,
 	};
 }
@@ -200,10 +201,10 @@ export default class BackClose {
 	 * @example
 	 * ```
 	 * import backClose from "@smartface/extension-utils/lib/router/back-close";
-	 * backClose.dissmissBuilder = (match, routeData, router, pageInstance, pageProps, route) => {
+	 * backClose.dissmissBuilder = (text, match, routeData, router, pageInstance, pageProps, route) => {
 	 *  if(System.OS === "iOS") {
 	 *   if(match.url !== "specificPage")
-	 *      return {text: global.lang.done, position: "right"};
+	 *      return {text, position: "right"};
 	 *   else
 	 *      return {image: closeImage, position: "left"};
 	 *  }

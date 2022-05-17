@@ -226,7 +226,7 @@ const errorHandler = (err: any) => {
 	if (err instanceof Error)
 		return {
 			//@ts-ignore
-			title: err.type || global.lang.applicationError,
+			title: err.type || 'Application Error',
 			message:
 				System.OS === System.OSType.ANDROID
 					? err.stack

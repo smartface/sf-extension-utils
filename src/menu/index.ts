@@ -7,12 +7,17 @@ import Menu from "@smartface/native/ui/menu";
 import MenuItem from "@smartface/native/ui/menuitem";
 import Page from '@smartface/native/ui/page';
 
-export function showMapsMenu(options: { mapOptions: MapOptions, page: Page }): Promise<any> {
+export type MenuStrings = {
+  chooserTitle?: string;
+  cancelText?: string;
+}
+
+export function showMapsMenu(options: { mapOptions: MapOptions & MenuStrings, page: Page }): Promise<any> {
   const { mapOptions, page } = options;
   return System.OS === System.OSType.IOS ? showMenuForIOS(mapOptions, page) : showMenuForAndroid(mapOptions);
 }
 
-export function showNavigationMenu(options: { navigationOptions: NavigationOptions, page: Page }): Promise<any> {
+export function showNavigationMenu(options: { navigationOptions: NavigationOptions & MenuStrings, page: Page }): Promise<any> {
   const { navigationOptions, page } = options;
   return System.OS === System.OSType.IOS ? showMenuForIOS(navigationOptions, page, true) : showMenuForAndroid(navigationOptions, true);
 }
@@ -52,8 +57,7 @@ function showMenuForIOS(options: NavigationOptions | MapOptions, page: Page, isN
       onSelected: () => mapsOnSelected(MapTypes.YANDEX_MAPS)
     });
     const cancelMenuItem = new MenuItem({
-      //@ts-ignore
-      title: global.lang.cancel || "Cancel",
+      title: options?.cancelText || "Cancel",
       ios: {
         style: MenuItem.ios.Style.CANCEL,
       },
@@ -90,7 +94,7 @@ function showMenuForAndroid(options: MapOptions | NavigationOptions, isNavigatio
       : `geo:${latitude},${longitude}?q=${encodeURIComponent(locationName)}`;
     Linking.openURL({
       uriScheme,
-      chooserTitle: global.lang.chooseMapsApp || "Choose Maps App",
+      chooserTitle: options?.chooserTitle || "Choose Maps App",
       onSuccess: (e) => resolve(e),
       onFailure: (e) => reject(e),
       isShowChooser: true
