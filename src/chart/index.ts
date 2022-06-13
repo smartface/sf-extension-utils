@@ -6,7 +6,7 @@
  */
 
 // TODO - Update from path to the new package path
-import WebViewBridge from "../webviewbridge";
+import WebViewBridge from "@smartface/webviewbridge";
 import { ApexOptions } from "apexcharts";
 
 /** It allows passing custom data into the chart */

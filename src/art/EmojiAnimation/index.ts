@@ -268,8 +268,9 @@ export default class EmojiAnimation {
 		if (this.__logEnabled) {
 			this.__webView.onError = (e) => console.error(e);
 			this.__webView.android.onConsoleMessage = (e) => {
-        console.error("Webview Console: ", e.message, e);
-      }
+				console.error("Webview Console: ", e.message, e);
+				return true;
+			};
 		}
 		this.__webView.touchEnabled = false;
 		this.__webView.scrollBarEnabled = false;
@@ -277,11 +278,12 @@ export default class EmojiAnimation {
 	}
 
 	private loadHTML() {
-    let emojisAsString = '[]';
-    try {
-      emojisAsString = JSON.stringify(this.emojis);
-    }
-    catch(e) {/* Handle stringify error and behave like nothing has happened */}
+		let emojisAsString = "[]";
+		try {
+			emojisAsString = JSON.stringify(this.emojis);
+		} catch (e) {
+			/* Handle stringify error and behave like nothing has happened */
+		}
 		this.__webView.loadHTML(`
       <html> 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -289,10 +291,7 @@ export default class EmojiAnimation {
           <script type="text/javascript" >${jsHeart}</script>
           <script type="text/javascript" >window.__emojis=${emojisAsString}</script>
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-          <style> ${getCss(
-						this.__emojiBoxWidth,
-						this.__emojiWidth
-					)}</style>     
+          <style> ${getCss(this.__emojiBoxWidth, this.__emojiWidth)}</style>     
           <!-- Start Content -->
           <div id="id1" class="particle-box"></div>
           <!-- End Content --> 
