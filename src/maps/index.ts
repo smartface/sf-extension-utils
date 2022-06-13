@@ -24,7 +24,7 @@ type NavigationOptions = {
 	cancelText?: string;
 };
 
-enum MapTypes {
+export enum MapTypes {
 	APPLE_MAPS = "APPLE_MAPS",
 	GOOGLE_MAPS = "GOOGLE_MAPS",
 	YANDEX_MAPS = "YANDEX_MAPS",
@@ -46,7 +46,7 @@ type MapOptions = {
 	transportType?: keyof typeof TransportTypes;
 	locationName: string;
 	isNavigation: boolean;
-	mapType: MapTypes;
+	mapType: MapTypes | keyof typeof MapTypes;
 	chooserTitle?: string;
 	cancelText?: string;
 };
