@@ -170,7 +170,6 @@ function showMenuForAndroid(options: MapOptions | NavigationOptions, isNavigatio
 	return new Promise((resolve, reject) => {
 		const { latitude, longitude } = options.location;
 		const locationName = options.name || "";
-		// @ts-ignore
 		const transportType = options?.transportType;
 		const uriScheme = isNavigation ? `geo:${latitude},${longitude}?q=${latitude},${longitude}&mode=${transportType}` : `geo:${latitude},${longitude}?q=${encodeURIComponent(locationName)}`;
 		Linking.openURL({

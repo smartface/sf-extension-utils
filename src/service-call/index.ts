@@ -2,9 +2,7 @@
  * Smartface Service-Call helper module
  * @module service-call
  * @type {object}
- * @author Alper Ozisik <alper.ozisik@smartface.io>
- * @author Ozcan Ovunc <ozcan.ovunc@smartface.io>
- * @author Alim Öncül <alim.oncul@smartface.io>
+ * @deprecated USE AXIOS OR XMLHTTPREQUEST INSTEAD!
  * @copyright Smartface 2021
  */
 
@@ -20,7 +18,7 @@ const reJSON = /^application\/json/i;
 const METHODS_WITHOUT_BODY = ["GET", "HEAD"];
 const BASE_HEADERS = Object.freeze({
 	"Content-Type": "application/json",
-	"Accept": "application/json",
+	Accept: "application/json",
 	//@ts-ignore
 	"Accept-Language": global.Device.language || "en",
 	"Cache-Control": "no-cache",
@@ -73,7 +71,7 @@ interface IServiceCallParameters {
 	timeout?: number;
 	logEnabled?: boolean;
 	headers?: { [key: string]: string };
-	sslPinning?: Http['ios']['sslPinning']
+	sslPinning?: Http["ios"]["sslPinning"];
 }
 /**
  * Helper class for calling JSON based restful services.
@@ -149,9 +147,9 @@ export default class ServiceCall {
 		const httpOptions: Partial<Http> = {
 			timeout: options.timeout || DEFAULT_TIMEOUT, // Default timeout
 			ios: {
-				sslPinning: options.sslPinning || []
+				sslPinning: options.sslPinning || [],
 			},
-			headers: options.headers || BASE_HEADERS
+			headers: options.headers || BASE_HEADERS,
 		};
 		this._http = new Http(httpOptions);
 	}
@@ -211,7 +209,7 @@ export default class ServiceCall {
 	 * @property {string} baseUrl
 	 */
 	get baseUrl(): string {
-		return this._baseUrl;;
+		return this._baseUrl;
 	}
 
 	set baseUrl(value: string) {
@@ -252,10 +250,7 @@ export default class ServiceCall {
 	 *    });
 	 * ```
 	 */
-	createRequestOptions(
-		endpointPath: string,
-		options: IRequestOptions
-	): IRequestOptions {
+	createRequestOptions(endpointPath: string, options: IRequestOptions): IRequestOptions {
 		const url = `${this._baseUrl}${endpointPath}`;
 		if (!reHTTPUrl.test(url)) {
 			throw Error(`URL is not valid for http(s) request: ${url}`);
@@ -264,10 +259,9 @@ export default class ServiceCall {
 			url,
 			logEnabled: !!this.logEnabled,
 			headers: this.getHeaders(),
-			...options
-		}
+			...options,
+		};
 	}
-
 
 	/**
 	 * Performs a service call and returns a promise to handle
@@ -298,10 +292,10 @@ export default class ServiceCall {
 		}
 		const requestOptions = {
 			url,
-			logEnabled: !!this.logEnabled, 
-			...options
-		}
-		
+			logEnabled: !!this.logEnabled,
+			...options,
+		};
+
 		// this.createRequestOptions(endpointPath, Object.assign({}, options));
 		let { fullResponse = false } = requestOptions;
 		let query = requestOptions.q || requestOptions.query;
@@ -320,12 +314,10 @@ export default class ServiceCall {
 					onLoad: (response: any) => {
 						try {
 							response.logEnabled = !!this.logEnabled;
-							ServiceCall.bodyParser(requestOptions.url || '', response);
-							if (response.body && response.body.success === false){
+							ServiceCall.bodyParser(requestOptions.url || "", response);
+							if (response.body && response.body.success === false) {
 								reject(fullResponse ? response : response.body);
-							}
-							else { 
-
+							} else {
 								resolve(fullResponse ? response : response.body);
 							}
 						} catch (ex) {
@@ -334,7 +326,7 @@ export default class ServiceCall {
 					},
 					onError: (e: any) => {
 						e.logEnabled = !!this.logEnabled;
-						ServiceCall.bodyParser(requestOptions.url || '', e);
+						ServiceCall.bodyParser(requestOptions.url || "", e);
 						e.requestUrl = requestOptions.url;
 
 						reject(e);
@@ -348,13 +340,12 @@ export default class ServiceCall {
 				if (copiedOptions.body) {
 					delete copiedOptions.body;
 				}
-				if (copiedOptions.headers && copiedOptions.headers["Content-Type"])
-					delete copiedOptions.headers["Content-Type"];
-					if(copiedOptions.logEnabled) {
-						console.log("request: ", copiedOptions.url, " ", copiedOptions);
-					}
+				if (copiedOptions.headers && copiedOptions.headers["Content-Type"]) delete copiedOptions.headers["Content-Type"];
+				if (copiedOptions.logEnabled) {
+					console.log("request: ", copiedOptions.url, " ", copiedOptions);
+				}
 			} else {
-				if(copiedOptions.logEnabled) {
+				if (copiedOptions.logEnabled) {
 					console.log("request: ", copiedOptions.url, " ", copiedOptions);
 				}
 				if (copiedOptions.body && typeof copiedOptions.body === "object") {
@@ -375,43 +366,23 @@ export default class ServiceCall {
 	 * @readonly
 	 * @property {object} header object
 	 */
-  static readonly BASE_HEADERS = BASE_HEADERS;
+	static readonly BASE_HEADERS = BASE_HEADERS;
 
 	static bodyParser(requestUrl: string, response: any) {
-		const contentType =
-			(response.headers && ServiceCall.getContentType(response.headers)) || "";
+		const contentType = (response.headers && ServiceCall.getContentType(response.headers)) || "";
 		reJSON.lastIndex = reParseBodyAsText.lastIndex = 0;
-		if (reParseBodyAsText.test(contentType))
-			response.body = response.body.toString();
+		if (reParseBodyAsText.test(contentType)) response.body = response.body.toString();
 		response.body = response.body || "{}";
 
 		if (reJSON.test(contentType)) {
 			try {
 				response.body = JSON.parse(response.body);
-				response.logEnabled &&
-					console.log(
-						"Request url ",
-						requestUrl,
-						" Response body ",
-						response.body
-					);
+				response.logEnabled && console.log("Request url ", requestUrl, " Response body ", response.body);
 			} catch (ex) {
-				response.logEnabled &&
-					console.log(
-						"Request url ",
-						requestUrl,
-						" Response is not a  JSON\nResponse Body ",
-						response.body
-					);
+				response.logEnabled && console.log("Request url ", requestUrl, " Response is not a  JSON\nResponse Body ", response.body);
 			}
 		}
-		if (response.logEnabled && typeof response.body === "string")
-			console.log(
-				"Request url ",
-				requestUrl,
-				" Response body (non-json) ",
-				response.body
-			);
+		if (response.logEnabled && typeof response.body === "string") console.log("Request url ", requestUrl, " Response body (non-json) ", response.body);
 	}
 
 	static convertObjectToFormData(body: { [key: string]: any }) {

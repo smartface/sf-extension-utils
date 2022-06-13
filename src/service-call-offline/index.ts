@@ -4,8 +4,7 @@
  *
  * @module service-call-offline
  * @type {object}
- * @author Alper Ozisik <alper.ozisik@smartface.io>
- * @author Ozcan Ovunc <ozcan.ovunc@smartface.io>
+ * @deprecated USE AXIOS OR XMLHTTPREQUEST INSTEAD!
  * @copyright Smartface 2019
  */
 
@@ -63,14 +62,14 @@ export class OfflineRequestServiceCall extends ServiceCall {
 	 * });
 	 * ```
 	 */
-	constructor(options: OfflineRequestOptions & ConstructorParameters<typeof ServiceCall>['0']) {
+	constructor(options: OfflineRequestOptions & ConstructorParameters<typeof ServiceCall>["0"]) {
 		if (!isConfigured) {
 			throw Error("First you need to configure");
 		}
 		super(options);
 		this.offlineRequestHandler = options.offlineRequestHandler || ((e: any) => Promise.resolve(e));
 
-			//@ts-ignore
+		//@ts-ignore
 		const notifier = new Network.createNotifier();
 		const networkListener = async () => {
 			try {
@@ -81,13 +80,10 @@ export class OfflineRequestServiceCall extends ServiceCall {
 			}
 			networkListener();
 			notifier.subscribe(networkListener);
-		}
+		};
 	}
 
-	async request(
-		endpointPath: string,
-		options: Parameters<ServiceCall["request"]>[1]
-	): Promise<any> {
+	async request(endpointPath: string, options: Parameters<ServiceCall["request"]>[1]): Promise<any> {
 		const requestOptions = this.createRequestOptions(endpointPath, options);
 		try {
 			await isOnline();
@@ -111,12 +107,8 @@ export class OfflineRequestServiceCall extends ServiceCall {
 	 */
 	async sendAll(): Promise<any> {
 		return Promise.resolve().then(() => {
-			const allPendingRequestsString = Data.getStringVariable(
-				TABLE_NAMES.PENDING_REQUESTS
-			);
-			const allPendingRequests = allPendingRequestsString
-				? JSON.parse(allPendingRequestsString)
-				: [];
+			const allPendingRequestsString = Data.getStringVariable(TABLE_NAMES.PENDING_REQUESTS);
+			const allPendingRequests = allPendingRequestsString ? JSON.parse(allPendingRequestsString) : [];
 			return Promise.all(
 				allPendingRequests.map((requestID: string) => {
 					const requestOptions = Data.getStringVariable(requestID);
@@ -130,12 +122,8 @@ export class OfflineRequestServiceCall extends ServiceCall {
 
 	private clearJobs(): Promise<any> {
 		return new Promise((resolve) => {
-			const allPendingRequestsString = Data.getStringVariable(
-				TABLE_NAMES.PENDING_REQUESTS
-			);
-			const allPendingRequests = allPendingRequestsString
-				? JSON.parse(allPendingRequestsString)
-				: [];
+			const allPendingRequestsString = Data.getStringVariable(TABLE_NAMES.PENDING_REQUESTS);
+			const allPendingRequests = allPendingRequestsString ? JSON.parse(allPendingRequestsString) : [];
 			allPendingRequests.forEach((requestID: string) => {
 				Data.removeVariable(requestID);
 			});
@@ -144,7 +132,7 @@ export class OfflineRequestServiceCall extends ServiceCall {
 }
 
 export class OfflineResponseServiceCall extends ServiceCall {
-	private _requestCleaner: OfflineRequestOptions['offlineRequestHandler'];
+	private _requestCleaner: OfflineRequestOptions["offlineRequestHandler"];
 	/**
 	 * Creates an OfflineResponseServiceCall helper class
 	 * Response is served from DB then request is made to update the DB
@@ -167,7 +155,7 @@ export class OfflineResponseServiceCall extends ServiceCall {
 	constructor(options: {
 		baseUrl: string;
 		logEnabled?: boolean;
-		requestCleaner: OfflineRequestOptions['offlineRequestHandler'];
+		requestCleaner: OfflineRequestOptions["offlineRequestHandler"];
 		encryptionFunction: (e: any) => any;
 		decryptionFunction: (e: any) => any;
 	}) {
@@ -178,10 +166,7 @@ export class OfflineResponseServiceCall extends ServiceCall {
 		this._requestCleaner = options.requestCleaner || ((e: any) => Promise.resolve(e));
 	}
 
-	request(
-		endpointPath: string,
-		options?: Parameters<ServiceCall["request"]>[1]
-	): Promise<any> {
+	request(endpointPath: string, options?: Parameters<ServiceCall["request"]>[1]): Promise<any> {
 		//@ts-ignore
 		const requestOptions = this.createRequestOptions(endpointPath, options);
 		const cleanedRequestOptions = this._requestCleaner ? this._requestCleaner(copy(requestOptions)) : requestOptions;
@@ -190,9 +175,7 @@ export class OfflineResponseServiceCall extends ServiceCall {
 		let offlineRequest = () => {
 			return new Promise((resolve, reject) => {
 				let cachedResponse = Data.getStringVariable(cleanedRequestOptionsAsString);
-				cachedResponse
-					? resolve(JSON.parse(cachedResponse))
-					: reject("No records found");
+				cachedResponse ? resolve(JSON.parse(cachedResponse)) : reject("No records found");
 			});
 		};
 
@@ -226,11 +209,8 @@ const errorHandler = (err: any) => {
 	if (err instanceof Error)
 		return {
 			//@ts-ignore
-			title: err.type || 'Application Error',
-			message:
-				System.OS === System.OSType.ANDROID
-					? err.stack
-					: err.message + "\n\n*" + err.stack,
+			title: err.type || "Application Error",
+			message: System.OS === System.OSType.ANDROID ? err.stack : err.message + "\n\n*" + err.stack,
 		};
 	else return err;
 };
@@ -238,18 +218,10 @@ const errorHandler = (err: any) => {
 export function clearOfflineDatabase(): Promise<void> {
 	return new Promise((resolve, reject) => {
 		try {
-			const allCachedRequestsString = Data.getStringVariable(
-				TABLE_NAMES.CACHED_REQUESTS
-			);
-			const allPendingRequestsString = Data.getStringVariable(
-				TABLE_NAMES.PENDING_REQUESTS
-			);
-			const allCachedRequests = allCachedRequestsString
-				? JSON.parse(allCachedRequestsString)
-				: [];
-			const allPendingRequests = allPendingRequestsString
-				? JSON.parse(allPendingRequestsString)
-				: [];
+			const allCachedRequestsString = Data.getStringVariable(TABLE_NAMES.CACHED_REQUESTS);
+			const allPendingRequestsString = Data.getStringVariable(TABLE_NAMES.PENDING_REQUESTS);
+			const allCachedRequests = allCachedRequestsString ? JSON.parse(allCachedRequestsString) : [];
+			const allPendingRequests = allPendingRequestsString ? JSON.parse(allPendingRequestsString) : [];
 			allCachedRequests.forEach((r: string) => Data.removeVariable(r));
 			allPendingRequests.forEach((r: string) => Data.removeVariable(r));
 			resolve();
@@ -259,21 +231,20 @@ export function clearOfflineDatabase(): Promise<void> {
 	});
 }
 
-function saveToTable(opts: { tableID: string, requestID: string, data: string }): Promise<void> {
+function saveToTable(opts: { tableID: string; requestID: string; data: string }): Promise<void> {
 	return new Promise((resolve, reject) => {
-			try {
-					const allRequestsString = Data.getStringVariable(opts.tableID);
-					const allRequests = allRequestsString ? JSON.parse(allRequestsString) : [];
-					allRequests.push(opts.requestID);
-					const allRequestsStringified = JSON.stringify(allRequests);
-					Data.setStringVariable(opts.tableID, allRequestsStringified);
-					Data.setStringVariable(opts.requestID, opts.data);
-					resolve();
-					console.info("[SC_OFFLINE] Successfully saved ", opts.requestID, opts.data);
-			}
-			catch (ex) {
-					console.error("[SC_OFFLINE] Failed to save ", opts.requestID, opts.data, errorHandler(ex));
-					reject(ex);
-			}
+		try {
+			const allRequestsString = Data.getStringVariable(opts.tableID);
+			const allRequests = allRequestsString ? JSON.parse(allRequestsString) : [];
+			allRequests.push(opts.requestID);
+			const allRequestsStringified = JSON.stringify(allRequests);
+			Data.setStringVariable(opts.tableID, allRequestsStringified);
+			Data.setStringVariable(opts.requestID, opts.data);
+			resolve();
+			console.info("[SC_OFFLINE] Successfully saved ", opts.requestID, opts.data);
+		} catch (ex) {
+			console.error("[SC_OFFLINE] Failed to save ", opts.requestID, opts.data, errorHandler(ex));
+			reject(ex);
+		}
 	});
 }

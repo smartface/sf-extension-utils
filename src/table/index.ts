@@ -6,8 +6,6 @@
  */
 
 import WebView from "@smartface/native/ui/webview";
-// TODO - Update from path to the new package path
-import WebViewBridge from "../webviewbridge";
 
 /** CSS properties available within this component */
 const Styles = {
@@ -107,7 +105,7 @@ type TableOptions = {
 
 interface TableInitOptions {
 	/** **WebView** or **WebViewBridge** component to show after rendering given table options */
-	webView: WebView | WebViewBridge;
+	webView: WebView;
 
 	/** Options of table */
 	tableOptions: TableOptions;
@@ -118,7 +116,7 @@ interface TableInitOptions {
  * @public
  * @class
  * @param {object} options options - Base options object
- * @param {WebView | WebViewBridge} webView The browser for creating a table
+ * @param {WebView} webView The browser for creating a table
  * @param {TableOptions} tableOptions The options for creating a table
  * @example
  * ```
@@ -162,7 +160,7 @@ interface TableInitOptions {
 export default class Table implements TableInitOptions {
 	/** Web equivalent of CSS properties */
 	styleTypes: Readonly<typeof Styles> = Styles;
-	webView: WebView | WebViewBridge;
+	webView: WebView;
 	tableOptions: TableOptions;
 
 	/**
@@ -170,7 +168,7 @@ export default class Table implements TableInitOptions {
 	 * @public
 	 * @class
 	 * @param {object} options options - Base options object
-	 * @param {WebView | WebViewBridge} webView The browser for create a table
+	 * @param {WebView} webView The browser for create a table
 	 * @param {TableOptions} tableOptions The options for create a table
 	 * @example
 	 * ```
@@ -235,11 +233,7 @@ export default class Table implements TableInitOptions {
 	 */
 	render(): void {
 		const html = this.generateHtml();
-		if (this.webView instanceof WebViewBridge) {
-			this.webView.webView.loadHTML(html);
-		} else {
-			this.webView.loadHTML(html);
-		}
+		this.webView.loadHTML(html);
 	}
 	/**
 	 * It returns the generated html string
@@ -301,9 +295,7 @@ export default class Table implements TableInitOptions {
         </head>
         <body>
             <table
-                ${this.parseClasses(
-									`table ${this.tableOptions.tableClass || ""}`
-								)}
+                ${this.parseClasses(`table ${this.tableOptions.tableClass || ""}`)}
                 ${this.parseStyles(this.tableOptions.tableStyles)}
                 ${this.parseAttributes(this.tableOptions.tableAttributes)}
             >

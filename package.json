@@ -36,12 +36,11 @@
     "query-string": "^6.10.1",
     "semver": "^5.7.1",
     "squel": "^5.13.0",
-    "tinycolor2": "^1.4.1",
-    "wolfy87-eventemitter": "^5.2.9"
+    "tinycolor2": "^1.4.1"
   },
   "devDependencies": {
     "@smartface/contx": "^4.0.0 || ^4.0.0-rc || ^4.0.1-rc",
-    "@smartface/native": "smartface/smartface-native#feature/util-to-native",
+    "@smartface/native": "alpha",
     "@smartface/router": "^2.0.0 || ^2.0.0-rc",
     "@types/node": "^16.6.1",
     "@types/tinycolor2": "^1.4.3",
