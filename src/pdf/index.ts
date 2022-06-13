@@ -5,8 +5,8 @@
  * @copyright Smartface 2019
  */
 
-import WebView from "@smartface/native/ui/webview";
-import Screen from "@smartface/native/device/screen";
+import WebView from '@smartface/native/ui/webview';
+import Screen from '@smartface/native/device/screen';
 
 const htmlTemplate = `
   <!DOCTYPE html>
@@ -16,7 +16,7 @@ const htmlTemplate = `
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=$maximumScale, user-scalable=$userScalable">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@1.5.188/build/pdf.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@1.10.100/build/pdf.js"></script>
   </head>
   
   <body>
@@ -91,16 +91,19 @@ export function render(options: {
 	base64pdf: string;
 	zoomEnabled?: boolean;
 }): void {
-	const base64pdfParam = options.base64pdf.replace(/\n/g, "");
+	const base64pdfParam = options.base64pdf.replace(/\n/g, '');
 	const html = htmlTemplate
-		.replace("__CUSTOM_WIDTH__", String((options.customWidth || Screen.width) - 10))
-		.replace("$maximumScale", options.zoomEnabled ? "6.0" : "1.0")
-		.replace("$userScalable", options.zoomEnabled ? "1.0" : "no")
-		.replace("$BASE64PDF", base64pdfParam);
-  options.webView.zoomEnabled = options.zoomEnabled || true;
+		.replace(
+			'__CUSTOM_WIDTH__',
+			String((options.customWidth || Screen.width) - 10)
+		)
+		.replace('$maximumScale', options.zoomEnabled ? '6.0' : '1.0')
+		.replace('$userScalable', options.zoomEnabled ? '1.0' : 'no')
+		.replace('$BASE64PDF', base64pdfParam);
+	options.webView.zoomEnabled = options.zoomEnabled || true;
 	options.webView.loadHTML(html);
 }
 
 export default {
-    render
-}
+	render,
+};
